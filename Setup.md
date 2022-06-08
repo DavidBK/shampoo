@@ -76,7 +76,7 @@ sudo apt-get install git
 Then, use `curl` to install oh-my-zsh:
 
 ```bash
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 You can Chang the Theme of oh-my-zsh! look it up if you like
