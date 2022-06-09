@@ -77,7 +77,7 @@ git config --global user.email "youremail@domain.com"
 
 Git uses several protocols for client-server communication. SSH and HTTPS are secure protocols. As a result, many git servers, such as Github, Bitbuckets, and GitLab, use those two popular cryptographic network protocols.
 
-### **HTTPS:**
+### **HTTPS**
 
 HTTPS is a secure version of HTTP that encrypts data transmitted between the client and the server.
 
@@ -85,7 +85,7 @@ Starting git with HTTPS for cloning, pulling, and pushing is much easier and can
 
 If you use HTTPS URLs on the command line to get a remote repository, git fetch, git pull, or git push, git will ask for a username and password.
 
-### **SSH:**
+### **SSH**
 
 SSH means "Secured Shell". It is also a secured version, where data sent between the client and server is encrypted.
 
@@ -188,19 +188,19 @@ That way it is easier to perform rebases.
 
 ### Questions - Commit Creation
 
-**Commit Hash:**
+#### **Commit Hash**
 
 1. What is the commit hash?
 2. How is it made?
 3. Based on the previous question, what can change the commit hash?
 4. So, What is the point of this hash recipe?
 
-**Commit code:**
+#### **Commit code**
 
 1. How much code should be in one commit?
 2. Can the same code be in different commits?
 
-**Commit Workflow:**
+#### **Commit Workflow**
 
 1. How do I commit changes to previous commits?
 2. When should I commit?
@@ -229,14 +229,14 @@ Think about the reflog as a list of pointers and hints about what was "saved" in
 
 ### Questions - Moving Pointers
 
-**Delete commit**
+#### **Delete commit**
 
 1. How do I delete a commit?
 2. What are the three types of `reset`? when should I use each one?
 3. What's the difference between `reset` `revert` and `rm`?
 4. Why should I never want to use `revert`?
 
-**Pointers**
+#### **Pointers**
 
 1. What does git save in order to manage the version control?
 2. What is `HEAD`? How do I change it? What is `HEAD^^` and `HEAD~2`?
@@ -246,7 +246,7 @@ Think about the reflog as a list of pointers and hints about what was "saved" in
 6. Can reset add code to my HEAD? Can it add a commit?
 7. What happens to the commit when I reset them?
 
-**Undoing reset**
+#### **Undoing reset**
 
 1. How do I undo a reset when I have the pointer?
 2. How do I undo a reset when I don't have the pointer?
@@ -262,12 +262,12 @@ make sure you know the following commands:
 
 ## Questions
 
-**Branches**
+### **Branches**
 
 1. What is a branch? What should be in a branch?
 2. What is `master`/`main`? For what purpose they are used?
 
-#### **Union of branches**
+### **Union of branches**
 
 1. What is the difference between `merge` and `rebase`?
 2. What is the benefit of `merge`? What is the benefit of `rebase`? You can use this topic in your answer:
@@ -278,12 +278,12 @@ make sure you know the following commands:
 3. Based on the previous question, when should I use which one?
 4. When are the merge and rebase results are the same?
 
-**Conflicts**
+### **Conflicts**
 
 1. What are conflicts? When do they happen?
 2. How do I resolve conflicts?
 
-**Modified commits**
+### **Modified commits**
 
 1. How can I modify a commit in the branch's history?
 2. Is it possible to modify a commit in the history by using `reset`? how? why?
@@ -315,7 +315,7 @@ Make sure you know the following commands:
 
 ## Question
 
-**Remote code**
+### **Remote code**
 
 1. What is *"Remote"*? what is `origin`?
 2. How can a project can have multiple remotes?
@@ -408,9 +408,7 @@ This is an iterative process of **Review** - **Fix** - **Rebase** until The main
 Sometimes there is a bug or code that needs fixing in the `main` branch.
 In these cases we will create a new `branch` and fix the code. In very rare cases the maintainer will `revert` the merge request commit!
 
-### Questions
-
-**Workflow**
+## Questions - Git Workflow
 
 1. What is the `main` (pun intended) purpose of the workflow process?
 2. When do I use the `merge` command locally? why?
@@ -421,7 +419,7 @@ make sure you know the following commands:
 
 - `config`
 
-**Question**
+## Question - Git aliases
 
 1. What is git alias?
 2. How do you show all git aliases?
@@ -438,16 +436,16 @@ make sure you know the following commands:
 
 ***Lets write Space Book!***
 
-***General hint:*** *Note that all chapter follow the order of this [tutorial](#git-basic-uint---the-commit)*
+***General hint:*** *Note that all chapter follow the order of this [tutorial](#git-basic-uint---the-commit), and you can use the "Learning Topic" link at every chapter.*
 
-**Write Prologue:**
+**Write Prologue:** - [Learning Topic](#commit-message-convention)
 
 1. Init a new project on the remote, and clone it locally.
 2. Create new dir named `private-ideas`.
 3. Add `.gitignore` file to the project. add `private-ideas` to the `.gitignore` file.
-4. Commit it with a message.
+4. `commit` it with appropriate message.
 
-**Write Chapter 1:**
+**Write Chapter 1:** - [Learning Topic](#commit-code)
 
 1. Create a new branch called `chapter-1` from the `main` branch.
 2. Add 3 files with `page-<n>.md` (in the workspace dir) with `<n>` represent the age number.
@@ -455,20 +453,21 @@ make sure you know the following commands:
 4. At the end of page 3, add this text `# The spaceship is gone!`
 5. Add this text to the last commit. Prove yourself that all the pages in the right commit.
 
-**Write Chapter 2:**
+**Write Chapter 2:** - [Learning Topic](#commit-workflow)
 
 1. Create a new branch called `chapter-2`, which will point on the `chapter-1` branch.
 2. Change the name of the last commit to `Add page 1 to chapter 2`.
 3. Add a new line to this page (Did you rename the page?) and Commit it with the message `Add a mistake`.
 4. Oops this is a mistake. I forgot that this new line souled be in the commit `Add page 1 to chapter 2`. My bad... Fix it.
 
-**Write Chapter 3:**
+
+**Write Chapter 3:** - [Learning Topic](#delete-commit)
 
 1. Create a new branch called `chapter-3`, which will point on the **`chapter-1`** branch.
 2. Make Chapter 3 empty with no commits expect `Initial commit`.
 3. Log the all history with a graph. look at HEAD, and the branches pointers.
 
-**Write Chapter 4:**
+**Write Chapter 4:** - [Learning Topic](#pointers)
 
 1. Create a new branch called `chapter-4`, which will point on the `chapter-3` branch.
 2. Make chapter 4 point on chapter 2.
@@ -477,13 +476,13 @@ make sure you know the following commands:
 5. Reset the last commit to `Add page 1 to chapter 2`.
 6. Oh no! I was confused between`chapter-4-ver-2` and `chapter-4`. Silly me.
 
-    Swap the `chapter-4-ver-2` and `chapter-4` branches.
+    Swap the `chapter-4-ver-2` and `chapter-4` branches. Do not create a new branch!
 
-**Write Chapter 5:**
+**Write Chapter 5:** - [Learning Topic](#undoing-reset)
 
 1. Create a new branch called `chapter-5` which will point on the `Add a mistake` commit.
 
-**Write Chapter 6:**
+**Write Chapter 6:** - [Learning Topic](#union-of-branches)
 
 1. Create a new branch called `chapter-6` which will point on the `chapter-1`.
 2. Create a file named `page-4.md`, add a line `# page-4` and commit it.
@@ -505,7 +504,7 @@ make sure you know the following commands:
 10. Log the all history with a graph. What is the "story" log of the main branch?
 11. As we learned in [Workflow](#workflow) we don't merge local branches into the `main` branch. Set back main to point on `origin/main`
 
-**Write Chapter 7:**
+**Write Chapter 7:** - [Learning Topic](#union-of-branches)
 
 1. Create a new branch called `chapter-7` which will point on the `chapter-6`.
 2. `reset --hard` the last commit (`Merge branch 'chapter-6-ver-2' into chapter-6`).
@@ -515,7 +514,7 @@ make sure you know the following commands:
 6. I must be a real dumb, i meant to rebase `chapter-7` on top of `chapter-7`. Fix it. (*Hint: you dint have to use `reflog`*)
 7. Log the all history with a graph. Compere `chapter-7` and `chapter-6`, Answer the question [union-of-branches](#union-of-branches) again.
 
-**Write Chapter 8:**
+**Write Chapter 8:** - [Learning Topic](#workflow)
 
 1. Create a new branch called `chapter-8` which will point on the `main`. (As usual [workflow](#workflow))
 2. Delete all the content of the `README.md` file.
@@ -552,44 +551,44 @@ make sure you know the following commands:
 10. Push the branch `chapter-8` to the remote.
 11. Approve the PR.
 
-**Write Chapter 9:**
+**Write Chapter 9:** - [Learning Topic](#modified-commits)
 
 1. Create a new branch called `chapter-9` which will point on the `chapter-7`.
 2. Organize your commit (Do you have redundant commits?).
-3. Push the branch `chapter-9` to the remote.
-4. Now we will use more robust way to modify commits. let say we have a huge bug in page-2, and some code to add to page-3.
+3. Push the branch `chapter-9` to the remote, and make a PR from `chapter-9` to `main`.
+4. Now we will use more robust way to modify commits. Let's say we have a huge bug in page-2, and some code to add to page-3.
 
     1. Fix the bug in page-2. Add this clever code to page-2:
 
-    ```md
-            \   /
-            .\-/.
-        /\ ()   ()
-       /  \/~---~\.-~^-.
-    .-~^-./   |   \---.
-         {    |    }   \
-       .-~\   |   /~-.
-      /    \  A  /    \
-            \/ \/
-    ```
+        ```txt
+                 \   /
+                 .\-/.
+             /\ ()   ()
+            /  \/~---~\.-~^-.
+         .-~^-./   |   \---.
+              {    |    }   \
+            .-~\   |   /~-.
+           /    \  A  /    \
+                 \/ \/
+        ```
 
     2. Commit the fix to page-2 with temp name like `fix page-2` (Or `FIXUP page 2`).
     3. Add the code to page-3:
 
-    ```md
-                    .___      
-      ____  ____   __| _/____  
-    _/ ___\/  _ \ / __ |/ __ \ 
-    \  \__(  <_> ) /_/ \  ___/ 
-    \___  >____/\____ |\___  >
-        \/           \/    \/
+        ```txt
+                         .___      
+          ____  ____   __| _/____  
+        _/ ___\/  _ \ / __ |/ __ \ 
+        \  \__(  <_> ) /_/ \  ___/ 
+         \___  >____/\____ |\___  >
+             \/           \/    \/
 
-    ```
+        ```
 
     4. Commit the code to page-3 with temp name like `fix page-3` (Or `FIXUP page 3`).
     5. `rebase -i` with fixup (`f`) option and inject the fixes commit in the right places.
     6. Nice! push your branch to the remote.
-    7. Approve the PR *after* you put `chapter-9` on top of `origin\main` branch.
+    7. Approve the PR **after** you put `chapter-9` on top of `origin\main` branch.
     8. Pull the `main`.
 
 **Epilog:**
