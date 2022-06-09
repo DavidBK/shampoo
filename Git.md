@@ -448,7 +448,7 @@ make sure you know the following commands:
 **Write Chapter 1:** - [Learning Topic](#commit-code)
 
 1. Create a new branch called `chapter-1` from the `main` branch.
-2. Add 3 files with `page-<n>.md` (in the workspace dir) with `<n>` represent the age number.
+2. Add 3 files with `page-<n>.md` (in the workspace dir) with `<n>` represent the page number.
 3. Create 3 corresponding commits.
 4. At the end of page 3, add this text `# The spaceship is gone!`
 5. Add this text to the last commit. Prove yourself that all the pages in the right commit.
@@ -456,16 +456,29 @@ make sure you know the following commands:
 **Write Chapter 2:** - [Learning Topic](#commit-workflow)
 
 1. Create a new branch called `chapter-2`, which will point on the `chapter-1` branch.
-2. Change the name of the last commit to `Add page 1 to chapter 2`.
-3. Add a new line to this page (Did you rename the page?) and Commit it with the message `Add a mistake`.
-4. Oops this is a mistake. I forgot that this new line souled be in the commit `Add page 1 to chapter 2`. My bad... Fix it.
-
+2. Change the name of the last commit to `Add page 3 to chapter 2`.
+3. Add a new line to this page with the text `This is page 3 - chapter 2` and Commit it with the message `Add a mistake`.
+4. Oops this is a mistake. Who could know! I forgot that this new line souled be in the commit `Add page 1 to chapter 2`. My bad... Fix it.
 
 **Write Chapter 3:** - [Learning Topic](#delete-commit)
 
 1. Create a new branch called `chapter-3`, which will point on the **`chapter-1`** branch.
 2. Make Chapter 3 empty with no commits expect `Initial commit`.
 3. Log the all history with a graph. look at HEAD, and the branches pointers.
+
+    Your graph should look like this:
+
+    ```git
+    * 7c67cad - (chapter-2) Add page 1 to chapter 2 (61 seconds ago) <spacename>
+    | * cf15fb8 - (chapter-1) Add page 3 (7 minutes ago) <spacename>
+    |/  
+    * 9e37807 - Add page 2 (8 minutes ago) <spacename>
+    * 9684685 - Add page 1 (8 minutes ago) <spacename>
+    * ebd3885 - (main) Add .gitignore (10 minutes ago) <spacename>
+    * 8975347 - (HEAD -> chapter-3, origin/main, origin/HEAD) Initial commit (12 minutes ago) <Space Name>
+    ```
+
+    If not it is ok! Just make it look like this, don't continue...
 
 **Write Chapter 4:** - [Learning Topic](#pointers)
 
@@ -481,6 +494,23 @@ make sure you know the following commands:
 **Write Chapter 5:** - [Learning Topic](#undoing-reset)
 
 1. Create a new branch called `chapter-5` which will point on the `Add a mistake` commit.
+2. Log the all history with a graph. Your graph should look like this:
+
+    ```git
+    * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (3 minutes ago) <spacename>
+    * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (13 minutes ago) <spacename>
+    | * f36ad71 - (HEAD -> chapter-5) Add a mistake (14 minutes ago) <spacename>
+    | * 137d2d8 - Add page 1 to chapter 2 (18 minutes ago) <spacename>
+    |/  
+    | * cf15fb8 - (chapter-1) Add page 3 (20 minutes ago) <spacename>
+    |/  
+    * 9e37807 - Add page 2 (20 minutes ago) <spacename>
+    * 9684685 - Add page 1 (20 minutes ago) <spacename>
+    * ebd3885 - (main) Add .gitignore (23 minutes ago) <spacename>
+    * 8975347 - (origin/main, origin/HEAD, chapter-3) Initial commit (24 minutes ago) <Space Name>
+    ```
+
+    If not it is ok! Just make it look like this, don't continue...
 
 **Write Chapter 6:** - [Learning Topic](#union-of-branches)
 
@@ -488,7 +518,7 @@ make sure you know the following commands:
 2. Create a file named `page-4.md`, add a line `# page-4` and commit it.
 3. create a new branch called `chapter-6-ver-2` which will point on the `chapter-1` branch.
 4. Create a file named `page-4.md`, add a line `page 4` and commit it.
-5. Add a line `## What happens to the spaceship?` And commit it. (#section-5)
+5. Add a line `## What happens to the spaceship?` And commit it.
 6. merge `chapter-6` into `chapter-6-ver-2`.
 7. Resolve conflict such that page 4 look like this:
 
@@ -500,19 +530,97 @@ make sure you know the following commands:
     ```
 
 8. Sorry, I meant to merge `chapter-6-ver-2` into `chapter-6`. Why, it's a problem? Fix it.
-9. merge `chapter-6` into `main` branch.
-10. Log the all history with a graph. What is the "story" log of the main branch?
-11. As we learned in [Workflow](#workflow) we don't merge local branches into the `main` branch. Set back main to point on `origin/main`
+9. merge `chapter-6` into `chapter-5` branch. Resolve the conflict.
+10. merge `chapter-5` into `main` branch. What is the merge commit?
+11. Log the all history *without* a graph. What is the "story" log of the main branch?
+
+    Log the all history without a graph, Your graph should look like this:
+
+    ```git
+    *   4c61fe9 - (HEAD -> main, chapter-5) Merge branch 'chapter-6' into chapter-5 (3 minutes ago) <spacename>
+    |\  
+    | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (8 minutes ago) <spacename>
+    | |\  
+    | | * a199dd5 - (chapter-6-ver-2) Add page 4 (10 minutes ago) <spacename>
+    | * | 8d1c0d2 - Add page 4 (12 minutes ago) <spacename>
+    | |/  
+    | * cf15fb8 - (chapter-1) Add page 3 (34 minutes ago) <spacename>
+    * | f36ad71 - Add a mistake (28 minutes ago) <spacename>
+    * | 137d2d8 - Add page 1 to chapter 2 (32 minutes ago) <spacename>
+    |/  
+    | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (18 minutes ago) <spacename>
+    | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (28 minutes ago) <spacename>
+    |/  
+    * 9e37807 - Add page 2 (35 minutes ago) <spacename>
+    * 9684685 - Add page 1 (35 minutes ago) <spacename>
+    * ebd3885 - Add .gitignore (37 minutes ago) <spacename>
+    * 8975347 - (origin/main, origin/HEAD, chapter-3) Initial commit (39 minutes ago) <Space Name>
+    ```
+
+    If not it is ok! Just make it look like this, don't continue...
+
+12. As we learned in [Workflow](#workflow) we don't merge local branches into the `main` branch. Set back main to point on `origin/main`
 
 **Write Chapter 7:** - [Learning Topic](#union-of-branches)
 
 1. Create a new branch called `chapter-7` which will point on the `chapter-6`.
 2. `reset --hard` the last commit (`Merge branch 'chapter-6-ver-2' into chapter-6`).
 3. Create a new branch called `chapter-7-ver-2` which will point on the `chapter-6-ver-2`.
-4. Log the all history with a graph. Notice that Chapter 7 is now in the same as Chapter 6 in section 5. We will rebase it instead of merging (As one should).
+4. Log the all history with a graph. Notice that Chapter 7 is now in the same as Chapter 6 in section 5.
+
+    **We will rebase it instead of merging (As one should)**.
+
+    ```git
+    *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (8 minutes ago) <spacename>
+    |\  
+    | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (13 minutes ago) <spacename>
+    | |\  
+    | | * a199dd5 - (HEAD -> chapter-7-ver-2, chapter-6-ver-2) Add page 4 (15 minutes ago) <spacename>
+    | * | 8d1c0d2 - (chapter-7) Add page 4 (17 minutes ago) <spacename>
+    | |/  
+    | * cf15fb8 - (chapter-1) Add page 3 (39 minutes ago) <spacename>
+    * | f36ad71 - Add a mistake (33 minutes ago) <spacename>
+    * | 137d2d8 - Add page 1 to chapter 2 (37 minutes ago) <spacename>
+    |/  
+    | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (23 minutes ago) <spacename>
+    | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (33 minutes ago) <spacename>
+    |/  
+    * 9e37807 - Add page 2 (39 minutes ago) <spacename>
+    * 9684685 - Add page 1 (40 minutes ago) <spacename>
+    * ebd3885 - Add .gitignore (42 minutes ago) <spacename>
+    * 8975347 - (origin/main, origin/HEAD, main, chapter-3) Initial commit (44 minutes ago) <Space Name>
+    ```
+
 5. Rebase `chapter-7-ver-2` on top of `chapter-7`. Resolve the conflict.
 6. I must be a real dumb, i meant to rebase `chapter-7` on top of `chapter-7`. Fix it. (*Hint: you dint have to use `reflog`*)
-7. Log the all history with a graph. Compere `chapter-7` and `chapter-6`, Answer the question [union-of-branches](#union-of-branches) again.
+7. Log the history of `chapter-7` and `chapter-6`. Compere them and answer the question [union-of-branches](#union-of-branches) again.
+
+    Your graph should look like this:
+
+    ```git
+    * dd17043 - (HEAD -> chapter-7) Add page 4 (43 seconds ago) <spacename>
+    | *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (17 minutes ago) <spacename>
+    | |\  
+    | | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (21 minutes ago) <spacename>
+    | | |\  
+    | |_|/  
+    |/| |   
+    * | | a199dd5 - (chapter-7-ver-2, chapter-6-ver-2) Add page 4 (23 minutes ago) <spacename>
+    | | * 8d1c0d2 - Add page 4 (26 minutes ago) <spacename>
+    | |/  
+    |/|   
+    * | cf15fb8 - (chapter-1) Add page 3 (48 minutes ago) <spacename>
+    | * f36ad71 - Add a mistake (42 minutes ago) <spacename>
+    | * 137d2d8 - Add page 1 to chapter 2 (46 minutes ago) <spacename>
+    |/  
+    | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (31 minutes ago) <spacename>
+    | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (41 minutes ago) <spacename>
+    |/  
+    * 9e37807 - Add page 2 (48 minutes ago) <spacename>
+    * 9684685 - Add page 1 (48 minutes ago) <spacename>
+    * ebd3885 - Add .gitignore (51 minutes ago) <spacename>
+    * 8975347 - (origin/main, origin/HEAD, main, chapter-3) Initial commit (52 minutes ago) <Space Name>
+    ```
 
 **Write Chapter 8:** - [Learning Topic](#workflow)
 
@@ -544,7 +652,7 @@ make sure you know the following commands:
 
     `Add book body`:  "New Line Should start with a Capital letter `I`", "Add period at the end of the sentence", "Change commit message to `Add book content`"
 
-    `Add book end`: "\`\`\`suggestion:-0+0The end\`\`\`"
+    `Add book end`: "\`\`\`suggestion:-0+0The End\`\`\`"
 
 8. Fix the commit in respect to the feedback.
 9. What is the last shared commit between `chapter-8` and `origin/chapter-8`?
@@ -554,7 +662,7 @@ make sure you know the following commands:
 **Write Chapter 9:** - [Learning Topic](#modified-commits)
 
 1. Create a new branch called `chapter-9` which will point on the `chapter-7`.
-2. Organize your commit (Do you have redundant commits?).
+2. Organize your commit (Do you have redundant commits that need a `squash`?).
 3. Push the branch `chapter-9` to the remote, and make a PR from `chapter-9` to `main`.
 4. Now we will use more robust way to modify commits. Let's say we have a huge bug in page-2, and some code to add to page-3.
 
@@ -600,42 +708,46 @@ How was your story??
 I hope its look like this:
 
 ```git
-* d8687de - (chapter-3) Add a mistake (58 seconds ago) <davidbk>
-| *   17d2018 - (HEAD -> main, origin/main, origin/HEAD) Merge branch 'chapter-9' into 'main' (6 minutes ago) <David Ben Kalifa>
+* 81dda3f - (chapter-3) Add a mistake (36 seconds ago) <spacename>
+| *   c2d0098 - (HEAD -> main, origin/main, origin/HEAD) Merge branch 'chapter-9' into 'main' (2 minutes ago) <Space Name>
 | |\  
-| | * 5ac4d61 - (origin/chapter-9, chapter-9) Add page 4 (12 minutes ago) <davidbk>
-| | * c5d4747 - Add page 3 (12 minutes ago) <davidbk>
-| | * 5a1300e - Add page 2 (12 minutes ago) <davidbk>
-| | * 26c65f5 - Add page 1 (12 minutes ago) <davidbk>
-| | * 60a1d20 - Add .gitignore (12 minutes ago) <davidbk>
+| | * c80c1f1 - (origin/chapter-9, chapter-9) Add page 4 (3 minutes ago) <spacename>
+| | * 81591e8 - Add page 3 (3 minutes ago) <spacename>
+| | * d1c1453 - Add page 2 (3 minutes ago) <spacename>
+| | * 5a4f26a - Add page 1 (3 minutes ago) <spacename>
 | |/  
-| * c176136 - Merge branch 'chapter-8' into 'main' (33 minutes ago) <David Ben Kalifa>
+| * 103e66c - Merge branch 'chapter-8' into 'main' (6 minutes ago) <Space Name>
 |/| 
-| * 9f65f71 - (origin/chapter-8, chapter-8) Add book end (34 minutes ago) <davidbk>
-| * c05d5f4 - Add book content (34 minutes ago) <davidbk>
-| * 8273b8f - Add book title (34 minutes ago) <davidbk>
-|/  
-| * 5cb8ab6 - (chapter-7) Add page 4 (5 hours ago) <davidbk>
-| | *   926459b - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (5 hours ago) <davidbk>
-| | |\  
+| * e7c6ee5 - (origin/chapter-8, chapter-8) Add book end (6 minutes ago) <spacename>
+| * 7701fdd - Add book content (6 minutes ago) <spacename>
+| * 105e80f - Add book title (6 minutes ago) <spacename>
+| | * dd17043 - (chapter-7) Add page 4 (18 minutes ago) <spacename>
+| | | *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (34 minutes ago) <spacename>
+| | | |\  
+| | | | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (38 minutes ago) <spacename>
+| | | | |\  
+| | | |_|/  
+| | |/| |   
+| | * | | a199dd5 - (chapter-7-ver-2, chapter-6-ver-2) Add page 4 (40 minutes ago) <spacename>
+| | | | * 8d1c0d2 - Add page 4 (42 minutes ago) <spacename>
+| | | |/  
+| | |/|   
+| | * | cf15fb8 - (chapter-1) Add page 3 (65 minutes ago) <spacename>
+| | | * f36ad71 - Add a mistake (59 minutes ago) <spacename>
+| | | * 137d2d8 - Add page 1 to chapter 2 (63 minutes ago) <spacename>
 | | |/  
-| |/|   
-| * | fa9fbb0 - (chapter-7-ver-2, chapter-6-ver-2) Add page-4 (6 hours ago) <davidbk>
-| | * aeccf29 - Add page 4 (6 hours ago) <davidbk>
+| | | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (48 minutes ago) <spacename>
+| | | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (58 minutes ago) <spacename>
+| | |/  
+| | * 9e37807 - Add page 2 (65 minutes ago) <spacename>
+| | * 9684685 - Add page 1 (65 minutes ago) <spacename>
 | |/  
-| * 4b12d43 - (chapter-1) Add page 3 (7 hours ago) <davidbk>
-| | * f124f4a - (chapter-4-ver-2) Add this_is_not_a_book.txt file (7 hours ago) <davidbk>
-| | * 2b7dcc1 - (chapter-4, chapter-2) Add page 1 to chapter 2 (7 hours ago) <davidbk>
-| |/  
-| | * afbb16f - (chapter-5) Add a mistake (7 hours ago) <davidbk>
-| | * 1f10ea9 - Add page 1 to chapter 2 (7 hours ago) <davidbk>
-| |/  
-| * 204a1b3 - Add page 2 (7 hours ago) <davidbk>
-| * 7121141 - Add page 1 (7 hours ago) <davidbk>
-| * 0df7160 - Add .gitignore (8 hours ago) <davidbk>
+| * ebd3885 - Add .gitignore (68 minutes ago) <spacename>
 |/  
-* b99821f - Initial commit (8 hours ago) <David Ben Kalifa>
+* 8975347 - Initial commit (69 minutes ago) <Space Name>
 ```
+
+If not it is ok! After all this is your book...
 
 # Exam
 
