@@ -458,7 +458,7 @@ make sure you know the following commands:
 1. Create a new branch called `chapter-2`, which will point on the `chapter-1` branch.
 2. Change the name of the last commit to `Add page 3 to chapter 2`.
 3. Add a new line to this page with the text `This is page 3 - chapter 2` and Commit it with the message `Add a mistake`.
-4. Oops this is a mistake. Who could know! I forgot that this new line souled be in the commit `Add page 1 to chapter 2`. My bad... Fix it.
+4. Oops this is a mistake. Who could know! I forgot that this new line souled be in the commit `Add page 3 to chapter 2`. My bad... Fix it.
 
 **Write Chapter 3:** - [Learning Topic](#delete-commit)
 
