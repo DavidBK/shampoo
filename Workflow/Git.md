@@ -309,15 +309,6 @@ Make sure you know the following commands:
 - `clone`
 - `fork`
 
-## Question
-
-### **Remote code**
-
-1. What is *"Remote"*? what is `origin`?
-2. How can a project can have multiple remotes?
-3. How does `origin/branch` can differ from `branch`? How do you set them back?
-4. How does the local repo "know" that something happened in the remote?
-
 ## Workflow
 
 ### Start working on a git project
@@ -404,7 +395,16 @@ This is an iterative process of **Review** - **Fix** - **Rebase** until The main
 Sometimes there is a bug or code that needs fixing in the `main` branch.
 In these cases we will create a new `branch` and fix the code. In very rare cases the maintainer will `revert` the merge request commit!
 
-## Questions - Git Workflow
+## Questions
+
+### **Remote code**
+
+1. What is *"Remote"*? what is `origin`?
+2. How can a project can have multiple remotes?
+3. How does `origin/branch` can differ from `branch`? How do you set them back?
+4. How does the local repo "know" that something happened in the remote?
+
+### **Git Workflow**
 
 1. What is the `main` (pun intended) purpose of the workflow process?
 2. When do I use the `merge` command locally? why?
