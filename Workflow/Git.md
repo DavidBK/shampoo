@@ -8,17 +8,13 @@ Git is a free and open source distributed version control system.
 
 The reason you are learning it is because Git is the most popular version control system in developing. It is also used in the next steps of your learning process.
 
-Requirements:
-
-- Linux Command line interface
+Make sure you understand the learning concepts but **Don't memorize them**!
 
 ---
 
-Make sure you understand the learning concepts but **Don't memorize them**!
-
 ***Learning objectives:***
 
-After completing this learning path, you'll be able to
+After completing this learning module, you'll be able to
 
 - Control the version of your code
 - Collaborate with other developers
@@ -760,6 +756,6 @@ Talk to your mentor about the exam.
 
 # Next Steps
 
-Congratulations! You have completed the Git learning path. now you can control the source code of your space :smile:
+Congratulations! You have completed the Git module. now you can control the source code of your space :smile:
 
-Here is the [next](Web) step
+Here is the [next](Web/Web-dev) Learning Path

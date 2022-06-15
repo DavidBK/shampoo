@@ -8,17 +8,13 @@ LINUX is an operating system or a kernel distributed under an open-source licens
 
 The reason you are learning it is because most of our app run on Linux. Also, linux offers a lot of features that are not available on other OS
 
-Requirements:
-
-- Linux Command line interface
+Make sure you understand the learning concepts but **Don't memorize them**!
 
 ---
 
-Make sure you understand the learning concepts but **Don't memorize them**!
-
 ***Learning objectives:***
 
-After completing this learning path, you'll be able to
+After completing this learning module, you'll be able to
 
 - Navigate the Linux file system from the command line
 - Install and uninstall packages
@@ -155,4 +151,4 @@ This are concepts that is good to know they exist, but you don't need to learn t
 
 # Next steps
 
-Congratulations! You are now Can use linux in your [next](Git) space mission!
+Congratulations! You are now Can use linux in your [next](Workflow/Git) space mission!

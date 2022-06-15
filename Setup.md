@@ -116,4 +116,4 @@ For more information, About working with VS code on WSL see [Developing in WSL](
 
 # Next steps
 
-Congratulations! You are now ready to [start learning](Linux)!
+Congratulations! You are now ready to start [learning](Workflow/Workflow.md)!

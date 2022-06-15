@@ -13,7 +13,7 @@ Development is a self-learning process, and you know what  the best way to learn
 
 ## Next steps
 
-Confused? Start [here](setup)
+Confused? Start [here](Setup)
 
 Here is an [Index](_sidebar)
 
