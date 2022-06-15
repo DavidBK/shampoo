@@ -256,7 +256,7 @@ make sure you know the following commands:
 - `merge`
 - `rebase`
 
-## Questions
+## Questions - Compose commits
 
 ### **Branches**
 
@@ -395,7 +395,7 @@ This is an iterative process of **Review** - **Fix** - **Rebase** until The main
 Sometimes there is a bug or code that needs fixing in the `main` branch.
 In these cases we will create a new `branch` and fix the code. In very rare cases the maintainer will `revert` the merge request commit!
 
-## Questions
+## Questions - Git Workflow
 
 ### **Remote code**
 
