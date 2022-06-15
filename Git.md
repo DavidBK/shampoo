@@ -478,7 +478,7 @@ make sure you know the following commands:
     * 8975347 - (HEAD -> chapter-3, origin/main, origin/HEAD) Initial commit (12 minutes ago) <Space Name>
     ```
 
-    If not it is ok! Just make it look like this, don't continue...
+    If not it is ok! Do not continue... Just make it look like this.
 
 **Write Chapter 4:** - [Learning Topic](#pointers)
 
@@ -510,7 +510,7 @@ make sure you know the following commands:
     * 8975347 - (origin/main, origin/HEAD, chapter-3) Initial commit (24 minutes ago) <Space Name>
     ```
 
-    If not it is ok! Just make it look like this, don't continue...
+    If not it is ok! Do not continue... Just make it look like this.
 
 **Write Chapter 6:** - [Learning Topic](#union-of-branches)
 
@@ -557,7 +557,7 @@ make sure you know the following commands:
     * 8975347 - (origin/main, origin/HEAD, chapter-3) Initial commit (39 minutes ago) <Space Name>
     ```
 
-    If not it is ok! Just make it look like this, don't continue...
+    If not it is ok! Do not continue... Just make it look like this.
 
 12. As we learned in [Workflow](#workflow) we don't merge local branches into the `main` branch. Set back main to point on `origin/main`
 
