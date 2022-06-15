@@ -1,4 +1,4 @@
-# Developing Workflows
+# Developing Workflows - Introduction
 
 -- *Estimation time: 4 Days*
 

@@ -1,4 +1,4 @@
-# Git And Advanced Version Control
+# Git module - Introduction
 
 -- *Estimation time: 3 Days*
 

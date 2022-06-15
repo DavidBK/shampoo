@@ -1,4 +1,4 @@
-# Basic Linux
+# Linux module - Introduction
 
 -- *Estimation time: 1 Day*
 
