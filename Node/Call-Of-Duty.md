@@ -6,6 +6,8 @@
 
 In the 'Call Of Duty' project, you will be managing soldiers and duties using a database and a RESTfull API server.
 
+![Call of Duty](https://cdn.vox-cdn.com/thumbor/cnh3fYY5kgmjuF3O4uR9JKj3avY=/0x0:960x540/1220x813/filters:focal(404x194:556x346):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70538810/025d6f6199fb817e05158e20b9640808_CODVG_Reveal_Standard_Keyart_Textless_Bnet_Shop_Product_Browsing_Card_960x540.0.jpeg)
+
 ## General Guidelines
 
 - The database should be a [non relational](https://www.mongodb.com/databases/non-relational) database.
