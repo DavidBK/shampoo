@@ -10,15 +10,14 @@
 - [Linux](Workflow/Linux)
 - [Git](Workflow/Git)
 
-## [Basic Web Development](Web/Web-dev)
+<!-- ## [Basic Web Development](Web/Web-dev)
 
-- [HTML](Web/HTML)
-- [CSS](Web/CSS)
-- [JavaScript](Web/JavaScript)
+- [HTML-CSS](Web/HTML-CSS)
+- [JavaScript](Web/JavaScript) -->
 
-## [Clean Code](Clean-code)
+<!-- ## [Clean Code](Clean-code) -->
 
-## [NodeJS](node)
+<!-- ## [NodeJS](Node/Node) -->
 
-- [Learn Node](Learn-node)
-- [Node project](Node-project)
+<!-- - [Learn Node](Learn-node) -->
+<!-- - [Node project](Node-project) -->

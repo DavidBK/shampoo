@@ -2,6 +2,5 @@
 
 Under construction...
 
-- [HTML](HTML.md)
-- [CSS](CSS.md)
+- [HTML-CSS](HTML.md)
 - [JavaScript](JavaScript.md)
