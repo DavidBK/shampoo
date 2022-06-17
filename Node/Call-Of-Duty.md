@@ -8,6 +8,13 @@ In the 'Call Of Duty' project, you will be managing soldiers and duties using a 
 
 ![Call of Duty](https://cdn.vox-cdn.com/thumbor/cnh3fYY5kgmjuF3O4uR9JKj3avY=/0x0:960x540/1220x813/filters:focal(404x194:556x346):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70538810/025d6f6199fb817e05158e20b9640808_CODVG_Reveal_Standard_Keyart_Textless_Bnet_Shop_Product_Browsing_Card_960x540.0.jpeg)
 
+---
+*Send me back [home](home)*
+
+[[*TOC*]]
+
+---
+
 ## General Guidelines
 
 - The database should be a [non relational](https://www.mongodb.com/databases/non-relational) database.
@@ -29,6 +36,7 @@ Here is my recommended technologies:
   don't use [Mongoose](https://mongoosejs.com/) ODM, use [MongoDB Node Driver](https://www.mongodb.com/docs/drivers/node/)
 
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
+- Linter: [eslint](https://eslint.org/) or [prettier](https://prettier.io/)
 
 ## Models
 
@@ -38,11 +46,11 @@ Your DB Will contain 2 collections:
 
 ```JavaScript
 {
- _id: <str>, // _id will hold the soldier's unique identifier
- name: <str> ,
- rank: <str>,
- limitations: [<str>],
- duties: [<str>],
+ _id: <string>, // _id will hold the soldier's unique identifier
+ name: <string> ,
+ rank: <string>,
+ limitations: [<string>],
+ duties: [<string>],
 }
 ```
 
@@ -51,17 +59,17 @@ Your DB Will contain 2 collections:
 ```JavaScript  
  {
   _id: ObjectId(),
-  name: <str>,
-  description: <str>,
-  location: <str>,
+  name: <string>,
+  description: <string>,
+  location: <string>,
   time: {
    start: <ISODate>,
    end: <ISODate>,
   },
-  constraints: [<str>],
-  soldiersRequired: <int>,
-  value: <int>,
-  soldiers: [<str>],
+  constraints: [<string>],
+  soldiersRequired: <number>,
+  value: <number>,
+  soldiers: [<string>],
  }
 ```
 
@@ -90,17 +98,22 @@ Your DB Will contain 2 collections:
 
 4. Separate application code from the server code:
 
-    - Create a `server.ts` file.
-    - Create a `app.ts` file.
+    - Create `server.js` file. (`server.ts`)
+    - Create `app.js` file. (`app.ts`)
 
     [Why Separate Express 'app' and 'server'](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/separateexpress.md)
 
 5. Test your app and server.
 
-    You can use "http injection" (Fastify built in `app.inject` function)
+    You can use "HTTP injection" (Fastify built in `app.inject` function)
 
     What is the coverage of your tests?
     Did you test error case?
+
+6. Add linter to your project.
+
+    - Add `lint` script to your `package.json` file.
+    - Run the script before testing.
 
 ## Task 2 - Soldier
 
@@ -119,6 +132,7 @@ Your DB Will contain 2 collections:
       The id should be the soldier's private tt number.
     - Validate that all the above parameters exist, any other property is invalid.-
     - When a soldier is inserted to the database, add the `duties` property and initialize it to an empty array.
+    - Return the inserted `<Soldier>`.
 
 2. Create endpoint for getting all soldiers:
 
@@ -149,6 +163,7 @@ Your DB Will contain 2 collections:
     - Generate a unique _id for the object.
     - Validate that all the above parameters exist, any other property is invalid.
     - When a duty is inserted to the database, add the `soldiers` property and initialize it to an empty array.
+    - Return the inserted `<Duty>`.
 
 2. Create endpoint for getting all duties:
 
@@ -173,6 +188,7 @@ Your DB Will contain 2 collections:
     - The updated properties will override the existing ones.
     - Scheduled duties cannot be updated.
     - Do not allow this method to add any new properties nor to alter the id.
+    - Return the updated `<Duty>`.
 
 ## Task 4 - Justice Board
 
@@ -213,8 +229,12 @@ For example:
 
     You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
 2. Add [swagger](https://swagger.io) documentation to your app.
-    
+
     You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin.
+
+3. Add README.md to your app.
+
+4. Add basic authentication to your app.
 
 ## Task 7 - Extend query parameters (optional)
 
