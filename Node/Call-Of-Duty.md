@@ -236,7 +236,19 @@ For example:
 
 4. Add basic authentication to your app.
 
-## Task 7 - Extend query parameters (optional)
+## Task 7 - Make it scalable (Advanced)
+
+1. What will happen if you add more soldiers and duties?
+
+    Make your app work with 1,000,000 soldiers and duties.
+
+2. How do you test your up scaling?
+
+3. What is the performance of your app?
+
+    Make a stress test to your app.
+
+## Task 8 - Extend query parameters (optional)
 
 1. Extend the `/soldiers` and `/duties` routes functionality to multiple parameters search query.
 
