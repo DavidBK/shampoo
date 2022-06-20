@@ -36,7 +36,7 @@ Here is my recommended technologies:
   don't use [Mongoose](https://mongoosejs.com/) ODM, use [MongoDB Node Driver](https://www.mongodb.com/docs/drivers/node/)
 
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
-- Linter: [eslint](https://eslint.org/) or [prettier](https://prettier.io/)
+- Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide
 
 ## Models
 
