@@ -113,7 +113,7 @@ Your DB Will contain 2 collections:
 6. Add linter to your project.
 
     - Add `lint` script to your `package.json` file.
-    - Run the script before testing.
+    - Run the script before submit any merge request.
 
 ## Task 2 - Soldier
 
