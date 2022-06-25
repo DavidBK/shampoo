@@ -241,13 +241,11 @@ For example:
 
 1. What will happen if you add more soldiers and duties?
 
-    Make your app work with 1,000,000 soldiers and duties.
+    Make your app work with 1,000,000 soldiers and duties in the DB.
 
-2. How do you test your up scaling?
+2. What is the performance of your app?
 
-3. What is the performance of your app?
-
-    Make a stress test to your app.
+    Make a load test to your app.
 
 ## Task 8 - Extend query parameters (optional)
 
@@ -255,12 +253,25 @@ For example:
 
     For example: A request to `/duties?name=Hagnash&soldiers=['Tair', 'Shir']` should return all *"Hagnash"* duties that contains both Tair and Shir. (Note that a Hagnash duty that was scheduled with Tair, Shir and Yuval should also be returned).
 
-2. Extend the he `/soldiers` and `/duties` routes to accept sorting queries also.
+2. Extend the he `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
 
-    A request to `/duties/sort=value_asc` should return the duties sorted by the value.
+    For example:
+     - A request to `/duties?sort=value` should return the duties sorted by value.
+     - A request to `/duties?sort=name&order=desc` should return the duties sorted by name in descending order.
 
 3. Extend the `/justiceBoard` functionality to accept sorting and filtering queries.
 
     For example:
-    - A request to `/justiceBoard?maxScore=20` should return all soldiers with maximal score of 20.
-    - A request to `/justiceBoard?sort=asc` should return the justice board elements property in ascending order sorted by the score property.
+     - A request to `/justiceBoard?sort=score&order=desc` should return the justice board sorted by score in descending order.
+     - A request to `/justiceBoard?filter=score>=20` should return the justice board with soldiers with score >= 20.
+
+4. Extend the `/justiceBoard` `/soldiers` and `/duties` functionality to accept pagination.
+
+    For example:
+     - A request to `/justiceBoard?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
+
+5. Extend the `/justiceBoard` `/soldiers` and `/duties` functionality to accept projection.
+
+    For example:
+     - A request to `/soldiers?projection=name` should return the soldiers with only the name property.
+     - A request to `/duties?projection=name,value` should return the duties with only the name and value properties.
