@@ -28,12 +28,13 @@ In the 'Call Of Duty' project, you will be managing soldiers and duties using a 
 You can choose which technologies you want to use for this project, but ask your mentor before choosing.
 Here is my recommended technologies:
 
-- Language: [TypeScript](https://www.typescriptlang.org/) or [JavaScript](https://www.javascript.com/)
+- Language: [JavaScript](https://www.javascript.com/) or [TypeScript](https://www.typescript.org/) or [ReScript](https://www.rescript.org/)
 - Server: [fastify](https://www.fastify.io/) or [express](https://expressjs.com/) 5.x [API](https://expressjs.com/en/5x/api.html)
 - Test: [Vitest](https://vitest.dev/) or [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/)
 - Database: [MongoDB](https://www.mongodb.com/)
 
-  don't use [Mongoose](https://mongoosejs.com/) ODM, use [MongoDB Node Driver](https://www.mongodb.com/docs/drivers/node/)
+  Don't use [Mongoose](https://mongoosejs.com/) ODM, use [MongoDB Node Driver](https://www.mongodb.com/docs/drivers/node/).
+  You can read more about it in the [mongoose-vs-nodejs-driver](https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/) article.
 
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
 - Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide
@@ -98,8 +99,8 @@ Your DB Will contain 2 collections:
 
 4. Separate application code from the server code:
 
-    - Create `server.js` file. (`server.ts`)
-    - Create `app.js` file. (`app.ts`)
+    - Create `server.js` file.
+    - Create `app.js` file.
 
     [Why Separate Express 'app' and 'server'](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/separateexpress.md)
 
