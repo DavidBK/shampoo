@@ -36,6 +36,8 @@ Here is my recommended technologies:
   Don't use [Mongoose](https://mongoosejs.com/) ODM, use [MongoDB Node Driver](https://www.mongodb.com/docs/drivers/node/).
   You can read more about it in the [mongoose-vs-nodejs-driver](https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/) article.
 
+- Logger: [pino](https://www.npmjs.com/package/pino) or fastify [built-in pino logger](https://www.fastify.io/docs/latest/Reference/Logging/) or [winston](https://www.npmjs.com/package/winston).
+
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
 - Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide
 
@@ -115,6 +117,8 @@ Your DB Will contain 2 collections:
 
     - Add `lint` script to your `package.json` file.
     - Run the script before submit any merge request.
+
+7. Log your app and server.
 
 ## Task 2 - Soldier
 
