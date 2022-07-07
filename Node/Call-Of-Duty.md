@@ -1,6 +1,6 @@
 # Call Of Duty - Duties scheduling system
 
--- *Estimation time: 8-10 Days*
+-- *Estimation time: 12-18 Days*
 
 ---
 
