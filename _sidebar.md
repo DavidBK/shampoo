@@ -21,5 +21,5 @@
 
 ## [NodeJS](Node/Node)
 
-<!-- - [Learn Node](Learn-node) -->
-- [Node project - Call Of Duty](Node/Call-Of-Duty)
+- [NodeJS basic](Node/Basic)
+- [Project - Call Of Duty](Node/Call-Of-Duty)
