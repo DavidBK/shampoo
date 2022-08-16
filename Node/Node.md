@@ -14,7 +14,7 @@ After you finish this learning path you will be able to code backend systems and
 
 this learning path include the following modules:
 
-- [Node JS basic](Node/Basic)
+- [Node JS basics](Node/Basics)
 - [Testing in Node JS](Node/Testing)
 - [Clean Code principles in NodeJS](Node/Clean-Code)
 - [Node Project - Call Of Duty](Node/Call-Of-Duty)
@@ -33,4 +33,4 @@ After completing this learning path, you'll be able to:
 
 ## Next steps
 
-Take a deep breath and click [here](Node/Basic).
+Take a deep breath and click [here](Node/Basics).

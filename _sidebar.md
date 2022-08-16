@@ -21,5 +21,5 @@
 
 ## [NodeJS](Node/Node)
 
-- [NodeJS basic](Node/Basic)
+- [NodeJS basics](Node/Basics)
 - [Project - Call Of Duty](Node/Call-Of-Duty)

@@ -393,6 +393,7 @@ this is a work in progress and will be updated soon.
 
 ### Multi-threading
 
+- Cluster
 - Child Processes
 - Worker threads
 - Thread pools
