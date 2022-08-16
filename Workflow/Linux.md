@@ -36,11 +36,9 @@ Here is some examples links:
 - [Youtube crash course](https://www.youtube.com/watch?v=n_2jPbQornY)
 - [Linux Basic Tutorials](https://www.guru99.com/unix-linux-tutorial.html)
 
-# Basic Commands Line
+## Basic Commands Line
 
 Learn the Basics of Linux commands line.
-
-## CLI Concepts
 
 (Don't memorize)
 
@@ -58,7 +56,7 @@ Learn the Basics of Linux commands line.
 
 You can read this tutorial: [command-line-for-beginners](https://ubuntu.com/tutorials/command-line-for-beginners).
 
-# Install and uninstall packages
+## Install and uninstall packages
 
 Learn about the `apt` package manager.
 
@@ -68,7 +66,7 @@ Learn about the `apt` package manager.
 
 You can read this article: [how-to-use-apt-command](https://linuxize.com/post/how-to-use-apt-command/).
 
-# Windows Vs Linux
+## Windows Vs Linux
 
 Learn the differences between Windows and Linux.
 
@@ -76,7 +74,7 @@ Learn the differences between Windows and Linux.
 
 You can read this article: [linux-differences](https://www.guru99.com/linux-differences.html).
 
-# File Permissions in Linux
+## File Permissions in Linux
 
 Learn about Ownership, and Permissions in Linux.
 
@@ -86,7 +84,7 @@ Learn about Ownership, and Permissions in Linux.
 
 you can read this article: [file-permissions](https://www.guru99.com/file-permissions.html#absolute_mode_in_linux).
 
-# Environment variables
+## Environment variables
 
 Learn about Environment variables in Linux.
 
@@ -97,14 +95,14 @@ Learn about Environment variables in Linux.
 
 you can read this tutorial: [linux-environment-variables](https://www.guru99.com/linux-environment-variables.html).
 
-# Linux Networking Commands
+## Linux Networking Commands
 
 Read about these linux basic networking commands:
 
 - `ssh`
 - `ping`
 
-# Aliases
+## Aliases
 
 Learn about Aliases in Linux.
 
@@ -114,7 +112,7 @@ Learn about Aliases in Linux.
 What alias do you currently have?
 Write your own aliases in Linux!
 
-# Links
+## Links
 
 Learn about linux links
 
@@ -122,7 +120,7 @@ Learn about linux links
 
 You can read this article [creating-soft-link-or-symbolic-link](https://www.cyberciti.biz/faq/creating-soft-link-or-symbolic-link/)
 
-# Wrapping up - mission (optional)
+## Wrapping up - mission (optional)
 
 1. Create new directory inside your home directory named `/Workspace/test` in one command.
 2. Rename the directory to `LinuxTest`.
@@ -136,7 +134,7 @@ You can read this article [creating-soft-link-or-symbolic-link](https://www.cybe
 10. Count the unique lines in the file `test2.md`.
 11. Create a link to your Windows desktop called `Desktop` inside `$HOME` dir.
 
-# Worth knowing
+## Worth knowing
 
 This are concepts that is good to know they exist, but you don't need to learn them right now.
 
@@ -149,6 +147,6 @@ This are concepts that is good to know they exist, but you don't need to learn t
 - Cronjobs
 - Shell Scripting
 
-# Next steps
+## Next steps
 
 Congratulations! You are now Can use linux in your [next](Workflow/Git) space mission!
