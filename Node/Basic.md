@@ -3,7 +3,7 @@
 -- *Estimation time: 1-2 Days*
 
 ---
-Node JS is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+NodeJS is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 This is a basic introduction to Node JS and JavaScript.
 
@@ -21,6 +21,7 @@ WIP
 Here is some examples links:
 
 - [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
+- [https://nodejs.dev/learn](https://nodejs.dev/learn)
 
 ## Install NodeJS using NVM
 
@@ -32,6 +33,12 @@ to install nvm:
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+Check if node is installed:
+
+```bash
+nvm --version
 ```
 
 For more information you can use the repository [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
@@ -53,6 +60,46 @@ You should be familiar with the following concepts:
 - Classes
 - Errors
 - Modules
+- Callbacks
+- Promises
+
+### JavaScript - Worth knowing (Advanced)
+
+Some advanced concepts that you should be aware of, skip this section if you are new to JavaScript.
+
+- Closures
+- Bitwise operators
+- Unicode
+- Symbols
+- Prototypes
+- Iterators
+- Generators
+- Typed Arrays
+- Maps, Sets, WeakMaps, WeakSets
+- Proxies
+
+## Basic NodeJS
+
+Node.js is an open-source and cross-platform JavaScript runtime environment.
+Node.js runs the V8 JavaScript engine, the core of Google Chrome, outside of the browser. This allows Node.js to be very performant.
+
+A Node.js app runs in a single process, without creating a new thread for every request. Node.js provides a set of asynchronous I/O primitives in its standard library that prevent JavaScript code from blocking.
+
+Before you continue, make sure you are familiar with the following concepts:
+
+- `npm`
+- `package.json`, `package-lock.json`
+- `fs`
+- `process.env`
+
+### NodeJs - Worth knowing (Advanced)
+
+Some advanced concepts that you should be aware of, skip this section if you are new to NodeJS.
+
+- Streams
+- Buffers
+
+More Advanced concepts is detailed in later [section](#wip-advanced-topics-optional)
 
 ## Asynchronous JavaScript
 
@@ -65,7 +112,7 @@ Many functions provided by nodeJS and browsers, can potentially take a long time
 ### Introduction
 
 We will learn a several techniques to make our programs asynchronous.
-Some of these techniques are legacy and not recommended for new projects but still important to understand.
+Some of these techniques are legacy and not recommended for new projects but they are still important to understand.
 
 1. Read the following script:
 
@@ -103,15 +150,15 @@ function greeting(name) {
   console.log(`Hello, ${name}`);
 }
 
-function processUserInput(callback) {
-  const name = getName();
-  callback(name);
+function greetUser(callback) {
+  const userName = getUserName();
+  callback(userName);
 }
 ```
 
-However, callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks.
+However, callbacks are often used to continue code execution after an **asynchronous** operation has completed - these are called asynchronous callbacks.
 
-Asynchronous Callback are legacy techniques and came before promises.
+*Note: Asynchronous Callback are legacy techniques and came before promises.*
 
 #### **Execution order**
 
@@ -127,24 +174,43 @@ Lets fix the above `intro.js` script by adding a callback function.
 
 #### **Error Handling**
 
+In Node.js, it is considered standard practice to handle errors in asynchronous functions by returning them as the **first argument** to the current function's callback. If there is an error, the first parameter is passed an Error object with all the details. Otherwise, the first parameter is null.
+
+Here is an example:
+
+```js
+const isTruthy = function(value, callback) {
+  if (value) return callback(null, "Value was true.");
+  callback(new Error("Value is not true!"));
+}
+
+const callback = function (error, res) {
+  if (error) {
+    console.error(error);
+    return;
+  }
+  console.log(res);
+}
+```
+
 We want to be able to handle errors in our code workflow.
-Lets say the `"3"` logging may fail. in this case we will retry the logging again once. If the logging fails again we will log the error.
+Lets say the `"3"` logging may fail. in this case we will retry the logging again once. If the logging fails again we will log the error and stop the execution.
 
 1. Create a function that after 10 ms:
     - 50%: logs the string `"3"`
     - 50%: throws an error `"Logging failed"`
 
 2. Replace step 4 (logging `"3"`) with this function.
-3. Handle the error:
-    - If the error is thrown, retry once log the error.
-    - If the error is not thrown, log the string `"3"` again.
+3. Handle the error in step 5 (logging `"4"`).
+    - If the error is thrown, retry the logging. if the logging fails again, log the error and stop the execution.
+    - If the error is not thrown, log the string `"4"` as usual.
 4. Commit and push your changes.
 
 #### **Pass data**
 
 We want our code to pass results from async operations to other.
-Lets say the `"4"` logging has result value. We want to pass this result to the `"5"` logging.
-In addition, `"3"` logging has two variables which we want to pass to the `"4"` logging.
+Lets say the `"3"` logging has two variables which we want to pass to the `"4"` logging,
+and `"4"` logging has result value. We want to pass this result to the `"5"` logging.
 
 1. Create a function that after 5 ms:
     - 50%: logs the string `"4"` and decide that result is `"result 1"`
@@ -172,26 +238,49 @@ Lets say that after the `"4"` logging want to print the `"5"` logging and in "pa
 2. When do you think this solution will be useful?
 3. What is callback hell?
 
+#### **Worth Knowing**
+
+This topics are not covered in this chapter but is worth knowing:
+
+- [Async.js](https://caolan.github.io/async/v3/)
+
+-
+
 ### **Event handlers**
 
 Node.js is famous for its asynchronous and event-driven nature.
+
+Node has a built-in event emitter that allows us to create event-driven programs using the [events](https://nodejs.org/api/events.html) module.
+
+Here is a basic example:
+
+```js
+const EventEmitter = require('node:events');
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('start', () => {
+  console.log('started');
+});
+
+eventEmitter.emit('start');
+//the event handler function is triggered, and we get the console log.
+```
 
 An event handler is a particular type of callback.
 
 Lets create the `callbacks-logging.js` using event handlers.
 
 1. Create a `event-handler.js`.
-2. Add `const EventEmitter = require('node:events');` to the top of the file.
-3. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using event handlers.
+2. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using event handlers.
 
     Commit and push your changes.
-4. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using event handlers.
+3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using event handlers.
 
     Commit and push your changes.
-5. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using event handlers.
+4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using event handlers.
 
     Commit and push your changes.
-6. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using event handlers.
+5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using event handlers.
 
     Commit and push your changes.
 
@@ -202,7 +291,11 @@ Lets create the `callbacks-logging.js` using event handlers.
 
 ### Promises
 
-A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
+
+Once a promise has been called, it will start in a pending state. This means that the calling function continues executing, while the promise is pending until it resolves, giving the calling function whatever data was being requested.
+
+The created promise will eventually end in a resolved state, or in a rejected state, calling the respective callback functions (passed to `then` and `catch`) upon finishing.
 
 Most of the time, you will consume an a already-created promises, but it important to understand how to create a promise.
 
@@ -242,6 +335,8 @@ this is a work in progress and will be updated soon.
 - [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick)
 - [Don't Block the Event Loop (or the Worker Pool)](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)
 
+- `process.nextTick queue`, `promises microtask queue`, `macrotask queue`
+
 ### The internal of node.js
 
 - garbage collection
@@ -256,6 +351,5 @@ this is a work in progress and will be updated soon.
 
 ### Additional Topics
 
-- generators and iterators
-- streams
-- cluster
+- Async hooks
+- C/C++ addons
