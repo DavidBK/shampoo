@@ -246,6 +246,7 @@ Lets say that after the `"4"` logging want to print the `"5"` logging and in "pa
 1. What is the advantage and the disadvantage of using callbacks as a solution for the async problem?
 2. When do you think this solution will be useful?
 3. What is callback hell?
+4. How do you implement a job after "Parallel" execution?
 
 #### Callbacks - Worth Knowing
 
@@ -345,6 +346,7 @@ This topics are not covered in this chapter but is worth knowing:
 - `Promise.race()`
 - `Promise.any()`
 - `Promise.allSettled()`
+- `util.promisify()`
 
 ### Async Await
 
