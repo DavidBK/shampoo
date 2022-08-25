@@ -195,11 +195,12 @@ addUser((name) => {
 
 However, callbacks are often used to continue code execution after an **asynchronous** operation has completed - these are called asynchronous callbacks.
 
-Its is often to name callbacks function `done`. Because we are calling them when the operation done:
+Its is often to named callbacks function `done` - Because we are calling them when the operation done:
 
 ```js
-function asyncExample(done) {
-  // async operation
+function addUser(done) {
+  const userName = "David";
+  // do something
   done();
 }
 ```
@@ -210,13 +211,15 @@ function asyncExample(done) {
 
 Lets fix the above `intro.js` script by adding a callback function.
 
-1. Create a `callbacks-logging.js`.
-2. Write a code that log the string `"1"`.
-3. Write a code that log the string `"2"` 0 ms after the log `"1"` above has finished.
-4. Write a code that log the string `"3"` 10 ms after the the log `"2"` above has finished.
-5. Write a code that log the string `"4"` 5 ms after the the log `"3"` above has finished.
-6. Write a code that log the string `"5"` after all the logs.
-7. Commit and push your changes.
+Create a `callbacks-logging.js`.
+
+1. Write a code that log the string `"1"`.
+2. Write a code that log the string `"2"` 0 ms after the log `"1"` above has finished.
+3. Write a code that log the string `"3"` 10 ms after the the log `"2"` above has finished.
+4. Write a code that log the string `"4"` 5 ms after the the log `"3"` above has finished.
+5. Write a code that log the string `"5"` after all the logs.
+
+Commit and push your changes.
 
 #### Error Handling
 
@@ -249,11 +252,12 @@ In this case we will retry the logging again once. If the logging fails again we
     - 50%: logs the string `"3"`
     - 50%: throws an error `"Logging failed"`
 
-2. Replace step 4 (logging `"3"`) with this function.
-3. Handle the error in step 5 (logging `"4"`).
+2. Replace step 3 (logging `"3"`) with this function.
+3. Handle the error in step 4 (logging `"4"`).
     - If the error is thrown, retry the logging. if the logging fails again, log the error and stop the execution.
-    - If the error is not thrown, log the string `"4"` as usual.
-4. Commit and push your changes.
+    - If the error is not thrown, log the string `"4"` as usual and continue to step 5.
+
+Commit and push your changes.
 
 #### Pass data
 
@@ -264,36 +268,36 @@ and `"4"` logging has result value. We want to pass this result to the `"5"` log
 1. Create a function that after 5 ms:
     - 50%: logs the string `"4"` and decide that result is `"result 1"`
     - 50%: logs the string `"4"` and decide that result is `"result 2"`
-2. Replace step 5 (logging `"4"`) with this function.
-3. Handle the result in step 6:
+2. Replace step 4 (logging `"4"`) with this function.
+3. Handle the result in step 5:
     - If the result is `"result 1"` log `"5: result 1"`
     - If the result is `"result 2"` log `"5: result 2"`
 
 4. Add a **two** variables (anything) to the `"3"` logging and use it (however you like) in the `"4"` logging.
-5. Commit and push your changes.
+
+Commit and push your changes.
 
 #### "Parallel" execution
 
 We want to be able to run multiple async operations in parallel.
-Lets say that after the `"4"` logging want to print the `"5"` logging and in "parallel" run functions that logs the string `"hi 5"` after 5 ms and `"hi 6"` after 6 ms.
+Lets say that after the `"4"` logging want to print the `"5 result x"` logging and in "parallel" run functions that logs the string `"hi 5"` after 5 ms and `"take 5"` after 6 ms.
 
 1. Create a function that after 5 ms logs the string `"hi 5"`
-2. Create a function that after 6 ms logs the string `"hi 6"`
-3. Execute the `"5 result x"`, `"hi 5"`, `"hi 6"` functions logging after the `"4"` logging.
+2. Create a function that after 6 ms logs the string `"take 5"`
+3. Execute the `"5 result x"`, `"hi 5"`, ``"take 5"` functions logging after the `"4"` logging.
+
+#### After "Parallel" execution - (Optional)
+
+We want to be able to run async operations after parallel execution is done.
+Lets say that after the step 5 (logging `"5 result x"`, `"hi 5"`, `"take 5"`) we want to log `"6"`;
+
+How do you implement a job after "Parallel" execution?
 
 #### Callbacks - Questions
 
 1. What is the advantage and the disadvantage of using callbacks as a solution for the async problem?
 2. When do you think this solution will be useful?
 3. What is callback hell?
-4. How do you implement a job after "Parallel" execution?
-
-#### After "Parallel" execution - (Optional)
-
-We want to be able to run async operations after parallel execution is done.
-Lets say that after the `"5 result x"`, `"hi 5"`, `"hi 6"` we want to log `hi 7`.
-
-How do you implement a job after "Parallel" execution?
 
 #### Callbacks - Worth Knowing
 
