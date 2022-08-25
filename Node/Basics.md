@@ -76,15 +76,87 @@ You should be familiar with the following concepts:
 Some advanced concepts that worth Knowing (skip this part if you are new to JavaScript):
 
 - Closures
+- Currying
 - Pass arguments: call by value, call by sharing, call by reference
 - Copy, deep clone, shallow clone.
 - `this` keyword
 - Function.prototype: `bind`, `apply`, `call`
 - Hoisting
 
-#### WIP: JavaScript - Advanced Topics questions
+#### WIP: JavaScript - questions
 
-this is a work in progress and will be updated soon.
+1. What is the output of this code?
+
+    ```js
+      const count = 0;
+
+      const logCount = () => {
+        console.log(count);
+      }
+
+      if (count === 0) {
+        const count = 1;
+        console.log(count);
+      }
+
+      logCount();
+    ```
+
+2. Write a function `multiply`:
+   - If `multiply(num1, numb2)` is invoked with 2 arguments, it should return the multiplication of the 2 arguments.
+   - If `multiply(num1)` is invoked with 1 argument the function should return another function. The returned function when called with `num2` performs the multiplication `num1 * num2`
+
+      ```js
+      multiply(4, 5); // 20
+      multiply(3, 3); // 9
+      const double = multiply(2);
+      double(5);  // => 10
+      double(11); // => 22
+      ```
+
+3. What is the output of this code?
+
+    ```js
+      function changeStuff(num, obj1, obj2) {
+        num = num * 10;
+        obj1.key = "changed";
+        obj2 = { key: "changed" };
+      }
+
+      const num = 10;
+      const obj1 = { key: "unchanged" };
+      const obj2 = { key: "unchanged" };
+
+      changeStuff(num, obj1, obj2);
+
+      console.log(num);
+      console.log(obj1.key);
+      console.log(obj2.key);
+    ```
+
+4. What is the output of this code?
+
+    ```js
+    const user = {
+      firstName: 'John',
+      lastName: 'Doe',
+      address: {
+        street: 'David king',
+        city: 'TLV',
+        country: 'IL'
+      }
+    };
+
+    const copiedUser = { ...user }
+
+    copiedUser.firstName = 'Jane';
+    copiedUser.address.street = 'Back street';
+
+    console.log(copiedUser);
+    console.log(user);
+    ```
+
+This is work in progress, i will add more question soon
 
 ### JavaScript - Worth knowing (Advanced)
 
