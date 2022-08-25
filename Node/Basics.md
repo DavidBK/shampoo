@@ -83,7 +83,7 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
 - Function.prototype: `bind`, `apply`, `call`
 - Hoisting
 
-#### WIP: JavaScript - questions
+#### JavaScript - questions (Advanced Topics)
 
 1. What is the output of this code?
 
@@ -103,7 +103,7 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
     ```
 
 2. Write a function `multiply`:
-   - If `multiply(num1, numb2)` is invoked with 2 arguments, it should return the multiplication of the 2 arguments.
+   - If `multiply(num1, num2)` is invoked with 2 arguments, it should return the multiplication of the 2 arguments.
    - If `multiply(num1)` is invoked with 1 argument the function should return another function. The returned function when called with `num2` performs the multiplication `num1 * num2`
 
       ```js
@@ -156,7 +156,27 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
     console.log(user);
     ```
 
-This is work in progress, i will add more question soon
+5. What is the output of this code? How do you fix it?
+
+  ```js
+  class LateBloomer {
+    constructor() {
+      this.petalCount = Math.floor(Math.random() * 12) + 1;
+    }
+
+    bloom() {
+      setTimeout(this.declare, 1000);
+    }
+    
+    declare() {
+      console.log(`I am a beautiful flower with ${this.petalCount} petals!`);
+    }
+  }
+
+  const flower = new LateBloomer();
+  // Declare bloom after a delay of 1 second:
+  flower.bloom();
+  ```
 
 ### JavaScript - Worth knowing (Advanced)
 
