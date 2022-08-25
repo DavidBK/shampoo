@@ -172,13 +172,37 @@ function greeting(name) {
   console.log(`Hello, ${name}`);
 }
 
-function greetUser(callback) {
-  const userName = getUserName();
+function addUser(callback) {
+  const userName = "David"
   callback(userName);
 }
+
+addUser(greeting);
+```
+
+Or in anonyms arrow function style:
+
+```js
+function addUser(callback) {
+  const userName = "David"
+  callback(userName);
+}
+
+addUser((name) => {
+  console.log(`Hello, ${name}`);
+});
 ```
 
 However, callbacks are often used to continue code execution after an **asynchronous** operation has completed - these are called asynchronous callbacks.
+
+Its is often to name callbacks function `done`. Because we are calling them when the operation done:
+
+```js
+function asyncExample(done) {
+  // async operation
+  done();
+}
+```
 
 *Note: Asynchronous Callback are legacy techniques and came before promises.*
 
@@ -203,17 +227,17 @@ Here is an example:
 ```js
 const exampleValue = 0;
 
-const isTruthy = function (value, callback) {
-  if (value) return callback(null, "Value was Truthy.");
-  callback(new Error("Value is not Truthy!"));
+const isTruthy = function (value, done) {
+  if (value) return done();
+  done(new Error("Value is not Truthy!"));
 }
 
-isTruthy(exampleValue, (err, res) => {
+isTruthy(exampleValue, (err) => {
   if (err) {
     console.error(err);
     return;
   }
-  console.log(res);
+  console.log('Great news!');
 });
 ```
 
@@ -377,6 +401,17 @@ This topics are not covered in this chapter but is worth knowing:
 Async Await is a new way to write asynchronous code and is a "syntactic sugar" for promises.
 
 An async function is a function declared with the `async` keyword, and the `await` keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
+
+Here is a basic example:
+
+```js
+async function asyncExample(value) {
+  const syncRes = syncOperation(value);
+  const asyncRes = await asyncOperation(value);
+  const res = { asyncRes, syncRes };
+  return res;
+}
+```
 
 Lets refactor the `promise-logging.js` using async await.
 
