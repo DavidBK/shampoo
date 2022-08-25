@@ -66,13 +66,28 @@ You should be familiar with the following concepts:
 - Errors
 - Modules
 - Callbacks
+- Events
 - Promises
+
+### JavaScript - Advanced Topics (Optional)
+
+Some advanced concepts that worth Knowing (skip this part if you are new to JavaScript):
+
+- Closures
+- Pass arguments: call by value, call by sharing, call by reference
+- Copy, deep clone, shallow clone.
+- `this` keyword
+- Function.prototype: `bind`, `apply`, `call`
+- Hoisting
+
+#### WIP: JavaScript - Advanced Topics questions
+
+this is a work in progress and will be updated soon.
 
 ### JavaScript - Worth knowing (Advanced)
 
-Some advanced concepts that you should be aware of, skip this section if you are new to JavaScript.
+Some advanced concepts that worth mentioning:
 
-- Closures
 - Bitwise operators
 - Unicode
 - Symbols
@@ -81,7 +96,6 @@ Some advanced concepts that you should be aware of, skip this section if you are
 - Generators
 - Typed Arrays
 - Maps, Sets, WeakMaps, WeakSets
-- `AbortController`
 - Proxies
 
 ## Basic NodeJS
@@ -248,6 +262,13 @@ Lets say that after the `"4"` logging want to print the `"5"` logging and in "pa
 3. What is callback hell?
 4. How do you implement a job after "Parallel" execution?
 
+#### After "Parallel" execution - (Optional)
+
+We want to be able to run async operations after parallel execution is done.
+Lets say that after the `"5 result x"`, `"hi 5"`, `"hi 6"` we want to log `hi 7`.
+
+How do you implement a job after "Parallel" execution?
+
 #### Callbacks - Worth Knowing
 
 This topics are not covered in this chapter but is worth knowing:
@@ -288,7 +309,7 @@ Lets create the `callbacks-logging.js` using event handlers.
 4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using event handlers.
 
     Commit and push your changes.
-5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using event handlers.
+5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using event handlers. You may add the [After "Parallel" job](#after-parallel-execution---optional) if you implement it in the callbacks section.
 
     Commit and push your changes.
 
@@ -333,6 +354,7 @@ Lets create the infamous logging example using promises.
 3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
 4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
 5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
+You may add the [After "Parallel" job](#after-parallel-execution---optional) if you implement it in the callbacks section.
 
 #### Promises - Questions
 
@@ -361,6 +383,7 @@ Lets refactor the `promise-logging.js` using async await.
 3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
 4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
 5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
+You may add the [After "Parallel" job](#after-parallel-execution---optional) if you implement it in the callbacks section.
 
 #### Async Await - Questions
 
