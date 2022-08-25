@@ -381,7 +381,7 @@ Lets say that after the `"4"` logging want to print the `"5 result x"` logging a
 #### After "Parallel" execution - (Optional)
 
 We want to be able to run async operations after parallel execution is done.
-Lets say that after the step 5 (logging `"5 result x"`, `"hi 5"`, `"take 5"`) we want to log `"6"`;
+Lets say that after the step 5 (logging `"5 result x"`, `"hi 5"`, `"take 5"`) we want to log `"6"` after 10 ms;
 
 How do you implement a job after "Parallel" execution?
 
