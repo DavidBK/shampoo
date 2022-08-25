@@ -39,7 +39,7 @@ Before you start make sure you familiar with these concepts:
 You can choose which technologies you want to use for this project, but ask your mentor before choosing.
 Here is my recommended technologies:
 
-- Language: [JavaScript](https://www.javascript.com/) or [TypeScript](https://www.typescript.org/) or [ReScript](https://www.rescript.org/)
+- Language: [JavaScript](https://www.javascript.com/) or [TypeScript](https://www.typescript.org/)
 - Server: [fastify](https://www.fastify.io/) or [express](https://expressjs.com/) 5.x [API](https://expressjs.com/en/5x/api.html)
 - Test: [Vitest](https://vitest.dev/) or [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/)
 - Database: [MongoDB](https://www.mongodb.com/)
@@ -47,8 +47,8 @@ Here is my recommended technologies:
   Don't use [Mongoose](https://mongoosejs.com/) ODM, use [MongoDB Node Driver](https://www.mongodb.com/docs/drivers/node/).
   You can read more about it in the [mongoose-vs-nodejs-driver](https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/) article.
 
-- Logger: [pino](https://www.npmjs.com/package/pino) or fastify [built-in pino logger](https://www.fastify.io/docs/latest/Reference/Logging/) or [winston](https://www.npmjs.com/package/winston).
-
+- Logger: [pino](https://www.npmjs.com/package/pino) or [fastify built-in pino logger](https://www.fastify.io/docs/latest/Reference/Logging/) or [winston](https://www.npmjs.com/package/winston).
+- Schema validator: [Ajv](https://ajv.js.org/) or [fastify built-in ajv validator](https://www.fastify.io/docs/latest/Reference/Validation-and-Serialization/) or [Joi](https://joi.dev/)
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
 - Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide
 
