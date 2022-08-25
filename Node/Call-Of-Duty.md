@@ -15,6 +15,16 @@ In the 'Call Of Duty' project, you will be managing soldiers and duties using a 
 
 ---
 
+## Requirements
+
+Before you start make sure you familiar with these concepts:
+
+- Server
+- Database
+- Http
+- REST API
+- Unit Testing
+
 ## General Guidelines
 
 - The database should be a [non relational](https://www.mongodb.com/databases/non-relational) database.
@@ -131,7 +141,7 @@ Your DB Will contain 2 collections:
     - The body will include the following parameters:
 
       ``` JavaScript
-      { id, name, degree, limitations}
+      { id, name, rank, limitations}
       ```
 
       The id should be the soldier's private tt number.
