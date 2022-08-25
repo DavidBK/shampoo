@@ -15,17 +15,18 @@ In the 'Call Of Duty' project, you will be managing soldiers and duties using a 
 
 ---
 
-## Requirements
+## Instructions
+
+### Pre - requirements
 
 Before you start make sure you familiar with these concepts:
 
-- Server
-- Database
-- Http
-- REST API
-- Unit Testing
+- [Web Server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server)
+- [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP)
+- [Database](https://en.wikipedia.org/wiki/Database)
+- [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing)
 
-## General Guidelines
+### General Guidelines
 
 - The database should be a [non relational](https://www.mongodb.com/databases/non-relational) database.
 - The API server should be a [RESTfull](https://www.redhat.com/en/topics/api/what-is-a-rest-api) API server.
