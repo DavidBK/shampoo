@@ -105,13 +105,13 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
    - If `multiply(num1, num2)` is invoked with 2 arguments, it should return the multiplication of the 2 arguments.
    - If `multiply(num1)` is invoked with 1 argument the function should return another function. The returned function when called with `num2` performs the multiplication `num1 * num2`
 
-      ```js
-      multiply(4, 5); // 20
-      multiply(3, 3); // 9
-      const double = multiply(2);
-      double(5);  // => 10
-      double(11); // => 22
-      ```
+    ```js
+    multiply(4, 5); // => 20
+    multiply(3, 3); // => 9
+    const double = multiply(2);
+    double(5);  // => 10
+    double(11); // => 22
+    ```
 
 3. What is the output of this code?
 
