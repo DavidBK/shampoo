@@ -48,11 +48,13 @@ nvm --version
 
 For more information you can use the repository [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
-## Basic JavaScript
+## JavaScript
 
 JavaScript is a programming language that is used to create web applications.
 
 Make sure you understand JavaScript before you start learning Node.
+
+### JavaScript - The basics
 
 You should be familiar with the following concepts:
 
