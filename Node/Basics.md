@@ -97,9 +97,8 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
       if (count === 0) {
         const count = 1;
         console.log(count);
+        logCount();
       }
-
-      logCount();
     ```
 
 2. Write a function `multiply`:
