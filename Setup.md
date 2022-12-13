@@ -14,7 +14,10 @@ You can read more about it [here](https://docs.microsoft.com/en-us/windows/wsl/a
 
 ### 1.1. Install WSL
 
-Open PowerShell (or Windows Command Prompt) and enter:
+Open PowerShell (or Windows Command Prompt) as an admin:
+
+1. Right click on PowerShell
+2. Click "Run as administrator" and enter:
 
 ```PowerShell
 wsl --install
