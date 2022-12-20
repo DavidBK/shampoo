@@ -48,7 +48,7 @@ Here is my recommended technologies:
   You can read more about it in the [mongoose-vs-nodejs-driver](https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/) article.
 
 - Logger: [pino](https://www.npmjs.com/package/pino) or [fastify built-in pino logger](https://www.fastify.io/docs/latest/Reference/Logging/) or [winston](https://www.npmjs.com/package/winston).
-- Schema validator: [Ajv](https://ajv.js.org/) or [fastify built-in ajv validator](https://www.fastify.io/docs/latest/Reference/Validation-and-Serialization/) or [Joi](https://joi.dev/)
+- Schema validator: [Ajv](https://ajv.js.org/) or [fastify built-in ajv validator](https://www.fastify.io/docs/latest/Reference/Validation-and-Serialization/) or [Joi](https://joi.dev/) or [Zod](https://github.com/colinhacks/zod)
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
 - Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide
 
@@ -150,19 +150,19 @@ Your DB Will contain 2 collections:
     - When a soldier is inserted to the database, add the `duties` property and initialize it to an empty array.
     - Return the inserted `<Soldier>`.
 
-2. Create endpoint for getting all soldiers:
-
-    - GET `/soldiers`
-    - A search query can be passed as a query parameter.
-      For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
-
-3. Create endpoint for getting a soldier:
+2. Create endpoint for getting a soldier:
 
     - GET `/soldiers/:id`
     - Return a 200 status code if the soldier is found.
     - Return a 404 status code if the soldier is not found.
 
-  Example: a request to `/soldiers/112358` should return the soldier object (if exists).
+    Example: a request to `/soldiers/112358` should return the soldier with `_id` `112358` (if exists).
+
+3. Create endpoint for getting all soldiers:
+
+    - GET `/soldiers`
+    - A search query can be passed as a query parameter.
+        For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
 
 ## Task 3 - Duty
 
