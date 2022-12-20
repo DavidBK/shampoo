@@ -160,21 +160,21 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
   ```js
   class LateBloomer {
     constructor() {
-      this.petalCount = Math.floor(Math.random() * 12) + 1;
+      this.petalNumber = Math.floor(Math.random() * 12) + 1;
     }
 
-    bloom() {
-      setTimeout(this.declare, 1000);
+    bloom(delay) {
+      setTimeout(this.declare, delay);
     }
     
     declare() {
-      console.log(`I am a beautiful flower with ${this.petalCount} petals!`);
+      console.log(`I am a beautiful flower with ${this.petalNumber} petals!`);
     }
   }
 
   const flower = new LateBloomer();
-  // Declare bloom after a delay of 1 second:
-  flower.bloom();
+  const oneSecondDelay = 1000
+  flower.bloom(oneSecondDelay);
   ```
 
 ### JavaScript - Worth knowing (Advanced)
@@ -185,10 +185,11 @@ Some advanced concepts that worth mentioning:
 - Unicode
 - Symbols
 - Prototypes
+- Maps, Sets
 - Iterators
 - Generators
+- WeakMaps, WeakSets
 - Typed Arrays
-- Maps, Sets, WeakMaps, WeakSets
 - Proxies
 
 ## Basic NodeJS
@@ -205,7 +206,7 @@ Before you continue, make sure you are familiar with the following concepts:
 - File system (`fs`)
 - Environment variables (`process.env`)
 
-### NodeJs - Worth knowing (Advanced)
+### NodeJs - Advanced Topics (Optional)
 
 Some advanced concepts that you should be aware of, skip this section if you are new to NodeJS.
 
