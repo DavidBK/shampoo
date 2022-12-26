@@ -63,8 +63,8 @@ Your DB Will contain 2 collections:
  _id: <string>, // _id will hold the soldier's unique identifier
  name: <string> ,
  rank: <string>,
- limitations: [<string>],
- duties: [<string>],
+ limitations: <string>[],
+ duties: <string>[],
 }
 ```
 
@@ -80,10 +80,10 @@ Your DB Will contain 2 collections:
    start: <ISODate>,
    end: <ISODate>,
   },
-  constraints: [<string>],
+  constraints: <string>[],
   soldiersRequired: <number>,
   value: <number>,
-  soldiers: [<string>],
+  soldiers: <string>[],
  }
 ```
 
