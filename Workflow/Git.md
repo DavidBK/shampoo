@@ -37,11 +37,11 @@ Here are some examples links:
 - [Youtube crash course](https://youtu.be/SWYqp7iY_Tc)
 - [git-tutorial](https://git-scm.com/docs/gittutorial)
 
-# Set up git
+## Set up git
 
 Git is a version control system for tracking changes in files and coordinating work among multiple people.
 
-## Install git
+### Install git
 
 Open Terminal and enter:
 
@@ -51,7 +51,7 @@ sudo apt-get install git
 
 *(If you don't use [WSL](#1-set-up-wsl-optional) look up how to install git on windows)*
 
-## Git config file setup
+### Git config file setup
 
 The Git configuration file contains a number of variables that affect the Git commands' behavior. The `.git/config` file in each repository is used to store the configuration for that repository, and `$HOME/.gitconfig` is used to store a per-user configuration as fallback values for the .git/config file.
 
@@ -69,11 +69,11 @@ Replace `"youremail@domain.com"` with your email:
 git config --global user.email "youremail@domain.com"
 ```
 
-## Configure Connection with the remote (Recommended)
+### Configure Connection with the remote (Recommended)
 
 Git uses several protocols for client-server communication. SSH and HTTPS are secure protocols. As a result, many git servers, such as Github, Bitbuckets, and GitLab, use those two popular cryptographic network protocols.
 
-### **HTTPS**
+#### **HTTPS**
 
 HTTPS is a secure version of HTTP that encrypts data transmitted between the client and the server.
 
@@ -81,13 +81,13 @@ Starting git with HTTPS for cloning, pulling, and pushing is much easier and can
 
 If you use HTTPS URLs on the command line to get a remote repository, git fetch, git pull, or git push, git will ask for a username and password.
 
-### **SSH**
+#### **SSH**
 
 SSH means "Secured Shell". It is also a secured version, where data sent between the client and server is encrypted.
 
 - How does SSH work? (Enrichment - Optional)
 
-### Create a new SSH key
+##### **Create a new SSH key**
 
 Open terminal and type:
 
@@ -108,9 +108,9 @@ Specify a [passphrase](https://www.ssh.com/academy/ssh/passphrase) if you like.
 
 A public and private key are generated. Add the public SSH key to your Remote account and keep the private key secure.
 
-### Add the public SSH key to gitlab
+##### **Add the public SSH key to gitlab**
 
-*In github and bitbucket the process is the same*
+(In github and bitbucket the process is the same)
 
 You can read this for more details:  [add-an-ssh-key-to-your-gitlab-account](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account).
 
@@ -132,7 +132,7 @@ Verify that you can connect using `ssh`!
 ssh -T git@gitlab.com
 ```
 
-# Git basics
+## Git basics
 
 Learn the basic git commands and how to use them.
 
@@ -142,7 +142,13 @@ Init a git repo and create commits and branches. merge them and play with the gi
 Understanding the practical use of git will help you to understand the next steps.
 In the next chapter we dive more deeply into the concepts.
 
-# Git Basic uint - The commit
+### Game Time (optional)
+
+If you like to learn by a game, you can try this one:
+
+[learn git branching](https://learngitbranching.js.org/)
+
+## Git Basic uint - The commit
 
 ## Commits creation
 

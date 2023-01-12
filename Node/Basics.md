@@ -248,7 +248,7 @@ Some of these techniques are legacy and not recommended for new projects but the
 2. Create a `intro.js` file and run it in the terminal.
 
     ```bash
-    node test.js
+    node intro.js
     ```
 
     What is the output? why?
