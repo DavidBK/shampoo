@@ -322,12 +322,12 @@ Here is an example:
 ```js
 const exampleValue = 0;
 
-const isTruthy = function (value, done) {
+const validateTruthy = function (value, done) {
   if (value) return done();
   done(new Error("Value is not Truthy!"));
 }
 
-isTruthy(exampleValue, (err) => {
+validateTruthy(exampleValue, (err) => {
   if (err) {
     console.error(err);
     return;
