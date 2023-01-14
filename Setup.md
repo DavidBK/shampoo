@@ -186,12 +186,16 @@ For more information, see
 
   - [Zsh + Antigen + Oh my Zsh = A Beautiful, Powerful, and Robust Shell](https://phuctm97.com/blog/zsh-antigen-ohmyzsh)
 
-- [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/) - for [nvm](Node/Basics.md#install-nodejs-using-nvm) users
+- [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/) -
+  for [nvm](Node/Basics#install-nodejs-using-nvm) users
 
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) -
   [Fish](https://fishshell.com/)-like fast/unobtrusive autosuggestions for zsh.
 
 - [starship](https://starship.rs/) - cross shell customizable prompt
+
+  - [Install a Nerd Font](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup#install-a-nerd-font)
+    on windows terminal
 
 ---
 
