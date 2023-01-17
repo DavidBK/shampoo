@@ -25,6 +25,7 @@ Before you start make sure you familiar with these concepts:
 - [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP)
 - [Database](https://en.wikipedia.org/wiki/Database)
 - [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing)
+- [Linting](https://en.wikipedia.org/wiki/Lint_(software)) - [eslint setup](https://dev.to/devdammak/setting-up-eslint-in-your-javascript-project-with-vs-code-2amf)
 
 ### General Guidelines
 
