@@ -48,6 +48,8 @@ nvm --version
 
 For more information you can use the repository [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
+Optional: [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/)
+
 ## JavaScript
 
 JavaScript is a programming language that is used to create web applications.
