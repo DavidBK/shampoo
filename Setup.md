@@ -1,4 +1,4 @@
-# Setup
+# Setup for Windows
 
 Lets prepare the space environment for you!
 
