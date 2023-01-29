@@ -77,7 +77,7 @@ Zsh is a shell designed for interactive use, although it is also a powerful
 scripting language.
 
 ```bash
-sudo apt-get install zsh
+sudo apt install zsh
 ```
 
 ### 1.6. Install oh-my-zsh (Recommended)
@@ -88,7 +88,7 @@ configuration.
 Before all we need to have git installed:
 
 ```bash
-sudo apt-get install git
+sudo apt install git
 ```
 
 Then, use `curl` to install oh-my-zsh:
