@@ -147,6 +147,10 @@ This are concepts that is good to know they exist, but you don't need to learn t
 - Cronjobs
 - Shell Scripting
 
+### Further learning
+
+- [The art of the command line](https://github.com/jlevy/the-art-of-command-line)
+
 ## Next steps
 
 Congratulations! You are now Can use linux in your [next](Workflow/Git) space mission!
