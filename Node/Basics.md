@@ -87,6 +87,8 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
 
 #### JavaScript - questions (Advanced Topics)
 
+Some questions about the Advanced Topics (skip this part if you are new to JavaScript):
+
 1. What is the output of this code?
 
     ```js
@@ -139,8 +141,8 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
 
     ```js
     const user = {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Lady',
+      lastName: 'Gaga',
       address: {
         street: 'David king',
         city: 'TLV',
@@ -148,7 +150,7 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
       }
     };
 
-    const copiedUser = { ...user }
+    const copiedUser = { ...user };
 
     copiedUser.firstName = 'Jane';
     copiedUser.address.street = 'Back street';
@@ -165,7 +167,7 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
       this.petalNumber = Math.floor(Math.random() * 12) + 1;
     }
 
-    bloom(delay) {
+    bloomInDelay(delay) {
       setTimeout(this.declare, delay);
     }
     
@@ -176,7 +178,7 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
 
   const flower = new LateBloomer();
   const oneSecondDelay = 1000
-  flower.bloom(oneSecondDelay);
+  flower.bloomInDelay(oneSecondDelay);
   ```
 
 ### JavaScript - Worth knowing (Advanced)
@@ -205,7 +207,7 @@ Before you continue, make sure you are familiar with the following concepts:
 
 - Package manger (`npm`)
 - `package.json`, `package-lock.json`
-- File system (`fs`)
+- File system (`node:fs`)
 - Environment variables (`process.env`)
 
 ### NodeJs - Advanced Topics (Optional)
@@ -214,6 +216,7 @@ Some advanced concepts that you should be aware of, skip this section if you are
 
 - Streams
 - Buffers
+- CJS vs ESM
 
 More advanced concepts is detailed in later [section](#wip-advanced-topics-optional)
 
@@ -319,22 +322,19 @@ Commit and push your changes.
 
 In Node.js, it is considered standard practice to handle errors in asynchronous functions by returning them as the **first argument** to the current function's callback. If there is an error, the first parameter is passed an Error object with all the details. Otherwise, the first parameter is null.
 
-Here is an example:
+Here is an example with synchronous code:
 
 ```js
-const exampleValue = 0;
+const exampleValue = Math.round(Math.random()); // 0 or 1
 
 const validateTruthy = function (value, done) {
   if (value) return done();
-  done(new Error("Value is not Truthy!"));
+  done(new Error(`Value ${value} is not Truthy!`));
 }
 
 validateTruthy(exampleValue, (err) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log('Great news!');
+  if (err) console.error(err);
+  else console.log('Great success!');
 });
 ```
 
@@ -393,7 +393,7 @@ How do you implement a job after "Parallel" execution?
 2. When do you think this solution will be useful?
 3. What is callback hell?
 
-#### Callbacks - Worth Knowing
+#### Callbacks - Worth Knowing (Optional)
 
 This topics are not covered in this chapter but is worth knowing:
 
@@ -442,12 +442,12 @@ Lets create the `callbacks-logging.js` using event handlers.
 1. What is the advantage and the disadvantage of using event handlers as a solution for the async problem?
 2. When do you think this solution will be useful?
 
-#### Event handlers - Worth Knowing
+#### Event handlers - Worth Knowing (Optional)
 
 This topics are not covered in this chapter but is worth knowing:
 
 - `AbortSignal`
-- `captureRejections`
+- `captureRejections` and async event handlers (not recommended)
 
 ### Promises
 
@@ -462,13 +462,49 @@ Most of the time, you will consume an a already-created promises, but it importa
 Here is a basic example:
 
 ```js
-const doSomething = () => new Promise((resolve, reject) => {
-  resolve('Hello World!');
-});
+const doSomething = () => {
+  return new Promise(resolve => resolve('Hello World!'));
+};
 
 doSomething().then(result => {
   console.log(result);
 });
+```
+
+Here is an example utilizing `reject`:
+
+```js
+const addAsync = (x, y) => new Promise((resolve, reject) => {
+  if (x === undefined || y === undefined) {
+    reject(new Error('Must provide two parameters'));
+  } else {
+    resolve(x + y);
+  }
+});
+```
+
+Aren't promises just callbacks with `.then()`?
+
+`.then()` and `.catch()` always return Promises. That enables us to create arbitrary long chains of method calls:
+
+```javascript
+asyncFunc1()
+  .then(result1 => {
+    /*···*/
+    return asyncFunc2();
+  })
+  .then(result2 => {
+    /*···*/
+    return syncFunc3();
+  })
+  .then(result3 => {
+    /*···*/
+    return result;
+  })
+  .catch(err => {
+    /*···*/
+    return 'default value';
+  })
 ```
 
 Lets create the infamous logging example using promises.
@@ -484,14 +520,11 @@ You may add the [After "Parallel" job](#after-parallel-execution---optional) if 
 
 1. What is the advantage and the disadvantage of using promises as a solution for the async problem?
 
-#### Promises - Worth Knowing
+#### Promises - Worth Knowing (Optional)
 
 This topics are not covered in this chapter but is worth knowing:
 
-- `Promise.all()`
-- `Promise.race()`
-- `Promise.any()`
-- `Promise.allSettled()`
+- `.finally()`
 - `util.promisify()`
 
 ### Async Await
@@ -511,7 +544,7 @@ async function asyncExample(value) {
 }
 ```
 
-Lets refactor the `promise-logging.js` using async await.
+Lets refactor the `promise-logging.js` using async await:
 
 1. Create a `async-await-logging.js`.
 2. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
@@ -525,11 +558,80 @@ You may add the [After "Parallel" job](#after-parallel-execution---optional) if 
 1. What is the advantage and the disadvantage of using async await as a solution for the async problem?
 2. Why should we never use await inside a loop?
 
-#### Async Await - Worth Knowing
+#### Async Await - Worth Knowing (Advanced)
 
 This topics are not covered in this chapter but is worth knowing:
 
+- Top level await
 - `for await...of`
+
+### Promise combinator functions
+
+Promise [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) functions help us working with arrays of promises
+
+#### Promise.all()
+
+`Promise.all()` is a function Which get array of promises and returns a single `Promise` which is:
+
+- Fulfilled with the array of the fulfillment values of the input promises.
+- Rejected if at least one Promise is rejected. The value is the rejection value of that Promise.
+
+Promise.all is important because it let us execute "parallel" jobs using asynchronous `.map()`.
+
+Here is an abstract Example:
+
+```javascript
+Promise.all(arr.map(async (element) => await logic()));
+```
+
+Let's create an practical example!
+
+`downloadText()` uses the Promise-based [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) API to download a text file as a string
+
+```javascript
+async function downloadText(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(res.statusText);
+  else return res.text();
+}
+```
+
+Create a function called `downloadTextFiles` that get an array of urls and return an array of strings.
+
+You can test your function using this example:
+
+```javascript
+const urls = [
+  'https://filesamples.com/samples/document/txt/sample1.txt',
+  'https://filesamples.com/samples/document/txt/sample2.txt',
+];
+```
+
+#### Promise.allSettled()
+
+`Promise.allSettled()` is a function Which get array of promises and returns a single `Promise` which is fulfilled when all promises are settled.
+
+The fulfillment value is an array of the objects with the result of the promises:
+
+```javascript
+{
+  status: 'fulfilled' | 'rejected',
+  [value | reason]: res | err
+}
+```
+
+Why using `Promise.allSettled()` instead of `Promise.all()`?
+
+Unless there is an error when iterating over promises, the output Promise out is never rejected. This is lets use executes asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
+
+Lets fix the `downloadTextFiles` to return array of strings which contain all the successful downloaded text.
+
+### Promise combinator functions - Worth Knowing
+
+This topics are not covered in this chapter but is worth knowing:
+
+- `Promise.race()`
+- `Promise.any()`
 
 ## WIP: Advanced Topics (Optional)
 
