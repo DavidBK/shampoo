@@ -564,6 +564,7 @@ This topics are not covered in this chapter but is worth knowing:
 
 - Top level await
 - `for await...of`
+- `return await` in async function
 
 ### Promise combinator functions
 
@@ -604,7 +605,7 @@ Let's create an practical example!
 async function downloadText(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(res.statusText);
-  else return res.text();
+  else return await res.text();
 }
 ```
 
@@ -675,6 +676,7 @@ If you finish the above exercises in the *"Estimation time"* you can move on to 
 
 this is a work in progress and will be updated soon.
 
+
 ### Node.js Event Loop
 
 - [What the heck is the event loop anyway? | Philip Roberts | JSConf EU](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
@@ -695,6 +697,10 @@ this is a work in progress and will be updated soon.
 - Child Processes
 - Worker threads
 - Thread pools
+
+### General Topics
+
+- Tail call optimization - [ECMMAScript](https://2ality.com/2015/06/tail-call-optimization.html) [implementations](https://world.hey.com/mgmarlow/what-happened-to-proper-tail-calls-in-javascript-5494c256)
 
 ### Additional Topics
 
