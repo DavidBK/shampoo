@@ -50,6 +50,7 @@ which allows you to quickly open a new terminal instance from anywhere in
 Windows by typing `` Win+` ``. It is a great way to run commands on your Linux
 distribution.
 
+Windows Terminal is built in Windows 11.
 To install you can follow the
 [installation guide](https://docs.microsoft.com/en-us/windows/terminal/install#invoke-the-command-palette).
 
@@ -105,9 +106,40 @@ Then, use `curl` to install oh-my-zsh:
 sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+#### Antigen
+
+[Antigen](https://github.com/zsh-users/antigen) is plugin manager for zsh.
+
+Install it:
+
+```bash
+curl -L git.io/antigen > $HOME/antigen.zsh
+```
+
+Configure zsh with antigen:
+
+1. Open `.zshrc` in your editor (`nano ~/.zshrc` or `code ~/.zshrc`)
+2. Delete all the lines in `.zshrc`
+3. Replace it with the following (my recommended configuration):
+
+```bash
+source $HOME/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+
+antigen theme robbyrussell
+antigen apply
+```
+
 ---
 
-You can Chang the Theme of oh-my-zsh! look it up if you like
+You can Change the Theme of oh-my-zsh! look it up if you like
 
 ## 2. Install VS code
 
@@ -190,15 +222,8 @@ For more information, see
 
 ## Advanced links (skip)
 
-- [Antigen](https://github.com/zsh-users/antigen) - The plugin manager for zsh.
-
-  - [Zsh + Antigen + Oh my Zsh = A Beautiful, Powerful, and Robust Shell](https://phuctm97.com/blog/zsh-antigen-ohmyzsh)
-
 - [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/) -
   for [nvm](Node/Basics#install-nodejs-using-nvm) users
-
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) -
-  [Fish](https://fishshell.com/)-like fast/unobtrusive autosuggestions for zsh.
 
 - [starship](https://starship.rs/) - cross shell customizable prompt
 
