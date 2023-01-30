@@ -659,7 +659,7 @@ interface RejectionObject {
 
 Wow, this look pretty exhausting. Why using `Promise.allSettled()` instead of `Promise.all()`?
 
-Unless there is an error when iterating over promises, the output Promise is never rejected. This is lets use executes asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
+Unless there is an error when iterating over promises, the output Promise is never rejected. This is lets us executes asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
 
 Lets fix the `downloadTextFiles` to return array of strings which contain all the successful downloaded text.
 
@@ -675,7 +675,6 @@ This topics are not covered in this chapter but is worth knowing:
 If you finish the above exercises in the *"Estimation time"* you can move on to the advanced topics.
 
 this is a work in progress and will be updated soon.
-
 
 ### Node.js Event Loop
 
