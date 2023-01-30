@@ -579,10 +579,10 @@ Promise [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) f
 Something like this:
 
 ```javascript
-[...promises] => Promise[res]
+[...promises] => Promise([res])
 ```
 
-More accurate in typescript syntax: (Advanced)
+More accurate in typescript syntax (Advanced):
 
 ```typescript
 Promise.all<T>(promises: Iterable<Promise<T>>): Promise<Array<T>>
@@ -593,7 +593,7 @@ Promise.all is important because it let us execute "parallel" jobs using asynchr
 Here is an abstract Example:
 
 ```javascript
-Promise.all(arr.map(async (element) => await logic()));
+Promise.all(arr.map(async (element) => await asyncLogic(element)));
 ```
 
 Let's create an practical example!
@@ -608,7 +608,7 @@ async function downloadText(url) {
 }
 ```
 
-Create a function called `downloadTextFiles` that get an array of urls and return an array of strings.
+Create a function called `downloadTextFiles` which get an array of urls and return an array of strings.
 
 You can test your function using this example:
 
@@ -623,18 +623,42 @@ const urls = [
 
 `Promise.allSettled()` is a function Which get array of promises and returns a single `Promise` which is fulfilled when all promises are settled.
 
-The fulfillment value is an array of the objects with the result of the promises:
+The fulfillment value is an array of the objects with the result of the promises.
+
+Something like this:
 
 ```javascript
-{
-  status: 'fulfilled' | 'rejected',
-  [value | reason]: res | err
+[...promises] => Promise([
+  {
+    status: 'fulfilled' | 'rejected',
+    [value | reason]: res | err
+  },
+  ...,
+])
+```
+
+More accurate in typescript syntax (Advanced):
+
+```typescript
+
+Promise.allSettled<T>(promises: Iterable<Promise<T>>): Promise<Array<SettlementObject<T>>>
+
+type SettlementObject<T> = FulfillmentObject<T> | RejectionObject;
+
+interface FulfillmentObject<T> {
+  status: 'fulfilled';
+  value: T;
+}
+
+interface RejectionObject {
+  status: 'rejected';
+  reason: unknown;
 }
 ```
 
-Why using `Promise.allSettled()` instead of `Promise.all()`?
+Wow, this look pretty exhausting. Why using `Promise.allSettled()` instead of `Promise.all()`?
 
-Unless there is an error when iterating over promises, the output Promise out is never rejected. This is lets use executes asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
+Unless there is an error when iterating over promises, the output Promise is never rejected. This is lets use executes asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
 
 Lets fix the `downloadTextFiles` to return array of strings which contain all the successful downloaded text.
 
