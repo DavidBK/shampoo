@@ -567,7 +567,7 @@ This topics are not covered in this chapter but is worth knowing:
 
 ### Promise combinator functions
 
-Promise [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) functions help us working with arrays of promises
+Promise [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) functions help us work with arrays of promises.
 
 #### Promise.all()
 
@@ -575,6 +575,18 @@ Promise [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) f
 
 - Fulfilled with the array of the fulfillment values of the input promises.
 - Rejected if at least one Promise is rejected. The value is the rejection value of that Promise.
+
+Something like this:
+
+```javascript
+[...promises] => Promise[res]
+```
+
+More accurate in typescript syntax: (Advanced)
+
+```typescript
+Promise.all<T>(promises: Iterable<Promise<T>>): Promise<Array<T>>
+```
 
 Promise.all is important because it let us execute "parallel" jobs using asynchronous `.map()`.
 
