@@ -566,9 +566,9 @@ This topics are not covered in this chapter but is worth knowing:
 - `for await...of`
 - `return await` in async function
 
-### Promise combinator functions
+### Promise functions
 
-Promise [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) functions help us work with arrays of promises.
+The `Promise` class has [static](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) functions that help us work with arrays of promises.
 
 #### Promise.all()
 
@@ -580,7 +580,7 @@ Promise [combinator](https://dev.to/gcanti/functional-design-combinators-14pn) f
 Something like this:
 
 ```javascript
-[...promises] => Promise([res])
+[...promises] => Promise([...res])
 ```
 
 More accurate in typescript syntax (Advanced):
@@ -633,7 +633,7 @@ Something like this:
   {
     status: 'fulfilled' | 'rejected',
     [value | reason]: res | err
-  },
+  }, 
   ...,
 ])
 ```
@@ -663,7 +663,7 @@ Unless there is an error when iterating over promises, the output Promise is nev
 
 Lets fix the `downloadTextFiles` to return array of strings which contain all the successful downloaded text.
 
-### Promise combinator functions - Worth Knowing
+### Promise functions - Worth Knowing
 
 This topics are not covered in this chapter but is worth knowing:
 
