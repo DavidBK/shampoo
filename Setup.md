@@ -61,7 +61,7 @@ On windows terminal, enter `crtl+,` to open setting.
 Select Startup and choose `Ubuntu` as your default profile.
 
 To move between tab terminals, use `ctrl+tab` and `ctrl+shift+tab`. To close a
-tab in terminal, enter `ctrl+w`.
+tab in terminal, enter `ctrl+shift+w`. To open a new tab, enter `ctrl+shift+T`.
 
 ### 1.4. Update and upgrade packages
 
