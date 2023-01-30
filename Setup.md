@@ -80,6 +80,14 @@ scripting language.
 sudo apt install zsh
 ```
 
+Configure zsh to be the default shell:
+
+```bash
+chsh -s $(which zsh)
+```
+
+You can check your shell by running `echo $SHELL`.
+
 ### 1.6. Install oh-my-zsh (Recommended)
 
 [Oh My Zsh](https://ohmyz.sh/) is a open source framework for managing your Zsh
@@ -97,9 +105,9 @@ Then, use `curl` to install oh-my-zsh:
 sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-You can Chang the Theme of oh-my-zsh! look it up if you like
-
 ---
+
+You can Chang the Theme of oh-my-zsh! look it up if you like
 
 ## 2. Install VS code
 
