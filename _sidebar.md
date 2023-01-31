@@ -21,7 +21,7 @@
 
 ## [NodeJS](Node/Node)
 
-- [NodeJS basics](Node/Basics)
+- [Asynchronous in Javascript](Node/Asynchronous-Javascript)
 - [Project - Call Of Duty](Node/Call-Of-Duty)
 
 ### [Code-Design](Code-Design/Code-Design)

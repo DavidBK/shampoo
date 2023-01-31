@@ -1,4 +1,4 @@
-# NodeJS and JavaScript Basics
+# Asynchronous NodeJS and JavaScript
 
 -- *Estimation time: 1-3 Days*
 
