@@ -395,7 +395,7 @@ How do you implement a job after "Parallel" execution?
 
 #### Callbacks - Worth Knowing (Optional)
 
-This topics are not covered in this chapter but is worth knowing:
+These topics are not covered in this chapter but is worth knowing:
 
 - [Async.js](https://caolan.github.io/async/v3/)
 
@@ -444,7 +444,7 @@ Lets create the `callbacks-logging.js` using event handlers.
 
 #### Event handlers - Worth Knowing (Optional)
 
-This topics are not covered in this chapter but is worth knowing:
+These topics are not covered in this chapter but is worth knowing:
 
 - `AbortSignal`
 - `captureRejections` and async event handlers (not recommended)
@@ -522,7 +522,7 @@ You may add the [After "Parallel" job](#after-parallel-execution---optional) if 
 
 #### Promises - Worth Knowing (Optional)
 
-This topics are not covered in this chapter but is worth knowing:
+These topics are not covered in this chapter but is worth knowing:
 
 - `.finally()`
 - `util.promisify()`
@@ -560,7 +560,7 @@ You may add the [After "Parallel" job](#after-parallel-execution---optional) if 
 
 #### Async Await - Worth Knowing (Advanced)
 
-This topics are not covered in this chapter but is worth knowing:
+These topics are not covered in this chapter but is worth knowing:
 
 - Top level await
 - `for await...of`
@@ -665,7 +665,7 @@ Lets fix the `downloadTextFiles` to return array of strings which contain all th
 
 ### Promise functions - Worth Knowing
 
-This topics are not covered in this chapter but is worth knowing:
+These topics are not covered in this chapter but is worth knowing:
 
 - `Promise.race()`
 - `Promise.any()`
