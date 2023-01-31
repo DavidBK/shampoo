@@ -657,9 +657,9 @@ interface RejectionObject {
 }
 ```
 
-Wow, this look pretty exhausting. Why using `Promise.allSettled()` instead of `Promise.all()`?
+Wow, this looks pretty exhausting. Why using `Promise.allSettled()` instead of `Promise.all()`?
 
-Unless there is an error when iterating over promises, the output Promise is never rejected. This is lets us executes asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
+Unless there is an error when iterating over promises, the output Promise is never rejected. This lets us execute asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
 
 Lets fix the `downloadTextFiles` to return array of strings which contain all the successful downloaded text.
 

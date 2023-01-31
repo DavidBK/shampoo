@@ -136,7 +136,7 @@ You can read this article [creating-soft-link-or-symbolic-link](https://www.cybe
 
 ## Worth knowing
 
-This are concepts that is good to know they exist, but you don't need to learn them right now.
+These are concepts that are good to know they exist, but you don't need to learn them right now.
 
 - `Find`
 - `service`
