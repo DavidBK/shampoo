@@ -556,7 +556,8 @@ You may add the [After "Parallel" job](#after-parallel-execution---optional) if 
 #### Async Await - Questions
 
 1. What is the advantage and the disadvantage of using async await as a solution for the async problem?
-2. Why should we never use await inside a loop?
+2. Should we use await inside `for` or `while` loop?
+3. Should we use await inside a `forEach` loop?
 
 #### Async Await - Worth Knowing (Advanced)
 
