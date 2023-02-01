@@ -165,6 +165,8 @@ Your DB Will contain 2 collections:
     - A search query can be passed as a query parameter.
         For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
 
+Don't forget to log your logics.
+
 ## Task 3 - Duty
 
 -- *Estimation time: 2 Days*
