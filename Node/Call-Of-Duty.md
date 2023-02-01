@@ -59,7 +59,7 @@ Your DB Will contain 2 collections:
 
 - **Soldiers**:
 
-```JavaScript
+```typescript
 {
  _id: <string>, // _id will hold the soldier's unique identifier
  name: <string> ,
@@ -71,7 +71,7 @@ Your DB Will contain 2 collections:
 
 - **Duties**:
 
-```JavaScript  
+```typescript  
  {
   _id: ObjectId(),
   name: <string>,
@@ -142,8 +142,8 @@ Your DB Will contain 2 collections:
     - Return a 201 status code if the soldier is created.
     - The body will include the following parameters:
 
-      ``` JavaScript
-      { id, name, rank, limitations}
+      ```javascript
+      { id, name, rank, limitations }
       ```
 
       The id should be the soldier's private tt number.
@@ -175,7 +175,7 @@ Your DB Will contain 2 collections:
     - Return a 201 status code if the duty is created.
     - The body will include the following parameters:
 
-      ``` JavaScript
+      ```javascript
       { name, location, time, constraints, soldiersRequired, value }
       ```
 
@@ -220,8 +220,8 @@ The justice board is an array of objects with the keys are:
 
 For example:
 
-```JavaScript
-[{id: '112358', score: 23}, {id: '3141592', score: 19}, ...]
+```javascript
+[{ id: '112358', score: 23 }, { id: '3141592', score: 19 }, ...]
 ```
 
 1. Create endpoint for getting the justice board:
