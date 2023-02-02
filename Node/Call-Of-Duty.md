@@ -257,6 +257,8 @@ For example:
 
 4. Add basic authentication to your app.
 
+5. Optional: Add https protocol support to your application.
+
 ## Task 7 - Make it scalable (Advanced)
 
 1. What will happen if you add more soldiers and duties?
