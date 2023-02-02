@@ -677,8 +677,8 @@ link at every chapter._
    ```
 
 5. Rebase `chapter-7-ver-2` on top of `chapter-7`. Resolve the conflict.
-6. I must be a real dumb, i meant to rebase `chapter-7` on top of `chapter-7`.
-   Fix it. (_Hint: you dint have to use `reflog`_)
+6. I must be a real dumb, i meant to rebase `chapter-7` on top of `chapter-7-ver-2`.
+   Fix it. (_Hint: you don't have to use `reflog`_)
 7. Log the history of `chapter-7` and `chapter-6`. Compere them and answer the
    question [union-of-branches](#union-of-branches) again.
 
