@@ -222,9 +222,6 @@ For more information, see
 
 ## Advanced links (skip)
 
-- [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/) -
-  for [nvm](Node/Basics#install-nodejs-using-nvm) users
-
 - [starship](https://starship.rs/) - cross shell customizable prompt
 
   - [Install a Nerd Font](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup#install-a-nerd-font)

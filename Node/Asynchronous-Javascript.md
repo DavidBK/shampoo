@@ -48,7 +48,7 @@ nvm --version
 
 For more information you can use the repository [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
-Optional: [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/)
+Optional: [zsh plugin with lazy load](https://github.com/lukechilds/zsh-nvm) Or [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/)
 
 ## JavaScript
 
