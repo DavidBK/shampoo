@@ -544,7 +544,7 @@ link at every chapter._
    Your graph should look like this:
 
    ```git
-   * 7c67cad - (chapter-2) Add page 1 to chapter 2 (61 seconds ago) <spacename>
+   * 7c67cad - (chapter-2) Add page 3 to chapter 2 (61 seconds ago) <spacename>
    | * cf15fb8 - (chapter-1) Add page 3 (7 minutes ago) <spacename>
    |/  
    * 9e37807 - Add page 2 (8 minutes ago) <spacename>
@@ -563,7 +563,7 @@ link at every chapter._
 3. Add file name `this_is_not_a_book.txt` and commit it.
 4. Make a branch called `chapter-4-ver-2` which will point on the `chapter-4`
    branch.
-5. Reset the last commit to `Add page 1 to chapter 2`.
+5. Reset the last commit to `Add page 3 to chapter 2`.
 6. Oh no! I was confused between`chapter-4-ver-2` and `chapter-4`. Silly me.
 
    Swap the `chapter-4-ver-2` and `chapter-4` branches. Do not create a new
@@ -577,9 +577,9 @@ link at every chapter._
 
    ```git
    * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (3 minutes ago) <spacename>
-   * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (13 minutes ago) <spacename>
+   * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (13 minutes ago) <spacename>
    | * f36ad71 - (HEAD -> chapter-5) Add a mistake (14 minutes ago) <spacename>
-   | * 137d2d8 - Add page 1 to chapter 2 (18 minutes ago) <spacename>
+   | * 137d2d8 - Add page 3 to chapter 2 (18 minutes ago) <spacename>
    |/  
    | * cf15fb8 - (chapter-1) Add page 3 (20 minutes ago) <spacename>
    |/  
@@ -627,10 +627,10 @@ link at every chapter._
     | |/  
     | * cf15fb8 - (chapter-1) Add page 3 (34 minutes ago) <spacename>
     * | f36ad71 - Add a mistake (28 minutes ago) <spacename>
-    * | 137d2d8 - Add page 1 to chapter 2 (32 minutes ago) <spacename>
+    * | 137d2d8 - Add page 3 to chapter 2 (32 minutes ago) <spacename>
     |/  
     | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (18 minutes ago) <spacename>
-    | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (28 minutes ago) <spacename>
+    | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (28 minutes ago) <spacename>
     |/  
     * 9e37807 - Add page 2 (35 minutes ago) <spacename>
     * 9684685 - Add page 1 (35 minutes ago) <spacename>
@@ -665,10 +665,10 @@ link at every chapter._
    | |/  
    | * cf15fb8 - (chapter-1) Add page 3 (39 minutes ago) <spacename>
    * | f36ad71 - Add a mistake (33 minutes ago) <spacename>
-   * | 137d2d8 - Add page 1 to chapter 2 (37 minutes ago) <spacename>
+   * | 137d2d8 - Add page 3 to chapter 2 (37 minutes ago) <spacename>
    |/  
    | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (23 minutes ago) <spacename>
-   | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (33 minutes ago) <spacename>
+   | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (33 minutes ago) <spacename>
    |/  
    * 9e37807 - Add page 2 (39 minutes ago) <spacename>
    * 9684685 - Add page 1 (40 minutes ago) <spacename>
@@ -698,10 +698,10 @@ link at every chapter._
    |/|   
    * | cf15fb8 - (chapter-1) Add page 3 (48 minutes ago) <spacename>
    | * f36ad71 - Add a mistake (42 minutes ago) <spacename>
-   | * 137d2d8 - Add page 1 to chapter 2 (46 minutes ago) <spacename>
+   | * 137d2d8 - Add page 3 to chapter 2 (46 minutes ago) <spacename>
    |/  
    | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (31 minutes ago) <spacename>
-   | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (41 minutes ago) <spacename>
+   | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (41 minutes ago) <spacename>
    |/  
    * 9e37807 - Add page 2 (48 minutes ago) <spacename>
    * 9684685 - Add page 1 (48 minutes ago) <spacename>
@@ -830,10 +830,10 @@ How was your story?? I hope its look like this:
 | | |/|   
 | | * | cf15fb8 - (chapter-1) Add page 3 (65 minutes ago) <spacename>
 | | | * f36ad71 - Add a mistake (59 minutes ago) <spacename>
-| | | * 137d2d8 - Add page 1 to chapter 2 (63 minutes ago) <spacename>
+| | | * 137d2d8 - Add page 3 to chapter 2 (63 minutes ago) <spacename>
 | | |/  
 | | | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (48 minutes ago) <spacename>
-| | | * 7c67cad - (chapter-4, chapter-2) Add page 1 to chapter 2 (58 minutes ago) <spacename>
+| | | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (58 minutes ago) <spacename>
 | | |/  
 | | * 9e37807 - Add page 2 (65 minutes ago) <spacename>
 | | * 9684685 - Add page 1 (65 minutes ago) <spacename>
