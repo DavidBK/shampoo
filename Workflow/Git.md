@@ -851,9 +851,11 @@ Talk to your mentor about the exam.
 
 ## Worth knowing
 
+These concepts are worth mentioning but don't learn them now.
+
 - [Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)
 - [worktree](https://git-scm.com/docs/git-worktree)
-- [sparse-checkout](https://git-scm.com/docs/git-sparse-checkout)
+- [sparse-checkout](https://git-scm.com/docs/git-sparse-checkout) - [Blog Post](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/)
 - [Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 ## Next Steps
