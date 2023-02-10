@@ -1,11 +1,11 @@
 # Asynchronous NodeJS and JavaScript
 
--- *Estimation time: 1-3 Days*
+-- *Estimation time: 2-4 Days*
 
 ---
 NodeJS is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 
-This is a basic introduction to Node JS and JavaScript.
+This is a basic introduction to asynchronous Node JS and JavaScript.
 
 ***Learning objectives:***
 
@@ -529,7 +529,7 @@ These topics are not covered in this chapter but is worth knowing:
 
 ### Async Await
 
-Async Await is a new way to write asynchronous code and is a "syntactic sugar" for promises.
+Async Await is a new way to write asynchronous code and is a "syntactic sugar" for promises. Moreover it is has a better DX (async stack trace support and debug step through)
 
 An async function is a function declared with the `async` keyword, and the `await` keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
 
