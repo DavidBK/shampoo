@@ -23,5 +23,6 @@
 
 - [Asynchronous in Javascript](Node/Asynchronous-Javascript)
 - [Project - Call Of Duty](Node/Call-Of-Duty)
+- [TypeScript](Node/TypeScript)
 
 ### [Code-Design-Links](Code-Design/Code-Design)
