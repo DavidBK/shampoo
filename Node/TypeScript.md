@@ -189,6 +189,8 @@ A lot of the cases there is strong connections between the types and the runtime
 
 The goal is to eliminate duplicative type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type. It's easy to compose simpler types into complex data structures.
 
+If you like to use Zod in [Fastify](https://www.fastify.io/) app, you can use [fastify-type-provider-zod](https://github.com/turkerdev/fastify-type-provider-zod) library.
+
 #### Zod tutorial (optional)
 
 You can do [this](https://www.totaltypescript.com/tutorials/zod) tutorial which is a set of zod exercises for you to work through.
