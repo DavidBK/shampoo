@@ -168,7 +168,7 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
 [Here](https://github.com/total-typescript/beginners-typescript-tutorial) is a great tutorial for all the basics. Do it yourself :smile:
 
-### Convention and my recommendations
+### Working With TS - My Recommendations
 
 - Write a little TS as you can! TS is very "smart" and most of the time inferred types will be more "specific". Also this will help your code readability.
   - Don't declare types in variables
