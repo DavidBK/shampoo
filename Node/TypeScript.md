@@ -177,6 +177,32 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 - Don't use enums, prefer union types or const objects.
 - Don't use `Function`, `Object`, `String`, `Number`, and `Boolean` (Capital letters)
 
+## Runtime checks with TypeScript
+
+TypeScript is lived in "compile-time", which make its great for checking variables at the type level - against the developer, but in "runtime" there always be only JS - we need to test the user input against schema validation in JS.
+
+A lot of the cases there is strong connections between the types and the runtime schema and we will not want to duplicate our types into schema and types.
+
+### Zod
+
+[Zod](https://github.com/colinhacks/zod) is a TypeScript-first schema declaration and validation library.
+
+The goal is to eliminate duplicative type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type. It's easy to compose simpler types into complex data structures.
+
+#### Zod tutorial (optional)
+
+You can do [this](https://www.totaltypescript.com/tutorials/zod) tutorial which is a set of zod exercises for you to work through.
+
+### TypeBox (optional)
+
+[TypeBox](https://github.com/sinclairzx81/typebox) is a JSON Schema Type Builder with Static Type Resolution for TypeScript.
+
+With typebox you define your schema within your code and use them directly as types or schemas as you need them (like zod).
+
+TypeBox is great for working with [Fastify in TS](https://www.fastify.io/docs/latest/Reference/TypeScript) because the validation in Fastify uses JSON Schema. Moreover, defining schemas for your Fastify can increase their throughput. To use it in your Fastify you will need [fastify type-provider](https://github.com/fastify/fastify-type-provider-typebox).
+
+For more information you can read in the [Fastify typebox doc](https://www.fastify.io/docs/latest/Reference/TypeScript/#typebox).
+
 ## TypeScript - Advanced (optional)
 
 - Enums
