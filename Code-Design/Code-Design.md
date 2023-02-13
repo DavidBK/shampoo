@@ -1,5 +1,8 @@
 # Code Design
 
+*Author: [@gthecht](https://github.com/gthecht)*
+
+---
 Code Design is a collection of methods and techniques that are used to design and implement software.
 
 ---
