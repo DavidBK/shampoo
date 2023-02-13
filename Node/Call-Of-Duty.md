@@ -297,3 +297,7 @@ For example:
     For example:
      - A request to `/soldiers?projection=name` should return the soldiers with only the name property.
      - A request to `/duties?projection=name,value` should return the duties with only the name and value properties.
+
+## Next steps
+
+Let's return to a type safe [space](Node/TypeScript)
