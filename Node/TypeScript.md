@@ -136,9 +136,9 @@ Test it! create `.ts` file and run the compile `.js`.
 
 Some modern JavaScript engines runtime come with built-in support for TypeScript:
 
-- [Deno](https://deno.land/) is a modern runtime for JavaScript and TypeScript that uses V8 and is built in Rust. Deno has "First-class" support for TS and its "Understand" (Using JIT) Typescript so you execute your `.ts` using `deno`.  
+- [Deno](https://deno.land/) is a modern runtime for JavaScript and TypeScript that uses [V8](https://v8.dev) and is built in [Rust](https://www.rust-lang.org). Deno has "First-class" support for TS and its "Understand" (Using JIT) Typescript so you execute your `.ts` using `deno`.  
 
-- [Bun](https://bun.sh) is a modern JavaScript runtime like Node or Deno. Bun uses the JavaScriptCore engine and was written in ZIG. Bun is designed as a drop-in replacement for your current JavaScript & TypeScript apps or scripts so you can run `.ts` files directly.
+- [Bun](https://bun.sh) is a modern JavaScript runtime like Node or Deno. Bun uses the [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore) engine and was written in [ZIG](https://ziglang.org). Bun is designed as a drop-in replacement for your current JavaScript & TypeScript apps or scripts so you can run `.ts` files directly.
 
 ## TypeScript - The basics
 
