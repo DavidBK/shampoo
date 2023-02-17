@@ -28,6 +28,7 @@ Here is some examples links:
 - [Typescript](https://www.typescriptlang.org/)
 - [Typescript handbook](https://www.typescriptlang.org/docs/handbook/index.html)
 - [Total typescript](https://www.totaltypescript.com/)
+- [Type Challenges Repo](https://github.com/type-challenges/type-challenges)
 
 ## Get Started with typescript
 
