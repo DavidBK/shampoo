@@ -595,10 +595,10 @@ link at every chapter._
 
 1. Create a new branch called `chapter-6` which will point on the `chapter-1`.
 2. Create a file named `page-4.md`, add a line `# page-4` and commit it.
-3. create a new branch called `chapter-6-ver-2` which will point on the
+3. Create a new branch called `chapter-6-ver-2` which will point on the
    `chapter-1` branch.
 4. Create a file named `page-4.md`, add a line `page 4` and commit it.
-5. Add a line `## What happens to the spaceship?` And commit it.
+5. Add a line `## What happens to the spaceship?` and amend it to previous commit.
 6. merge `chapter-6` into `chapter-6-ver-2`.
 7. Resolve conflict such that page 4 look like this:
 
