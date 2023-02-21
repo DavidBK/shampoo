@@ -529,7 +529,7 @@ These topics are not covered in this chapter but is worth knowing:
 
 ### Async Await
 
-Async Await is a new way to write asynchronous code and is a "syntactic sugar" for promises. Moreover it is has a better DX (async stack trace support and debug step through)
+Async Await is a new way to write asynchronous code and is [kind a](https://mathiasbynens.be/notes/async-stack-traces) "syntactic sugar" for promises. Moreover it is has a better DX (async stack trace support and debug step through)
 
 An async function is a function declared with the `async` keyword, and the `await` keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
 
@@ -698,8 +698,9 @@ this is a work in progress and will be updated soon.
 - Worker threads
 - Thread pools
 
-### General Topics
+### JavaScript engine optimization
 
+- [JavaScript engine fundamentals: Shapes and Inline Caches](https://mathiasbynens.be/notes/shapes-ics)
 - Tail call optimization - [ECMMAScript](https://2ality.com/2015/06/tail-call-optimization.html) [implementations](https://world.hey.com/mgmarlow/what-happened-to-proper-tail-calls-in-javascript-5494c256)
 
 ### Additional Topics
