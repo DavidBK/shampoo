@@ -262,7 +262,7 @@ Some of these techniques are legacy and not recommended for new projects but the
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 
-Here is a example to synchronous callback:
+Here is a example to synchronous use of callback function:
 
 ```js
 function greeting(name) {
@@ -301,8 +301,6 @@ function addUser(done) {
   done();
 }
 ```
-
-*Note: Asynchronous Callback are legacy techniques and came before promises.*
 
 #### Execution order
 
@@ -485,7 +483,7 @@ const addAsync = (x, y) => new Promise((resolve, reject) => {
 
 Aren't promises just callbacks with `.then()`?
 
-`.then()` and `.catch()` always return Promises. That enables us to create arbitrary long chains of method calls:
+Well, `.then()` and `.catch()` always return Promises. That enables us to create arbitrary long chains of method calls:
 
 ```javascript
 asyncFunc1()
@@ -538,7 +536,8 @@ Here is a basic example:
 ```js
 async function asyncExample(value) {
   const syncRes = syncOperation(value);
-  const asyncRes = await asyncOperation(value);
+  const resultsFromAsync = await asyncOperation(value);
+  const asyncRes = await anotherAsyncOperation(resultsFromAsync);
   const res = { asyncRes, syncRes };
   return res;
 }
