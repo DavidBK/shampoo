@@ -49,8 +49,10 @@ npm install typescript --save-dev
 if you want typescript support in `node:` imports and global node variables you need to install [`@types/node`](https://www.npmjs.com/package/@types/node)
 
 ```bash
-npm install --save @types/node
+npm install @types/node --save-dev
 ```
+
+*Side Note: Sometimes You will need types in the [declaration file](https://www.typescriptlang.org/docs/handbook/2/type-declarations.html). If so install the types as `dependencies`. You can read [this](https://stackoverflow.com/questions/45176661/how-do-i-decide-whether-types-goes-into-dependencies-or-devdependencies) for more information.*
 
 ### TSConfig
 
