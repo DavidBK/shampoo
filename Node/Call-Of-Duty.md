@@ -199,7 +199,7 @@ Don't forget to log your logics.
 4. Create endpoint for deleting a duty:
 
     - DELETE `/duties/:id`
-    - Scheduled duties cannot be removed.
+    - "Scheduled" duties cannot be removed (Duty which have soldiers).
 
 5. Create endpoint for updating a duty:
 
