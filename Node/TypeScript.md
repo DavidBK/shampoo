@@ -177,6 +177,8 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 - Prefer `type` aliases over interfaces
 - Don't use enums, prefer union types or const objects.
 - Don't use `Function`, `Object`, `String`, `Number`, and `Boolean` (Capital letters)
+- You can use  to avoid `any` in .json (in fetch) and JSON.parse both return any
+- Be careful with `.json` (in `fetch`) and `JSON.parse` as they both return `any`. You can cast them to `unknown` (or use [ts-reset](https://github.com/total-typescript/ts-reset) to do it for you)
 
 ## Runtime checks with TypeScript
 
