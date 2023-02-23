@@ -127,6 +127,30 @@ Test it! create `.ts` file and run the compile `.js`.
 
 [`ts-node`](https://www.npmjs.com/package/ts-node) is a TypeScript execution engine and REPL for Node.js. It "Just In Time" (JIT) transforms TypeScript into JavaScript, enabling you to directly execute TypeScript on Node.js without precompiling.
 
+Install it as a devDependency:
+
+```bash
+npm i -D ts-node
+```
+
+And then run your file:
+
+```bash
+npx node-ts <your-file>.ts
+```
+
+You can add it to your npm scripts:
+
+```json
+"dev": "ts-node <your-file>.ts"
+```
+
+If you like to use [esm](https://nodejs.org/api/esm.html) (and you should) you can use it as a [loader](https://nodejs.org/api/esm.html#loaders) to your file:
+
+```json
+"dev": "node --experimental-loader ts-node/esm <your-file>.ts"
+```
+
 ### Other JS runtime (Advanced)
 
 Some modern JavaScript engines runtime come with built-in support for TypeScript:
