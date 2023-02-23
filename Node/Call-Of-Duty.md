@@ -199,7 +199,7 @@ Don't forget to log your logics.
 4. Create endpoint for deleting a duty:
 
     - DELETE `/duties/:id`
-    - "Scheduled" duties cannot be removed (Duty which have soldiers).
+    - "Scheduled" duties (Duty with soldiers assigns to it) cannot be removed.
 
 5. Create endpoint for updating a duty:
 
@@ -253,17 +253,21 @@ For example:
 
     You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin.
 
-3. Add README.md to your app.
+3. Add README.md to your app. Your readme should include explanation to how to use and test the app.
 
 4. Add basic authentication to your app.
 
-5. Optional: Add https protocol support to your application.
+5. Advanced: Add https protocol support to your application. (optional)
 
 ## Task 7 - Make it scalable (Advanced)
 
-1. What will happen if you add more soldiers and duties?
+1. What will happen if you add more soldiers and duties? Make your app work with 1,000,000 soldiers and duties in the DB.
 
-    Make your app work with 1,000,000 soldiers and duties in the DB.
+    You may use this concepts:
+
+    - indexing
+    - pagination
+    - cache
 
 2. What is the performance of your app?
 
