@@ -38,7 +38,7 @@ In order to run it locally we need to install typescript and then compile our co
 
 ### Install
 
-TypeScript is available as a package on the npm [registry](https://www.npmjs.com/package/typescript).
+TypeScript is available as a [package](https://www.npmjs.com/package/typescript) on the npm registry.
 
 You can install it as dev-dependency in your project using:
 
@@ -80,7 +80,7 @@ My recommended `tsconfig.json` for modern node applications is:
 
 - `"strict": true` - Tells TS to enables a wide range of type checking behavior that results in stronger guarantees of program correctness.
 
-Here is the complete recommended `tsconfig.json` file:
+Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
 
 ```json
 {
@@ -91,15 +91,7 @@ Here is the complete recommended `tsconfig.json` file:
     "moduleResolution": "node",
     "strict": true,
     "outDir": "./dist",
-  },
-  "include": [
-    "./src/**/*",
-  ],
-  "exclude": [
-    "node_modules",
-    "coverage",
-    "dist",
-  ]
+  }
 }
 ```
 
