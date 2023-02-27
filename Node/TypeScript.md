@@ -246,3 +246,10 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 ## Project
 
 Talk with your mentor about the project.
+
+## Worth knowing (optional)
+
+These concepts are worth mentioning but don't learn them now.
+
+- [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config
+- [papr](https://plexinc.github.io/papr/#/) - lightweight library built around the MongoDB NodeJS driver, written in TypeScript
