@@ -191,8 +191,8 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
 - Write a little TS as you can! TS is very "smart" and most of the time inferred types will be more "specific". Also this will help your code readability.
   - Don't declare types in variables
-  - Don't declare return types of simple functions
-- Prefer `type` aliases over interfaces
+  - Prefer to not declare return types of *simple* functions
+- I Prefer `type` aliases over interfaces
 - Don't use enums, prefer union types or const objects.
 - Don't use `Function`, `Object`, `String`, `Number`, and `Boolean` (Capital letters)
 - Be careful with `.json` (in `fetch`) and `JSON.parse` as they both return `any`. You can cast them to `unknown` (or use [ts-reset](https://github.com/total-typescript/ts-reset) to do it for you)
