@@ -670,7 +670,7 @@ These topics are not covered in this chapter but is worth knowing:
 - `Promise.race()`
 - `Promise.any()`
 
-## WIP: Advanced Topics (Optional)
+## Advanced Topics (Optional)
 
 If you finish the above exercises in the *"Estimation time"* you can move on to the advanced topics.
 
@@ -684,25 +684,29 @@ this is a work in progress and will be updated soon.
 
 - `process.nextTick queue`, `promises microtask queue`, `macrotask queue`
 
-### The internal of node.js
+## Worth mentioning
+
+Some advanced topics that worth mentioning:
+
+The internal of node.js:
 
 - garbage collection
 - v8
 - libuv
 
-### Multi-threading
+Multi-threading:
 
 - Cluster
 - Child Processes
 - Worker threads
 - Thread pools
 
-### JavaScript engine optimization
+JavaScript engine optimization:
 
 - [JavaScript engine fundamentals: Shapes and Inline Caches](https://mathiasbynens.be/notes/shapes-ics)
 - Tail call optimization - [ECMMAScript](https://2ality.com/2015/06/tail-call-optimization.html) [implementations](https://world.hey.com/mgmarlow/what-happened-to-proper-tail-calls-in-javascript-5494c256)
 
-### Additional Topics
+Additional Topics:
 
 - Asynchronous context tracking
 - C/C++ addons
