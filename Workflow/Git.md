@@ -343,7 +343,7 @@ You can use the VS code GUI according to your comfort.
 Make sure you know the following commands:
 
 - `remote`
-- `push`
+- `push`, `--set-upstream`
 - `pull`
 - `fetch`
 - `clone`
