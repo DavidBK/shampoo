@@ -19,4 +19,4 @@ Here is an [Index](_sidebar)
 
 ---
 
-### *Author: [@davidbk6](https://gitlab.com/davidbk6)*
+### *Author: [@DavidBK](https://github.com/DavidBK)*
