@@ -176,6 +176,7 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 - Union Types (`|`)
 - Intersection Types (`&`)
 - Function type expression
+- Parameter Destructuring in functions
 - Passing Type Arguments (`<Type>`)
 - Type Assertions (`as`, `!`)
 - Literal Types and `as const`
@@ -232,7 +233,6 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - type predicates (`is`)
 - Discriminated unions
 - Exhaustiveness checking
-- Parameter Destructuring
 - Function Overloads
 - Index Signatures
 - `keyof` type operator
@@ -251,5 +251,5 @@ Talk with your mentor about the project.
 
 These concepts are worth mentioning but don't learn them now.
 
-- [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config
+- [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
 - [papr](https://plexinc.github.io/papr/#/) - lightweight library built around the MongoDB NodeJS driver, written in TypeScript
