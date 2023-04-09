@@ -66,13 +66,15 @@ Your DB Will contain 2 collections:
  rank: <string>,
  limitations: <string>[],
  duties: <string>[],
+ createdAt: <ISODate>,
+ updatedAt: <ISODate>
 }
 ```
 
 - **Duties**:
 
 ```typescript  
- {
+{
   _id: ObjectId(),
   name: <string>,
   description: <string>,
@@ -85,7 +87,9 @@ Your DB Will contain 2 collections:
   soldiersRequired: <number>,
   value: <number>,
   soldiers: <string>[],
- }
+  createdAt: <ISODate>,
+  updatedAt: <ISODate>
+}
 ```
 
 ## Task 1 - Health Check
