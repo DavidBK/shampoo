@@ -263,25 +263,11 @@ For example:
 
 5. Advanced: Add https protocol support to your application. (optional)
 
-## Task 7 - Make it scalable (Advanced)
-
-1. What will happen if you add more soldiers and duties? Make your app work with 1,000,000 soldiers and duties in the DB.
-
-    You may use this concepts:
-
-    - indexing
-    - pagination
-    - cache
-
-2. What is the performance of your app?
-
-    Make a load test to your app.
-
-## Task 8 - Extend query parameters (optional)
+## Task 7 - Extend query parameters (optional)
 
 1. Extend the `/soldiers` and `/duties` routes functionality to multiple parameters search query.
 
-    For example: A request to `/duties?name=Hagnash&soldiers=['Mishel', 'Shir']` should return all *"Hagnash"* duties that contains both Mishel and Shir. (Note that a Hagnash duty that was scheduled with Mishel, Shir and David should also be returned).
+    For example: A request to `/duties?name=Hagnash&soldiers=['Mishel', 'Shir']` should return all *"Hagnash"* duties that contains both "Mishel" and "Shir". (Note that a "Hagnash" duty that was scheduled with "Mishel", "Shir" and "David" should also be returned).
 
 2. Extend the he `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
 
@@ -305,6 +291,20 @@ For example:
     For example:
      - A request to `/soldiers?projection=name` should return the soldiers with only the name property.
      - A request to `/duties?projection=name,value` should return the duties with only the name and value properties.
+
+## Task 8 - Make it scalable (Advanced)
+
+1. What will happen if you add more soldiers and duties? Make your app work with 1,000,000 soldiers and duties in the DB.
+
+    You may use this concepts:
+
+    - indexing
+    - pagination
+    - cache
+
+2. What is the performance of your app?
+
+    Make a load test to your app.
 
 ## Next steps
 
