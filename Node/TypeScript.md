@@ -239,6 +239,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - `typeof` type operator
 - Indexed Access Types
 - Conditional Types and `infer`
+- `satisfies` operator
 - Distributive Conditional Types (`[T] extends [P]`)
 - Mapped Types (`in`)
 - Template Literal Types
