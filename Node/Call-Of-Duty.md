@@ -1,15 +1,16 @@
 # Call Of Duty - Duties scheduling system
 
--- *Estimation time: 12-18 Days*
+-- _Estimation time: 12-18 Days_
 
 ---
 
 In the 'Call Of Duty' project, you will be managing soldiers and duties using a database and a RESTfull API server.
 
-![Call of Duty](https://cdn.vox-cdn.com/thumbor/cnh3fYY5kgmjuF3O4uR9JKj3avY=/0x0:960x540/1220x813/filters:focal(404x194:556x346):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70538810/025d6f6199fb817e05158e20b9640808_CODVG_Reveal_Standard_Keyart_Textless_Bnet_Shop_Product_Browsing_Card_960x540.0.jpeg)
+![Call of Duty](<https://cdn.vox-cdn.com/thumbor/cnh3fYY5kgmjuF3O4uR9JKj3avY=/0x0:960x540/1220x813/filters:focal(404x194:556x346):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/70538810/025d6f6199fb817e05158e20b9640808_CODVG_Reveal_Standard_Keyart_Textless_Bnet_Shop_Product_Browsing_Card_960x540.0.jpeg>)
 
 ---
-*Send me back [home](home)*
+
+_Send me back [home](home)_
 
 [[*TOC*]]
 
@@ -25,7 +26,7 @@ Before you start make sure you familiar with these concepts:
 - [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP)
 - [Database](https://en.wikipedia.org/wiki/Database)
 - [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing)
-- [Linting](https://en.wikipedia.org/wiki/Lint_(software)) - [eslint setup](https://dev.to/devdammak/setting-up-eslint-in-your-javascript-project-with-vs-code-2amf)
+- [Linting](<https://en.wikipedia.org/wiki/Lint_(software)>) - [eslint setup](https://dev.to/devdammak/setting-up-eslint-in-your-javascript-project-with-vs-code-2amf)
 
 ### General Guidelines
 
@@ -73,7 +74,7 @@ Your DB Will contain 2 collections:
 
 - **Duties**:
 
-```typescript  
+```typescript
 {
   _id: ObjectId(),
   name: <string>,
@@ -94,130 +95,136 @@ Your DB Will contain 2 collections:
 
 ## Task 1 - Health Check
 
--- *Estimation time: 1 Day*
+-- _Estimation time: 1 Day_
 
 1. Create a server and an app.
-    - listen on port from env var, or 3000 if not set.
+
+   - listen on port from env var, or 3000 if not set.
 
 2. Create a health check endpoint:
 
-    - GET `/health`
-    - Return a 200 status code if the server is running.
+   - GET `/health`
+   - Return a 200 status code if the server is running.
 
-    Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/).
+   Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/).
 
-    ```bash
-    npm run start
-    curl http://localhost:3000/health
-    ```
+   ```bash
+   npm run start
+   curl http://localhost:3000/health
+   ```
 
 3. Create a test for your health check endpoint.
 
-    What is the coverage of your tests?
+   What is the coverage of your tests?
 
 4. Separate application code from the server code:
 
-    - Create `server.js` file.
-    - Create `app.js` file.
+   - Create `server.js` file.
+   - Create `app.js` file.
 
-    [Why Separate Express 'app' and 'server'](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/separateexpress.md)
+   [Why Separate Express 'app' and 'server'](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/separateexpress.md)
 
 5. Test your app and server.
 
-    You can use "HTTP injection" (Fastify built in `app.inject` function)
+   You can use "HTTP injection" (Fastify built in `app.inject` function)
 
-    What is the coverage of your tests?
-    Did you test error case?
+   What is the coverage of your tests?
+   Did you test error case?
 
 6. Add linter to your project.
 
-    - Add `lint` script to your `package.json` file.
-    - Run the script before submit any merge request.
+   - Add `lint` script to your `package.json` file.
+   - Run the script before submit any merge request.
 
 7. Log your app and server.
 
 ## Task 2 - Soldier
 
--- *Estimation time: 2 Days*
+-- _Estimation time: 2 Days_
 
 1. Create endpoint for creating a new soldier:
 
-    - POST `/soldiers`
-    - Return a 201 status code if the soldier is created.
-    - The body will include the following parameters:
+   - POST `/soldiers`
+   - Return a 201 status code if the soldier is created.
+   - The body will include the following parameters:
 
-      ```javascript
-      { id, name, rank, limitations }
-      ```
+     ```javascript
+     {
+       id, name, rank, limitations;
+     }
+     ```
 
-      The id should be the soldier's private tt number.
-    - Validate that all the above parameters exist, any other property is invalid.-
-    - When a soldier is inserted to the database, add the `duties` property and initialize it to an empty array.
-    - Return the inserted `<Soldier>`.
+     The id should be the soldier's private tt number.
+
+   - Validate that all the above parameters exist, any other property is invalid.-
+   - When a soldier is inserted to the database, add the `duties` property and initialize it to an empty array.
+   - Return the inserted `<Soldier>`.
 
 2. Create endpoint for getting a soldier:
 
-    - GET `/soldiers/:id`
-    - Return a 200 status code if the soldier is found.
-    - Return a 404 status code if the soldier is not found.
+   - GET `/soldiers/:id`
+   - Return a 200 status code if the soldier is found.
+   - Return a 404 status code if the soldier is not found.
 
-    Example: a request to `/soldiers/112358` should return the soldier with `_id` `112358` (if exists).
+   Example: a request to `/soldiers/112358` should return the soldier with `_id` `112358` (if exists).
 
 3. Create endpoint for getting all soldiers:
 
-    - GET `/soldiers`
-    - A search query can be passed as a query parameter.
-        For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
+   - GET `/soldiers`
+   - A search query can be passed as a query parameter.
+     For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
 
 Don't forget to log your logics.
 
 ## Task 3 - Duty
 
--- *Estimation time: 2 Days*
+-- _Estimation time: 2 Days_
 
 1. Create endpoint for creating a new duty:
 
-    - POST `/duties`
-    - Return a 201 status code if the duty is created.
-    - The body will include the following parameters:
+   - POST `/duties`
+   - Return a 201 status code if the duty is created.
+   - The body will include the following parameters:
 
-      ```javascript
-      { name, location, time, constraints, soldiersRequired, value }
-      ```
+     ```javascript
+     {
+       name, location, time, constraints, soldiersRequired, value;
+     }
+     ```
 
-    - Generate a unique _id for the object.
-    - Validate that all the above parameters exist, any other property is invalid.
-    - When a duty is inserted to the database, add the `soldiers` property and initialize it to an empty array.
-    - Return the inserted `<Duty>`.
+   - Generate a unique \_id for the object.
+   - Validate that all the above parameters exist, any other property is invalid.
+   - When a duty is inserted to the database, add the `soldiers` property and initialize it to an empty array.
+   - Return the inserted `<Duty>`.
 
 2. Create endpoint for getting all duties:
 
-    - GET `/duties`
-    - A search query can be passed as a query parameter.
-      For example: a request to `/duties?name=Hagnash` should return all should return all 'Hagnash' duties (as an array).
+   - GET `/duties`
+   - A search query can be passed as a query parameter.
+     For example: a request to `/duties?name=Hagnash` should return all should return all 'Hagnash' duties (as an array).
 
 3. Create endpoint for getting a duty:
 
-    - GET `/duties/:id`
+   - GET `/duties/:id`
 
 4. Create endpoint for deleting a duty:
 
-    - DELETE `/duties/:id`
-    - "Scheduled" duties (Duty with soldiers assigns to it) cannot be removed.
+   - DELETE `/duties/:id`
+   - "Scheduled" duties (Duty with soldiers assigns to it) cannot be removed.
 
 5. Create endpoint for updating a duty:
 
-    - PATCH `/duties/:id`
-    - The body will include a `<Duty>` object.
-    - The updated `<Duty>` will be an object and should contain the updated properties only.
-    - The updated properties will override the existing ones.
-    - Scheduled duties cannot be updated.
-    - Do not allow this method to add any new properties nor to alter the id.
-    - Return the updated `<Duty>`.
+   - PATCH `/duties/:id`
+   - The body will include a `<Duty>` object.
+   - The updated `<Duty>` will be an object and should contain the updated properties only.
+   - The updated properties will override the existing ones.
+   - Scheduled duties cannot be updated.
+   - Do not allow this method to add any new properties nor to alter the id.
+   - Return the updated `<Duty>`.
 
 ## Task 4 - Justice Board
 
--- *Estimation time: 1 Day*
+-- _Estimation time: 1 Day_
 
 The justice board is an array of objects with the keys are:
 
@@ -232,30 +239,31 @@ For example:
 
 1. Create endpoint for getting the justice board:
 
-    - GET `/justice-board`
+   - GET `/justice-board`
 
 ## Task 5 - Scheduling
 
--- *Estimation time: 1 Days*
+-- _Estimation time: 1 Days_
 
 1. Create endpoint for scheduling a duty:
 
-    - PUT `/duties/:id/schedule`
+   - PUT `/duties/:id/schedule`
 
-    - Use this route in order to schedule a duty.
-    - The justice board and the soldiers' limitations should be taken into consideration (according to the duty's constraints) when scheduling duties.
-    - When scheduling soldiers for a duty, make sure to update the soldiers and duties properties, make sure the duty is not already scheduled.
+   - Use this route in order to schedule a duty.
+   - The justice board and the soldiers' limitations should be taken into consideration (according to the duty's constraints) when scheduling duties.
+   - When scheduling soldiers for a duty, make sure to update the soldiers and duties properties, make sure the duty is not already scheduled.
 
 ## Task 6 - Make it professional
 
--- *Estimation time: 1 Days*
+-- _Estimation time: 1 Days_
 
 1. Use [helmetJS](https://helmetjs.github.io) to protect your app.
 
-    You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
+   You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
+
 2. Add [swagger](https://swagger.io) documentation to your app.
 
-    You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin.
+   You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin.
 
 3. Add README.md to your app. Your readme should include explanation to how to use and test the app.
 
@@ -267,44 +275,48 @@ For example:
 
 1. Extend the `/soldiers` and `/duties` routes functionality to multiple parameters search query.
 
-    For example: A request to `/duties?name=hagnash&soldiers=mishel,shir` should return all *`"hagnash"`* duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
+   For example: A request to `/duties?name=hagnash&soldiers=mishel,shir` should return all _`"hagnash"`_ duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
 
-2. Extend the he `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
+2. Extend the he `/justice-board` `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
 
-    For example:
-     - A request to `/duties?sort=value` should return the duties sorted by value.
-     - A request to `/duties?sort=name&order=desc` should return the duties sorted by name in descending order.
+   For example:
+
+   - A request to `/duties?sort=value` should return the duties sorted by value.
+   - A request to `/duties?sort=name&order=desc` should return the duties sorted by name in descending order.
+   - A request to `/justice-board?sort=score&order=desc` should return the justice board sorted by score in descending order.
 
 3. Extend the `/justice-board` functionality to accept sorting and filtering queries.
 
-    For example:
-     - A request to `/justice-board?sort=score&order=desc` should return the justice board sorted by score in descending order.
-     - A request to `/justice-board?filter=score>=20` should return the justice board with soldiers with score >= 20.
+   For example:
+
+   - A request to `/justice-board?filter=score>=20` should return the justice board with soldiers with score >= 20.
 
 4. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept pagination.
 
-    For example:
-     - A request to `/justice-board?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
+   For example:
+
+   - A request to `/justice-board?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
 
 5. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept projection by fields.
 
-    For example:
-     - A request to `/soldiers?fields=name` should return the soldiers with only the `name` property.
-     - A request to `/duties?fields=name,value` should return the duties with only the `name` and `value` properties.
+   For example:
+
+   - A request to `/soldiers?fields=name` should return the soldiers with only the `name` property.
+   - A request to `/duties?fields=name,value` should return the duties with only the `name` and `value` properties.
 
 ## Task 8 - Make it scalable (Advanced)
 
 1. What will happen if you add more soldiers and duties? Make your app work with 1,000,000 soldiers and duties in the DB.
 
-    You may use this concepts:
+   You may use this concepts:
 
-    - indexing
-    - pagination
-    - cache
+   - indexing
+   - pagination
+   - cache
 
 2. What is the performance of your app?
 
-    Make a load test to your app.
+   Make a load test to your app.
 
 ## Next steps
 
