@@ -267,7 +267,7 @@ For example:
 
 1. Extend the `/soldiers` and `/duties` routes functionality to multiple parameters search query.
 
-    For example: A request to `/duties?name=hagnash&soldiers=mishel&soldiers=shir` should return all *`"hagnash"`* duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
+    For example: A request to `/duties?name=hagnash&soldiers=mishel,shir` should return all *`"hagnash"`* duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
 
 2. Extend the he `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
 
@@ -286,11 +286,11 @@ For example:
     For example:
      - A request to `/justice-board?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
 
-5. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept projection.
+5. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept projection by fields.
 
     For example:
-     - A request to `/soldiers?projection=name` should return the soldiers with only the name property.
-     - A request to `/duties?projection=name,value` should return the duties with only the name and value properties.
+     - A request to `/soldiers?fields=name` should return the soldiers with only the `name` property.
+     - A request to `/duties?fields=name,value` should return the duties with only the `name` and `value` properties.
 
 ## Task 8 - Make it scalable (Advanced)
 
