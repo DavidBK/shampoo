@@ -275,18 +275,18 @@ For example:
      - A request to `/duties?sort=value` should return the duties sorted by value.
      - A request to `/duties?sort=name&order=desc` should return the duties sorted by name in descending order.
 
-3. Extend the `/justiceBoard` functionality to accept sorting and filtering queries.
+3. Extend the `/justice-board` functionality to accept sorting and filtering queries.
 
     For example:
-     - A request to `/justiceBoard?sort=score&order=desc` should return the justice board sorted by score in descending order.
-     - A request to `/justiceBoard?filter=score>=20` should return the justice board with soldiers with score >= 20.
+     - A request to `/justice-board?sort=score&order=desc` should return the justice board sorted by score in descending order.
+     - A request to `/justice-board?filter=score>=20` should return the justice board with soldiers with score >= 20.
 
-4. Extend the `/justiceBoard` `/soldiers` and `/duties` functionality to accept pagination.
+4. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept pagination.
 
     For example:
-     - A request to `/justiceBoard?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
+     - A request to `/justice-board?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
 
-5. Extend the `/justiceBoard` `/soldiers` and `/duties` functionality to accept projection.
+5. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept projection.
 
     For example:
      - A request to `/soldiers?projection=name` should return the soldiers with only the name property.
