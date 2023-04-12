@@ -226,10 +226,10 @@ Don't forget to log your logics.
 
 -- _Estimation time: 1 Day_
 
-The justice board is an array of objects with the keys are:
+The justice board is an array of objects with the keys:
 
-- id - The unique identifier of the soldier
-- score - The total weight of duties the soldier has been scheduled to.
+- `id` - The unique identifier of the soldier
+- `score` - The total weight of duties the soldier has been scheduled to.
 
 For example:
 
