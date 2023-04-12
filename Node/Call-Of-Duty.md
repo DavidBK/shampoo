@@ -12,7 +12,7 @@ In the 'Call Of Duty' project, you will be managing soldiers and duties using a 
 
 _Send me back [home](home)_
 
-[[*TOC*]]
+[[_TOC_]]
 
 ---
 
@@ -273,11 +273,15 @@ For example:
 
 ## Task 7 - Extend query parameters (optional)
 
-1. Extend the `/soldiers` and `/duties` routes functionality to multiple parameters search query.
+1. **Multiple parameters**
 
-   For example: A request to `/duties?name=hagnash&soldiers=mishel,shir` should return all _`"hagnash"`_ duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
+   Extend the `/soldiers` and `/duties` routes functionality to multiple parameters search query.
 
-2. Extend the he `/justice-board` `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
+   For example: A request to `/duties?name=hagnash&soldiers=mishel,shir` should return all `"hagnash"` duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
+
+2. **Sorting**
+
+   Extend the he `/justice-board` `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
 
    For example:
 
@@ -285,19 +289,25 @@ For example:
    - A request to `/duties?sort=name&order=desc` should return the duties sorted by name in descending order.
    - A request to `/justice-board?sort=score&order=desc` should return the justice board sorted by score in descending order.
 
-3. Extend the `/justice-board` functionality to accept sorting and filtering queries.
+3. **Filtering**
+
+   Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept filtering queries.
 
    For example:
 
    - A request to `/justice-board?filter=score>=20` should return the justice board with soldiers with score >= 20.
 
-4. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept pagination.
+4. **Pagination**
+
+   Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept pagination.
 
    For example:
 
    - A request to `/justice-board?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
 
-5. Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept projection by fields.
+5. **Projection**
+
+   Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept projection by fields.
 
    For example:
 
