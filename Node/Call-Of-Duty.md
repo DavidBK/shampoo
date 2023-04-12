@@ -267,7 +267,7 @@ For example:
 
 1. Extend the `/soldiers` and `/duties` routes functionality to multiple parameters search query.
 
-    For example: A request to `/duties?name=Hagnash&soldiers[]=Mishel&soldiers[]=Shir` should return all *`"Hagnash"`* duties that contains both `"Mishel"` and `"Shir"`. (Note that a `"Hagnash"` duty that was scheduled with `"Mishel"`, `"Shir"` and `"David"` should also be returned).
+    For example: A request to `/duties?name=hagnash&soldiers=mishel&soldiers=shir` should return all *`"hagnash"`* duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
 
 2. Extend the he `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
 
