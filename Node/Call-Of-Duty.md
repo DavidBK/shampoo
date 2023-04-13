@@ -269,7 +269,11 @@ For example:
 
 4. Add basic authentication to your app.
 
-5. Advanced: Add https protocol support to your application. (optional)
+5. Add a rate limiter for your routes.
+
+   You can use [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit).
+
+6. Advanced: Add https protocol support to your application. (optional)
 
 ## Task 7 - Extend query parameters (optional)
 
