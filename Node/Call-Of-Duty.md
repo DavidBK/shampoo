@@ -66,7 +66,7 @@ Your DB Will contain 2 collections:
  name: <string> ,
  rank: <string>,
  limitations: <string>[],
- duties: <string>[],
+ duties: <ObjectId>[],
  createdAt: <ISODate>,
  updatedAt: <ISODate>
 }
@@ -76,7 +76,7 @@ Your DB Will contain 2 collections:
 
 ```typescript
 {
-  _id: ObjectId(),
+  _id: <ObjectId>,
   name: <string>,
   description: <string>,
   location: <string>,
