@@ -166,7 +166,7 @@ Your DB Will contain 2 collections:
    - Return a 200 status code if the soldier is found.
    - Return a 404 status code if the soldier is not found.
 
-   Example: a request to `/soldiers/112358` should return the soldier with `_id` `112358` (if exists).
+   Example: a request to `/soldiers/112358` should return the soldier with `id` `112358` (if exists).
 
 3. Create endpoint for getting all soldiers:
 
