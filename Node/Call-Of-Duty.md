@@ -1,6 +1,6 @@
 # Call Of Duty - Duties scheduling system
 
--- _Estimation time: 12-18 Days_
+-- _Estimation time: 20-30 Days_
 
 ---
 
@@ -95,7 +95,7 @@ Your DB Will contain 2 collections:
 
 ## Task 1 - Health Check
 
--- _Estimation time: 1 Day_
+-- _Estimation time: 2 Day_
 
 1. Create a server and an app.
 
@@ -140,7 +140,7 @@ Your DB Will contain 2 collections:
 
 ## Task 2 - Soldier
 
--- _Estimation time: 2 Days_
+-- _Estimation time: 4 Days_
 
 1. Create endpoint for creating a new soldier:
 
@@ -178,7 +178,7 @@ Don't forget to log your logics.
 
 ## Task 3 - Duty
 
--- _Estimation time: 2 Days_
+-- _Estimation time: 4 Days_
 
 1. Create endpoint for creating a new duty:
 
@@ -224,7 +224,7 @@ Don't forget to log your logics.
 
 ## Task 4 - Justice Board
 
--- _Estimation time: 1 Day_
+-- _Estimation time: 2 Day_
 
 The justice board is an array of objects with the keys:
 
@@ -243,7 +243,7 @@ For example:
 
 ## Task 5 - Scheduling
 
--- _Estimation time: 1 Days_
+-- _Estimation time: 2 Days_
 
 1. Create endpoint for scheduling a duty:
 
@@ -255,7 +255,7 @@ For example:
 
 ## Task 6 - Make it professional
 
--- _Estimation time: 1 Days_
+-- _Estimation time: 2 Days_
 
 1. Use [helmetJS](https://helmetjs.github.io) to protect your app.
 
