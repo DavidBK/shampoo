@@ -200,17 +200,20 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
 ## Runtime checks with TypeScript
 
-TypeScript is lived in "compile-time", which make its great for checking variables at the type level - against the developer, but in "runtime" there always be only JS - we need to test the user input against schema validation in JS.
+TypeScript is lived in "compile-time", which make its great for checking variables at the type level (developer "linting").
+However, during "runtime", JavaScript is the only language that is executed.
+Therefore, it is necessary to validate user input against schema validation in JavaScript.
 
-A lot of the cases there is strong connections between the types and the runtime schema and we will not want to duplicate our types into schema and types.
+In many cases there is a strong connection between types and runtime schemas, and duplicating type declarations in both schema and types can be cumbersome.
 
 ### Zod
 
 [Zod](https://github.com/colinhacks/zod) is a TypeScript-first schema declaration and validation library.
 
-The goal is to eliminate duplicative type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type. It's easy to compose simpler types into complex data structures.
+The goal is to eliminate duplicative type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type.
+It also allows for easy composition of simpler types into complex data structures.
 
-If you like to use Zod in [Fastify](https://www.fastify.io/) app, you can use [fastify-type-provider-zod](https://github.com/turkerdev/fastify-type-provider-zod) library.
+If you wish to use Zod with [Fastify](https://www.fastify.io/) app, you can use [fastify-type-provider-zod](https://github.com/turkerdev/fastify-type-provider-zod) library.
 
 #### Zod tutorial (optional)
 
