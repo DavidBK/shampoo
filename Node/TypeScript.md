@@ -1,13 +1,14 @@
 # Typescript
 
--- *Estimation time: 1-2 Days*
+-- _Estimation time: 1-2 Days_
 
 ---
+
 TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
 
 This is a basic introduction to Typescript.
 
-***Learning objectives:***
+**_Learning objectives:_**
 
 At the end of this learning path, you'll be able to:
 
@@ -16,11 +17,13 @@ At the end of this learning path, you'll be able to:
 - Write an efficient type-safe code in TypeScript
 
 ---
-*Send me back [home](home)*
+
+_Send me back [home](home)_
 
 [[*TOC*]]
 
 ---
+
 **Learning note**: all links in this path are reading tutorials. You can read them but you can watch a youtube crash course. if you find useful links, please share them with me.
 
 Here is some examples links:
@@ -52,7 +55,7 @@ if you want typescript support in `node:` imports and global node variables you 
 npm install @types/node --save-dev
 ```
 
-*Side Note: Sometimes You will need types in the [declaration file](https://www.typescriptlang.org/docs/handbook/2/type-declarations.html). If so install the types as `dependencies`. You can read [this](https://stackoverflow.com/questions/45176661/how-do-i-decide-whether-types-goes-into-dependencies-or-devdependencies) for more information.*
+_Side Note: Sometimes You will need types in the [declaration file](https://www.typescriptlang.org/docs/handbook/2/type-declarations.html). If so install the types as `dependencies`. You can read [this](https://stackoverflow.com/questions/45176661/how-do-i-decide-whether-types-goes-into-dependencies-or-devdependencies) for more information._
 
 ### TSConfig
 
@@ -76,7 +79,7 @@ My recommended `tsconfig.json` for modern node applications is:
 
 - `"moduleResolution": "node"` - Tells TS that we are using Node.js's rules for resolving modules
 
-- `target": "ES2022"` - Tells TS that it's okay to output JavaScript syntax with features from ES2022  instead of embedding a polyfill.
+- `target": "ES2022"` - Tells TS that it's okay to output JavaScript syntax with features from ES2022 instead of embedding a polyfill.
 
 - `"strict": true` - Tells TS to enables a wide range of type checking behavior that results in stronger guarantees of program correctness.
 
@@ -90,7 +93,7 @@ Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
     "target": "es2022",
     "moduleResolution": "node",
     "strict": true,
-    "outDir": "./dist",
+    "outDir": "./dist"
   }
 }
 ```
@@ -155,7 +158,7 @@ If you like to use [esm](https://nodejs.org/api/esm.html) (and you should) you c
 
 Some modern JavaScript engines runtime come with built-in support for TypeScript:
 
-- [Deno](https://deno.land/) is a modern runtime for JavaScript and TypeScript that uses [V8](https://v8.dev) and is built in [Rust](https://www.rust-lang.org). Deno has "First-class" support for TS and its "Understand" (Using JIT) Typescript so you execute your `.ts` using `deno`.  
+- [Deno](https://deno.land/) is a modern runtime for JavaScript and TypeScript that uses [V8](https://v8.dev) and is built in [Rust](https://www.rust-lang.org). Deno has "First-class" support for TS and its "Understand" (Using JIT) Typescript so you execute your `.ts` using `deno`.
 
 - [Bun](https://bun.sh) is a modern JavaScript runtime like Node or Deno. Bun uses the [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore) engine and was written in [ZIG](https://ziglang.org). Bun is designed as a drop-in replacement for your current JavaScript & TypeScript apps or scripts so you can run `.ts` files directly.
 
@@ -192,7 +195,7 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
 - Write a little TS as you can! TS is very "smart" and most of the time inferred types will be more "specific". Also this will help your code readability.
   - Don't declare types in variables
-  - Prefer to not declare return types of *simple* functions
+  - Prefer to not declare return types of _simple_ functions
 - I Prefer `type` aliases over interfaces
 - Don't use enums, prefer union types or const objects.
 - Don't use `Function`, `Object`, `String`, `Number`, and `Boolean` (Capital letters)
@@ -258,3 +261,8 @@ These concepts are worth mentioning but don't learn them now.
 
 - [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
 - [papr](https://plexinc.github.io/papr/#/) - lightweight library built around the MongoDB NodeJS driver, written in TypeScript
+
+## Tools
+
+- [pretty-ts-errors](https://github.com/yoavbls/pretty-ts-errors)
+- [ts-reset](https://github.com/total-typescript/ts-reset)
