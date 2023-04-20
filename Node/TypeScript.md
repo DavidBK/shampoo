@@ -87,14 +87,14 @@ Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
 
 ```json
 {
-  "compilerOptions": {
-    "lib": ["es2022"],
-    "module": "es2022",
-    "target": "es2022",
-    "moduleResolution": "node",
-    "strict": true,
-    "outDir": "./dist"
-  }
+  "target": "ESNext",
+  "module": "ESNext",
+  "moduleResolution": "node",
+  "outDir": "./dist",
+  "rootDir": "./src",
+  "strict": true,
+  "noUncheckedIndexedAccess": true,
+  "esModuleInterop": true
 }
 ```
 
