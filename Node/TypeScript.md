@@ -28,10 +28,11 @@ _Send me back [home](home)_
 
 Here is some examples links:
 
-- [Typescript](https://www.typescriptlang.org/)
+- [Typescript](https://www.typescriptlang.org/) official website
 - [Typescript handbook](https://www.typescriptlang.org/docs/handbook/index.html)
-- [Total typescript](https://www.totaltypescript.com/)
-- [Type Challenges Repo](https://github.com/type-challenges/type-challenges)
+- [No BS TS](https://www.youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n) Youtube Crash Course
+- [Total typescript](https://www.totaltypescript.com/) interactive course
+- [Type Challenges Repo](https://github.com/type-challenges/type-challenges) - A collection of TypeScript type challenges
 
 ## Get Started with typescript
 
