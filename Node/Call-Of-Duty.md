@@ -243,7 +243,7 @@ For example:
 
 ## Task 5 - Scheduling
 
--- _Estimation time: 2 Days_
+-- _Estimation time: 3 Days_
 
 1. Create endpoint for scheduling a duty:
 
@@ -251,7 +251,9 @@ For example:
 
    - Use this route in order to schedule a duty.
    - The justice board and the soldiers' limitations should be taken into consideration (according to the duty's constraints) when scheduling duties.
-   - When scheduling soldiers for a duty, make sure to update the soldiers and duties properties, make sure the duty is not already scheduled.
+   - Make sure the duty is not already scheduled.
+   - Make sure that the soldiers are not already scheduled to other duties at the same time.
+   - When scheduling soldiers for a duty, make sure to update the soldiers and duties properties.
 
 ## Task 6 - Make it professional
 
@@ -330,7 +332,7 @@ For example:
 
 2. What is the performance of your app?
 
-   Make a load test to your app.
+   Make a load test to your app. Profile your app and find the bottlenecks.
 
 ## Next steps
 
