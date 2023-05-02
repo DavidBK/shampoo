@@ -99,19 +99,14 @@ Your DB Will contain 2 collections:
 
 1. Create a server and an app.
 
-   - listen on port from env var, or 3000 if not set.
+   - listen on port from env var, or random port if not set.
 
 2. Create a health check endpoint:
 
    - GET `/health`
    - Return a 200 status code if the server is running.
 
-   Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/).
-
-   ```bash
-   npm run start
-   curl http://localhost:3000/health
-   ```
+   Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/) (recommended) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
 
 3. Create a test for your health check endpoint.
 
@@ -137,6 +132,7 @@ Your DB Will contain 2 collections:
    - Run the script before submit any merge request.
 
 7. Log your app and server.
+   The log-level should be configurable from env var, and the default level should be `info`.
 
 ## Task 2 - Soldier
 
