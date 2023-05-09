@@ -61,35 +61,35 @@ Your DB Will contain 2 collections:
 - **Soldiers**:
 
 ```typescript
-{
- _id: <string>, // _id will hold the soldier's unique identifier
- name: <string> ,
- rank: <string>,
- limitations: <string>[],
- duties: <ObjectId>[],
- createdAt: <ISODate>,
- updatedAt: <ISODate>
+interface Soldier {
+  _id: string; // _id will hold the soldier's unique identifier
+  name: string;
+  rank: string;
+  limitations: string[];
+  duties: ObjectId[];
+  createdAt: ISODate;
+  updatedAt: ISODate;
 }
 ```
 
 - **Duties**:
 
 ```typescript
-{
-  _id: <ObjectId>,
-  name: <string>,
-  description: <string>,
-  location: <string>,
+interface Duty {
+  _id: ObjectId;
+  name: string;
+  description: string;
+  location: string;
   time: {
-   start: <ISODate>,
-   end: <ISODate>,
-  },
-  constraints: <string>[],
-  soldiersRequired: <number>,
-  value: <number>,
-  soldiers: <string>[],
-  createdAt: <ISODate>,
-  updatedAt: <ISODate>
+    start: ISODate;
+    end: ISODate;
+  };
+  constraints: string[];
+  soldiersRequired: number;
+  value: number;
+  soldiers: string[];
+  createdAt: ISODate;
+  updatedAt: ISODate;
 }
 ```
 
@@ -155,7 +155,7 @@ Your DB Will contain 2 collections:
 
    - Validate that all the above parameters exist, any other property is invalid.-
    - When a soldier is inserted to the database, add the `duties` property and initialize it to an empty array.
-   - Return the inserted `<Soldier>`.
+   - Return the inserted `Soldier`.
 
 2. Create endpoint for getting a soldier:
 
@@ -192,7 +192,7 @@ Don't forget to log your logics.
    - Generate a unique \_id for the object.
    - Validate that all the above parameters exist, any other property is invalid.
    - When a duty is inserted to the database, add the `soldiers` property and initialize it to an empty array.
-   - Return the inserted `<Duty>`.
+   - Return the inserted `Duty`.
 
 2. Create endpoint for getting all duties:
 
@@ -212,12 +212,12 @@ Don't forget to log your logics.
 5. Create endpoint for updating a duty:
 
    - PATCH `/duties/:id`
-   - The body will include a `<Duty>` object.
-   - The updated `<Duty>` will be an object and should contain the updated properties only.
+   - The body will include a `Duty` object.
+   - The updated `Duty` will be an object and should contain the updated properties only.
    - The updated properties will override the existing ones.
    - Scheduled duties cannot be updated.
    - Do not allow this method to add any new properties nor to alter the id.
-   - Return the updated `<Duty>`.
+   - Return the updated `Duty`.
 
 ## Task 4 - Justice Board
 
