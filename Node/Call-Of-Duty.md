@@ -121,7 +121,7 @@ Your DB Will contain 2 collections:
 
 5. Test your app and server.
 
-   You can use "HTTP injection" (Fastify built in `app.inject` function)
+   You can use "HTTP injection" (Fastify built in `app.inject` function).
 
    What is the coverage of your tests?
    Did you test error case?
@@ -132,7 +132,8 @@ Your DB Will contain 2 collections:
    - Run the script before submit any merge request.
 
 7. Log your app and server.
-   The log-level should be configurable from env var, and the default level should be `info`.
+
+   The log-level should be configurable, and the default level should be `info`. In the test environment, the default log level should be `silent`.
 
 ## Task 2 - Soldier
 
