@@ -232,6 +232,8 @@ Many functions provided by nodeJS and browsers, can potentially take a long time
 
 **_After each mini chapter in this path, create a "Pull Request" and/or talk to your mentor to validate your knowledge._**
 
+> **NOTE**: This is a WIP section as it kind a long and not sure if it is needed for the basic path, I recommend to advice with your mentor if you should learn this section and how much ?time you should spend on it.
+
 ### Introduction
 
 We will learn a several techniques to make our programs asynchronous.
