@@ -84,6 +84,8 @@ My recommended `tsconfig.json` for modern node applications is:
 
 - `"strict": true` - Tells TS to enables a wide range of type checking behavior that results in stronger guarantees of program correctness.
 
+- `"noUncheckedIndexedAccess": true` - Tells TS to add `undefined` to any declared via index signatures field in the type.
+
 Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
 
 ```json
@@ -247,7 +249,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - Indexed Access Types
 - Conditional Types and `infer`
 - `satisfies` operator
-- Distributive Conditional Types (`[T] extends [P]`)
+- Distributive Conditional Types (`T extends T` vs `[T] extends [T]`)
 - Mapped Types (`in`)
 - Decorators
 - Template Literal Types
