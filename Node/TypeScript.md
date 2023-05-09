@@ -199,10 +199,10 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 - Write a little TS as you can! TS is very "smart" and most of the time inferred types will be more "specific". Also this will help your code readability.
   - Don't declare types in variables
   - Prefer to not declare return types of _simple_ functions
+- Don't use enums, prefer union types or `as const` objects.
+- Don't use `Function`, `Object`, `String`, `Number`, and `Boolean` (Capital letters) and `object` - they are not doing what you think they are doing.
+- Be careful with `.json()` (in `fetch` response) and `JSON.parse()` as they both return `any`. You can cast them to `unknown` (or use [ts-reset](https://github.com/total-typescript/ts-reset) to do it for you)
 - I Prefer `type` aliases over interfaces
-- Don't use enums, prefer union types or const objects.
-- Don't use `Function`, `Object`, `String`, `Number`, and `Boolean` (Capital letters)
-- Be careful with `.json` (in `fetch`) and `JSON.parse` as they both return `any`. You can cast them to `unknown` (or use [ts-reset](https://github.com/total-typescript/ts-reset) to do it for you)
 
 ## Runtime checks with TypeScript
 
@@ -210,7 +210,7 @@ TypeScript is lived in "compile-time", which make its great for checking variabl
 However, during "runtime", JavaScript is the only language that is executed.
 Therefore, it is necessary to validate user input against schema validation in JavaScript.
 
-In many cases there is a strong connection between types and runtime schemas, and duplicating type declarations in both schema and types can be cumbersome.
+In many cases there is a strong corelation between types and runtime schemas, and duplicating type declarations in both schema and types can be cumbersome.
 
 ### Zod
 
