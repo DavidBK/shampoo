@@ -306,7 +306,7 @@ Lets fix the above `intro.js` script by adding a callback function.
 
 Create a `callbacks-logging.js`.
 
-Change the `logAfterMs` function to accept a callback function as a second argument:
+Change the `logAfterMs` function to accept a callback function as a the last argument:
 
 ```js
 const logAfterMs = (message, ms, callback) => {
@@ -317,7 +317,7 @@ const logAfterMs = (message, ms, callback) => {
 };
 ```
 
-1. Write a code that log the string `"1"`.
+1. Write a code that log the string `"1"` after 0 ms.
 2. Write a code that log the string `"2"` 1 ms after the log `"1"` above has finished.
 3. Write a code that log the string `"3"` 10 ms after the the log `"2"` above has finished.
 4. Write a code that log the string `"4"` 5 ms after the the log `"3"` above has finished.
@@ -401,7 +401,7 @@ const maybeLog = (message, ms, callback) => {
 - If the results is smaller then `0.25` log `"4: good result"`
 - If the results is bigger then `0.25` log `"4: bad result"`
 
-3. Print the `"5"` logging after the `random` **seconds** from step 3.
+3. Print the `"5"` logging after `random` (from step 3) **seconds**.
 
 Commit and push your changes.
 
@@ -410,8 +410,8 @@ Commit and push your changes.
 We want to be able to run multiple async operations in parallel.
 Lets say that after the `"4"` logging we want to print the `"5"` logging and in concurrent run functions that logs the string `"hi 5"` after 5 ms and `"take 5"` after 6 ms.
 
-1. Create a function that after `5` ms logs the string `"hi 5"`
-2. Create a function that after `6` ms logs the string `"take 5"`
+1. Create a function that after `5` ms logs the string `"Hi five"`
+2. Create a function that after `6` ms logs the string `"Take five"`
 3. Execute the `"5"`, `"Hi 5"`, ``"Take 5"` functions logging after the `"4"` logging in concurrent.
 
 Commit and push your changes.
@@ -419,7 +419,7 @@ Commit and push your changes.
 #### After Concurrent execution - (Optional)
 
 We want to be able to run async operations after parallel execution is done.
-Lets say that after the step 5 (logging `"5"`, `"hi 5"`, `"take 5"`) we want to log `"6"` after 10 ms;
+Lets say that after the step 5 (logging `"5"`, `"Hi five"`, `"Take five"`) we want to log `"6"` after 10 ms;
 
 How do you implement a job after "Parallel" execution?
 
@@ -454,7 +454,7 @@ eventEmitter.on("start", () => {
 });
 
 eventEmitter.emit("start");
-//the event handler function is triggered, and we get the console log.
+// logs "started"
 ```
 
 An event handler is a particular type of callback.
@@ -590,10 +590,16 @@ async function asyncExample(value) {
 Lets refactor the `promise-logging.js` using async await:
 
 1. Create a `async-await-logging.js`.
-2. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
-3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
-4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
-5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
+2. Change the `setTimeout` to promise based using `node:timers/promises`:
+
+   ```js
+   import { setTimeout } from "node:timers/promises";
+   ```
+
+3. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
+4. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
+5. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
+6. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
    You may add the [After "Parallel" job](#after-parallel-execution---optional).
 
 #### Async Await - Questions
@@ -643,26 +649,33 @@ Promise.all(arr.map(async (element) => await asyncLogic(element)));
 
 Let's create an practical example!
 
-`downloadText()` uses the Promise-based [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) API to download a text file as a string
+`downloadText()` uses the Promise-based [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) API to download a text file into a local directory called `downloads`.
 
 ```javascript
-async function downloadText(url) {
+const downloadText = async (url) => {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(res.statusText);
-  else return await res.text();
-}
+  if (!res.ok) throw new Error(`Failed to download ${url} - ${res.statusText}`);
+  const text = await res.text();
+  const filePath = join("downloads", basename(url));
+  await writeFile(filePath, text);
+};
 ```
 
-Create a function called `downloadTextFiles` which get an array of urls and return an array of strings.
+Create a function called `downloadTextFiles` which get an array of urls and download all the files into the `downloads` directory.
+Add log before and after each download, and after all downloads are done.
 
-You can test your function using this example:
+What is the execution order of the logs?
+
+Test your function using this example:
 
 ```javascript
-const files = ["sample1.txt", "sample2.txt", "sample3.txt", "sample4.txt"];
+const files = ["sample1.txt", "sample2.txt", "sample3.txt"];
 
 const urls = files.map(
   (fileName) => `https://filesamples.com/samples/document/txt/${fileName}`
 );
+
+await downloadTextFiles(urls);
 ```
 
 #### Promise.allSettled()
@@ -704,9 +717,29 @@ interface RejectionObject {
 
 Wow, this looks pretty exhausting. Why using `Promise.allSettled()` instead of `Promise.all()`?
 
-Unless there is an error when iterating over promises, the output Promise is never rejected. This lets us execute asynchronous functions in parallel using `map()` without stopping if some "jobs" failed.
+Unless there is an error when iterating over promises, the output Promise is never rejected. This lets us execute asynchronous functions in concurrent using `map()` without throwing if some "jobs" failed.
 
-Lets fix the `downloadTextFiles` to return array of strings which contain all the successful downloaded text.
+Lets fix the `downloadTextFiles` to use `Promise.allSettled()` instead of `Promise.all()`. After the download is finished, print the number of failed downloads and the reason for the failure.
+
+You can test your function using this example:
+
+```js
+const files = [
+  "not-exists1.txt",
+  "sample1.txt",
+  "sample2.txt",
+  "sample3.txt",
+  "not-exists2.txt",
+];
+```
+
+should print after all downloads are done:
+
+```bash
+Failed to download 2 files:
+    Failed to download https://filesamples.com/samples/document/txt/not-exists1.txt - Not Found
+    Failed to download https://filesamples.com/samples/document/txt/not-exists2.txt - Not Found
+```
 
 ### Promise functions - Worth Knowing
 
