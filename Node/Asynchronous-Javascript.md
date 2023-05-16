@@ -76,9 +76,9 @@ You should be familiar with the following concepts:
 - Events
 - Promises
 
-### JavaScript - Advanced Topics (Optional)
+### JavaScript - More Topics
 
-Some advanced concepts that worth Knowing (skip this part if you are new to JavaScript):
+Some advanced concepts that worth Knowing:
 
 - Closures
 - Currying
@@ -86,104 +86,98 @@ Some advanced concepts that worth Knowing (skip this part if you are new to Java
 - Copy, deep clone, shallow clone.
 - `this` keyword
 - Function.prototype: `bind`, `apply`, `call`
-- Hoisting
 
-#### JavaScript - questions (Advanced Topics)
+#### JavaScript - questions (More Topics)
 
-Some questions about the Advanced Topics (skip this part if you are new to JavaScript):
+Some questions about the more advanced topics:
 
-1. What is the output of this code?
+1.  What is the output of this code?
 
-   ```js
-   const count = 0;
+    ```js
+    const count = 0;
 
-   const logCount = () => {
-     console.log(count);
-   };
+    const logCount = () => {
+      console.log(count);
+    };
 
-   if (count === 0) {
-     const count = 1;
-     console.log(count);
-     logCount();
-   }
-   ```
+    if (count === 0) {
+      const count = 1;
+      console.log(count);
+      logCount();
+    }
+    ```
 
-2. Write a function `multiply`:
+2.  - Write a function `sayHello` that get a name and print `"Hello {name}"`.
+    - Write a function `sayHey` that get a name and print `"Hey {name}"`.
+    - Write a function `sayBye` that get a name and print `"Bye {name}"`.
+    - Write a function `sayJoke` that get a name and print `"Knock knock {name}"`.
+    - Did you notice that all the functions are very similar? Can you make the code less repetitive?
 
-   - If `multiply(num1, num2)` is invoked with 2 arguments, it should return the multiplication of the 2 arguments.
-   - If `multiply(num1)` is invoked with 1 argument the function should return another function. The returned function when called with `num2` performs the multiplication `num1 * num2`
+3.  What is the output of this code?
 
-   ```js
-   multiply(4, 5); // => 20
-   multiply(3, 3); // => 9
-   const double = multiply(2);
-   double(5); // => 10
-   double(11); // => 22
-   ```
+    ```js
+    function changeStuff(num, obj1, obj2) {
+      num = num * 10;
+      obj1.key = "changed";
+      obj2 = { key: "changed" };
+    }
 
-3. What is the output of this code?
+    const num = 10;
+    const obj1 = { key: "unchanged" };
+    const obj2 = { key: "unchanged" };
 
-   ```js
-   function changeStuff(num, obj1, obj2) {
-     num = num * 10;
-     obj1.key = "changed";
-     obj2 = { key: "changed" };
-   }
+    changeStuff(num, obj1, obj2);
 
-   const num = 10;
-   const obj1 = { key: "unchanged" };
-   const obj2 = { key: "unchanged" };
+    console.log(num);
+    console.log(obj1.key);
+    console.log(obj2.key);
+    ```
 
-   changeStuff(num, obj1, obj2);
+4.  What is the output of this code?
 
-   console.log(num);
-   console.log(obj1.key);
-   console.log(obj2.key);
-   ```
+    ```js
+    const user = {
+      firstName: "Lady",
+      lastName: "Gaga",
+      address: {
+        street: "David king",
+        city: "TLV",
+        country: "IL",
+      },
+    };
 
-4. What is the output of this code?
+    const copiedUser = { ...user };
 
-   ```js
-   const user = {
-     firstName: "Lady",
-     lastName: "Gaga",
-     address: {
-       street: "David king",
-       city: "TLV",
-       country: "IL",
-     },
-   };
+    copiedUser.firstName = "Jane";
+    copiedUser.address.street = "Back street";
 
-   const copiedUser = { ...user };
+    console.log(copiedUser);
+    console.log(user);
+    ```
 
-   copiedUser.firstName = "Jane";
-   copiedUser.address.street = "Back street";
+5.  What is the output of this code? Fix the code.
 
-   console.log(copiedUser);
-   console.log(user);
-   ```
+    ```js
+    class LateBloomer {
+      #delay;
 
-5. What is the output of this code? How do you fix it?
+      constructor(delay = 1000) {
+        this.#delay = delay;
+        this.petalNumber = Math.floor(Math.random() * 12) + 1;
+      }
 
-```js
-class LateBloomer {
-  constructor() {
-    this.petalNumber = Math.floor(Math.random() * 12) + 1;
-  }
+      bloom() {
+        setTimeout(this.#declare, this.#delay);
+      }
 
-  bloomInDelay(delay) {
-    setTimeout(this.declare, delay);
-  }
+      #declare() {
+        console.log(`I am a beautiful flower with ${this.petalNumber} petals!`);
+      }
+    }
 
-  declare() {
-    console.log(`I am a beautiful flower with ${this.petalNumber} petals!`);
-  }
-}
-
-const flower = new LateBloomer();
-const oneSecondDelay = 1000;
-flower.bloomInDelay(oneSecondDelay);
-```
+    const flower = new LateBloomer();
+    flower.bloom();
+    ```
 
 ### JavaScript - Worth knowing (Advanced)
 
@@ -216,7 +210,7 @@ Before you continue, make sure you are familiar with the following concepts:
 
 ### NodeJs - Advanced Topics (Optional)
 
-Some advanced concepts that you should be aware of, skip this section if you are new to NodeJS.
+Some advanced concepts that you should be aware of:
 
 - Streams
 - Buffers
@@ -232,8 +226,6 @@ Many functions provided by nodeJS and browsers, can potentially take a long time
 
 **_After each mini chapter in this path, create a "Pull Request" and/or talk to your mentor to validate your knowledge._**
 
-> **NOTE**: This is a WIP section as it kind a long and not sure if it is needed for the basic path, I recommend to advice with your mentor if you should learn this section and how much ?time you should spend on it.
-
 ### Introduction
 
 We will learn a several techniques to make our programs asynchronous.
@@ -247,8 +239,8 @@ Some of these techniques are legacy and not recommended for new projects but the
      setTimeout(() => console.log(message), ms);
    };
 
-   console.log("1");
-   logAfterMs("2", 0);
+   logAfterMs("1", 0);
+   logAfterMs("2", 1);
    logAfterMs("3", 10);
    logAfterMs("4", 5);
    console.log("5");
@@ -314,8 +306,19 @@ Lets fix the above `intro.js` script by adding a callback function.
 
 Create a `callbacks-logging.js`.
 
+Change the `logAfterMs` function to accept a callback function as a second argument:
+
+```js
+const logAfterMs = (message, ms, callback) => {
+  setTimeout(() => {
+    console.log(message);
+    callback();
+  }, ms);
+};
+```
+
 1. Write a code that log the string `"1"`.
-2. Write a code that log the string `"2"` 0 ms after the log `"1"` above has finished.
+2. Write a code that log the string `"2"` 1 ms after the log `"1"` above has finished.
 3. Write a code that log the string `"3"` 10 ms after the the log `"2"` above has finished.
 4. Write a code that log the string `"4"` 5 ms after the the log `"3"` above has finished.
 5. Write a code that log the string `"5"` after all the logs.
@@ -343,17 +346,29 @@ validateTruthy(exampleValue, (err) => {
 ```
 
 We want to be able to handle errors in our logging code workflow.
+
+Here is a function that simulate a logging that may fail:
+
+```js
+const maybeLog = (message, ms, callback) => {
+  setTimeout(() => {
+    if (Math.random() < 0.5) {
+      console.log(message);
+      callback();
+    } else {
+      const err = new Error("Something went wrong");
+      callback(err);
+    }
+  }, ms);
+};
+```
+
 Lets say the `"3"` logging may fail.
 In this case we will retry the logging again once. If the logging fails again we will log the error and stop the execution.
 
-1. Create a function that after 10 ms:
-
-   - 50%: logs the string `"3"`
-   - 50%: throws an error `"Logging failed"`
-
-2. Replace step 3 (logging `"3"`) with this function.
-3. Handle the error in step 4 (logging `"4"`).
-   - If the error is thrown, retry the logging. if the logging fails again, log the error and stop the execution.
+1. Replace step 3 (logging `"3"`) with this function.
+2. Handle the error:
+   - If the error is thrown, log the error and stop the execution.
    - If the error is not thrown, log the string `"4"` as usual and continue to step 5.
 
 Commit and push your changes.
@@ -361,35 +376,50 @@ Commit and push your changes.
 #### Pass data
 
 We want our code to pass results from async operations to other.
-Lets say the `"3"` logging has two variables which we want to pass to the `"4"` logging,
-and `"4"` logging has result value. We want to pass this result to the `"5"` logging.
 
-1. Create a function that after 5 ms:
-   - 50%: logs the string `"4"` and decide that result is `"result 1"`
-   - 50%: logs the string `"4"` and decide that result is `"result 2"`
-2. Replace step 4 (logging `"4"`) with this function.
-3. Handle the result in step 5:
+Lets say the `"3"` logging need to pass a result to the `"4"` logging.
 
-   - If the result is `"result 1"` log `"5: result 1"`
-   - If the result is `"result 2"` log `"5: result 2"`
+1. Replace the `maybeLog` function with this function:
 
-4. Add a **two** variables (anything) to the `"3"` logging and use it (however you like) in the `"4"` logging.
+```js
+const maybeLog = (message, ms, callback) => {
+  setTimeout(() => {
+    const random = Math.random();
+    if (random < 0.7) {
+      console.log(message);
+      callback(null, random.toPrecision(2));
+    } else {
+      const error = new Error("Something went wrong");
+      callback(error);
+    }
+  }, ms);
+};
+```
+
+2. Handle the results in step 4:
+
+- If the results is smaller then `0.25` log `"4: good result"`
+- If the results is bigger then `0.25` log `"4: bad result"`
+
+3. Print the `"5"` logging after the `random` **seconds** from step 3.
 
 Commit and push your changes.
 
-#### "Parallel" execution
+#### Concurrent execution
 
 We want to be able to run multiple async operations in parallel.
-Lets say that after the `"4"` logging want to print the `"5 result x"` logging and in "parallel" run functions that logs the string `"hi 5"` after 5 ms and `"take 5"` after 6 ms.
+Lets say that after the `"4"` logging we want to print the `"5"` logging and in concurrent run functions that logs the string `"hi 5"` after 5 ms and `"take 5"` after 6 ms.
 
-1. Create a function that after 5 ms logs the string `"hi 5"`
-2. Create a function that after 6 ms logs the string `"take 5"`
-3. Execute the `"5 result x"`, `"hi 5"`, ``"take 5"` functions logging after the `"4"` logging.
+1. Create a function that after `5` ms logs the string `"hi 5"`
+2. Create a function that after `6` ms logs the string `"take 5"`
+3. Execute the `"5"`, `"Hi 5"`, ``"Take 5"` functions logging after the `"4"` logging in concurrent.
 
-#### After "Parallel" execution - (Optional)
+Commit and push your changes.
+
+#### After Concurrent execution - (Optional)
 
 We want to be able to run async operations after parallel execution is done.
-Lets say that after the step 5 (logging `"5 result x"`, `"hi 5"`, `"take 5"`) we want to log `"6"` after 10 ms;
+Lets say that after the step 5 (logging `"5"`, `"hi 5"`, `"take 5"`) we want to log `"6"` after 10 ms;
 
 How do you implement a job after "Parallel" execution?
 
@@ -406,6 +436,8 @@ These topics are not covered in this chapter but is worth knowing:
 - [Async.js](https://caolan.github.io/async/v3/)
 
 ### Event handlers (Optional)
+
+> **NOTE**: I recommend to advice with your mentor if you should learn this section and how much time you should spend on it.
 
 Node.js is famous for its asynchronous and event-driven nature.
 
@@ -442,7 +474,7 @@ Lets create the `callbacks-logging.js` using event handlers.
 
    Commit and push your changes.
 
-5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using event handlers. You may add the [After "Parallel" job](#after-parallel-execution---optional) if you implement it in the callbacks section.
+5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using event handlers. You may add the [After "Parallel" job](#after-parallel-execution---optional).
 
    Commit and push your changes.
 
@@ -524,7 +556,7 @@ Lets create the infamous logging example using promises.
 3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
 4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
 5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
-   You may add the [After "Parallel" job](#after-parallel-execution---optional) if you implement it in the callbacks section.
+   You may add the [After "Parallel" job](#after-parallel-execution---optional).
 
 #### Promises - Questions
 
@@ -562,7 +594,7 @@ Lets refactor the `promise-logging.js` using async await:
 3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
 4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
 5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
-   You may add the [After "Parallel" job](#after-parallel-execution---optional) if you implement it in the callbacks section.
+   You may add the [After "Parallel" job](#after-parallel-execution---optional).
 
 #### Async Await - Questions
 
@@ -575,7 +607,7 @@ Lets refactor the `promise-logging.js` using async await:
 These topics are not covered in this chapter but is worth knowing:
 
 - Top level await
-- `for await...of`
+- Async Iterators (`for await`)
 - `return await` in async function
 
 ### Promise functions
@@ -601,7 +633,7 @@ More accurate in typescript syntax (Advanced):
 Promise.all<T>(promises: Iterable<Promise<T>>): Promise<Array<T>>
 ```
 
-Promise.all is important because it let us execute "parallel" jobs using asynchronous `.map()`.
+Promise.all is important because it let us execute concurrent jobs on arrays using asynchronous `.map()`.
 
 Here is an abstract Example:
 
@@ -626,10 +658,11 @@ Create a function called `downloadTextFiles` which get an array of urls and retu
 You can test your function using this example:
 
 ```javascript
-const urls = [
-  "https://filesamples.com/samples/document/txt/sample1.txt",
-  "https://filesamples.com/samples/document/txt/sample2.txt",
-];
+const files = ["sample1.txt", "sample2.txt", "sample3.txt", "sample4.txt"];
+
+const urls = files.map(
+  (fileName) => `https://filesamples.com/samples/document/txt/${fileName}`
+);
 ```
 
 #### Promise.allSettled()
