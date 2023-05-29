@@ -151,9 +151,9 @@ interface Duty {
      }
      ```
 
-     The id should be the soldier's private tt number.
+   - The id should be the soldier's private tt number - a 7 digits number.
 
-   - Validate that all the above parameters exist, any other property is invalid.-
+   - Validate that all the above parameters exist, any other property is invalid.
    - When a soldier is inserted to the database, add the `duties` property and initialize it to an empty array.
    - Return the inserted `Soldier`.
 
@@ -231,7 +231,7 @@ The justice board is an array of objects with the keys:
 For example:
 
 ```javascript
-[{ id: '112358', score: 23 }, { id: '3141592', score: 19 }, ...]
+[{ id: '1123581', score: 13 }, { id: '3141592', score: 12 }, { id: '2718281', score: 94 } ...]
 ```
 
 1. Create endpoint for getting the justice board:
@@ -271,8 +271,6 @@ For example:
 5. Add a rate limiter for your routes.
 
    You can use [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit).
-
-6. Advanced: Add https protocol support to your application. (optional)
 
 ## Task 7 - Extend query parameters (optional)
 
