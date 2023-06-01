@@ -309,10 +309,10 @@ Create a `callbacks-logging.js`.
 Change the `logAfterMs` function to accept a callback function as a the last argument:
 
 ```js
-const logAfterMs = (message, ms, callback) => {
+const logAfterMs = (message, ms, done) => {
   setTimeout(() => {
     console.log(message);
-    callback();
+    done();
   }, ms);
 };
 ```
@@ -350,21 +350,20 @@ We want to be able to handle errors in our logging code workflow.
 Here is a function that simulate a logging that may fail:
 
 ```js
-const maybeLog = (message, ms, callback) => {
+const maybeLog = (message, ms, done) => {
   setTimeout(() => {
     if (Math.random() < 0.5) {
       console.log(message);
-      callback();
+      done();
     } else {
       const err = new Error("Something went wrong");
-      callback(err);
+      done(err);
     }
   }, ms);
 };
 ```
 
 Lets say the `"3"` logging may fail.
-In this case we will retry the logging again once. If the logging fails again we will log the error and stop the execution.
 
 1. Replace step 3 (logging `"3"`) with this function.
 2. Handle the error:
