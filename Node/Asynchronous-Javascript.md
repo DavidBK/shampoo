@@ -107,6 +107,7 @@ Some questions about the more advanced topics:
     }
     ```
 
+
 2.  - Write a function `sayHello` that get a name and print `"Hello {name}"`.
     - Write a function `sayHey` that get a name and print `"Hey {name}"`.
     - Write a function `sayBye` that get a name and print `"Bye {name}"`.
