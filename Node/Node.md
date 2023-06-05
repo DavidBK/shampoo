@@ -16,6 +16,7 @@ this learning path include the following modules:
 
 - [Asynchronous NodeJS and JavaScript](Node/Asynchronous-Javascript)
 - [Node Project - Call Of Duty](Node/Call-Of-Duty)
+- [Testing](Node/Testing-Javascript)
 - [TypeScript](Node/TypeScript)
 
 Requirements:
