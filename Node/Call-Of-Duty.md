@@ -260,9 +260,9 @@ For example:
 
    You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
 
-2. Add [swagger](https://swagger.io) documentation to your app.
+2. Add [openAPI](https://www.openapis.org/) v3 documentation to your app.
 
-   You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin.
+   You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin to generate the documentation.
 
 3. Add README.md to your app. Your readme should include explanation to how to use and test the app.
 
