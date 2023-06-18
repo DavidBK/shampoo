@@ -56,8 +56,7 @@ Open Terminal and enter:
 sudo apt-get install git
 ```
 
-_(If you don't use [WSL](#1-set-up-wsl-optional) look up how to install git on
-windows)_
+_(If you don't use [WSL](setup) look up how to install git on windows)_
 
 ### Git config file setup
 
@@ -137,7 +136,7 @@ You can read this for more details:
 1. Copy the contents of your public key file
 
    ```bash
-   cat ~/.ssh/id_rsa.pub | clip
+   cat ~/.ssh/id_rsa.pub | clip.exe
    ```
 
 2. Your avatar > Preferences > SSH Keys > Add SSH Key
