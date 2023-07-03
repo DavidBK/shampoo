@@ -83,7 +83,7 @@ git config --global user.email "youremail@domain.com"
 ### Configure Connection with the remote (Recommended)
 
 Git uses several protocols for client-server communication. SSH and HTTPS are
-secure protocols. As a result, many git servers, such as Github, Bitbuckets, and
+secure protocols. As a result, many git servers, such as Github, Bitbucket, and
 GitLab, use those two popular cryptographic network protocols.
 
 #### **HTTPS**
@@ -497,7 +497,7 @@ make sure you know the following commands:
 
 4. What is `!git` in the `.gitconfig`?
 
-[Attached]() to this project is my .gitconfig file. You can use it to build your
+[Attached](.gitconfig) to this project is my .gitconfig file. You can use it to build your
 awesome `.gitconfig`! Don't forget to share it with me. :joy:
 
 ## Wrapping Up - Git Project
@@ -546,12 +546,12 @@ link at every chapter._
    Your graph should look like this:
 
    ```git
-   * 7c67cad - (chapter-2) Add page 3 to chapter 2 (61 seconds ago) <spacename>
-   | * cf15fb8 - (chapter-1) Add page 3 (7 minutes ago) <spacename>
+   * 7c67cad - (chapter-2) Add page 3 to chapter 2 (61 seconds ago) <space-name>
+   | * cf15fb8 - (chapter-1) Add page 3 (7 minutes ago) <space-name>
    |/
-   * 9e37807 - Add page 2 (8 minutes ago) <spacename>
-   * 9684685 - Add page 1 (8 minutes ago) <spacename>
-   * ebd3885 - (main) Add .gitignore (10 minutes ago) <spacename>
+   * 9e37807 - Add page 2 (8 minutes ago) <space-name>
+   * 9684685 - Add page 1 (8 minutes ago) <space-name>
+   * ebd3885 - (main) Add .gitignore (10 minutes ago) <space-name>
    * 8975347 - (HEAD -> chapter-3, origin/main, origin/HEAD) Initial commit (12 minutes ago) <Space Name>
    ```
 
@@ -578,16 +578,16 @@ link at every chapter._
 2. Log the all history with a graph. Your graph should look like this:
 
    ```git
-   * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (3 minutes ago) <spacename>
-   * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (13 minutes ago) <spacename>
-   | * f36ad71 - (HEAD -> chapter-5) Add a mistake (14 minutes ago) <spacename>
-   | * 137d2d8 - Add page 3 to chapter 2 (18 minutes ago) <spacename>
+   * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (3 minutes ago) <space-name>
+   * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (13 minutes ago) <space-name>
+   | * f36ad71 - (HEAD -> chapter-5) Add a mistake (14 minutes ago) <space-name>
+   | * 137d2d8 - Add page 3 to chapter 2 (18 minutes ago) <space-name>
    |/
-   | * cf15fb8 - (chapter-1) Add page 3 (20 minutes ago) <spacename>
+   | * cf15fb8 - (chapter-1) Add page 3 (20 minutes ago) <space-name>
    |/
-   * 9e37807 - Add page 2 (20 minutes ago) <spacename>
-   * 9684685 - Add page 1 (20 minutes ago) <spacename>
-   * ebd3885 - (main) Add .gitignore (23 minutes ago) <spacename>
+   * 9e37807 - Add page 2 (20 minutes ago) <space-name>
+   * 9684685 - Add page 1 (20 minutes ago) <space-name>
+   * ebd3885 - (main) Add .gitignore (23 minutes ago) <space-name>
    * 8975347 - (origin/main, origin/HEAD, chapter-3) Initial commit (24 minutes ago) <Space Name>
    ```
 
@@ -620,23 +620,23 @@ link at every chapter._
     Log the all history without a graph, Your graph should look like this:
 
     ```git
-    *   4c61fe9 - (HEAD -> main, chapter-5) Merge branch 'chapter-6' into chapter-5 (3 minutes ago) <spacename>
+    *   4c61fe9 - (HEAD -> main, chapter-5) Merge branch 'chapter-6' into chapter-5 (3 minutes ago) <space-name>
     |\
-    | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (8 minutes ago) <spacename>
+    | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (8 minutes ago) <space-name>
     | |\
-    | | * a199dd5 - (chapter-6-ver-2) Add page 4 (10 minutes ago) <spacename>
-    | * | 8d1c0d2 - Add page 4 (12 minutes ago) <spacename>
+    | | * a199dd5 - (chapter-6-ver-2) Add page 4 (10 minutes ago) <space-name>
+    | * | 8d1c0d2 - Add page 4 (12 minutes ago) <space-name>
     | |/
-    | * cf15fb8 - (chapter-1) Add page 3 (34 minutes ago) <spacename>
-    * | f36ad71 - Add a mistake (28 minutes ago) <spacename>
-    * | 137d2d8 - Add page 3 to chapter 2 (32 minutes ago) <spacename>
+    | * cf15fb8 - (chapter-1) Add page 3 (34 minutes ago) <space-name>
+    * | f36ad71 - Add a mistake (28 minutes ago) <space-name>
+    * | 137d2d8 - Add page 3 to chapter 2 (32 minutes ago) <space-name>
     |/
-    | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (18 minutes ago) <spacename>
-    | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (28 minutes ago) <spacename>
+    | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (18 minutes ago) <space-name>
+    | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (28 minutes ago) <space-name>
     |/
-    * 9e37807 - Add page 2 (35 minutes ago) <spacename>
-    * 9684685 - Add page 1 (35 minutes ago) <spacename>
-    * ebd3885 - Add .gitignore (37 minutes ago) <spacename>
+    * 9e37807 - Add page 2 (35 minutes ago) <space-name>
+    * 9684685 - Add page 1 (35 minutes ago) <space-name>
+    * ebd3885 - Add .gitignore (37 minutes ago) <space-name>
     * 8975347 - (origin/main, origin/HEAD, chapter-3) Initial commit (39 minutes ago) <Space Name>
     ```
 
@@ -658,23 +658,23 @@ link at every chapter._
    **We will rebase it instead of merging (As one should)**.
 
    ```git
-   *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (8 minutes ago) <spacename>
+   *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (8 minutes ago) <space-name>
    |\
-   | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (13 minutes ago) <spacename>
+   | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (13 minutes ago) <space-name>
    | |\
-   | | * a199dd5 - (HEAD -> chapter-7-ver-2, chapter-6-ver-2) Add page 4 (15 minutes ago) <spacename>
-   | * | 8d1c0d2 - (chapter-7) Add page 4 (17 minutes ago) <spacename>
+   | | * a199dd5 - (HEAD -> chapter-7-ver-2, chapter-6-ver-2) Add page 4 (15 minutes ago) <space-name>
+   | * | 8d1c0d2 - (chapter-7) Add page 4 (17 minutes ago) <space-name>
    | |/
-   | * cf15fb8 - (chapter-1) Add page 3 (39 minutes ago) <spacename>
-   * | f36ad71 - Add a mistake (33 minutes ago) <spacename>
-   * | 137d2d8 - Add page 3 to chapter 2 (37 minutes ago) <spacename>
+   | * cf15fb8 - (chapter-1) Add page 3 (39 minutes ago) <space-name>
+   * | f36ad71 - Add a mistake (33 minutes ago) <space-name>
+   * | 137d2d8 - Add page 3 to chapter 2 (37 minutes ago) <space-name>
    |/
-   | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (23 minutes ago) <spacename>
-   | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (33 minutes ago) <spacename>
+   | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (23 minutes ago) <space-name>
+   | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (33 minutes ago) <space-name>
    |/
-   * 9e37807 - Add page 2 (39 minutes ago) <spacename>
-   * 9684685 - Add page 1 (40 minutes ago) <spacename>
-   * ebd3885 - Add .gitignore (42 minutes ago) <spacename>
+   * 9e37807 - Add page 2 (39 minutes ago) <space-name>
+   * 9684685 - Add page 1 (40 minutes ago) <space-name>
+   * ebd3885 - Add .gitignore (42 minutes ago) <space-name>
    * 8975347 - (origin/main, origin/HEAD, main, chapter-3) Initial commit (44 minutes ago) <Space Name>
    ```
 
@@ -687,27 +687,27 @@ link at every chapter._
    Your graph should look like this:
 
    ```git
-   * dd17043 - (HEAD -> chapter-7) Add page 4 (43 seconds ago) <spacename>
-   | *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (17 minutes ago) <spacename>
+   * dd17043 - (HEAD -> chapter-7) Add page 4 (43 seconds ago) <space-name>
+   | *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (17 minutes ago) <space-name>
    | |\
-   | | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (21 minutes ago) <spacename>
+   | | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (21 minutes ago) <space-name>
    | | |\
    | |_|/
    |/| |
-   * | | a199dd5 - (chapter-7-ver-2, chapter-6-ver-2) Add page 4 (23 minutes ago) <spacename>
-   | | * 8d1c0d2 - Add page 4 (26 minutes ago) <spacename>
+   * | | a199dd5 - (chapter-7-ver-2, chapter-6-ver-2) Add page 4 (23 minutes ago) <space-name>
+   | | * 8d1c0d2 - Add page 4 (26 minutes ago) <space-name>
    | |/
    |/|
-   * | cf15fb8 - (chapter-1) Add page 3 (48 minutes ago) <spacename>
-   | * f36ad71 - Add a mistake (42 minutes ago) <spacename>
-   | * 137d2d8 - Add page 3 to chapter 2 (46 minutes ago) <spacename>
+   * | cf15fb8 - (chapter-1) Add page 3 (48 minutes ago) <space-name>
+   | * f36ad71 - Add a mistake (42 minutes ago) <space-name>
+   | * 137d2d8 - Add page 3 to chapter 2 (46 minutes ago) <space-name>
    |/
-   | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (31 minutes ago) <spacename>
-   | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (41 minutes ago) <spacename>
+   | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (31 minutes ago) <space-name>
+   | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (41 minutes ago) <space-name>
    |/
-   * 9e37807 - Add page 2 (48 minutes ago) <spacename>
-   * 9684685 - Add page 1 (48 minutes ago) <spacename>
-   * ebd3885 - Add .gitignore (51 minutes ago) <spacename>
+   * 9e37807 - Add page 2 (48 minutes ago) <space-name>
+   * 9684685 - Add page 1 (48 minutes ago) <space-name>
+   * ebd3885 - Add .gitignore (51 minutes ago) <space-name>
    * 8975347 - (origin/main, origin/HEAD, main, chapter-3) Initial commit (52 minutes ago) <Space Name>
    ```
 
@@ -806,41 +806,41 @@ the graph.
 How was your story?? I hope its look like this:
 
 ```git
-* 81dda3f - (chapter-3) Add a mistake (36 seconds ago) <spacename>
+* 81dda3f - (chapter-3) Add a mistake (36 seconds ago) <space-name>
 | *   c2d0098 - (HEAD -> main, origin/main, origin/HEAD) Merge branch 'chapter-9' into 'main' (2 minutes ago) <Space Name>
 | |\
-| | * c80c1f1 - (origin/chapter-9, chapter-9) Add page 4 (3 minutes ago) <spacename>
-| | * 81591e8 - Add page 3 (3 minutes ago) <spacename>
-| | * d1c1453 - Add page 2 (3 minutes ago) <spacename>
-| | * 5a4f26a - Add page 1 (3 minutes ago) <spacename>
+| | * c80c1f1 - (origin/chapter-9, chapter-9) Add page 4 (3 minutes ago) <space-name>
+| | * 81591e8 - Add page 3 (3 minutes ago) <space-name>
+| | * d1c1453 - Add page 2 (3 minutes ago) <space-name>
+| | * 5a4f26a - Add page 1 (3 minutes ago) <space-name>
 | |/
 | * 103e66c - Merge branch 'chapter-8' into 'main' (6 minutes ago) <Space Name>
 |/|
-| * e7c6ee5 - (origin/chapter-8, chapter-8) Add book end (6 minutes ago) <spacename>
-| * 7701fdd - Add book content (6 minutes ago) <spacename>
-| * 105e80f - Add book title (6 minutes ago) <spacename>
-| | * dd17043 - (chapter-7) Add page 4 (18 minutes ago) <spacename>
-| | | *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (34 minutes ago) <spacename>
+| * e7c6ee5 - (origin/chapter-8, chapter-8) Add book end (6 minutes ago) <space-name>
+| * 7701fdd - Add book content (6 minutes ago) <space-name>
+| * 105e80f - Add book title (6 minutes ago) <space-name>
+| | * dd17043 - (chapter-7) Add page 4 (18 minutes ago) <space-name>
+| | | *   4c61fe9 - (chapter-5) Merge branch 'chapter-6' into chapter-5 (34 minutes ago) <space-name>
 | | | |\
-| | | | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (38 minutes ago) <spacename>
+| | | | *   bea46bd - (chapter-6) Merge branch 'chapter-6-ver-2' into chapter-6 (38 minutes ago) <space-name>
 | | | | |\
 | | | |_|/
 | | |/| |
-| | * | | a199dd5 - (chapter-7-ver-2, chapter-6-ver-2) Add page 4 (40 minutes ago) <spacename>
-| | | | * 8d1c0d2 - Add page 4 (42 minutes ago) <spacename>
+| | * | | a199dd5 - (chapter-7-ver-2, chapter-6-ver-2) Add page 4 (40 minutes ago) <space-name>
+| | | | * 8d1c0d2 - Add page 4 (42 minutes ago) <space-name>
 | | | |/
 | | |/|
-| | * | cf15fb8 - (chapter-1) Add page 3 (65 minutes ago) <spacename>
-| | | * f36ad71 - Add a mistake (59 minutes ago) <spacename>
-| | | * 137d2d8 - Add page 3 to chapter 2 (63 minutes ago) <spacename>
+| | * | cf15fb8 - (chapter-1) Add page 3 (65 minutes ago) <space-name>
+| | | * f36ad71 - Add a mistake (59 minutes ago) <space-name>
+| | | * 137d2d8 - Add page 3 to chapter 2 (63 minutes ago) <space-name>
 | | |/
-| | | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (48 minutes ago) <spacename>
-| | | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (58 minutes ago) <spacename>
+| | | * 05b2320 - (chapter-4-ver-2) Create this_is_not_a_book.txt (48 minutes ago) <space-name>
+| | | * 7c67cad - (chapter-4, chapter-2) Add page 3 to chapter 2 (58 minutes ago) <space-name>
 | | |/
-| | * 9e37807 - Add page 2 (65 minutes ago) <spacename>
-| | * 9684685 - Add page 1 (65 minutes ago) <spacename>
+| | * 9e37807 - Add page 2 (65 minutes ago) <space-name>
+| | * 9684685 - Add page 1 (65 minutes ago) <space-name>
 | |/
-| * ebd3885 - Add .gitignore (68 minutes ago) <spacename>
+| * ebd3885 - Add .gitignore (68 minutes ago) <space-name>
 |/
 * 8975347 - Initial commit (69 minutes ago) <Space Name>
 ```
