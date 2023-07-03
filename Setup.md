@@ -56,7 +56,7 @@ To install you can follow the
 
 #### **Set your default profile**
 
-On windows terminal, enter `crtl+,` to open setting.
+On windows terminal, enter `ctrl + ,` to open setting.
 
 Select Startup and choose `Ubuntu` as your default profile.
 
@@ -133,8 +133,12 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
+export NVM_LAZY_LOAD=true
+antigen bundle lukechilds/zsh-nvm
+
 antigen theme robbyrussell
 antigen apply
+
 ```
 
 ---
@@ -147,7 +151,7 @@ VS Code (Visual Studio Code) is a source-code editor made by Microsoft including
 support for debugging, syntax highlighting, intelligent code completion,
 snippets, code refactoring, and embedded Git.
 
-In order to use VS code in your [WSL](#1-set-up-wsl-optional) First install VS
+In order to use VS code in your [WSL](#1-set-up-wsl) First install VS
 code in Windows and then the Visual Studio Code Remote - WSL Extension.
 
 ### 2.1 Install VS code on Windows
@@ -180,7 +184,7 @@ For more information, About working with VS code on WSL see
 ## 3. Install Docker Desktop
 
 Docker Desktop for Windows provides a development environment for building,
-shipping, and running dockerized apps. By enabling the WSL 2 based engine, you
+shipping, and running dockerize apps. By enabling the WSL 2 based engine, you
 can run both Linux and Windows containers in Docker Desktop on the same machine.
 
 _Note: While Docker Desktop supports running both Linux and Windows containers,
@@ -193,7 +197,7 @@ WSL._
 Docker Hub is a service for finding and sharing container images with the Docker
 community.
 
-[Signup link](https://hub.docker.com/signup/)
+[SignUp link](https://hub.docker.com/signup/)
 
 ### 3.2 Install Docker Desktop on Windows
 
@@ -222,6 +226,7 @@ For more information, see
 
 ## Advanced links (skip)
 
+- [antidote](https://github.com/mattmc3/antidote) - feature-complete Zsh implementation which was derived from Antigen.
 - [starship](https://starship.rs/) - cross shell customizable prompt
 
   - [Install a Nerd Font](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup#install-a-nerd-font)
