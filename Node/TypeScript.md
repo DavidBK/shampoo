@@ -20,7 +20,7 @@ At the end of this learning path, you'll be able to:
 
 _Send me back [home](home)_
 
-[[*TOC*]]
+[[_TOC_]]
 
 ---
 
@@ -185,6 +185,8 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 - Parameter Destructuring in functions
 - Passing Type Arguments (`<Type>`)
 - Type Assertions (`as`, `!`)
+- `typeof` type operator
+- `keyof` type operator
 - Literal Types and `as const`
 - `null`, `undefined`, `void`, and `never`
 - Narrowing and Type guards
@@ -193,6 +195,60 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 ### Beginners Typescript Workshops
 
 [Here](https://github.com/total-typescript/beginners-typescript-tutorial) is a great tutorial for all the basics. Do it yourself :smile:
+
+### Questions
+
+1. I have the following code:
+
+   ```ts
+    const echo = (arg) => arg;
+
+    const myString = echo("Hello World");
+    const enthusiasticString = myString.map(ch => ch + "!");
+    console.log(enthusiasticString);
+   ```
+
+    - What is the problem?
+    - How typescript can help me?
+    - Fix the code so it will **not** compile
+
+1. Consider this types declaration, What is the error? Why? Fix the code so it will compile.
+
+   ```ts
+   type Bird = {
+     fly(): void;
+     layEggs(): void;
+   };
+
+   type Fish = {
+     swim(): void;
+     layEggs(): void;
+   };
+
+   type Pet = Bird | Fish;
+
+   declare function getSmallPet(): Pet;
+
+   const pet = getSmallPet();
+   pet.layEggs();
+   pet.swim();
+   ```
+
+1. What is the problem with this code? Can you fix it?
+
+   ```ts
+   const satellites = ["skysat", "skywalker", "skyscraper", "skyrim", "ET"];
+
+   type Satellites = typeof satellites;
+   type Satellite = Satellites[number];
+
+   declare function sendHome(satellite: Satellite): void;
+
+   sendHome("ET");
+   sendHome("skySat");
+   ```
+
+   (Hint: TS should error on the last line)
 
 ### Working With TS - My Recommendations
 
@@ -216,7 +272,7 @@ In many cases there is a strong corelation between types and runtime schemas, an
 
 [Zod](https://github.com/colinhacks/zod) is a TypeScript-first schema declaration and validation library.
 
-The goal is to eliminate duplicative type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type.
+The goal is to eliminate duplicate type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type.
 It also allows for easy composition of simpler types into complex data structures.
 
 If you wish to use Zod with [Fastify](https://www.fastify.io/) app, you can use [fastify-type-provider-zod](https://github.com/turkerdev/fastify-type-provider-zod) library.
@@ -244,11 +300,10 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - Exhaustiveness checking
 - Function Overloads
 - Index Signatures
-- `keyof` type operator
-- `typeof` type operator
 - Indexed Access Types
 - Conditional Types and `infer`
 - `satisfies` operator
+- `using` operator
 - Distributive Conditional Types (`T extends T` vs `[T] extends [T]`)
 - Mapped Types (`in`)
 - Decorators
