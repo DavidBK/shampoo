@@ -299,15 +299,15 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - Discriminated unions
 - Exhaustiveness checking
 - Function Overloads
-- Index Signatures
+- Index Signatures (`[index: string]: number`)
 - Indexed Access Types
 - Conditional Types and `infer`
 - `satisfies` operator
-- `using` operator
 - Distributive Conditional Types (`T extends T` vs `[T] extends [T]`)
 - Mapped Types (`in`)
-- Decorators
 - Template Literal Types
+- `using` operator
+- Decorators
 
 ## Project
 
@@ -317,10 +317,14 @@ Talk with your mentor about the project.
 
 These concepts are worth mentioning but don't learn them now.
 
-- [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
-- [papr](https://plexinc.github.io/papr/#/) - lightweight library built around the MongoDB NodeJS driver, written in TypeScript
+- Declaration Files
+- Mixins
+- Module Resolution
+
 
 ## Tools
 
 - [pretty-ts-errors](https://github.com/yoavbls/pretty-ts-errors)
 - [ts-reset](https://github.com/total-typescript/ts-reset)
+- [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
+- [papr](https://plexinc.github.io/papr/#/) - lightweight library built around the MongoDB NodeJS driver, written in TypeScript
