@@ -321,7 +321,6 @@ These concepts are worth mentioning but don't learn them now.
 - Mixins
 - Module Resolution
 
-
 ## Tools
 
 - [pretty-ts-errors](https://github.com/yoavbls/pretty-ts-errors)
