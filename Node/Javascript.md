@@ -41,7 +41,7 @@ So in order to run JavaScript on your computer, you need to install NodeJS.
 
 ## Install NodeJS using NVM
 
-NVM (Node.js Version Manager) allows you to quickly install and use different versions of node via the command line.
+[NVM](https://github.com/nvm-sh/nvm) (Node.js Version Manager) allows you to quickly install and use different versions of node via the command line.
 
 Even if you only need a single version of Node.js right now, It is still recommend using nvm because it allows you to switch between different versions of Node (depending on the requirements of your project) with minimal hassle.
 
@@ -59,7 +59,7 @@ nvm --version
 
 For more information you can use the repository [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 
-Optional: [zsh plugin with lazy load](https://github.com/lukechilds/zsh-nvm) Or [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/)
+Optional: [zsh plugin with lazy load](https://github.com/lukechilds/zsh-nvm) Or [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/).
 If you follow the [setup](../Setup) instructions, you already have this plugin.
 
 ## JavaScript
