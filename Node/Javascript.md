@@ -30,7 +30,7 @@ Here is some examples links:
 - [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
 - [nodejs official learn](https://nodejs.dev/learn)
 
-## JavaScript via NodeJS
+## Introduction
 
 JavaScript is a programming language that is used to create web applications.
 
@@ -39,7 +39,7 @@ Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 In Human words: NodeJS is a program that allows you to run JavaScript on any computer (and not just in the browser).
 So in order to run JavaScript on your computer, you need to install NodeJS.
 
-### Install NodeJS using NVM
+## Install NodeJS using NVM
 
 NVM (Node.js Version Manager) allows you to quickly install and use different versions of node via the command line.
 
@@ -62,7 +62,7 @@ For more information you can use the repository [nvm-sh/nvm](https://github.com/
 Optional: [zsh plugin with lazy load](https://github.com/lukechilds/zsh-nvm) Or [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/)
 If you follow the [setup](../Setup) instructions, you already have this plugin.
 
-### JavaScript - The basics
+## JavaScript
 
 You should be familiar with the following concepts:
 
@@ -90,7 +90,7 @@ Some advanced concepts that worth Knowing, learn them after you understand the b
 - `this` keyword
 - Function.prototype: `bind`, `apply`, `call`
 
-#### JavaScript - questions (More Topics)
+### JavaScript - questions (More Topics)
 
 Some questions about the more advanced topics:
 
