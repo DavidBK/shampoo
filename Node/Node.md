@@ -14,9 +14,9 @@ After you finish this learning path you will be able to code backend systems and
 
 this learning path include the following modules:
 
+- [JavaScript](Node/Javascript)
 - [Asynchronous NodeJS and JavaScript](Node/Asynchronous-Javascript)
 - [Node Project - Call Of Duty](Node/Call-Of-Duty)
-- [Testing](Node/Testing-Javascript)
 - [TypeScript](Node/TypeScript)
 
 Requirements:

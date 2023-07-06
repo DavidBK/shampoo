@@ -4,23 +4,21 @@
 
 ---
 
-NodeJS is a JavaScript runtime built on Chrome's V8 JavaScript engine.
-
-This is a basic introduction to asynchronous Node JS and JavaScript.
+This learning path will teach you how to write asynchronous code in JavaScript and Node.js.
 
 **_Learning objectives:_**
 
 At the end of this learning path, you'll be able to:
 
-- Install NodeJS project packages
-- Create a new project
 - Write an efficient asynchronous code
+- Use the `async` and `await` keywords
+- Write scalable and performant code
 
 ---
 
 _Send me back [home](home)_
 
-[[*TOC*]]
+[[_TOC_]]
 
 ---
 
@@ -28,198 +26,7 @@ _Send me back [home](home)_
 
 Here is some examples links:
 
-- [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction)
-- [nodejs official learn](https://nodejs.dev/learn)
-
-## Install NodeJS using NVM
-
-NVM (Node.js Version Manager) allows you to quickly install and use different versions of node via the command line.
-
-Even if you only need a single version of Node.js right now, It is still recommend using nvm because it allows you to switch between different versions of Node (depending on the requirements of your project) with minimal hassle.
-
-to install nvm:
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
-
-Check if node is installed:
-
-```bash
-nvm --version
-```
-
-For more information you can use the repository [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
-
-Optional: [zsh plugin with lazy load](https://github.com/lukechilds/zsh-nvm) Or [Lazy load nvm for faster shell start](http://broken-by.me/lazy-load-nvm/)
-
-## JavaScript
-
-JavaScript is a programming language that is used to create web applications.
-
-Make sure you understand JavaScript before you start learning Node.
-
-### JavaScript - The basics
-
-You should be familiar with the following concepts:
-
-- Variables
-- Operators
-- Data types
-- Control flow
-- Functions
-- Objects
-- Classes
-- Errors
-- Modules
-- Callbacks
-- Events
-- Promises
-
-### JavaScript - More Topics
-
-Some advanced concepts that worth Knowing:
-
-- Closures
-- Currying
-- Pass arguments: call by value, call by sharing, call by reference
-- Copy, deep clone, shallow clone.
-- `this` keyword
-- Function.prototype: `bind`, `apply`, `call`
-
-#### JavaScript - questions (More Topics)
-
-Some questions about the more advanced topics:
-
-1.  What is the output of this code?
-
-    ```js
-    const count = 0;
-
-    const logCount = () => {
-      console.log(count);
-    };
-
-    if (count === 0) {
-      const count = 1;
-      console.log(count);
-      logCount();
-    }
-    ```
-
-
-2.  - Write a function `sayHello` that get a name and print `"Hello {name}"`.
-    - Write a function `sayHey` that get a name and print `"Hey {name}"`.
-    - Write a function `sayBye` that get a name and print `"Bye {name}"`.
-    - Write a function `sayJoke` that get a name and print `"Knock knock {name}"`.
-    - Did you notice that all the functions are very similar? Can you make the code less repetitive?
-
-3.  What is the output of this code?
-
-    ```js
-    function changeStuff(num, obj1, obj2) {
-      num = num * 10;
-      obj1.key = "changed";
-      obj2 = { key: "changed" };
-    }
-
-    const num = 10;
-    const obj1 = { key: "unchanged" };
-    const obj2 = { key: "unchanged" };
-
-    changeStuff(num, obj1, obj2);
-
-    console.log(num);
-    console.log(obj1.key);
-    console.log(obj2.key);
-    ```
-
-4.  What is the output of this code?
-
-    ```js
-    const user = {
-      firstName: "Lady",
-      lastName: "Gaga",
-      address: {
-        street: "David king",
-        city: "TLV",
-        country: "IL",
-      },
-    };
-
-    const copiedUser = { ...user };
-
-    copiedUser.firstName = "Jane";
-    copiedUser.address.street = "Back street";
-
-    console.log(copiedUser);
-    console.log(user);
-    ```
-
-5.  What is the output of this code? Fix the code.
-
-    ```js
-    class LateBloomer {
-      #delay;
-
-      constructor(delay = 1000) {
-        this.#delay = delay;
-        this.petalNumber = Math.floor(Math.random() * 12) + 1;
-      }
-
-      bloom() {
-        setTimeout(this.#declare, this.#delay);
-      }
-
-      #declare() {
-        console.log(`I am a beautiful flower with ${this.petalNumber} petals!`);
-      }
-    }
-
-    const flower = new LateBloomer();
-    flower.bloom();
-    ```
-
-### JavaScript - Worth knowing (Advanced)
-
-Some advanced concepts that worth mentioning:
-
-- Bitwise operators
-- Unicode
-- Symbols
-- Prototypes
-- Maps, Sets
-- Iterators
-- Generators
-- WeakMaps, WeakSets
-- Typed Arrays
-- Proxies
-
-## Basic NodeJS
-
-Node.js is an open-source and cross-platform JavaScript runtime environment.
-Node.js runs the V8 JavaScript engine, the core of Google Chrome, outside of the browser. This allows Node.js to be very performant.
-
-A Node.js app runs in a single process, without creating a new thread for every request. Node.js provides a set of asynchronous I/O primitives in its standard library that prevent JavaScript code from blocking.
-
-Before you continue, make sure you are familiar with the following concepts:
-
-- Package manger (`npm`)
-- `package.json`, `package-lock.json`
-- File system (`node:fs`)
-- Environment variables (`process.env`)
-
-### NodeJs - Advanced Topics (Optional)
-
-Some advanced concepts that you should be aware of:
-
-- Streams
-- Buffers
-- CJS vs ESM
-
-More advanced concepts is detailed in later [section](#wip-advanced-topics-optional)
-
-## Asynchronous JavaScript
+## Asynchronous in JavaScript
 
 Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
 
@@ -396,12 +203,12 @@ const maybeLog = (message, ms, callback) => {
 };
 ```
 
-2. Handle the results in step 4:
+1. Handle the results in step 4:
 
 - If the results is smaller then `0.25` log `"4: good result"`
 - If the results is bigger then `0.25` log `"4: bad result"`
 
-3. Print the `"5"` logging after `random` (from step 3) **seconds**.
+1. Print the `"5"` logging after `random` (from step 3) **seconds**.
 
 Commit and push your changes.
 
@@ -411,8 +218,8 @@ We want to be able to run multiple async operations in parallel.
 Lets say that after the `"4"` logging we want to print the `"5"` logging and in concurrent run functions that logs the string `"hi 5"` after 5 ms and `"take 5"` after 6 ms.
 
 1. Create a function that after `5` ms logs the string `"Hi five"`
-2. Create a function that after `6` ms logs the string `"Take five"`
-3. Execute the `"5"`, `"Hi 5"`, ``"Take 5"` functions logging after the `"4"` logging in concurrent.
+1. Create a function that after `6` ms logs the string `"Take five"`
+1. Execute the `"5"`, `"Hi 5"`, ``"Take 5"` functions logging after the `"4"` logging in concurrent.
 
 Commit and push your changes.
 
@@ -426,8 +233,8 @@ How do you implement a job after "Parallel" execution?
 #### Callbacks - Questions
 
 1. What is the advantage and the disadvantage of using callbacks as a solution for the async problem?
-2. When do you think this solution will be useful?
-3. What is callback hell?
+1. When do you think this solution will be useful?
+1. What is callback hell?
 
 #### Callbacks - Worth Knowing (Optional)
 
@@ -462,19 +269,19 @@ An event handler is a particular type of callback.
 Lets create the `callbacks-logging.js` using event handlers.
 
 1. Create a `event-handler.js`.
-2. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using event handlers.
+1. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using event handlers.
 
    Commit and push your changes.
 
-3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using event handlers.
+1. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using event handlers.
 
    Commit and push your changes.
 
-4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using event handlers.
+1. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using event handlers.
 
    Commit and push your changes.
 
-5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using event handlers. You may add the [After "Parallel" job](#after-parallel-execution---optional).
+1. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using event handlers. You may add the [After Concurrent job](#after-concurrent-execution---optional).
 
    Commit and push your changes.
 
@@ -555,8 +362,9 @@ Lets create the infamous logging example using promises.
 2. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
 3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
 4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
-5. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
-   You may add the [After "Parallel" job](#after-parallel-execution---optional).
+5. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using promises. You may add the [After Concurrent job](#after-concurrent-execution---optional).
+
+Commit and push your changes.
 
 #### Promises - Questions
 
@@ -599,8 +407,9 @@ Lets refactor the `promise-logging.js` using async await:
 3. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
 4. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
 5. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
-6. Write a code that does the same as the code in [Callbacks "Parallel" execution](#parallel-execution) but using promises. Commit and push your changes.
-   You may add the [After "Parallel" job](#after-parallel-execution---optional).
+6. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using Async Await. You may add the [After Concurrent job](#after-concurrent-execution---optional).
+
+Commit and push your changes.
 
 #### Async Await - Questions
 
@@ -675,7 +484,7 @@ const urls = files.map(
   (fileName) => `https://filesamples.com/samples/document/txt/${fileName}`
 );
 
-await downloadTextFiles(urls);
+await downloadTextFiles(urls);[label](Asynchronous-Javascript.md)
 ```
 
 #### Promise.allSettled()
@@ -748,7 +557,7 @@ These topics are not covered in this chapter but is worth knowing:
 - `Promise.race()`
 - `Promise.any()`
 
-## Advanced Topics (Optional)
+## WIP: Advanced Topics (Optional)
 
 If you finish the above exercises in the _"Estimation time"_ you can move on to the advanced topics.
 
@@ -761,33 +570,6 @@ this is a work in progress and will be updated soon.
 - [Don't Block the Event Loop (or the Worker Pool)](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)
 
 - `process.nextTick queue`, `promises microtask queue`, `macrotask queue`
-
-## Worth mentioning
-
-Some advanced topics that worth mentioning:
-
-The internal of node.js:
-
-- garbage collection
-- v8
-- libuv
-
-Multi-threading:
-
-- Cluster
-- Child Processes
-- Worker threads
-- Thread pools
-
-JavaScript engine optimization:
-
-- [JavaScript engine fundamentals: Shapes and Inline Caches](https://mathiasbynens.be/notes/shapes-ics)
-- Tail call optimization - [ECMMAScript](https://2ality.com/2015/06/tail-call-optimization.html) [implementations](https://world.hey.com/mgmarlow/what-happened-to-proper-tail-calls-in-javascript-5494c256)
-
-Additional Topics:
-
-- Asynchronous context tracking
-- C/C++ addons
 
 ## Next steps
 
