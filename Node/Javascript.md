@@ -75,13 +75,10 @@ You should be familiar with the following concepts:
 - Classes
 - Errors
 - Modules
-- Callbacks
-- Events
-- Promises
 
 ### JavaScript - More Topics
 
-Some advanced concepts that worth Knowing, learn them after you understand the basics:
+Some advanced concepts that worth knowing, learn them after you understand the basics:
 
 - Arrays methods - `map`, `filter`, `reduce` etc.
 - Closures
@@ -177,9 +174,9 @@ Some questions about the more advanced topics:
    ```
 
 1. Create a function that get array of numbers. Each number represent a radius. The function should return the sum of the areas of all circles.
-If the number is negative, ignore it.
+   If the number is negative, ignore it.
 
-  for example:
+   for example:
 
    ```js
    const circlesRadiuses = [1, -100, 2, 3, 4, -5, 5];
@@ -193,8 +190,8 @@ If the number is negative, ignore it.
 
 1. Write a function `once` that accepts a function `fn` as input and return a new function that is identical to the original function except that it ensures `fn` is called at most once.
 
-The first time the returned function is called, it should return the same result as fn.
-Every subsequent time it is called, it should return undefined.
+   The first time the returned function is called, it should return the same result as fn.
+   Every subsequent time it is called, it should return undefined.
 
 ### JavaScript - Worth knowing (Advanced)
 
