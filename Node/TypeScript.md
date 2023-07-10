@@ -74,7 +74,7 @@ My recommended `tsconfig.json` for modern node applications is:
 
 `compilerOptions`:
 
-- `"lib": ["es2022"],` - Tells TS that it's okay to use functions and properties introduced in ES2022 or earlier
+- `"lib": ["es2022"],` - Tells TS that it's okay to use functions and properties introduced in ES2022 or earlier. `"ESNext"` is the next version of JavaScript, and we use it instead of specifying each version.
 
 - `"module": "es2022"` - Tells TS that this project use ES Modules
 
@@ -85,6 +85,8 @@ My recommended `tsconfig.json` for modern node applications is:
 - `"strict": true` - Tells TS to enables a wide range of type checking behavior that results in stronger guarantees of program correctness.
 
 - `"noUncheckedIndexedAccess": true` - Tells TS to add `undefined` to any declared via index signatures field in the type.
+
+- `skipLibCheck": true` - Tells TS to skip type checking of all declaration files (\*.d.ts). This can save time during compilation and solve incompatibly issues between libraries.
 
 Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
 
@@ -97,7 +99,8 @@ Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
   "rootDir": "./src",
   "strict": true,
   "noUncheckedIndexedAccess": true,
-  "esModuleInterop": true
+  "esModuleInterop": true,
+  "skipLibCheck": true
 }
 ```
 
@@ -201,16 +204,16 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 1. I have the following code:
 
    ```ts
-    const echo = (arg) => arg;
+   const echo = (arg) => arg;
 
-    const myString = echo("Hello World");
-    const enthusiasticString = myString.map(ch => ch + "!");
-    console.log(enthusiasticString);
+   const myString = echo("Hello World");
+   const enthusiasticString = myString.map((ch) => ch + "!");
+   console.log(enthusiasticString);
    ```
 
-    - What is the problem?
-    - How typescript can help me?
-    - Fix the code so it will **not** compile
+   - What is the problem?
+   - How typescript can help me?
+   - Fix the code so it will **not** compile
 
 1. Consider this types declaration, What is the error? Why? Fix the code so it will compile.
 
@@ -320,6 +323,10 @@ These concepts are worth mentioning but don't learn them now.
 - Declaration Files
 - Mixins
 - Module Resolution
+
+## Further Reading (optional)
+
+- [TypeScript and Set Theory](https://ivov.dev/notes/typescript-and-set-theory)
 
 ## Tools
 
