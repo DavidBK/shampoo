@@ -53,7 +53,13 @@ work among multiple people.
 Open Terminal and enter:
 
 ```bash
-sudo apt-get install git
+sudo apt install git
+```
+
+check if git is installed:
+
+```bash
+git --version
 ```
 
 _(If you don't use [WSL](setup) look up how to install git on windows)_
@@ -79,6 +85,9 @@ Replace `"youremail@domain.com"` with your email:
 ```bash
 git config --global user.email "youremail@domain.com"
 ```
+
+> [Attached](.gitconfig) to this project is my .gitconfig file. You can use it to build your
+> awesome `.gitconfig`! Don't forget to share it with me. :joy:
 
 ### Configure Connection with the remote (Recommended)
 
@@ -497,8 +506,8 @@ make sure you know the following commands:
 
 4. What is `!git` in the `.gitconfig`?
 
-[Attached](.gitconfig) to this project is my .gitconfig file. You can use it to build your
-awesome `.gitconfig`! Don't forget to share it with me. :joy:
+> [Attached](.gitconfig) to this project is my .gitconfig file. You can use it to build your
+> awesome `.gitconfig`! Don't forget to share it with me. :joy:
 
 ## Wrapping Up - Git Project
 

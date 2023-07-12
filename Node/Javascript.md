@@ -91,37 +91,44 @@ Some advanced concepts that worth knowing, learn them after you understand the b
 
 Some questions about the more advanced topics:
 
-1.
-    1. Create a function that get array of numbers - each number represent a radius. The function should return the sum of the areas of all circles that their radius is bigger than 0 and their area is smaller than 100. Round the result to the nearest integer.
+1. - Create a function that get array of numbers - each number represent a radius. The function should return the sum of the areas of all circles that their radius is bigger than 0 and their area is smaller than 100. Round the result to the nearest integer.
 
-      For example:
+   For example:
 
-      ```js
-      const circlesRadiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
-      console.log(sumOfAreas(circlesRadiuses)); // 170
-      ```
+   ```js
+   const circlesRadiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
+   console.log(sumOfAreas(circlesRadiuses)); // 170
+   ```
 
-   1. How many statements did you write in the previous question?
-      If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).
+   - How many statements did you write in the previous question?
+     If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).
 
 1. What is the output of this code?
 
    ```js
-   function changeStuff(num, obj1, obj2) {
+   function changeNum(num) {
      num = num * 10;
-     obj1.key = "changed";
-     obj2 = { key: "changed" };
+   }
+
+   function changeKey(obj) {
+     obj.key = "changed";
+   }
+
+   function changeObj(obj) {
+     obj = { key: "changed" };
    }
 
    const num = 10;
-   const obj1 = { key: "unchanged" };
-   const obj2 = { key: "unchanged" };
-
-   changeStuff(num, obj1, obj2);
-
+   changeNum(num);
    console.log(num);
-   console.log(obj1.key);
-   console.log(obj2.key);
+
+   const obj1 = { key: "unchanged" };
+   changeKey(obj1);
+   console.log(obj1);
+
+   const obj2 = { key: "unchanged" };
+   changeObj(obj2);
+   console.log(obj2);
    ```
 
 1. What is the output of this code?
