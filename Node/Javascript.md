@@ -173,20 +173,21 @@ Some questions about the more advanced topics:
    flower.bloom();
    ```
 
-1. Create a function that get array of numbers. Each number represent a radius. The function should return the sum of the areas of all circles.
-   If the number is negative, ignore it.
+1.
+    1. Create a function that get array of numbers. Each number represent a radius. The function should return the sum of the areas of all circles.
+      If the number is negative, ignore it.
+      If the area is bigger than 100, don't add it to the sum.
+      The sum should be an integer rounded.
 
-   for example:
+        For example:
 
-   ```js
-   const circlesRadiuses = [1, -100, 2, 3, 4, -5, 5];
+        ```js
+        const circlesRadiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
+        console.log(sumOfAreas(circlesRadiuses)); // 170
+        ```
 
-   const sumOfAreas = (circles) => {
-     // your code here
-   };
-
-   console.log(sumOfAreas(circles)); // 153.93804002589985
-   ```
+    1. How many statements did you write in the previous question?
+    If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).
 
 1. Write a function `once` that accepts a function `fn` as input and return a new function that is identical to the original function except that it ensures `fn` is called at most once.
 
@@ -227,23 +228,23 @@ Before you continue, make sure you are familiar with the following concepts:
 ### Basic NodeJS - questions
 
 1. Write a program that reads a text file and counts the number of words in the file.
-    Accept the file path as a command-line argument.
-    The program should output the word count.
+   Accept the file path as a command-line argument.
+   The program should output the word count.
 
-    For example, if the input file contains the following text:
+   For example, if the input file contains the following text:
 
-    ```txt
-      Hello, my cat. And my cat doesn't say "hello" back.
-      Hello, my dog. And my dog says "hello" back! 😎
-    ```
+   ```txt
+     Hello, my cat. And my cat doesn't say "hello" back.
+     Hello, my dog. And my dog says "hello" back! 😎
+   ```
 
-    The output should be:
+   The output should be:
 
-    ```txt
-    20
-    ```
+   ```txt
+   20
+   ```
 
-    Optional: print the occurrences of each word in the file.
+   Optional: print the occurrences of each word in the file.
 
 ### WIP: Basic Testing in NodeJS
 
