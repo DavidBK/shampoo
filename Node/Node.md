@@ -33,4 +33,4 @@ After completing this learning path, you'll be able to:
 
 ## Next steps
 
-Take a deep breath and click [here](Node/Asynchronous-Javascript).
+Take a deep breath and click [here](Node/Javascript) to start the first module.
