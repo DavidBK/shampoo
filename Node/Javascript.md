@@ -81,31 +81,28 @@ You should be familiar with the following concepts:
 Some advanced concepts that worth knowing, learn them after you understand the basics:
 
 - Arrays methods - `map`, `filter`, `reduce` etc.
-- Closures
 - Pass arguments: call by value, call by sharing, call by reference
 - Copy, deep clone, shallow clone.
 - `this` keyword
 - Function.prototype: `bind`, `apply`, `call`
+- Closures
 
 ### JavaScript - questions (More Topics)
 
 Some questions about the more advanced topics:
 
-1. What is the output of this code?
+1.
+    1. Create a function that get array of numbers - each number represent a radius. The function should return the sum of the areas of all circles that their radius is bigger than 0 and their area is smaller than 100. Round the result to the nearest integer.
 
-   ```js
-   const count = 0;
+      For example:
 
-   const logCount = () => {
-     console.log(count);
-   };
+      ```js
+      const circlesRadiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
+      console.log(sumOfAreas(circlesRadiuses)); // 170
+      ```
 
-   if (count === 0) {
-     const count = 1;
-     console.log(count);
-     logCount();
-   }
-   ```
+   1. How many statements did you write in the previous question?
+      If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).
 
 1. What is the output of this code?
 
@@ -154,6 +151,7 @@ Some questions about the more advanced topics:
    ```js
    class LateBloomer {
      #delay;
+     petalNumber;
 
      constructor(delay = 1000) {
        this.#delay = delay;
@@ -172,22 +170,6 @@ Some questions about the more advanced topics:
    const flower = new LateBloomer();
    flower.bloom();
    ```
-
-1.
-    1. Create a function that get array of numbers. Each number represent a radius. The function should return the sum of the areas of all circles.
-      If the number is negative, ignore it.
-      If the area is bigger than 100, don't add it to the sum.
-      The sum should be an integer rounded.
-
-        For example:
-
-        ```js
-        const circlesRadiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
-        console.log(sumOfAreas(circlesRadiuses)); // 170
-        ```
-
-    1. How many statements did you write in the previous question?
-    If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).
 
 1. Write a function `once` that accepts a function `fn` as input and return a new function that is identical to the original function except that it ensures `fn` is called at most once.
 
