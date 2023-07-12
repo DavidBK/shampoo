@@ -224,7 +224,26 @@ Before you continue, make sure you are familiar with the following concepts:
 - File system (`node:fs`)
 - Environment variables (`process.env`)
 
-### WIP: Basic NodeJS - questions
+### Basic NodeJS - questions
+
+1. Write a program that reads a text file and counts the number of words in the file.
+    Accept the file path as a command-line argument.
+    The program should output the word count.
+
+    For example, if the input file contains the following text:
+
+    ```txt
+      Hello, my cat. And my cat doesn't say "hello" back.
+      Hello, my dog. And my dog says "hello" back! 😎
+    ```
+
+    The output should be:
+
+    ```txt
+    20
+    ```
+
+    Optional: print the occurrences of each word in the file.
 
 ### WIP: Basic Testing in NodeJS
 
@@ -238,8 +257,8 @@ Some advanced concepts that worth mentioning, don't learn them now but know that
 
 The internal of node.js:
 
-- garbage collection
 - v8
+- garbage collector
 - libuv
 
 Multi-threading:
@@ -248,11 +267,6 @@ Multi-threading:
 - Child Processes
 - Worker threads
 - Thread pools
-
-JavaScript engine optimization:
-
-- [JavaScript engine fundamentals: Shapes and Inline Caches](https://mathiasbynens.be/notes/shapes-ics)
-- Tail call optimization - [ECMMAScript](https://2ality.com/2015/06/tail-call-optimization.html) [implementations](https://world.hey.com/mgmarlow/what-happened-to-proper-tail-calls-in-javascript-5494c256)
 
 Additional Topics:
 
