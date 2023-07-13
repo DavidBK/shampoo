@@ -190,7 +190,6 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 - Type Assertions (`as`, `!`)
 - `typeof` type operator
 - `keyof` type operator
-- Literal Types and `as const`
 - `null`, `undefined`, `void`, and `never`
 - Narrowing and Type guards
 - Global utility Types (e.g `Omit`, `Record`, `Promise`, etc.)
@@ -199,7 +198,34 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
 [Here](https://github.com/total-typescript/beginners-typescript-tutorial) is a great tutorial for all the basics. Do it yourself :smile:
 
-### Questions
+### Questions - Basic Typescript
+
+1. - Consider this types declaration, What is the error? Why?
+
+   ```ts
+   type AppResponse = {
+     data: {};
+     headers: {};
+     status: number;
+     statusText: string;
+   };
+
+   type AppError = {
+     message: string;
+     stack: string;
+   };
+
+   type ErrorResponse = AppResponse | AppError;
+
+   declare function badRequest(): ErrorResponse;
+
+   const response = badRequest();
+   console.error(
+     `Error in request: ${response.message} with status ${response.status}`
+   );
+   ```
+
+   - Fix the error so it will compile. (Hint: The `ErrorResponse` type is not correct)
 
 1. I have the following code:
 
@@ -214,44 +240,19 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
    - What is the problem?
    - How typescript can help me?
    - Fix the code so it will **not** compile
+   - Bonus: Fix the code so it will Error only in `errorEnthusiasticString`
 
-1. Consider this types declaration, What is the error? Why? Fix the code so it will compile.
+     ```ts
+     const echo = (arg) => arg;
 
-   ```ts
-   type Bird = {
-     fly(): void;
-     layEggs(): void;
-   };
+     const myString = echo("Hello World");
+     const myStringAsArray = echo(myString.split(""));
 
-   type Fish = {
-     swim(): void;
-     layEggs(): void;
-   };
+     const errorEnthusiasticString = myString.map((ch) => ch + "!");
+     const enthusiasticString = myStringAsArray.map((ch) => ch + "!");
 
-   type Pet = Bird | Fish;
-
-   declare function getSmallPet(): Pet;
-
-   const pet = getSmallPet();
-   pet.layEggs();
-   pet.swim();
-   ```
-
-1. What is the problem with this code? Can you fix it?
-
-   ```ts
-   const satellites = ["skysat", "skywalker", "skyscraper", "skyrim", "ET"];
-
-   type Satellites = typeof satellites;
-   type Satellite = Satellites[number];
-
-   declare function sendHome(satellite: Satellite): void;
-
-   sendHome("ET");
-   sendHome("skySat");
-   ```
-
-   (Hint: TS should error on the last line)
+     console.log(enthusiasticString);
+     ```
 
 ### Working With TS - My Recommendations
 
@@ -294,20 +295,40 @@ TypeBox is great for working with [Fastify in TS](https://www.fastify.io/docs/la
 
 For more information you can read in the [Fastify typebox doc](https://www.fastify.io/docs/latest/Reference/TypeScript/#typebox).
 
-## TypeScript - Advanced (optional)
+## TypeScript - More Topics (optional)
 
 - Enums
 - Generics
+- Literal Types and `as const`
+- Indexed Access Types (such as `T["key"]`, `T[string]`)
+- Index Signatures (such as `[index: string]: number`)
+- Conditional Types
+- Mapped Types (`in`)
+
+### Questions - More Topics
+
+1. What is the problem with this code? Can you fix it? (Hint: TS should error on the last line)
+
+   ```ts
+   const satellites = ["skysat", "skywalker", "skyscraper", "skyrim", "skype"];
+
+   type Satellite = (typeof satellites)[number];
+
+   declare function isSatelliteGood(satellite: Satellite): boolean;
+
+   console.log(isSatelliteGood("skywalker"));
+   console.log(isSatelliteGood("skySat"));
+   ```
+
+## TypeScript - Advanced (optional)
+
 - type predicates (`is`)
 - Discriminated unions
 - Exhaustiveness checking
 - Function Overloads
-- Index Signatures (`[index: string]: number`)
-- Indexed Access Types
-- Conditional Types and `infer`
+- `infer` keyword
 - `satisfies` operator
 - Distributive Conditional Types (`T extends T` vs `[T] extends [T]`)
-- Mapped Types (`in`)
 - Template Literal Types
 - `using` operator
 - Decorators
