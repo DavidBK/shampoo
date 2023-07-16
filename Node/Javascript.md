@@ -131,7 +131,7 @@ Some questions about the more advanced topics:
    console.log(obj2);
    ```
 
-1. What is the output of this code?
+1. - What is the output of this code?
 
    ```js
    const user = {
@@ -152,6 +152,8 @@ Some questions about the more advanced topics:
    console.log(copiedUser);
    console.log(user);
    ```
+
+   - Fix the code so there will be no side effects.
 
 1. What is the output of this code? Fix the code.
 
@@ -176,12 +178,23 @@ Some questions about the more advanced topics:
 
    const flower = new LateBloomer();
    flower.bloom();
+   flower.declare();
    ```
 
 1. Write a function `once` that accepts a function `fn` as input and return a new function that is identical to the original function except that it ensures `fn` is called at most once.
 
    The first time the returned function is called, it should return the same result as fn.
-   Every subsequent time it is called, it should return undefined.
+   Every subsequent time it is called, it should throw an error with the message "Already called".
+
+    For example:
+  
+    ```js
+    function add(a, b) => a + b;
+
+    const addOnce = once(add);
+    console.log(addOnce(3, 4)); // 7
+    console.log(addOnce(3, 4)); // Error: Already called
+    ```
 
 ### JavaScript - Worth knowing (Advanced)
 
