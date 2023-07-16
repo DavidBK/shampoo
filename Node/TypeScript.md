@@ -221,7 +221,7 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
    const response = badRequest();
    console.error(
-     `Error in request: ${response.message} with status ${response.status}`
+     `Error in request: ${response.message}, status: ${response.status}`
    );
    ```
 
