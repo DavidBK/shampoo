@@ -30,7 +30,7 @@ Here is some examples links:
 
 Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
 
-Many functions provided by nodeJS and browsers, can potentially take a long time, and therefore, are asynchronous.
+Many functions provided by nodeJS and browsers can potentially take a long time and therefore, are asynchronous.
 
 **_After each mini chapter in this path, create a "Pull Request" and/or talk to your mentor to validate your knowledge._**
 
@@ -43,9 +43,9 @@ Some of these techniques are legacy and not recommended for new projects but the
 
    ```js
    // This function use setTimeout to simulate a long running task
-   const logAfterMs = (message, ms) => {
+   function logAfterMs(message, ms) {
      setTimeout(() => console.log(message), ms);
-   };
+   }
 
    logAfterMs("1", 0);
    logAfterMs("2", 1);
@@ -101,8 +101,7 @@ However, callbacks are often used to continue code execution after an **asynchro
 Its is often to named callbacks function `done` - Because we are calling them when the operation done:
 
 ```js
-function addUser(done) {
-  const userName = "David";
+function saveUser(user, done) {
   // do something
   done();
 }
@@ -117,12 +116,12 @@ Create a `callbacks-logging.js`.
 Change the `logAfterMs` function to accept a callback function as a the last argument:
 
 ```js
-const logAfterMs = (message, ms, done) => {
+function logAfterMs(message, ms, done) {
   setTimeout(() => {
     console.log(message);
     done();
   }, ms);
-};
+}
 ```
 
 1. Write a code that log the string `"1"` after 0 ms.
@@ -140,12 +139,13 @@ In Node.js, it is considered standard practice to handle errors in asynchronous 
 Here is an example with synchronous code:
 
 ```js
-const exampleValue = Math.round(Math.random()); // 0 or 1
+const exampleValue = null; // change to test the function
 
-const validateTruthy = function (value, done) {
+function validateTruthy(value, done) {
   if (value) return done();
-  done(new Error(`Value ${value} is not Truthy!`));
-};
+  const error = new Error(`Value ${value} is not Truthy!`);
+  done(error);
+}
 
 validateTruthy(exampleValue, (err) => {
   if (err) console.error(err);
@@ -158,17 +158,14 @@ We want to be able to handle errors in our logging code workflow.
 Here is a function that simulate a logging that may fail:
 
 ```js
-const maybeLog = (message, ms, done) => {
+function maybeLog(message, ms, done) {
   setTimeout(() => {
-    if (Math.random() < 0.5) {
-      console.log(message);
-      done();
-    } else {
-      const err = new Error("Something went wrong");
-      done(err);
-    }
+    const isError = Math.random() < 0.5;
+    if (isError) return done(new Error("Something went wrong"));
+    console.log(message);
+    done();
   }, ms);
-};
+}
 ```
 
 Lets say the `"3"` logging may fail.
@@ -189,24 +186,21 @@ Lets say the `"3"` logging need to pass a result to the `"4"` logging.
 1. Replace the `maybeLog` function with this function:
 
 ```js
-const maybeLog = (message, ms, callback) => {
+function maybeLog(message, ms, done) {
   setTimeout(() => {
     const random = Math.random();
-    if (random < 0.7) {
-      console.log(message);
-      callback(null, random.toPrecision(2));
-    } else {
-      const error = new Error("Something went wrong");
-      callback(error);
-    }
+    const isError = random < 0.3;
+    if (isError) return done(new Error("Something went wrong"));
+    console.log(message);
+    done(random);
   }, ms);
-};
+}
 ```
 
 1. Handle the results in step 4:
 
-- If the results is smaller then `0.25` log `"4: good result"`
-- If the results is bigger then `0.25` log `"4: bad result"`
+- If the results is bigger then `0.9` log `"4: good result"`
+- If the results is smaller then `0.8` log `"4: bad result"`
 
 1. Print the `"5"` logging after `random` (from step 3) **seconds**.
 
@@ -307,14 +301,12 @@ The created promise will eventually end in a resolved state, or in a rejected st
 
 Most of the time, you will consume an a already-created promises, but it important to understand how to create a promise.
 
-Here is a basic example:
+Here is a basic example using function that "generates" a promise:
 
 ```js
-const doSomething = () => {
-  return new Promise((resolve) => resolve("Hello World!"));
-};
+const getHello = () => new Promise((resolve) => resolve("Hello World!"));
 
-doSomething().then((result) => {
+getHello().then((result) => {
   console.log(result);
 });
 ```
@@ -322,14 +314,15 @@ doSomething().then((result) => {
 Here is an example utilizing `reject`:
 
 ```js
-const addAsync = (x, y) =>
-  new Promise((resolve, reject) => {
+const addAsync = (x, y) => {
+  return new Promise((resolve, reject) => {
     if (x === undefined || y === undefined) {
       reject(new Error("Must provide two parameters"));
     } else {
       resolve(x + y);
     }
   });
+}
 ```
 
 Aren't promises just callbacks with `.then()`?
@@ -484,7 +477,8 @@ const urls = files.map(
   (fileName) => `https://filesamples.com/samples/document/txt/${fileName}`
 );
 
-await downloadTextFiles(urls);[label](Asynchronous-Javascript.md)
+await downloadTextFiles(urls);
+[label](Asynchronous - Javascript.md);
 ```
 
 #### Promise.allSettled()
