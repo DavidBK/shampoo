@@ -194,6 +194,7 @@ Some questions about the more advanced topics:
     const addOnce = once(add);
     console.log(addOnce(3, 4)); // 7
     console.log(addOnce(3, 4)); // Error: Already called
+    console.log(addOnce(-2, 8)); // Error: Already called
     ```
 
 ### JavaScript - Worth knowing (Advanced)
