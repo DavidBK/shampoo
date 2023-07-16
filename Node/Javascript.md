@@ -166,10 +166,10 @@ Some questions about the more advanced topics:
      }
 
      bloom() {
-       setTimeout(this.#declare, this.#delay);
+       setTimeout(this.declare, this.#delay);
      }
 
-     #declare() {
+     declare() {
        console.log(`I am a beautiful flower with ${this.petalNumber} petals!`);
      }
    }
