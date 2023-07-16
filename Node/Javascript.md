@@ -92,13 +92,14 @@ Some advanced concepts that worth knowing, learn them after you understand the b
 
 Some questions about the more advanced topics:
 
-1. - Create a function that get array of numbers - each number represent a radius. The function should return the sum of the areas of all circles that their radius is bigger than 0 and their area is smaller than 100. Round the result to the nearest integer.
+1. - Create a function `circlesArea` that get array of numbers - each number represent a radius. The function should return the sum of the areas of all circles that their radius is bigger than 0 and their area is smaller than 100. Round the result to the nearest integer.
 
    For example:
 
    ```js
-   const circlesRadiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
-   console.log(sumOfAreas(circlesRadiuses)); // 170
+   const radiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
+   const sum = circlesArea(radiuses);
+   console.log(sum); // 170
    ```
 
    - How many statements did you write in the previous question?
@@ -154,7 +155,7 @@ Some questions about the more advanced topics:
    console.log(user);
    ```
 
-   - Fix the code so there will be no side effects.
+   - Fix the code so there will be no side effects when modifying the copied user.
 
 1. What is the output of this code? Fix the code.
 
@@ -185,18 +186,18 @@ Some questions about the more advanced topics:
 1. Write a function `once` that accepts a function `fn` as input and return a new function that is identical to the original function except that it ensures `fn` is called at most once.
 
    The first time the returned function is called, it should return the same result as fn.
-   Every subsequent time it is called, it should throw an error with the message "Already called".
+   Every subsequent time it is called, it should throw an error with the message "Function already called".
 
-    For example:
-  
-    ```js
-    function add(a, b) => a + b;
+   For example:
 
-    const addOnce = once(add);
-    console.log(addOnce(3, 4)); // 7
-    console.log(addOnce(3, 4)); // Error: Already called
-    console.log(addOnce(-2, 8)); // Error: Already called
-    ```
+   ```js
+   function add(a, b) => a + b;
+
+   const addOnce = once(add);
+   console.log(addOnce(3, 4)); // 7
+   console.log(addOnce(3, 4)); // Error: Function already called
+   console.log(addOnce(-2, 8)); // Error: Function already called
+   ```
 
 ### JavaScript - Worth knowing (Advanced)
 
@@ -235,22 +236,26 @@ Before you continue, make sure you are familiar with the following concepts:
    Accept the file path as a command-line argument.
    The program should output the word count.
 
-   For example, if the input file contains the following text:
+   For example, if the `input.txt` file contains the following text:
 
    ```txt
      Hello, my cat. And my cat doesn't say "hello" back.
      Hello, my dog. And my dog says "hello" back! 😎
    ```
 
+   You should run the program like this:
+
+   ```bash
+    node count-words.js input.txt
+   ```
+
    The output should be:
 
-   ```txt
+   ```bash
    20
    ```
 
-   Optional: print the occurrences of each word in the file.
-
-### WIP: Basic Testing in NodeJS
+   Optional: print the occurrences of each word in the file if the ENV variable `DEBUG` is set to `true`.
 
 ## Worth Mentioning (Advanced)
 
