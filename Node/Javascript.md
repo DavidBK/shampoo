@@ -85,6 +85,7 @@ Some advanced concepts that worth knowing, learn them after you understand the b
 - Copy, deep clone, shallow clone.
 - `this` keyword
 - `bind` Function prototype method, and arrow functions vs regular functions binding behavior.
+- Higher order functions
 - Closures
 
 ### JavaScript - questions (More Topics)
