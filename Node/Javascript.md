@@ -84,7 +84,7 @@ Some advanced concepts that worth knowing, learn them after you understand the b
 - Pass arguments: call by value, call by sharing, call by reference
 - Copy, deep clone, shallow clone.
 - `this` keyword
-- `bind` Function prototype method
+- `bind` Function prototype method, and arrow functions vs regular functions binding behavior.
 - Closures
 
 ### JavaScript - questions (More Topics)
