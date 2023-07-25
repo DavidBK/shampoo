@@ -199,8 +199,8 @@ function maybeLog(message, ms, done) {
 
 1. Handle the results in step 4:
 
-- If the results is bigger then `0.9` log `"4: good result"`
-- If the results is smaller then `0.8` log `"4: bad result"`
+   - If the results is bigger then `0.9` log `"4: good result"`
+   - If the results is smaller then `0.8` log `"4: bad result"`
 
 1. Print the `"5"` logging after `random` (from step 3) **seconds**.
 
@@ -267,7 +267,7 @@ const addAsync = (x, y) => {
       resolve(x + y);
     }
   });
-}
+};
 ```
 
 Aren't promises just callbacks with `.then()`?
@@ -297,10 +297,24 @@ asyncFunc1()
 Lets create the infamous logging example using promises.
 
 1. Create a `promise-logging.js`.
-2. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
-3. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
-4. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
-5. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using promises. You may add the [After Concurrent job](#after-concurrent-execution---optional).
+1. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
+1. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises.
+
+   - Create a `maybeLog` function that returns a promise that simulate a logging that may fail.
+   - Handle the error:
+     - If the error is thrown, log the error and stop the execution.
+     - If the error is not thrown, log the string `"4"` as usual and continue to step 5.
+   - Commit and push your changes.
+
+1. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises.
+
+   - Replace the `maybeLog` function with function that resolve with the random number (like the callback example).
+   - Handle the results in step 4:
+
+     - If the results is bigger then `0.9` log `"4: good result"`
+     - If the results is smaller then `0.8` log `"4: bad result"`
+
+1. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using promises. You may add the [After Concurrent job](#after-concurrent-execution---optional).
 
 Commit and push your changes.
 
