@@ -236,61 +236,6 @@ These topics are not covered in this chapter but is worth knowing:
 
 - [Async.js](https://caolan.github.io/async/v3/)
 
-### Event handlers (Optional)
-
-> **NOTE**: I recommend to advice with your mentor if you should learn this section and how much time you should spend on it.
-
-Node.js is famous for its asynchronous and event-driven nature.
-
-Node has a built-in event emitter that allows us to create event-driven programs using the [events](https://nodejs.org/api/events.html) module.
-
-Here is a basic example:
-
-```js
-const EventEmitter = require("node:events");
-const eventEmitter = new EventEmitter();
-
-eventEmitter.on("start", () => {
-  console.log("started");
-});
-
-eventEmitter.emit("start");
-// logs "started"
-```
-
-An event handler is a particular type of callback.
-
-Lets create the `callbacks-logging.js` using event handlers.
-
-1. Create a `event-handler.js`.
-1. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using event handlers.
-
-   Commit and push your changes.
-
-1. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using event handlers.
-
-   Commit and push your changes.
-
-1. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using event handlers.
-
-   Commit and push your changes.
-
-1. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using event handlers. You may add the [After Concurrent job](#after-concurrent-execution---optional).
-
-   Commit and push your changes.
-
-#### Event handlers - Questions
-
-1. What is the advantage and the disadvantage of using event handlers as a solution for the async problem?
-2. When do you think this solution will be useful?
-
-#### Event handlers - Worth Knowing (Optional)
-
-These topics are not covered in this chapter but is worth knowing:
-
-- `AbortSignal`
-- `captureRejections` and async event handlers (not recommended)
-
 ### Promises
 
 A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
@@ -550,6 +495,63 @@ These topics are not covered in this chapter but is worth knowing:
 
 - `Promise.race()`
 - `Promise.any()`
+
+### Event handlers (Optional)
+
+> **NOTE**: I recommend to advice with your mentor if you should learn this section and how much time you should spend on it.
+
+Node.js is famous for its asynchronous and event-driven nature.
+
+Node has a built-in event emitter that allows us to create event-driven programs using the [events](https://nodejs.org/api/events.html) module.
+
+Here is a basic example:
+
+```js
+const EventEmitter = require("node:events");
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on("start", () => {
+  console.log("started");
+});
+
+eventEmitter.emit("start");
+// logs "started"
+```
+
+An event handler is a particular type of callback.
+
+Usually we prefer using promises to handle async operations but event handlers are still useful in some cases.
+
+Lets create the `callbacks-logging.js` using event handlers.
+
+1. Create a `event-handler.js`.
+1. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using event handlers.
+
+   Commit and push your changes.
+
+1. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using event handlers.
+
+   Commit and push your changes.
+
+1. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using event handlers.
+
+   Commit and push your changes.
+
+1. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using event handlers. You may add the [After Concurrent job](#after-concurrent-execution---optional).
+
+   Commit and push your changes.
+
+#### Event handlers - Questions
+
+1. What is the advantage and the disadvantage of using event handlers as a solution for the async problem?
+2. When do you think this solution will be useful?
+
+#### Event handlers - Worth Knowing (Optional)
+
+These topics are not covered in this chapter but is worth knowing:
+
+- `AbortSignal`
+- `captureRejections` and async event handlers (not recommended)
 
 ## WIP: Advanced Topics (Optional)
 
