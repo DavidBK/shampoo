@@ -240,19 +240,6 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
    - What is the problem?
    - How typescript can help me?
    - Fix the code so it will **not** compile
-   - Bonus: Fix the code so it will Error only in `errorEnthusiasticString`
-
-     ```ts
-     const echo = (arg) => arg;
-
-     const myString = echo("Hello World");
-     const myStringAsArray = echo(myString.split(""));
-
-     const errorEnthusiasticString = myString.map((ch) => ch + "!");
-     const enthusiasticString = myStringAsArray.map((ch) => ch + "!");
-
-     console.log(enthusiasticString);
-     ```
 
 ### Working With TS - My Recommendations
 
@@ -307,12 +294,53 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 
 ### Questions - More Topics
 
-1. What is the problem with this code? Can you fix it? (Hint: TS should error on the last line)
+1. Fix the code so it will Error only in `errorEnthusiasticString`
 
    ```ts
-   const satellites = ["skysat", "skywalker", "skyscraper", "skyrim", "skype"];
+   const echo = (arg) => arg;
 
-   type Satellite = (typeof satellites)[number];
+   const myString = echo("Hello World");
+   const myStringAsArray = echo(myString.split(""));
+
+   const errorEnthusiasticString = myString.map((ch) => ch + "!");
+   const enthusiasticString = myStringAsArray.map((ch) => ch + "!");
+
+   console.log(enthusiasticString);
+   ```
+
+1. What is the problem with this code? Can you fix it? (Hint: TS should error on the last lines):
+
+   ```ts
+   const satellitesCompanies = {
+     skysat: "Planet",
+     worldview: "Maxar",
+     sentinel: "Sentinel",
+   };
+
+   type SkysatCompany = (typeof satellitesCompanies)["skysat"];
+   type WorldviewCompany = (typeof satellitesCompanies)["worldview"];
+   type SentinelCompany = (typeof satellitesCompanies)["sentinel"];
+
+   declare function freeOrder(company: SentinelCompany): void;
+   declare function payedOrder(company: SkysatCompany | WorldviewCompany): void;
+
+   freeOrder("Sentinel");
+   payedOrder("Sentinel");
+   freeOrder("Planet");
+   ```
+
+1. Change the `Satellite` type so it will error on the last line:
+
+   ```ts
+   const satellites = [
+     "skysat",
+     "skywalker",
+     "skyscraper",
+     "skyrim",
+     "skype",
+   ] as const;
+
+   type Satellite = string;
 
    declare function isSatelliteGood(satellite: Satellite): boolean;
 
