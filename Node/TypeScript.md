@@ -232,9 +232,9 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
    ```ts
    const echo = (arg) => arg;
 
-   const myString = echo("Hello World");
-   const enthusiasticString = myString.map((ch) => ch + "!");
-   console.log(enthusiasticString);
+   const myStr = echo("Hello From World");
+   const veryStr = myString.map((ch) => ch + "!");
+   console.log(veryStr);
    ```
 
    - What is the problem?
@@ -287,25 +287,25 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - Enums
 - Generics
 - Literal Types and `as const`
-- Indexed Access Types (such as `T["key"]`, `T[string]`)
+- Indexed Access Types (such as `T["key"]`, `T[string]` etc.)
 - Index Signatures (such as `[index: string]: number`)
 - Conditional Types
 - Mapped Types (`in`)
 
 ### Questions - More Topics
 
-1. Fix the code so it will Error only in `errorEnthusiasticString`
+1. Fix the code so it will Error only in `errVeryStr`
 
    ```ts
    const echo = (arg) => arg;
 
-   const myString = echo("Hello World");
-   const myStringAsArray = echo(myString.split(""));
+   const myStr = echo("Hello From Space");
+   const myStrAsArr = echo(myStr.split(""));
 
-   const errorEnthusiasticString = myString.map((ch) => ch + "!");
-   const enthusiasticString = myStringAsArray.map((ch) => ch + "!");
+   const errVeryStr = myStr.map((ch) => ch + "!");
+   const veryStr = myStrAsArr.map((ch) => ch + "!").join("");
 
-   console.log(enthusiasticString);
+   console.log(veryStr);
    ```
 
 1. What is the problem with this code? Can you fix it? (Hint: TS should error on the last lines):
@@ -317,22 +317,24 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
      sentinel: "Sentinel",
    };
 
-   type SkysatCompany = (typeof satellitesCompanies)["skysat"];
-   type WorldviewCompany = (typeof satellitesCompanies)["worldview"];
-   type SentinelCompany = (typeof satellitesCompanies)["sentinel"];
+   type SatellitesCompanies = typeof satellitesCompanies;
+
+   type SkysatCompany = SatellitesCompanies["skysat"];
+   type WorldviewCompany = SatellitesCompanies["worldview"];
+   type SentinelCompany = SatellitesCompanies["sentinel"];
 
    declare function freeOrder(company: SentinelCompany): void;
    declare function payedOrder(company: SkysatCompany | WorldviewCompany): void;
 
    freeOrder("Sentinel");
-   payedOrder("Sentinel");
    freeOrder("Planet");
+   payedOrder("Sentinel");
    ```
 
-1. Change the `Satellite` type so it will error on the last line:
+1. Change the `SatelliteName` type so it will error on the last line:
 
    ```ts
-   const satellites = [
+   const satellitesNames = [
      "skysat",
      "skywalker",
      "skyscraper",
@@ -340,12 +342,29 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
      "skype",
    ] as const;
 
-   type Satellite = string;
+   type SatelliteName = string;
 
-   declare function isSatelliteGood(satellite: Satellite): boolean;
+   declare function isSatelliteGood(satName: SatelliteName): boolean;
 
    console.log(isSatelliteGood("skywalker"));
    console.log(isSatelliteGood("skySat"));
+   ```
+
+1. Optional: Change the `SatellitesCompaniesNames` type so it will error on the last line:
+
+   ```ts
+   const satellitesCompanies = {
+     skysat: "Planet",
+     worldview: "Maxar",
+     sentinel: "Sentinel",
+   };
+
+   type SatellitesCompaniesNames = string;
+
+   declare function isCompanyGood(company: SatellitesCompaniesNames): boolean;
+
+   console.log(isCompanyGood("Planet"));
+   console.log(isCompanyGood("planet"));
    ```
 
 ## TypeScript - Advanced (optional)
