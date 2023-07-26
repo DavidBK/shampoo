@@ -262,7 +262,7 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 - Don't use enums, prefer union types or `as const` objects.
 - Don't use `Function`, `Object`, `String`, `Number`, and `Boolean` (Capital letters) and `object` - they are not doing what you think they are doing.
 - Be careful with `.json()` (in `fetch` response) and `JSON.parse()` as they both return `any`. You can cast them to `unknown` (or use [ts-reset](https://github.com/total-typescript/ts-reset) to do it for you)
-- I Prefer `type` aliases over interfaces
+- I Prefer `type` aliases over interfaces for "everyday" types. If you using Object Oriented Programming you can use interfaces but keep in mind the merge behavior of interfaces.
 
 ## Runtime checks with TypeScript
 
