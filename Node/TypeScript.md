@@ -289,8 +289,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - Literal Types and `as const`
 - Indexed Access Types (such as `T["key"]`, `T[string]` etc.)
 - Index Signatures (such as `[index: string]: number`)
-- Conditional Types
-- Mapped Types (`in`)
+- `extends` keyword
 
 ### Questions - More Topics
 
@@ -302,13 +301,54 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
    const myStr = echo("Hello From Space");
    const myStrAsArr = echo(myStr.split(""));
 
+   // @ts-expect-error
    const errVeryStr = myStr.map((ch) => ch + "!");
    const veryStr = myStrAsArr.map((ch) => ch + "!").join("");
 
    console.log(veryStr);
    ```
 
-1. What is the problem with this code? Can you fix it? (Hint: TS should error on the last lines):
+1. Fix the code so `addFullName` function will get any object in the shape of `UserShape`:
+
+   ```ts
+   type UserShape = {
+     firstName: string;
+     lastName: string;
+   };
+
+   const addFullName = (user: UserShape) => {
+     return {
+       ...user,
+       fullName: `${user.firstName} ${user.lastName}`,
+     };
+   };
+
+   const actorUser = {
+     firstName: "John",
+     lastName: "Malkovich",
+     hobbies: ["acting", "directing"],
+   };
+
+   const actressUser = {
+     firstName: "Cameron",
+     lastName: "Diaz",
+     role: "Mary",
+   };
+
+   const actor = addFullName(actorUser);
+   const actress = addFullName(actressUser);
+
+   console.log(actress.fullName);
+   console.log(actress.role);
+
+   console.log(actor.fullName);
+   console.log(actor.hobbies);
+
+   // @ts-expect-error
+   console.log(actor.notExistingProperty);
+   ```
+
+1. What is the problem with this code? Can you fix it?
 
    ```ts
    const satellitesCompanies = {
@@ -327,7 +367,11 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
    declare function payedOrder(company: SkysatCompany | WorldviewCompany): void;
 
    freeOrder("Sentinel");
+
+   // @ts-expect-error
    freeOrder("Planet");
+
+   // @ts-expect-error
    payedOrder("Sentinel");
    ```
 
@@ -347,10 +391,12 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
    declare function isSatelliteGood(satName: SatelliteName): boolean;
 
    console.log(isSatelliteGood("skywalker"));
+
+   // @ts-expect-error
    console.log(isSatelliteGood("skySat"));
    ```
 
-1. Optional: Change the `SatellitesCompaniesNames` type so it will error on the last line:
+1. Change the `SatellitesCompaniesNames` type so it will error on the last line:
 
    ```ts
    const satellitesCompanies = {
@@ -364,10 +410,14 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
    declare function isCompanyGood(company: SatellitesCompaniesNames): boolean;
 
    console.log(isCompanyGood("Planet"));
+
+   // @ts-expect-error
    console.log(isCompanyGood("planet"));
    ```
 
 ## TypeScript - Advanced (optional)
+
+> **_Note:_** This section is advanced, you can ask your mentor what to learn from this section.
 
 - type predicates (`is`)
 - Discriminated unions
@@ -375,7 +425,9 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - Function Overloads
 - `infer` keyword
 - `satisfies` operator
+- Conditional Types
 - Distributive Conditional Types (`T extends T` vs `[T] extends [T]`)
+- Mapped Types (`in`)
 - Template Literal Types
 - `using` operator
 - Decorators
