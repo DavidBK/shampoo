@@ -192,7 +192,7 @@ function maybeLog(message, ms, done) {
     const isError = random < 0.3;
     if (isError) return done(new Error("Something went wrong"));
     console.log(message);
-    done(random);
+    done(null, random);
   }, ms);
 }
 ```
