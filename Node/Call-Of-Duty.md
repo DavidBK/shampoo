@@ -105,6 +105,7 @@ interface Duty {
 
    - GET `/health`
    - Return a 200 status code if the server is running.
+   - Return a JSON response like: `{"status": "ok"}`
 
    Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/) (recommended) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
 
