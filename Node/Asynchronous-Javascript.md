@@ -413,6 +413,9 @@ Let's create an practical example!
 `downloadText()` uses the Promise-based [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) API to download a text file into a local directory called `downloads`.
 
 ```javascript
+import { writeFile } from "node:fs/promises";
+import { join, basename } from "node:path";
+
 const downloadText = async (url) => {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to download ${url} - ${res.statusText}`);
