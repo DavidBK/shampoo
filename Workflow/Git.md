@@ -574,7 +574,7 @@ link at every chapter._
 3. Add file name `this_is_not_a_book.txt` and commit it.
 4. Make a branch called `chapter-4-ver-2` which will point on the `chapter-4`
    branch.
-5. Reset the last commit to `Add page 3 to chapter 2`.
+5. Reset (hard) the last commit to `Add page 3 to chapter 2`.
 6. Oh no! I was confused between`chapter-4-ver-2` and `chapter-4`. Silly me.
 
    Swap the `chapter-4-ver-2` and `chapter-4` branches. Do not create a new
