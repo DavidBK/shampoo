@@ -418,27 +418,29 @@ import { join, basename } from "node:path";
 
 const downloadText = async (url) => {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to download ${url} - ${res.statusText}`);
+  if (!res.ok) throw new Error(`Failed to download "${url}" - ${res.statusText}`);
   const text = await res.text();
   const filePath = join("downloads", basename(url));
   await writeFile(filePath, text);
 };
 ```
 
-Create a function called `downloadTextFiles` which get an array of urls and download all the files into the `downloads` directory.
-Add log before and after each download, and after all downloads are done.
+- Create a function called `downloadTextFiles` which get an array of urls and download all the files into the `downloads` directory.
+- Add log before and after each download, and after all downloads are done.
 
 What is the execution order of the logs?
 
 Test your function using this example:
 
 ```javascript
+import { access, mkdir } from "node:fs/promises";
 const files = ["sample1.txt", "sample2.txt", "sample3.txt"];
 
 const urls = files.map(
   (fileName) => `https://filesamples.com/samples/document/txt/${fileName}`
 );
 
+await access("downloads").catch(() => mkdir("downloads"));
 await downloadTextFiles(urls);
 ```
 
@@ -489,11 +491,11 @@ You can test your function using this example:
 
 ```js
 const files = [
-  "not-exists1.txt",
   "sample1.txt",
+  "not-exists1.txt",
   "sample2.txt",
-  "sample3.txt",
   "not-exists2.txt",
+  "sample3.txt",
 ];
 ```
 
@@ -510,9 +512,10 @@ Failed to download 2 files:
 Sometimes we want to stop executes all "jobs" when an error ocurred.
 
 - Can we use `Promise.all()`? test it with the previous example.
-- Create a function called `downloadTextFilesShortCircuit` which get an array of urls and download all the files into the `downloads` directory.
+- Create a function called `downloadAllTextFiles` which get an array of urls and download all the files into the `downloads` directory.
   - Add log before and after each download, and after all downloads are done.
   - Stop the execution if there is an error.
+- Can you run all jobs concurrently? How do you implement it?
 
 ### Promise functions - Worth Knowing
 
