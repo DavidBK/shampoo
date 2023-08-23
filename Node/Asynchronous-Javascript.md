@@ -440,7 +440,6 @@ const urls = files.map(
 );
 
 await downloadTextFiles(urls);
-[label](Asynchronous - Javascript.md);
 ```
 
 #### Promise.allSettled()
@@ -505,6 +504,15 @@ Failed to download 2 files:
     Failed to download https://filesamples.com/samples/document/txt/not-exists1.txt - Not Found
     Failed to download https://filesamples.com/samples/document/txt/not-exists2.txt - Not Found
 ```
+
+### Short circuiting With Promises (Advanced)
+
+Sometimes we want to stop executes all "jobs" when an error ocurred.
+
+- Can we use `Promise.all()`? test it with the previous example.
+- Create a function called `downloadTextFilesShortCircuit` which get an array of urls and download all the files into the `downloads` directory.
+  - Add log before and after each download, and after all downloads are done.
+  - Stop the execution if there is an error.
 
 ### Promise functions - Worth Knowing
 
