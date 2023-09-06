@@ -99,13 +99,13 @@ interface Duty {
 
 1. Create a server and an app.
 
-   - listen on port from env var, or random port if not set.
+   - listen on port from env var and the default port should be `3000`.
 
 2. Create a health check endpoint:
 
    - GET `/health`
    - Return a 200 status code if the server is running.
-   - Return a JSON response like: `{"status": "ok"}`
+   - Return a JSON response: `{"status": "ok"}`
 
    Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/) (recommended) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
 
