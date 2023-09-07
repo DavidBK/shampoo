@@ -66,7 +66,7 @@ Some of these techniques are legacy and not recommended for new projects but the
 
 ### Callbacks
 
-A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of action or job.
 
 Here is a example to synchronous use of callback function:
 
@@ -77,6 +77,7 @@ function greeting(name) {
 
 function addUser(callback) {
   const userName = "David";
+  console.log("Adding user...");
   callback(userName);
 }
 
@@ -86,13 +87,20 @@ addUser(greeting);
 Or in anonyms arrow function style:
 
 ```js
-function addUser(callback) {
-  const userName = "David";
-  callback(userName);
-}
-
 addUser((name) => {
   console.log(`Hello, ${name}`);
+});
+```
+
+The callback itself can have inside it another callback function:
+
+```js
+addUser((name) => {
+  console.log(`Hello, ${name}`);
+
+  addUser((name) => {
+    console.log(`Hello again, ${name}`);
+  });
 });
 ```
 
@@ -117,10 +125,7 @@ Change the `logAfterMs` function to accept a callback function as a the last arg
 
 ```js
 function logAfterMs(message, ms, done) {
-  setTimeout(() => {
-    console.log(message);
-    done();
-  }, ms);
+  // implement
 }
 ```
 
@@ -158,19 +163,24 @@ We want to be able to handle errors in our logging code workflow.
 Here is a function that simulate a logging that may fail:
 
 ```js
-function maybeLog(message, ms, done) {
-  setTimeout(() => {
-    const isError = Math.random() < 0.5;
-    if (isError) return done(new Error("Something went wrong"));
-    console.log(message);
-    done();
-  }, ms);
+function maybeLog(message, errorChance) {
+  const isError = Math.random() < errorChance;
+  if (isError) throw new Error("Something went wrong");
+  console.log(message);
+}
+```
+
+Create a `maybeLogAfterMs` function that simulate a logging that may fail.
+
+```js
+function maybeLogAfterMs(message, ms, done) {
+ // implement me, you can use the maybeLog function
 }
 ```
 
 Lets say the `"3"` logging may fail.
 
-1. Replace step 3 (logging `"3"`) with this function.
+1. Replace step 3 (logging `"3"`) with this `maybeLogAfterMs` function.
 2. Handle the error:
    - If the error is thrown, log the error and stop the execution.
    - If the error is not thrown, log the string `"4"` as usual and continue to step 5.
@@ -181,26 +191,22 @@ Commit and push your changes.
 
 We want our code to pass results from async operations to other.
 
-Lets say the `"3"` logging need to pass a result to the `"4"` logging.
+Lets say the `"3"` logging need to pass the chance of the error to the `"4"` logging after successful logging.
 
-1. Replace the `maybeLog` function with this function:
+1. Update the `maybeLogAfterMs` function to call the callback function with the chance of the error.
+Don't forget that callback first argument is the error! (How do you pass no error?)
 
 ```js
-function maybeLog(message, ms, done) {
-  setTimeout(() => {
-    const random = Math.random();
-    const isError = random < 0.3;
-    if (isError) return done(new Error("Something went wrong"));
-    console.log(message);
-    done(null, random);
-  }, ms);
+function maybeLogAfterMs(message, ms, done) {
+  const errorChance = Math.random();
+  // implement me.
 }
 ```
 
 1. Handle the results in step 4:
 
-   - If the results is bigger then `0.9` log `"4: good result"`
-   - If the results is smaller then `0.8` log `"4: bad result"`
+   - If the results is bigger then `0.8` log `"4: This is very rare!"`
+   - If the results is smaller then `0.8` log `"4: This is very common!"`
 
 1. Print the `"5"` logging after `random` (from step 3) **seconds**.
 
@@ -311,8 +317,8 @@ Lets create the infamous logging example using promises.
    - Replace the `maybeLog` function with function that resolve with the random number (like the callback example).
    - Handle the results in step 4:
 
-     - If the results is bigger then `0.9` log `"4: good result"`
-     - If the results is smaller then `0.8` log `"4: bad result"`
+    - If the results is bigger then `0.8` log `"4: This is very rare!"`
+    - If the results is smaller then `0.8` log `"4: This is very common!"`
 
 1. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using promises. You may add the [After Concurrent job](#after-concurrent-execution---optional).
 
@@ -418,7 +424,8 @@ import { join, basename } from "node:path";
 
 const downloadText = async (url) => {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to download "${url}" - ${res.statusText}`);
+  if (!res.ok)
+    throw new Error(`Failed to download "${url}" - ${res.statusText}`);
   const text = await res.text();
   const filePath = join("downloads", basename(url));
   await writeFile(filePath, text);
@@ -517,7 +524,7 @@ Sometimes we want to stop executes all "jobs" when an error ocurred.
 - Create a function called `downloadAllTextFiles` which get an array of urls and download all the files into the `downloads` directory.
   - Add log before and after each download, and after all downloads are done.
   - Stop the execution if there is an error.
-- Can you run all jobs concurrently? How do you implement it?
+- Did you run all jobs concurrently?
 
 ### Promise functions - Worth Knowing
 
@@ -580,10 +587,9 @@ Lets create the `callbacks-logging.js` using event handlers.
 
 These topics are not covered in this chapter but is worth knowing:
 
-- `AbortSignal`
 - `captureRejections` and async event handlers (not recommended)
 
-## WIP: Advanced Topics (Optional)
+## WIP: Advanced Topics (Advanced)
 
 If you finish the above exercises in the _"Estimation time"_ you can move on to the advanced topics.
 
