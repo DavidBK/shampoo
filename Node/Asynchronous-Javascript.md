@@ -485,7 +485,9 @@ Wow, this looks pretty exhausting. Why using `Promise.allSettled()` instead of `
 
 Unless there is an error when iterating over promises, the output Promise is never rejected. This lets us execute asynchronous functions in concurrent using `map()` without throwing if some "jobs" failed.
 
-Lets fix the `downloadTextFiles` to use `Promise.allSettled()` instead of `Promise.all()`. After the download is finished, print the number of failed downloads and the reason for the failure.
+Lets fix the `downloadTextFiles` to use `Promise.allSettled()` instead of `Promise.all()`.
+
+- After the download is finished, print the number of failed downloads and the reason for the failure.
 
 You can test your function using this example:
 
