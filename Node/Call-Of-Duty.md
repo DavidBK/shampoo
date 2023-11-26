@@ -1,6 +1,6 @@
 # Call Of Duty - Duties scheduling system
 
--- _Estimation time: 20-30 Days_
+> _Estimation time: 20-30 Days_
 
 ---
 
@@ -101,7 +101,7 @@ interface Duty {
 
 ## Task 1 - Health Check
 
--- _Estimation time: 3 Days_
+> _Estimation time: 3 Days_
 
 1. Create a server and an app.
 
@@ -156,7 +156,7 @@ interface Duty {
 
 ## Task 2 - Soldier
 
--- _Estimation time: 4 Days_
+> _Estimation time: 4 Days_
 
 1. Create endpoint for creating a new soldier:
 
@@ -222,7 +222,7 @@ If you using fastify (and you should) validate your responses as well.
 
 ## Task 3 - Duty
 
--- _Estimation time: 4 Days_
+> _Estimation time: 4 Days_
 
 1. Create endpoint for creating a new duty:
 
@@ -272,7 +272,7 @@ If you using fastify (and you should) validate your responses as well.
 
 ## Task 4 - Justice Board
 
--- _Estimation time: 2 Day_
+> _Estimation time: 2 Day_
 
 The justice board is an array of objects with the keys:
 
@@ -292,7 +292,7 @@ For example:
 
 ## Task 5 - Scheduling
 
--- _Estimation time: 4 Days_
+> _Estimation time: 4 Days_
 
 The scheduling process is the process of assigning soldiers to duties.
 The  soldiers' limitations, Justice Board, and the rank should be taken into consideration (according to the duty's constraints) when scheduling duties.
@@ -328,7 +328,7 @@ The Duty status can be one of the following:
 
 ## Task 6 - Make it professional
 
--- _Estimation time: 2 Days_
+> _Estimation time: 2 Days_
 
 1. Add handlers for `unhandledRejection` and `uncaughtException` events.
 

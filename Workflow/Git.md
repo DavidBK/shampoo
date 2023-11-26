@@ -1,6 +1,6 @@
 # Git - Introduction
 
--- _Estimation time: 3 Days_
+> _Estimation time: 3 Days_
 
 ---
 

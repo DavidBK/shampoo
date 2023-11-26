@@ -1,6 +1,6 @@
 # Typescript
 
--- _Estimation time: 1-2 Days_
+> _Estimation time: 1-2 Days_
 
 ---
 
