@@ -442,7 +442,14 @@ The auto scheduling mechanism should schedule all unscheduled duties.
    - pagination
    - cache
 
-2. What is the performance of your app?
+1. Who can modified the soldiers and duties?
+
+   You may use this concepts:
+
+   - authentication
+   - authorization
+
+1. What is the performance of your app?
 
    Make a load test to your app. Profile your app and find the bottlenecks.
 
