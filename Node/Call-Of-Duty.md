@@ -119,7 +119,7 @@ interface Duty {
    curl http://localhost:3000/health
    ```
 
-   You can also use 
+   You can also use
    [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/), [Insomnia](https://insomnia.rest/) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
 
 1. Create a database connection.
@@ -333,6 +333,15 @@ The Duty status can be one of the following:
 
 1. Fix the Soldiers routes to take into consideration the scheduled duties.
 
+### Automatic Scheduling (Optional)
+
+The auto scheduling mechanism should schedule all unscheduled duties.
+
+1. Add an auto scheduling mechanism to your app.
+
+   - The time should be configurable and the default time should be every 5 minutes.
+   - Duty with higher value should be prioritized.
+
 ## Task 6 - Make it professional
 
 > _Estimation time: 2 Days_
@@ -360,6 +369,8 @@ The Duty status can be one of the following:
 1. Optional: Add `_link` property to your responses.
 
 ## Task 7 - Extend query parameters (optional)
+
+> Ask your mentor which extensions you should implement.
 
 1. **Multiple parameters**
 
@@ -409,6 +420,14 @@ The Duty status can be one of the following:
    For example:
 
    - A request to `/duties?populate=soldiers` should return the duties with the `soldiers` property populated with the soldiers data.
+
+1. **Geo queries**
+
+   Extend the `/duties` functionality to accept geo queries.
+
+   For example:
+
+   - A request to `/duties?near=32.0853,34.7818&radius=1000` should return the duties that are near Tel Aviv (32.0853, 34.7818) with a max distance of 1000 meters.
 
 ## Task 8 - Make it scalable (Advanced)
 
