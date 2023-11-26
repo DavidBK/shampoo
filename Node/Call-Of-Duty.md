@@ -34,6 +34,7 @@ Before you start make sure you familiar with these concepts:
 - The API server should be a [RESTfull](https://www.redhat.com/en/topics/api/what-is-a-rest-api) API server.
 - You should test the project, and the coverage of the tests should be high as possible.
 - You should PR Each task in the project.
+- Log your logic and errors.
 - The Commits separation decision is up to you.
 
 ### Recommended Technologies
@@ -62,11 +63,13 @@ Your DB Will contain 2 collections:
 
 ```typescript
 interface Soldier {
-  _id: string; // _id will hold the soldier's unique identifier
+  _id: string;
   name: string;
-  rank: string;
+  rank: {
+    name: string;
+    value: number;
+  };
   limitations: string[];
-  duties: ObjectId[];
   createdAt: ISODate;
   updatedAt: ISODate;
 }
@@ -79,15 +82,18 @@ interface Duty {
   _id: ObjectId;
   name: string;
   description: string;
-  location: string;
-  time: {
-    start: ISODate;
-    end: ISODate;
-  };
+  location: GeoJSON Point;
+  startTime: ISODate;
+  endTime: ISODate;
   constraints: string[];
   soldiersRequired: number;
   value: number;
   soldiers: string[];
+  status: string;
+  statusHistory: {
+    status: string;
+    date: ISODate;
+  }[];
   createdAt: ISODate;
   updatedAt: ISODate;
 }
@@ -95,13 +101,13 @@ interface Duty {
 
 ## Task 1 - Health Check
 
--- _Estimation time: 2 Day_
+-- _Estimation time: 3 Days_
 
 1. Create a server and an app.
 
    - listen on port from env var and the default port should be `3000`.
 
-2. Create a health check endpoint:
+1. Create a health check endpoint:
 
    - GET `/health`
    - Return a 200 status code if the server is running.
@@ -109,30 +115,42 @@ interface Duty {
 
    Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/) (recommended) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
 
-3. Create a test for your health check endpoint.
+1. Create a database connection.
+
+   - Connect to the database using the connection string from env var.
+   - The connection should be established before the server starts listening.
+   - The connection should be closed when the server stops listening.
+
+1. Create a db health check endpoint:
+
+   - GET `/health/db`
+   - Return a 200 status code if the database is connected.
+   - Return a JSON response: `{"status": "ok"}`
+
+1. Create a test for your health check endpoint.
 
    What is the coverage of your tests?
 
-4. Separate application code from the server code:
+1. Separate application code from the server code:
 
    - Create `server.js` file.
    - Create `app.js` file.
 
    [Why Separate Express 'app' and 'server'](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/separateexpress.md)
 
-5. Test your app and server.
+1. Test your app and server.
 
    You can use "HTTP injection" (Fastify built in `app.inject` function).
 
    What is the coverage of your tests?
-   Did you test error case?
+   Did you test the error case?
 
-6. Add linter to your project.
+1. Add linter to your project.
 
    - Add `lint` script to your `package.json` file.
    - Run the script before submit any merge request.
 
-7. Log your app and server.
+1. Log your app and server.
 
    The log-level should be configurable, and the default level should be `info`. In the test environment, the default log level should be `silent`.
 
@@ -148,31 +166,59 @@ interface Duty {
 
      ```javascript
      {
-       id, name, rank, limitations;
+       _id, name, rankValue, limitations;
      }
      ```
 
-   - The id should be the soldier's private tt number - a 7 digits number.
+   - The `_id` should be the soldier's private tt number - a 7 digits number.
+   - The `rankValue` should be a number between 0 and 6. Use the following table to convert the number to the rank name:
+
+     | Rank Value | Rank Name  |
+     | ---------- | ---------- |
+     | 0          | private    |
+     | 1          | corporal   |
+     | 2          | sergeant   |
+     | 3          | lieutenant |
+     | 4          | captain    |
+     | 5          | major      |
+     | 6          | colonel    |
 
    - Validate that all the above parameters exist, any other property is invalid.
-   - When a soldier is inserted to the database, add the `duties` property and initialize it to an empty array.
+   - Save the limitations in lower case.
+   - Add the `createdAt` and `updatedAt` properties and initialize them to the current date.
    - Return the inserted `Soldier`.
 
-2. Create endpoint for getting a soldier:
+1. Create endpoint for getting a soldier:
 
    - GET `/soldiers/:id`
    - Return a 200 status code if the soldier is found.
    - Return a 404 status code if the soldier is not found.
 
-   Example: a request to `/soldiers/112358` should return the soldier with `id` `112358` (if exists).
+   Example: a request to `/soldiers/0112358` should return the soldier with `id` `0112358` (if exists).
 
-3. Create endpoint for getting all soldiers:
+1. Create endpoint for getting all soldiers:
 
    - GET `/soldiers`
    - A search query can be passed as a query parameter.
      For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
 
-Don't forget to log your logics.
+1. Create endpoint for deleting a soldier:
+
+   - DELETE `/soldiers/:id`
+   - Return a 204 status code if the soldier is deleted.
+   - Return a 404 status code if the soldier is not found.
+
+1. Create endpoint for updating a soldier:
+
+   - PATCH `/soldiers/:id`
+   - The body will include a `Soldier` object.
+   - The updated `Soldier` will be an object and should contain the updated properties only.
+   - The updated properties will override the existing ones.
+   - Update the `updatedAt` property to the current date.
+   - Do not allow this method to add any new properties nor to alter the `_id`.
+   - Return the updated `Soldier` with a 200 status code if the soldier is updated.
+
+If you using fastify (and you should) validate your responses as well.
 
 ## Task 3 - Duty
 
@@ -186,31 +232,35 @@ Don't forget to log your logics.
 
      ```javascript
      {
-       name, location, time, constraints, soldiersRequired, value;
+       name, location, startTime, endTime, constraints, soldiersRequired, value;
      }
      ```
 
    - Generate a unique \_id for the object.
    - Validate that all the above parameters exist, any other property is invalid.
-   - When a duty is inserted to the database, add the `soldiers` property and initialize it to an empty array.
+   - Validate that the `startTime` is before the `endTime` and that the `startTime` is in the future.
+   - When a duty is inserted to the database:
+     - Add the `soldiers` property and initialize it to an empty array.
+     - Add the `status` property and initialize it to `unscheduled`.
+     - Add the `statusHistory` property and initialize it to an array with the current status and date.
    - Return the inserted `Duty`.
 
-2. Create endpoint for getting all duties:
+1. Create endpoint for getting all duties:
 
    - GET `/duties`
    - A search query can be passed as a query parameter.
      For example: a request to `/duties?name=Hagnash` should return all should return all 'Hagnash' duties (as an array).
 
-3. Create endpoint for getting a duty:
+1. Create endpoint for getting a duty:
 
    - GET `/duties/:id`
 
-4. Create endpoint for deleting a duty:
+1. Create endpoint for deleting a duty:
 
    - DELETE `/duties/:id`
-   - "Scheduled" duties (Duty with soldiers assigns to it) cannot be removed.
+   - Scheduled duties cannot be removed.
 
-5. Create endpoint for updating a duty:
+1. Create endpoint for updating a duty:
 
    - PATCH `/duties/:id`
    - The body will include a `Duty` object.
@@ -227,7 +277,7 @@ Don't forget to log your logics.
 The justice board is an array of objects with the keys:
 
 - `id` - The unique identifier of the soldier
-- `score` - The total weight of duties the soldier has been scheduled to.
+- `score` - The total value of duties the soldier has been scheduled to.
 
 For example:
 
@@ -235,43 +285,72 @@ For example:
 [{ id: '1123581', score: 13 }, { id: '3141592', score: 12 }, { id: '2718281', score: 94 } ...]
 ```
 
-1. Create endpoint for getting the justice board:
+1. Create endpoint for getting the Justice Board:
 
    - GET `/justice-board`
+   - Use mongoDB aggregation to calculate the Justice Board (Why?).
 
 ## Task 5 - Scheduling
 
--- _Estimation time: 3 Days_
+-- _Estimation time: 4 Days_
+
+The scheduling process is the process of assigning soldiers to duties.
+The  soldiers' limitations, Justice Board, and the rank should be taken into consideration (according to the duty's constraints) when scheduling duties.
+
+The Duty status can be one of the following:
+
+- `unscheduled` - The duty is not scheduled yet.
+- `scheduled` - The duty is scheduled.
+- `canceled` - The duty is canceled.
 
 1. Create endpoint for scheduling a duty:
 
    - PUT `/duties/:id/schedule`
-
-   - Use this route in order to schedule a duty.
-   - The justice board and the soldiers' limitations should be taken into consideration (according to the duty's constraints) when scheduling duties.
-   - Make sure the duty is not already scheduled.
+   - Don't allow to schedule a duty that is already scheduled.
+   - Don't allow to schedule a duty that is canceled.
+   - Don't allow to schedule a duty that is in the past.
+   - The duty `status` should be updated to `scheduled`.
+   - The duty `statusHistory` should be updated with the new status and the current date.
+   - Use the `soldiersRequired` property to determine how many soldiers should be scheduled.
    - Make sure that the soldiers are not already scheduled to other duties at the same time.
-   - When scheduling soldiers for a duty, make sure to update the soldiers and duties properties.
+   - Update the `soldiers` property in the Duty object with the scheduled soldiers.
+
+1. Create endpoint for canceling a duty:
+
+   - PUT `/duties/:id/cancel`
+   - Don't allow to cancel a duty that is already canceled.
+   - Don't allow to cancel a duty that is in the past.
+   - The duty status should be updated to `canceled`.
+   - The duty status history should be updated with the new status and the current date.
+   - Update the `soldiers` property in the Duty object (to an empty array).
+
+1. Fix the Soldiers routes to take into consideration the scheduled duties.
 
 ## Task 6 - Make it professional
 
 -- _Estimation time: 2 Days_
 
+1. Add handlers for `unhandledRejection` and `uncaughtException` events.
+
+1. Add handlers for `SIGTERM` and `SIGINT` events.
+
 1. Use [helmetJS](https://helmetjs.github.io) to protect your app.
 
    You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
 
-2. Add [openAPI](https://www.openapis.org/) v3 documentation to your app.
+1. Add [openAPI](https://www.openapis.org/) v3 documentation to your app.
 
    You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin to generate the documentation.
 
-3. Add README.md to your app. Your readme should include explanation to how to use and test the app.
+1. Add basic authentication to your app.
 
-4. Add basic authentication to your app.
-
-5. Add a rate limiter for your routes.
+1. Add a rate limiter for your routes.
 
    You can use [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit).
+
+1. Add README.md to your app. Your readme should include explanation to how to use and test the app.
+
+1. Optional: Add `_link` property to your responses.
 
 ## Task 7 - Extend query parameters (optional)
 
@@ -281,7 +360,7 @@ For example:
 
    For example: A request to `/duties?name=hagnash&soldiers=mishel,shir` should return all `"hagnash"` duties that contains both `"mishel"` and `"shir"`. (Note that a `"hagnash"` duty that was scheduled with `"mishel"`, `"shir"` and `"david"` should also be returned).
 
-2. **Sorting**
+1. **Sorting**
 
    Extend the he `/justice-board` `/soldiers` and `/duties` routes to accept sorting queries also with desire order.
 
@@ -291,7 +370,7 @@ For example:
    - A request to `/duties?sort=name&order=desc` should return the duties sorted by name in descending order.
    - A request to `/justice-board?sort=score&order=desc` should return the justice board sorted by score in descending order.
 
-3. **Filtering**
+1. **Filtering**
 
    Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept filtering queries.
 
@@ -299,7 +378,7 @@ For example:
 
    - A request to `/justice-board?filter=score>=20` should return the justice board with soldiers with score >= 20.
 
-4. **Pagination**
+1. **Pagination**
 
    Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept pagination.
 
@@ -307,18 +386,26 @@ For example:
 
    - A request to `/justice-board?page=2&limit=10` should return the justice board with the second page of 10 soldiers.
 
-5. **Projection**
+1. **Projection**
 
    Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept projection by fields.
 
    For example:
 
-   - A request to `/soldiers?fields=name` should return the soldiers with only the `name` property.
-   - A request to `/duties?fields=name,value` should return the duties with only the `name` and `value` properties.
+   - A request to `/soldiers?select=name` should return the soldiers with only the `name` property.
+   - A request to `/duties?select=name,value` should return the duties with only the `name` and `value` properties.
+
+1. **Population**
+
+   Extend the `/justice-board` `/soldiers` and `/duties` functionality to accept population of fields.
+
+   For example:
+
+   - A request to `/duties?populate=soldiers` should return the duties with the `soldiers` property populated with the soldiers data.
 
 ## Task 8 - Make it scalable (Advanced)
 
-1. What will happen if you add more soldiers and duties? Make your app work with 1,000,000 soldiers and duties in the DB.
+1. What will happen if you add more soldiers and duties?
 
    You may use this concepts:
 
