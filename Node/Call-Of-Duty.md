@@ -53,7 +53,10 @@ Here is my recommended technologies:
 - Logger: [fastify built-in pino logger](https://www.fastify.io/docs/latest/Reference/Logging/) or [pino](https://www.npmjs.com/package/pino) or [winston](https://www.npmjs.com/package/winston).
 - Schema validator: [fastify built-in ajv validator](https://www.fastify.io/docs/latest/Reference/Validation-and-Serialization/) or [Ajv](https://ajv.js.org/) or [Joi](https://joi.dev/). If you using Typescript have a look at [Runtime checks with TypeScript](Node/TypeScript#runtime-checks-with-typescript) section.
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
-- Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide or [XO](https://github.com/xojs/xo) style guide.
+- Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide or [XO](https://github.com/xojs/xo) style guide, or [Biome](https://biomejs.dev/) linter and formatter.
+- Optional: 
+   - [prettier](https://prettier.io/)
+   - [Cspell](https://cspell.org/)
 
 ## Models
 
@@ -138,12 +141,10 @@ interface Duty {
 
    What is the coverage of your tests?
 
-1. Separate application code from the server code:
+1. Separate application code from the server code (Why?):
 
    - Create `server.js` file.
    - Create `app.js` file.
-
-   [Why Separate Express 'app' and 'server'](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/separateexpress.md)
 
 1. Test your app and server.
 
