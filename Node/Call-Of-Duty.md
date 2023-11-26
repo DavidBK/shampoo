@@ -113,7 +113,14 @@ interface Duty {
    - Return a 200 status code if the server is running.
    - Return a JSON response: `{"status": "ok"}`
 
-   Run your app and test it using `curl` command or [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/) (recommended) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
+   Run your app and test it using `curl` command:
+
+   ```bash
+   curl http://localhost:3000/health
+   ```
+
+   You can also use 
+   [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/), [Insomnia](https://insomnia.rest/) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
 
 1. Create a database connection.
 
@@ -295,7 +302,7 @@ For example:
 > _Estimation time: 4 Days_
 
 The scheduling process is the process of assigning soldiers to duties.
-The  soldiers' limitations, Justice Board, and the rank should be taken into consideration (according to the duty's constraints) when scheduling duties.
+The soldiers' limitations, Justice Board, and the rank should be taken into consideration (according to the duty's constraints) when scheduling duties.
 
 The Duty status can be one of the following:
 
