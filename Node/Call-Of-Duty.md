@@ -105,7 +105,7 @@ interface Duty {
 
 1. Create a server and an app.
 
-   - listen on port from env var and the default port should be `3000`.
+   - listen on port from ENV var and the default port should be `3000`.
 
 1. Create a health check endpoint:
 
@@ -124,7 +124,7 @@ interface Duty {
 
 1. Create a database connection.
 
-   - Connect to the database using the connection string from env var.
+   - Connect to the database using the connection string from ENV var.
    - The connection should be established before the server starts listening.
    - The connection should be closed when the server stops listening.
 
@@ -349,6 +349,8 @@ The auto scheduling mechanism should schedule all unscheduled duties.
 1. Add handlers for `unhandledRejection` and `uncaughtException` events.
 
 1. Add handlers for `SIGTERM` and `SIGINT` events.
+
+1. Validate your ENV vars before starting the server.
 
 1. Use [helmetJS](https://helmetjs.github.io) to protect your app.
 
