@@ -353,6 +353,7 @@ The auto scheduling mechanism should schedule all unscheduled duties.
 
    - The time should be configurable and the default time should be every 5 minutes.
    - Duty with higher value should be prioritized.
+   - What will happen if there is a change in the Duties or Soldiers collection while the auto scheduling is running?
 
 ## Task 6 - Make it professional
 
