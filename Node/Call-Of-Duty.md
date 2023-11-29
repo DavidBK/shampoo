@@ -54,9 +54,9 @@ Here is my recommended technologies:
 - Schema validator: [fastify built-in ajv validator](https://www.fastify.io/docs/latest/Reference/Validation-and-Serialization/) or [Ajv](https://ajv.js.org/) or [Joi](https://joi.dev/). If you using Typescript have a look at [Runtime checks with TypeScript](Node/TypeScript#runtime-checks-with-typescript) section.
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
 - Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide or [XO](https://github.com/xojs/xo) style guide, or [Biome](https://biomejs.dev/) linter and formatter.
-- Optional: 
-   - [prettier](https://prettier.io/)
-   - [Cspell](https://cspell.org/)
+- Optional:
+  - [prettier](https://prettier.io/)
+  - [Cspell](https://cspell.org/)
 
 ## Models
 
@@ -88,6 +88,7 @@ interface Duty {
   location: GeoJSON Point;
   startTime: ISODate;
   endTime: ISODate;
+  minRank: number;
   constraints: string[];
   soldiersRequired: number;
   value: number;
@@ -226,7 +227,7 @@ interface Duty {
    - Do not allow this method to add any new properties nor to alter the `_id`.
    - Return the updated `Soldier` with a 200 status code if the soldier is updated.
 
-If you using fastify (and you should) validate your responses as well.
+If you using fastify (and you should) validate your responses as well (why?).
 
 ## Task 3 - Duty
 
@@ -240,13 +241,23 @@ If you using fastify (and you should) validate your responses as well.
 
      ```javascript
      {
-       name, location, startTime, endTime, constraints, soldiersRequired, value;
+       name,
+       location,
+       startTime,
+       endTime,
+       constraints,
+       soldiersRequired,
+       value,
+       minRank?
      }
      ```
 
    - Generate a unique \_id for the object.
    - Validate that all the above parameters exist, any other property is invalid.
    - Validate that the `startTime` is before the `endTime` and that the `startTime` is in the future.
+   - Validate that the `soldiersRequired` is a positive number.
+   - Validate that the `value` is a positive number.
+   - Validate that the `minRank` is a number between 0 and 6. This parameter is optional and the default value should be 0.
    - When a duty is inserted to the database:
      - Add the `soldiers` property and initialize it to an empty array.
      - Add the `status` property and initialize it to `unscheduled`.
@@ -303,7 +314,7 @@ For example:
 > _Estimation time: 4 Days_
 
 The scheduling process is the process of assigning soldiers to duties.
-The soldiers' limitations, Justice Board, and the rank should be taken into consideration (according to the duty's constraints) when scheduling duties.
+The soldiers' limitations (according to the duty's constraints), the Justice Board, and the rank should be taken into consideration.
 
 The Duty status can be one of the following:
 
@@ -424,7 +435,7 @@ The auto scheduling mechanism should schedule all unscheduled duties.
 
    - A request to `/duties?populate=soldiers` should return the duties with the `soldiers` property populated with the soldiers data.
 
-1. **Geo queries**
+1. **Geo Queries**
 
    Extend the `/duties` functionality to accept geo queries.
 
@@ -441,6 +452,7 @@ The auto scheduling mechanism should schedule all unscheduled duties.
    - indexing
    - pagination
    - cache
+   - Job Queue
 
 1. Who can modified the soldiers and duties?
 
