@@ -250,6 +250,7 @@ If you using fastify (and you should) validate your responses as well (why?).
        soldiersRequired,
        value,
        minRank?
+       maxRank?
      }
      ```
 
@@ -258,7 +259,7 @@ If you using fastify (and you should) validate your responses as well (why?).
    - Validate that the `startTime` is before the `endTime` and that the `startTime` is in the future.
    - Validate that the `soldiersRequired` is a positive number.
    - Validate that the `value` is a positive number.
-   - Validate that the `minRank` is a number between 0 and 6. This parameter is optional and the default value should be 0.
+   - Validate that the `minRank` and `maxRank` if exists are numbers between 0 and 6 (Those properties are optional).
    - When a duty is inserted to the database:
      - Add the `soldiers` property and initialize it to an empty array.
      - Add the `status` property and initialize it to `unscheduled`.
