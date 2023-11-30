@@ -229,7 +229,7 @@ interface Duty {
    - Do not allow this method to add any new properties nor to alter the `_id`.
    - Return the updated `Soldier` with a 200 status code if the soldier is updated.
 
-If you using fastify (and you should) validate your responses as well (why?).
+If you using fastify (and you should) Add schema also for the response (Why?).
 
 ## Task 3 - Duty
 
@@ -370,10 +370,6 @@ The auto scheduling mechanism should schedule all unscheduled duties.
 
 1. Validate your ENV vars before starting the server.
 
-1. Use [helmetJS](https://helmetjs.github.io) to protect your app.
-
-   You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
-
 1. Add [openAPI](https://www.openapis.org/) v3 documentation to your app.
 
    You can use the [fastify-swagger](https://github.com/fastify/fastify-swagger) plugin to generate the documentation.
@@ -385,6 +381,10 @@ The auto scheduling mechanism should schedule all unscheduled duties.
    You can use [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit).
 
 1. Add README.md to your app. Your readme should include explanation to how to use and test the app.
+
+1. Use [helmetJS](https://helmetjs.github.io) to protect your app.
+
+   You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
 
 1. Optional: Add `_link` property to your responses.
 
@@ -455,17 +455,17 @@ The auto scheduling mechanism should schedule all unscheduled duties.
 
    You may use this concepts:
 
-   - indexing
-   - pagination
-   - cache
+   - Indexing
+   - Pagination
+   - Cache
    - Job Queue
 
 1. Who can modified the soldiers and duties?
 
    You may use this concepts:
 
-   - authentication
-   - authorization
+   - Authentication
+   - Authorization
 
 1. What is the performance of your app?
 
