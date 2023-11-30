@@ -26,7 +26,6 @@ Before you start make sure you familiar with these concepts:
 - [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP)
 - [Database](https://en.wikipedia.org/wiki/Database)
 - [Unit Testing](https://en.wikipedia.org/wiki/Unit_testing)
-- [Linting](<https://en.wikipedia.org/wiki/Lint_(software)>) - [eslint setup](https://dev.to/devdammak/setting-up-eslint-in-your-javascript-project-with-vs-code-2amf)
 
 ### General Guidelines
 
@@ -53,7 +52,9 @@ Here is my recommended technologies:
 - Logger: [fastify built-in pino logger](https://www.fastify.io/docs/latest/Reference/Logging/) or [pino](https://www.npmjs.com/package/pino) or [winston](https://www.npmjs.com/package/winston).
 - Schema validator: [fastify built-in ajv validator](https://www.fastify.io/docs/latest/Reference/Validation-and-Serialization/) or [Ajv](https://ajv.js.org/) or [Joi](https://joi.dev/). If you using Typescript have a look at [Runtime checks with TypeScript](Node/TypeScript#runtime-checks-with-typescript) section.
 - Package Manager: [npm](https://www.npmjs.com/) or [pnpm](https://pnpm.js.org/)
-- Linter: [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide or [XO](https://github.com/xojs/xo) style guide, or [Biome](https://biomejs.dev/) linter and formatter.
+- [Linter](<https://en.wikipedia.org/wiki/Lint_(software)>): [eslint](https://eslint.org/) using [airbnb](https://github.com/airbnb/javascript) style guide or
+  [XO](https://github.com/xojs/xo) style guide,
+  or [Biome](https://biomejs.dev/) linter and formatter.
 - Optional:
   - [prettier](https://prettier.io/)
   - [Cspell](https://cspell.org/)
