@@ -257,12 +257,12 @@ If you using fastify (and you should) validate your responses as well (why?).
 
    - Generate a unique \_id for the object (MongoDB will do it for you).
    - Validate:
-      - `name` is a string with length between 3 and 50.
-      - `location` is a valid GeoJSON Point.
-      - `startTime` is before the `endTime` and that the `startTime` is in the future.
-      - `value` is a positive number.
-      - `minRank` and `maxRank` if exists are numbers between 0 and 6.
-      - All the above parameters exist, `minRank` and `maxRank` are optional. Any other property is invalid.
+     - `name` is a string with length between 3 and 50.
+     - `location` is a valid GeoJSON Point.
+     - `startTime` is before the `endTime` and that the `startTime` is in the future.
+     - `value` is a positive number.
+     - `minRank` and `maxRank` if exists are numbers between 0 and 6.
+     - All the above parameters exist, `minRank` and `maxRank` are optional. Any other property is invalid.
    - When a duty is inserted to the database:
      - Add the `soldiers` property and initialize it to an empty array.
      - Add the `status` property and initialize it to `unscheduled`.
@@ -300,13 +300,13 @@ If you using fastify (and you should) validate your responses as well (why?).
 
 The justice board is an array of objects with the keys:
 
-- `id` - The unique identifier of the soldier
+- `_id` - The unique identifier of the soldier
 - `score` - The total value of duties the soldier has been scheduled to.
 
 For example:
 
 ```javascript
-[{ id: '1123581', score: 13 }, { id: '3141592', score: 12 }, { id: '2718281', score: 94 } ...]
+[{ _id: '1123581', score: 13 }, { _id: '3141592', score: 12 }, { _id: '2718281', score: 94 } ...]
 ```
 
 1. Create endpoint for getting the Justice Board:
