@@ -181,6 +181,7 @@ interface Duty {
      ```
 
    - The `_id` should be the soldier's private tt number - a 7 digits number.
+   - The `name` should be a string with length between 3 and 50.
    - The `rankValue` should be a number between 0 and 6. Use the following table to convert the number to the rank name:
 
      | Rank Value | Rank Name  |
@@ -193,8 +194,8 @@ interface Duty {
      | 5          | major      |
      | 6          | colonel    |
 
-   - Validate that all the above parameters exist, any other property is invalid.
    - Save the limitations in lower case.
+   - Validate that all the above parameters exist, any other property is invalid.
    - Add the `createdAt` and `updatedAt` properties and initialize them to the current date.
    - Return the inserted `Soldier`.
 
@@ -254,12 +255,14 @@ If you using fastify (and you should) validate your responses as well (why?).
      }
      ```
 
-   - Generate a unique \_id for the object.
-   - Validate that all the above parameters exist, any other property is invalid.
-   - Validate that the `startTime` is before the `endTime` and that the `startTime` is in the future.
-   - Validate that the `soldiersRequired` is a positive number.
-   - Validate that the `value` is a positive number.
-   - Validate that the `minRank` and `maxRank` if exists are numbers between 0 and 6 (Those properties are optional).
+   - Generate a unique \_id for the object (MongoDB will do it for you).
+   - Validate:
+      - `name` is a string with length between 3 and 50.
+      - `location` is a valid GeoJSON Point.
+      - `startTime` is before the `endTime` and that the `startTime` is in the future.
+      - `value` is a positive number.
+      - `minRank` and `maxRank` if exists are numbers between 0 and 6.
+      - All the above parameters exist, `minRank` and `maxRank` are optional. Any other property is invalid.
    - When a duty is inserted to the database:
      - Add the `soldiers` property and initialize it to an empty array.
      - Add the `status` property and initialize it to `unscheduled`.
