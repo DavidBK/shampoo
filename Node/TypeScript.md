@@ -420,6 +420,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 > **_Note:_** This section is advanced, you can ask your mentor what to learn from this section.
 
 - type predicates (`is`)
+- Recursive Types
 - Discriminated unions
 - Exhaustiveness checking
 - Function Overloads
@@ -431,6 +432,27 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 - Template Literal Types
 - `using` operator
 - Decorators
+
+### Questions - Advanced
+
+1.  - Create a type "function" which generate tuple types. For Example:
+
+      ```ts
+      type TupleStr = Tuple<string, 3>;
+      // TupleStr = [string, string, string]
+
+      type Tuple2 = Tuple<number>;
+      // Tuple2 = [number, number]
+      ```
+
+    - Fix the Tuple implementation so it will work with distribute over union types:
+
+      ```ts
+      type Res = Tuple<string | number, 3>;
+      // Res = [string, string, string] | [number, number, number]
+      type Res2 = Tuple<number, 2 | 3>;
+      // Res2 = [number, number] | [number, number, number]
+      ```
 
 ## Project
 
