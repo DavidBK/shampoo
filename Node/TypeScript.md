@@ -454,6 +454,29 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
       // Res2 = [number, number] | [number, number, number]
       ```
 
+1.  Fix the types of this `curry` helper function:
+
+    ```ts
+    type Fn = (...args: any[]) => any;
+
+    const curry = (fn: Fn) => {
+      const curried = (...args: unknown[]) =>
+        args.length >= fn.length
+          ? fn(...args)
+          : (...args2) => curried(...args.concat(args2));
+
+      return curried;
+    };
+
+    const sum = curry((a: number, b: number) => a + b);
+
+    const add2 = sum(2);
+    type Add2 = typeof add2; // any. Fix it!
+
+    const test = curry((a: string, b: number, c: boolean) => true);
+    type Test = typeof test; // (...args: unknown[]) => any. Fix it!
+    ```
+
 ## Project
 
 Talk with your mentor about the project.
