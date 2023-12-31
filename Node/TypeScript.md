@@ -308,7 +308,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
    console.log(veryStr);
    ```
 
-1. Fix the code so `addFullName` function will get any object in the shape of `UserShape`:
+1. Fix the code so `addFullName` function will get any object that satisfies `UserShape`:
 
    ```ts
    type UserShape = {
@@ -329,23 +329,27 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
      hobbies: ["acting", "directing"],
    };
 
-   const actressUser = {
-     firstName: "Cameron",
-     lastName: "Diaz",
-     role: "Mary",
+   const soldierUser = {
+     firstName: "John",
+     lastName: "Rambo",
+     rank: "Sergeant",
+   };
+
+   const notUser = {
+     first_name: "I am not a user",
+     lastName: "I told you I am not a user",
    };
 
    const actor = addFullName(actorUser);
-   const actress = addFullName(actressUser);
+   const soldier = addFullName(soldierUser);
+   // @ts-expect-error
+   const doNot = addFullName(notUser);
 
-   console.log(actress.fullName);
-   console.log(actress.role);
-
-   console.log(actor.fullName);
-   console.log(actor.hobbies);
+   console.log(actor.hobbies); // Fix the ts error
+   console.log(soldier.rank); // Fix the ts error
 
    // @ts-expect-error
-   console.log(actor.notExistingProperty);
+   console.log(actor.rank);
    ```
 
 1. What is the problem with this code? Can you fix it?
@@ -384,7 +388,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
      "skyscraper",
      "skyrim",
      "skype",
-   ] as const;
+   ];
 
    type SatelliteName = string;
 
@@ -441,17 +445,36 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
       type TupleStr = Tuple<string, 3>;
       // TupleStr = [string, string, string]
 
-      type Tuple2 = Tuple<number>;
+      type Tuple2 = Tuple<number, 2>;
       // Tuple2 = [number, number]
+      ```
+
+    - Fix the type of this group function:
+
+      ```ts
+      /**
+       * Groups elements of an array into subarrays of a specified size.
+       */
+      const group = <T>(arr: T[], size = 2) => {
+        if (arr.length % size)
+          throw new Error("Array length must be multiple of size");
+        return arr.reduce(
+          (res, el, i) =>
+            i % size ? res : res.concat([arr.slice(i, i + size)]),
+          [] as T[][]
+        );
+      };
+
+      const arr = [1, 2, 3, 4, 5, 6];
+      const res = group(arr); // Fix it to be [number, number][]
+      const res2 = group(arr, 3); // Fix it to be [number, number, number][]
       ```
 
     - Fix the Tuple implementation so it will work with distribute over union types:
 
       ```ts
-      type Res = Tuple<string | number, 3>;
-      // Res = [string, string, string] | [number, number, number]
-      type Res2 = Tuple<number, 2 | 3>;
-      // Res2 = [number, number] | [number, number, number]
+      const num = Math.random() > 0.5 ? 2 : 3;
+      const res3 = group(arr, num); // const res3: ([number, number] | [number, number, number])[]
       ```
 
 1.  Fix the types of this `curry` helper function:
@@ -463,18 +486,18 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
       const curried = (...args: unknown[]) =>
         args.length >= fn.length
           ? fn(...args)
-          : (...args2) => curried(...args.concat(args2));
+          : (...args2: unknown[]) => curried(...args.concat(args2));
 
       return curried;
     };
 
     const sum = curry((a: number, b: number) => a + b);
 
-    const add2 = sum(2);
-    type Add2 = typeof add2; // any. Fix it!
+    const add2 = sum(2); // any. Fix it!
 
-    const test = curry((a: string, b: number, c: boolean) => true);
-    type Test = typeof test; // (...args: unknown[]) => any. Fix it!
+    const test = curry((a: string, b: number, c: boolean) => true); // (...args: unknown[]) => any. Fix it!
+
+    const trueFn = curry(() => true); // Fix it!
     ```
 
 ## Project
