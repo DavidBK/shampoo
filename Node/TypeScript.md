@@ -488,9 +488,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 
      const arr = [1, 2, 3, 4, 5, 6];
      const res = group(arr); // Fix it to be [number, number][]
-     console.log("🚀 ~ file: group.ts:18 ~ res:", res);
      const res2 = group(arr, 3); // Fix it to be [number, number, number][]
-     console.log("🚀 ~ file: group.ts:20 ~ res2:", res2);
      ```
 
    - Fix the Tuple implementation so it will work with distribute over union types:
@@ -545,14 +543,3 @@ These concepts are worth mentioning but don't learn them now.
 - [ts-reset](https://github.com/total-typescript/ts-reset)
 - [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
 - [papr](https://plexinc.github.io/papr/#/) - lightweight library built around the MongoDB NodeJS driver, written in TypeScript
-
-````
-
-```
-
-```
-
-```
-
-```
-````
