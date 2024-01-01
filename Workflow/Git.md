@@ -358,7 +358,7 @@ Make sure you know the following commands:
 - `pull`
 - `fetch`
 - `clone`
-- `fork`
+- fork
 
 ### Workflow
 
