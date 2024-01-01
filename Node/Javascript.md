@@ -105,7 +105,7 @@ Some questions about the more advanced topics:
    - How many statements did you write in the previous question?
      If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).
 
-1. What is the output of this code?
+1. What is the output of this code? Why?
 
    ```js
    function changeNum(num) {
@@ -183,7 +183,7 @@ Some questions about the more advanced topics:
    flower.declare();
    ```
 
-1. Write a function `once` that accepts a function `fn` as input and return a new function that is identical to the original function except that it ensures `fn` is called at most once.
+1. Bonus (optional): Write a function `once` that accepts a function `fn` as input and return a new function that is identical to the original function except that it ensures `fn` is called at most once.
 
    The first time the returned function is called, it should return the same result as fn.
    Every subsequent time it is called, it should throw an error with the message "Function already called".
@@ -233,7 +233,7 @@ Before you continue, make sure you are familiar with the following concepts:
 ### Basic NodeJS - questions
 
 1. Write a program that reads a text file and counts the number of words in the file.
-   Accept the file path as a command-line argument.
+   Accept the file path as env var.
    The program should output the word count.
 
    For example, if the `input.txt` file contains the following text:
