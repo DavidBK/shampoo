@@ -439,66 +439,90 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 
 ### Questions - Advanced
 
-1.  - Create a type "function" which generate tuple types. For Example:
+1. Fix this code so it will error
 
-      ```ts
-      type TupleStr = Tuple<string, 3>;
-      // TupleStr = [string, string, string]
+   ```ts
+   type Route = { path: string; children?: Routes };
+   type Routes = Record<string, Route>;
 
-      type Tuple2 = Tuple<number, 2>;
-      // Tuple2 = [number, number]
-      ```
+   const routes: Routes = {
+     AUTH: {
+       path: "/auth",
+       children: {
+         LOGIN: {
+           path: "/login",
+         },
+       },
+     },
+     HOME: {
+       path: "/",
+     },
+     // @ts-expect-error
+     mistake: true,
+   };
 
-    - Fix the type of this group function:
+   // @ts-expect-error
+   const { path } = routes.NotExist;
+   ```
 
-      ```ts
-      /**
-       * Groups elements of an array into subarrays of a specified size.
-       */
-      const group = <T>(arr: T[], size = 2) => {
-        if (arr.length % size)
-          throw new Error("Array length must be multiple of size");
-        return arr.reduce(
-          (res, el, i) =>
-            i % size ? res : res.concat([arr.slice(i, i + size)]),
-          [] as T[][]
-        );
-      };
+1. - Create a type "function" which generate tuple types. For Example:
 
-      const arr = [1, 2, 3, 4, 5, 6];
-      const res = group(arr); // Fix it to be [number, number][]
-      const res2 = group(arr, 3); // Fix it to be [number, number, number][]
-      ```
+     ```ts
+     type TupleStr = Tuple<string, 3>;
+     // TupleStr = [string, string, string]
 
-    - Fix the Tuple implementation so it will work with distribute over union types:
+     type Tuple2 = Tuple<number, 2>;
+     // Tuple2 = [number, number]
+     ```
 
-      ```ts
-      const num = Math.random() > 0.5 ? 2 : 3;
-      const res3 = group(arr, num); // const res3: ([number, number] | [number, number, number])[]
-      ```
+   - Fix the type of this group function:
 
-1.  Fix the types of this `curry` helper function:
+     ```ts
+     /**
+      * Groups elements of an array into subarrays of a specified size.
+      * If the array length is not a multiple of size, the array is truncated to fit.
+      */
+     const group = <T>(arr: T[], size = 2) =>
+       Array.from({ length: arr.length / size }, (_, i) =>
+         arr.slice(i * size, i * size + size)
+       );
 
-    ```ts
-    type Fn = (...args: any[]) => any;
+     const arr = [1, 2, 3, 4, 5, 6];
+     const res = group(arr); // Fix it to be [number, number][]
+     console.log("🚀 ~ file: group.ts:18 ~ res:", res);
+     const res2 = group(arr, 3); // Fix it to be [number, number, number][]
+     console.log("🚀 ~ file: group.ts:20 ~ res2:", res2);
+     ```
 
-    const curry = (fn: Fn) => {
-      const curried = (...args: unknown[]) =>
-        args.length >= fn.length
-          ? fn(...args)
-          : (...args2: unknown[]) => curried(...args.concat(args2));
+   - Fix the Tuple implementation so it will work with distribute over union types:
 
-      return curried;
-    };
+     ```ts
+     const num = Math.random() > 0.5 ? 2 : 3;
+     const res3 = group(arr, num); // const res3: ([number, number] | [number, number, number])[]
+     ```
 
-    const sum = curry((a: number, b: number) => a + b);
+1. Fix the types of this `curry` helper function:
 
-    const add2 = sum(2); // any. Fix it!
+   ```ts
+   type Fn = (...args: any[]) => any;
 
-    const test = curry((a: string, b: number, c: boolean) => true); // (...args: unknown[]) => any. Fix it!
+   const curry = (fn: Fn) => {
+     const curried = (...args: unknown[]) =>
+       args.length >= fn.length
+         ? fn(...args)
+         : (...args2: unknown[]) => curried(...args.concat(args2));
 
-    const trueFn = curry(() => true); // Fix it!
-    ```
+     return curried;
+   };
+
+   const sum = curry((a: number, b: number) => a + b);
+
+   const add2 = sum(2); // any. Fix it!
+
+   const test = curry((a: string, b: number, c: boolean) => true); // (...args: unknown[]) => any. Fix it!
+
+   const trueFn = curry(() => true); // Fix it!
+   ```
 
 ## Project
 
@@ -522,3 +546,14 @@ These concepts are worth mentioning but don't learn them now.
 - [ts-reset](https://github.com/total-typescript/ts-reset)
 - [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
 - [papr](https://plexinc.github.io/papr/#/) - lightweight library built around the MongoDB NodeJS driver, written in TypeScript
+
+````
+
+```
+
+```
+
+```
+
+```
+````
