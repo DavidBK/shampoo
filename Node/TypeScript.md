@@ -12,7 +12,6 @@ This is a basic introduction to Typescript.
 
 At the end of this learning path, you'll be able to:
 
-- Create a new TS project
 - Run TS project
 - Write an efficient type-safe code in TypeScript
 

@@ -10,8 +10,6 @@ This is a basic introduction to Node JS and JavaScript.
 
 At the end of this learning path, you'll be able to:
 
-- Install NodeJS project packages
-- Create a new project
 - Know basic programming using JavaScript
 - Know JavaScript concepts
 
