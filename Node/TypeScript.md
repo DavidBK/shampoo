@@ -73,13 +73,9 @@ My recommended `tsconfig.json` for modern node applications is:
 
 `compilerOptions`:
 
-- `"lib": ["es2022"],` - Tells TS that it's okay to use functions and properties introduced in ES2022 or earlier. `"ESNext"` is the next version of JavaScript, and we use it instead of specifying each version.
+- `"module": "NodeNext"` - Tells TS that this project use ES Modules (And the module resolution is NodeNext)
 
-- `"module": "es2022"` - Tells TS that this project use ES Modules
-
-- `"moduleResolution": "node"` - Tells TS that we are using Node.js's rules for resolving modules
-
-- `target": "ES2022"` - Tells TS that it's okay to output JavaScript syntax with features from ES2022 instead of embedding a polyfill.
+- `target": "ESNext"` - Tells TS that it's okay to output JavaScript syntax with new features instead of embedding a polyfill.
 
 - `"strict": true` - Tells TS to enables a wide range of type checking behavior that results in stronger guarantees of program correctness.
 
@@ -91,11 +87,9 @@ Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
 
 ```json
 {
-  "target": "ESNext",
+  "target": "NodeNext",
   "module": "ESNext",
-  "moduleResolution": "node",
   "outDir": "./dist",
-  "rootDir": "./src",
   "strict": true,
   "noUncheckedIndexedAccess": true,
   "esModuleInterop": true,
