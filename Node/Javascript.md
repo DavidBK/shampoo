@@ -231,7 +231,7 @@ Before you continue, make sure you are familiar with the following concepts:
 ### Basic NodeJS - questions
 
 1. Write a program that reads a text file and counts the number of words in the file.
-   Accept the file path as env var.
+   Accept the file path as argument.
    The program should output the word count.
 
    For example, if the `input.txt` file contains the following text:
