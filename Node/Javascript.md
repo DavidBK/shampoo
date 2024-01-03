@@ -281,6 +281,13 @@ Additional Topics:
 - Asynchronous context tracking
 - C/C++ addons
 
+## Tools
+
+- [pnpm](https://pnpm.io/)
+- [snyk advisor](https://snyk.io/advisor/)
+- [npm audit](https://docs.npmjs.com/cli/v7/commands/npm-audit)
+- [cSpell](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+
 ## Next steps
 
 Let's get out of [sync](Node/Asynchronous-Javascript)!

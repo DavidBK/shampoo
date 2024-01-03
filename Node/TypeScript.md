@@ -550,6 +550,7 @@ These concepts are worth mentioning but don't learn them now.
 ## Tools
 
 - [tsx](https://github.com/privatenumber/tsx)
+- [tsconfig-paths](https://www.npmjs.com/package/tsconfig-paths)
 - [pretty-ts-errors](https://github.com/yoavbls/pretty-ts-errors)
 - [ts-reset](https://github.com/total-typescript/ts-reset)
 - [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
