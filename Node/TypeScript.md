@@ -209,34 +209,7 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
 ### Questions - Basic Typescript
 
-1. - Consider this types declaration, What is the error? Why?
-
-   ```ts
-   type AppResponse = {
-     data: {};
-     headers: {};
-     status: number;
-     statusText: string;
-   };
-
-   type AppError = {
-     message: string;
-     stack: string;
-   };
-
-   type ErrorResponse = AppResponse | AppError;
-
-   declare function badRequest(): ErrorResponse;
-
-   const response = badRequest();
-   console.error(
-     `Error in request: ${response.message}, status: ${response.status}`
-   );
-   ```
-
-   - Fix the error so it will compile. (Hint: The `ErrorResponse` type is not correct)
-
-1. I have the following code:
+1. Take the fowling code and paste it in new `test.js`
 
    ```ts
    const echo = (arg) => arg;
@@ -249,6 +222,20 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
    - What is the problem?
    - How typescript can help me?
    - Fix the code so it will **not** compile
+
+1. What is the problem? Fix it.
+
+   ```ts
+   const productPrices = {
+     apple: 1.2,
+     banana: 0.5,
+     orange: 0.8,
+   };
+
+   const getPrice = (productName: string) => productPrices[productName];
+   ```
+
+   If you can't see the problem paste the code to [TS Playground](https://www.typescriptlang.org/play) and see the error.
 
 ### Working With TS - My Recommendations
 
