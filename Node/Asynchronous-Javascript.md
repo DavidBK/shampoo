@@ -174,7 +174,7 @@ Create a `maybeLogAfterMs` function that simulate a logging that may fail.
 
 ```js
 function maybeLogAfterMs(message, ms, done) {
- // implement me, you can use the maybeLog function
+  // implement me, you can use the maybeLog function
 }
 ```
 
@@ -194,7 +194,7 @@ We want our code to pass results from async operations to other.
 Lets say the `"3"` logging need to pass the chance of the error to the `"4"` logging after successful logging.
 
 1. Update the `maybeLogAfterMs` function to call the callback function with the chance of the error.
-Don't forget that callback first argument is the error! (How do you pass no error?)
+   Don't forget that callback first argument is the error! (How do you pass no error?)
 
 ```js
 function maybeLogAfterMs(message, ms, done) {
@@ -219,7 +219,7 @@ Lets say that after the `"4"` logging we want to print the `"5"` logging and in 
 
 1. Create a function that after `5` ms logs the string `"Hi five"`
 1. Create a function that after `6` ms logs the string `"Take five"`
-1. Execute the `"5"`, `"Hi 5"`, ``"Take 5"` functions logging after the `"4"` logging in concurrent.
+1. Execute the `"5"`, `"Hi 5"`, `"Take 5"` functions logging after the `"4"` logging in concurrent.
 
 Commit and push your changes.
 
@@ -317,8 +317,8 @@ Lets create the infamous logging example using promises.
    - Replace the `maybeLog` function with function that resolve with the random number (like the callback example).
    - Handle the results in step 4:
 
-    - If the results is bigger then `0.8` log `"4: This is very rare!"`
-    - If the results is smaller then `0.8` log `"4: This is very common!"`
+   - If the results is bigger then `0.8` log `"4: This is very rare!"`
+   - If the results is smaller then `0.8` log `"4: This is very common!"`
 
 1. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using promises. You may add the [After Concurrent job](#after-concurrent-execution---optional).
 
