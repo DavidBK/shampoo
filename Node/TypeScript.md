@@ -156,8 +156,18 @@ You can add it to your npm scripts:
 If you like to use [esm](https://nodejs.org/api/esm.html) (and you should) you can use it as a [loader](https://nodejs.org/api/esm.html#loaders) to your file:
 
 ```json
-"dev": "node --experimental-loader ts-node/esm <your-file>.ts"
+"dev": "node --loader ts-node/esm <your-file>.ts"
 ```
+
+If you use ts-node I recommend to add the configuration to the tsconfig file ad `"ts-node"`.
+
+```json
+ "ts-node": {
+   "swc": true,
+ }
+```
+
+You can read more in the [ts-node docs](https://typestrong.org/ts-node/docs/).
 
 ### Other JS runtime (Advanced)
 
@@ -539,6 +549,7 @@ These concepts are worth mentioning but don't learn them now.
 
 ## Tools
 
+- [tsx](https://github.com/privatenumber/tsx)
 - [pretty-ts-errors](https://github.com/yoavbls/pretty-ts-errors)
 - [ts-reset](https://github.com/total-typescript/ts-reset)
 - [tsup](https://tsup.egoist.dev/) - Bundle your TypeScript library with no config, powered by [esbuild](https://github.com/evanw/esbuild).
