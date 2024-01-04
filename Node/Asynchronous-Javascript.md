@@ -362,10 +362,10 @@ Lets refactor the `promise-logging.js` using async await:
    import { setTimeout } from "node:timers/promises";
    ```
 
-3. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using promises. Commit and push your changes.
-4. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using promises. Commit and push your changes.
-5. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using promises. Commit and push your changes.
-6. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using Async Await. You may add the [After Concurrent job](#after-concurrent-execution---optional).
+3. Write a code that does the same as the code in [Callbacks Execution order](#execution-order) but using async-await. Commit and push your changes.
+4. Write a code that does the same as the code in [Callbacks Error Handling](#error-handling) but using async-await. Commit and push your changes.
+5. Write a code that does the same as the code in [Callbacks Pass data](#pass-data) but using async-await. Commit and push your changes.
+6. Write a code that does the same as the code in [Callbacks Concurrent execution](#concurrent-execution) but using async-await. You may add the [After Concurrent job](#after-concurrent-execution---optional).
 
 Commit and push your changes.
 
