@@ -108,61 +108,67 @@ interface Duty {
 
 > _Estimation time: 3 Days_
 
-1. Create a server and an app.
+1.  Create a server and an app.
 
-   - listen on port from ENV var and the default port should be `3000`.
+    - listen on port from ENV var and the default port should be `3000`.
 
-1. Create a health check endpoint:
+1.  Create a health check endpoint:
 
-   - GET `/health`
-   - Return a 200 status code if the server is running.
-   - Return a JSON response: `{"status": "ok"}`
+    - GET `/health`
+    - Return a 200 status code if the server is running.
+    - Return a JSON response: `{"status": "ok"}`
 
-   Run your app and test it using `curl` command:
+    Run your app and test it using `curl` command:
 
-   ```bash
-   curl http://localhost:3000/health
-   ```
+    ```bash
+    curl http://localhost:3000/health
+    ```
 
-   You can also use
-   [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/), [Insomnia](https://insomnia.rest/) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
+    You can also use
+    [Postman](https://www.getpostman.com/), or any other tool you like (such as [hoppscotch](https://hoppscotch.io/), [Insomnia](https://insomnia.rest/) or [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) vscode extension).
 
-1. Create a database connection.
+1.  Create a database connection.
 
-   - Connect to the database using the connection string from ENV var.
-   - The connection should be established before the server starts listening.
-   - The connection should be closed when the server stops listening.
+    - Connect to the database using the connection string from ENV var.
+    - The connection should be established before the server starts listening.
+    - The connection should be closed when the server stops listening.
 
-1. Create a db health check endpoint:
+1.  Create a db health check endpoint:
 
-   - GET `/health/db`
-   - Return a 200 status code if the database is connected.
-   - Return a JSON response: `{"status": "ok"}`
+    - GET `/health/db`
+    - Return a 200 status code if the database is connected.
+    - Return a JSON response: `{"status": "ok"}`
 
-1. Create a test for your health check endpoint.
+1.  Create a test for your health check endpoint.
 
-   What is the coverage of your tests?
+    What is the coverage of your tests?
 
-1. Separate application code from the server code (Why?):
+1.  Separate application code from the server code (Why?):
 
-   - Create `server.js` file.
-   - Create `app.js` file.
+    - Create `server.js` file.
+    - Create `app.js` file.
 
-1. Test your app and server.
+1.  Test your app and server.
 
-   You can use "HTTP injection" (Fastify built in `app.inject` function).
+    You can use "HTTP injection" (Fastify built in `app.inject` function).
 
-   What is the coverage of your tests?
-   Did you test the error case?
+    What is the coverage of your tests?
+    Did you test the error case?
 
-1. Add linter to your project.
+1.  Add linter to your project.
 
-   - Add `lint` script to your `package.json` file.
-   - Run the script before submit any merge request.
+    - Add `lint` script to your `package.json` file.
+    - Run the script before submit any merge request.
 
-1. Log your app and server.
+1.  Log your app and server.
 
-   The log-level should be configurable, and the default level should be `info`. In the test environment, the default log level should be `silent`.
+    - The log-level should be configurable, and the default level should be `info`. In the test environment, the default log level should be `silent`.
+
+    - Add ["pino-pretty"](https://github.com/pinojs/pino-pretty) to your project (dev only) to format the logs.
+
+      ```bash
+      node server.js | pino-pretty
+      ```
 
 ## Task 2 - Soldier
 
