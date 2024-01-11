@@ -100,6 +100,10 @@ addUser((name) => {
 
   addUser((name) => {
     console.log(`Hello again, ${name}`);
+
+    addUser((name) => {
+      console.log(`Hello again and again, ${name}`);
+    });
   });
 });
 ```
@@ -110,9 +114,15 @@ Its is often to named callbacks function `done` - Because we are calling them wh
 
 ```js
 function saveUser(user, done) {
-  // do something
+  // do something async
   done();
 }
+
+console.log("Start saving user...");
+
+saveUser({ name: "David" }, () => {
+  console.log("User saved!");
+});
 ```
 
 #### Execution order
