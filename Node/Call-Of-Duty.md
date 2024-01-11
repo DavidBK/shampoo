@@ -93,7 +93,7 @@ interface Duty {
   constraints: string[];
   soldiersRequired: number;
   value: number;
-  soldiers: string[];
+  soldiers: ObjectId[];
   status: string;
   statusHistory: {
     status: string;
