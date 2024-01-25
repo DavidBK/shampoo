@@ -153,7 +153,7 @@ If you like to use [esm](https://nodejs.org/api/esm.html) (and you should) you c
 "dev": "node --loader ts-node/esm <your-file>.ts"
 ```
 
-If you use ts-node I recommend to add the configuration to the tsconfig file ad `"ts-node"`.
+If you use ts-node I recommend to add the configuration to the tsconfig file as `"ts-node"`.
 
 ```json
  "ts-node": {
@@ -203,9 +203,9 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
 
 ### Questions - Basic Typescript
 
-1. Take the fowling code and paste it in new `test.js`
+1. Take the following code and paste it in new `test.js`
 
-   ```ts
+   ```js
    const echo = (arg) => arg;
 
    const myStr = echo("Hello From World");
@@ -213,9 +213,11 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
    console.log(veryStr);
    ```
 
+   Run it using `node test.js` and see the error.
+
    - What is the problem?
    - How typescript can help me?
-   - Fix the code so it will **not** compile
+   - Create `test.ts` file and fix the code so it will **not** compile.
 
 1. What is the problem? Fix it.
 
