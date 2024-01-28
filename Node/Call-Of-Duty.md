@@ -90,6 +90,7 @@ interface Duty {
   startTime: ISODate;
   endTime: ISODate;
   minRank: number;
+  maxRank: number;
   constraints: string[];
   soldiersRequired: number;
   value: number;
@@ -182,7 +183,7 @@ interface Duty {
 
      ```javascript
      {
-       _id, name, rankValue, limitations;
+       _id, name, rankValue || rankName, limitations;
      }
      ```
 
@@ -218,6 +219,11 @@ interface Duty {
    - GET `/soldiers`
    - A search query can be passed as a query parameter.
      For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
+   - When searching by limitations, the query should be an array of limitations.
+     For example: a request to `/soldiers?limitations=food,standing` should return all soldiers (as an array) with the limitations 'food' and 'standing'. 
+   - The rank can be passed as rankValue or rankName.
+     For example: a request to `/soldiers?rankValue=3` should return all soldiers (as an array) with the rankValue 3.
+     For example: a request to `/soldiers?rankName=lieutenant` should return all soldiers (as an array) with the rankName 'lieutenant'.
 
 1. Create endpoint for deleting a soldier:
 
@@ -250,6 +256,7 @@ If you using fastify (and you should) Add schema also for the response (Why?).
      ```javascript
      {
        name,
+       description,
        location,
        startTime,
        endTime,
@@ -279,7 +286,7 @@ If you using fastify (and you should) Add schema also for the response (Why?).
 
    - GET `/duties`
    - A search query can be passed as a query parameter.
-     For example: a request to `/duties?name=Hagnash` should return all should return all 'Hagnash' duties (as an array).
+     For example: a request to `/duties?name=hagnash` should return all should return all 'hagnash' duties (as an array).
 
 1. Create endpoint for getting a duty:
 
