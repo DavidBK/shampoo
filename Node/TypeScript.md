@@ -208,9 +208,9 @@ You can read them all in the [TypeScript Handbook](https://www.typescriptlang.or
    ```js
    const echo = (arg) => arg;
 
-   const myStr = echo("Hello From World");
-   const veryStr = myString.map((ch) => ch + "!");
-   console.log(veryStr);
+   const greet = echo("Hello From World");
+   const veryGreet = greet.map((ch) => ch + "!");
+   console.log(veryGreet);
    ```
 
    Run it using `node test.js` and see the error.
@@ -290,12 +290,12 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
    ```ts
    const echo = (arg) => arg;
 
-   const myStr = echo("Hello From Space");
-   const myStrAsArr = echo(myStr.split(""));
+   const greet = echo("Hello From Space");
+   const greetArr = echo(greet.split(""));
 
    // @ts-expect-error
-   const errVeryStr = myStr.map((ch) => ch + "!");
-   const veryStr = myStrAsArr.map((ch) => ch + "!").join("");
+   const errVeryGreet = greet.map((ch) => ch + "!");
+   const veryGreet = greetArr.map((ch) => ch + "!").join("");
 
    console.log(veryStr);
    ```
