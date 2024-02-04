@@ -128,7 +128,7 @@ Some questions about the more advanced topics:
 
    const arr = [...true, ..."test", ...10];
    console.log(arr);
-  
+
    const fn = (...args) => args;
    const res = fn(...true, ..."test", ...10);
    console.log(res);
@@ -248,6 +248,7 @@ Some questions about the more advanced topics:
 
 Some advanced concepts that worth mentioning, don't learn them now but know that they exist:
 
+- `void` operator
 - Bitwise operators
 - Unicode
 - Symbols
