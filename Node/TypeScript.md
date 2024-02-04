@@ -299,7 +299,6 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 
 ## TypeScript - More Topics (optional)
 
-- Enums
 - Generics
 - Literal Types and `as const`
 - Indexed Access Types (such as `T["key"]`, `T[string]` etc.)
@@ -438,6 +437,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
 
 > **_Note:_** This section is advanced, you can ask your mentor what to learn from this section.
 
+- Enums
 - type predicates (`is`)
 - Recursive Types
 - Discriminated unions
