@@ -134,6 +134,20 @@ npm run build
 
 Test it! create `.ts` file and run the compile `.js`.
 
+### TypeScript Execute - tsx (Optional)
+
+tsx (TypeScript eXecute - do not confuse with React's [TSX](https://www.typescriptlang.org/docs/handbook/jsx.html) files which stand for TypeScript XML) is a TypeScript runtime that allows you to execute TypeScript files directly. 
+
+This tool is useful for running TypeScript files without the need to compile them to JavaScript first.
+
+You can use it without any setup using `npx`:
+
+```bash
+npx tsx <your-file>.ts
+```
+
+You can read more in the [tsx repo](https://github.com/privatenumber/tsx).
+
 ### ts-node (Optional)
 
 [`ts-node`](https://www.npmjs.com/package/ts-node) is a TypeScript execution engine and REPL for Node.js. It "Just In Time" (JIT) transforms TypeScript into JavaScript, enabling you to directly execute TypeScript on Node.js without precompiling.
