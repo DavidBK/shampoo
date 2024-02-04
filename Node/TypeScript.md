@@ -83,18 +83,27 @@ My recommended `tsconfig.json` for modern node applications is:
 
 - `skipLibCheck": true` - Tells TS to skip type checking of all declaration files (\*.d.ts). This can save time during compilation and solve incompatibly issues between libraries.
 
-Here is the complete recommended `compilerOptions` in `tsconfig.json` file:
+Here is a recommended `tsconfig.json` file:
 
 ```json
 {
-  "target": "NodeNext",
-  "module": "ESNext",
-  "outDir": "./dist",
-  "strict": true,
-  "noUncheckedIndexedAccess": true,
-  "esModuleInterop": true,
-  "skipLibCheck": true
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "outDir": "./dist",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
 }
+```
+You can run this script in your terminal to create the file:
+
+```bash
+curl https://gitlab.com/davidbk6/shampoo/-/raw/14055316e7a305253eef65ed430a169e1141d70a/tsconfig.json -o tsconfig.json
 ```
 
 Here is the full [TSConfig Reference](https://www.typescriptlang.org/tsconfig)
@@ -297,7 +306,7 @@ For more information you can read in the [Fastify typebox doc](https://www.fasti
    const errVeryGreet = greet.map((ch) => ch + "!");
    const veryGreet = greetArr.map((ch) => ch + "!").join("");
 
-   console.log(veryStr);
+   console.log(veryGreet);
    ```
 
 1. Fix the code so `addFullName` function will get any object that satisfies `UserShape`:
