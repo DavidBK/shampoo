@@ -79,6 +79,7 @@ You should be familiar with the following concepts:
 Some advanced concepts that worth knowing, learn them after you understand the basics:
 
 - Arrays methods - `map`, `filter`, `reduce` etc.
+- Spread operator, rest parameters and rest property.
 - Pass arguments: call by value, call by sharing, call by reference
 - Copy, deep clone, shallow clone.
 - `this` keyword
