@@ -104,6 +104,52 @@ Some questions about the more advanced topics:
    - How many statements did you write in the previous question?
      If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).
 
+1. - What is the output of this code?
+
+   ```js
+   const obj = { key: "value" };
+   const arr = [...obj];
+   console.log(arr);
+   ```
+
+   - What is the output of this code?
+
+   ```js
+   const arr = [1, 2, 3];
+   const obj = { ...arr };
+   console.log(obj);
+   ```
+
+   - What is the output of this code?
+
+   ```js
+   const obj = { ...true, ..."test", ...10 };
+   console.log(obj);
+
+   const arr = [...true, ..."test", ...10];
+   console.log(arr);
+  
+   const fn = (...args) => args;
+   const res = fn(...true, ..."test", ...10);
+   console.log(res);
+   ```
+
+   - Fix this code so it will work as expected:
+
+   ```js
+   const isSummer = false;
+
+   const summerFruitsAmount = { watermelon: 30 };
+   const fruitsAmount = {
+     apple: 10,
+     banana: 5,
+     ...(isSummer && summerFruits),
+   }; // { apple: 10, banana: 5 }
+
+   const summerFruits = ["watermelon"];
+   const fruits = ["apple", "banana", ...(isSummer && summerFruits)]; // ['apple', 'banana']
+   ```
+
 1. What is the output of this code? Why?
 
    ```js
