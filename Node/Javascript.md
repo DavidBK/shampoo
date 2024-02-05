@@ -76,7 +76,7 @@ You should be familiar with the following concepts:
 
 ### JavaScript - More Topics
 
-Some advanced concepts that worth knowing, learn them after you understand the basics:
+Here is some concepts that worth knowing, learn them after you understand the basics:
 
 - Arrays methods - `map`, `filter`, `reduce` etc.
 - Spread operator, rest parameters and rest property.
