@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.760527562085">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>NodeJS and JavaScript</title>
+    <meta name="title" content="NodeJS and JavaScript">
+    <meta name="description" content="Estimation time: 1-4 Days">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/node/javascript/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/node/javascript/">
+    <meta property="og:title" content="NodeJS and JavaScript">
+    <meta property="og:description" content="Estimation time: 1-4 Days">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/node/javascript/">
+    <meta property="twitter:title" content="NodeJS and JavaScript">
+    <meta property="twitter:description" content="Estimation time: 1-4 Days">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../resources/css/retype.css?v=3.5.0.760527562085" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.760527562085" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="nodejs-and-javascript" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#nodejs-and-javascript">#</doc-anchor-trigger>
+        <span>NodeJS and JavaScript</span>
+    </h1>
+</doc-anchor-target>
+<blockquote>
+<p><em>Estimation time: 1-4 Days</em></p>
+</blockquote>
+<hr>
+<p>This is a basic introduction to Node JS and JavaScript.</p>
+<p><strong><em>Learning objectives:</em></strong></p>
+<p>At the end of this learning path, you&#x27;ll be able to:</p>
+<ul>
+<li>Know basic programming using JavaScript</li>
+<li>Know JavaScript concepts</li>
+</ul>
+<hr>
+<p><em>Send me back <a href="home">home</a></em></p>
+<p>[[<em>TOC</em>]]</p>
+<hr>
+<p><strong>Learning note</strong>: all links in this path are reading tutorials. You can read them but you can watch a youtube crash course. if you find useful links, please share them with me.</p>
+<p>Here is some examples links:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction">MDN web docs</a></li>
+<li><a href="https://nodejs.dev/learn">nodejs official learn</a></li>
+</ul>
+<doc-anchor-target id="introduction">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#introduction">#</doc-anchor-trigger>
+        <span>Introduction</span>
+    </h2>
+</doc-anchor-target>
+<p>JavaScript is a programming language that is used to create web applications.</p>
+<p>Node.js is a JavaScript runtime built on Chrome&#x27;s V8 JavaScript engine.</p>
+<p>In Human words: NodeJS is a program that allows you to run JavaScript on any computer (and not just in the browser).
+So in order to run JavaScript on your computer, you need to install NodeJS.</p>
+<doc-anchor-target id="install-nodejs-using-nvm">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install-nodejs-using-nvm">#</doc-anchor-trigger>
+        <span>Install NodeJS using NVM</span>
+    </h2>
+</doc-anchor-target>
+<p><a href="https://github.com/nvm-sh/nvm">NVM</a> (Node.js Version Manager) allows you to quickly install and use different versions of node via the command line.</p>
+<p>Even if you only need a single version of Node.js right now, It is still recommend using nvm because it allows you to switch between different versions of Node (depending on the requirements of your project) with minimal hassle.</p>
+<p>to install nvm:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre>
+</doc-codeblock></div>
+<p>Check if node is installed:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">nvm --version</code></pre>
+</doc-codeblock></div>
+<p>For more information you can use the repository <a href="https://github.com/nvm-sh/nvm">nvm-sh/nvm</a></p>
+<p>Optional: <a href="https://github.com/lukechilds/zsh-nvm">zsh plugin with lazy load</a> Or <a href="http://broken-by.me/lazy-load-nvm/">Lazy load nvm for faster shell start</a>.
+If you follow the <a href="../../setup/">setup</a> instructions, you already have this plugin.</p>
+<doc-anchor-target id="javascript">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#javascript">#</doc-anchor-trigger>
+        <span>JavaScript</span>
+    </h2>
+</doc-anchor-target>
+<p>You should be familiar with the following concepts:</p>
+<ul>
+<li>Variables</li>
+<li>Operators</li>
+<li>Data types</li>
+<li>Control flow</li>
+<li>Functions</li>
+<li>Objects</li>
+<li>Classes</li>
+<li>Errors</li>
+<li>Modules</li>
+</ul>
+<doc-anchor-target id="javascript---more-topics">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#javascript---more-topics">#</doc-anchor-trigger>
+        <span>JavaScript - More Topics</span>
+    </h3>
+</doc-anchor-target>
+<p>Here is some concepts that worth knowing, learn them after you understand the basics:</p>
+<ul>
+<li>Arrays methods - <code v-pre>map</code>, <code v-pre>filter</code>, <code v-pre>reduce</code> etc.</li>
+<li>Spread operator, rest parameters and rest property.</li>
+<li>Pass arguments: call by value, call by sharing, call by reference</li>
+<li>Copy, deep clone, shallow clone.</li>
+<li><code v-pre>this</code> keyword</li>
+<li><code v-pre>bind</code> Function prototype method, and arrow functions vs regular functions binding behavior.</li>
+<li>Higher order functions</li>
+<li>Closures</li>
+</ul>
+<doc-anchor-target id="javascript---questions-more-topics">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#javascript---questions-more-topics">#</doc-anchor-trigger>
+        <span>JavaScript - questions (More Topics)</span>
+    </h3>
+</doc-anchor-target>
+<p>Some questions about the more advanced topics:</p>
+<ol>
+<li>
+<ul>
+<li>Create a function <code v-pre>circlesArea</code> that get array of numbers - each number represent a radius. The function should return the sum of the areas of all circles that their radius is bigger than 0 and their area is smaller than 100. Round the result to the nearest integer.</li>
+</ul>
+<p>For example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const radiuses = [-1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -100, 500];
+const sum = circlesArea(radiuses);
+console.log(sum); // 170</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>How many statements did you write in the previous question?
+If you wrote more than one, refactor the code to use only one line (one statement, you can add new lines for readability).</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>What is the output of this code?</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const obj = { key: &quot;value&quot; };
+const arr = [...obj];
+console.log(arr);</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>What is the output of this code?</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const arr = [1, 2, 3];
+const obj = { ...arr };
+console.log(obj);</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>What is the output of this code?</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const obj = { ...true, ...&quot;test&quot;, ...10 };
+console.log(obj);
+
+const arr = [...true, ...&quot;test&quot;, ...10];
+console.log(arr);
+
+const fn = (...args) =&gt; args;
+const res = fn(...true, ...&quot;test&quot;, ...10);
+console.log(res);</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Fix this code so it will work as expected:</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const isSummer = false;
+
+const summerFruitsAmount = { watermelon: 30 };
+const fruitsAmount = {
+  apple: 10,
+  banana: 5,
+  ...(isSummer &amp;&amp; summerFruits),
+}; // { apple: 10, banana: 5 }
+
+const summerFruits = [&quot;watermelon&quot;];
+const fruits = [&quot;apple&quot;, &quot;banana&quot;, ...(isSummer &amp;&amp; summerFruits)]; // ['apple', 'banana']</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>What is the output of this code? Why?</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function changeNum(num) {
+  num = num * 10;
+}
+
+function changeKey(obj) {
+  obj.key = &quot;changed&quot;;
+}
+
+function changeObj(obj) {
+  obj = { key: &quot;changed&quot; };
+}
+
+const num = 10;
+changeNum(num);
+console.log(num);
+
+const obj1 = { key: &quot;unchanged&quot; };
+changeKey(obj1);
+console.log(obj1);
+
+const obj2 = { key: &quot;unchanged&quot; };
+changeObj(obj2);
+console.log(obj2);</code></pre>
+</doc-codeblock></div>
+</li>
+<li>
+<ul>
+<li>What is the output of this code?</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const user = {
+  firstName: &quot;Lady&quot;,
+  lastName: &quot;Gaga&quot;,
+  address: {
+    street: &quot;David king&quot;,
+    city: &quot;TLV&quot;,
+    country: &quot;IL&quot;,
+  },
+};
+
+const copiedUser = { ...user };
+
+copiedUser.firstName = &quot;Jane&quot;;
+copiedUser.address.street = &quot;Back street&quot;;
+
+console.log(copiedUser);
+console.log(user);</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Fix the code so there will be no side effects when modifying the copied user.</li>
+</ul>
+</li>
+<li><p>What is the output of this code? Fix the code.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">class LateBloomer {
+  #delay;
+  petalNumber;
+
+  constructor(delay = 1000) {
+    this.#delay = delay;
+    this.petalNumber = Math.floor(Math.random() * 12) + 1;
+  }
+
+  bloom() {
+    setTimeout(this.declare, this.#delay);
+  }
+
+  declare() {
+    console.log(`I am a beautiful flower with ${this.petalNumber} petals!`);
+  }
+}
+
+const flower = new LateBloomer();
+flower.bloom();
+flower.declare();</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Bonus (optional): Write a function <code v-pre>once</code> that accepts a function <code v-pre>fn</code> as input and return a new function that is identical to the original function except that it ensures <code v-pre>fn</code> is called at most once.</p>
+<p>The first time the returned function is called, it should return the same result as fn.
+Every subsequent time it is called, it should throw an error with the message &quot;Function already called&quot;.</p>
+<p>For example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function add(a, b) =&gt; a + b;
+
+const addOnce = once(add);
+console.log(addOnce(3, 4)); // 7
+console.log(addOnce(3, 4)); // Error: Function already called
+console.log(addOnce(-2, 8)); // Error: Function already called</code></pre>
+</doc-codeblock></div>
+</li>
+</ol>
+<doc-anchor-target id="javascript---worth-knowing-advanced">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#javascript---worth-knowing-advanced">#</doc-anchor-trigger>
+        <span>JavaScript - Worth knowing (Advanced)</span>
+    </h3>
+</doc-anchor-target>
+<p>Some advanced concepts that worth mentioning, don&#x27;t learn them now but know that they exist:</p>
+<ul>
+<li><code v-pre>void</code> operator</li>
+<li>Bitwise operators</li>
+<li>Unicode</li>
+<li>Symbols</li>
+<li>Prototypes</li>
+<li>Maps, Sets</li>
+<li>Iterators</li>
+<li>Generators</li>
+<li>WeakMaps, WeakSets</li>
+<li>Typed Arrays</li>
+<li>Proxies</li>
+</ul>
+<doc-anchor-target id="nodejs">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#nodejs">#</doc-anchor-trigger>
+        <span>NodeJS</span>
+    </h2>
+</doc-anchor-target>
+<p>Node.js is an open-source and cross-platform JavaScript runtime environment.
+Node.js runs the V8 JavaScript engine, the core of Google Chrome, outside of the browser. This allows Node.js to be very performant.</p>
+<p>A Node.js app runs in a single process, without creating a new thread for every request. Node.js provides a set of asynchronous I/O primitives in its standard library that prevent JavaScript code from blocking.</p>
+<doc-anchor-target id="basic-nodejs-concepts">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#basic-nodejs-concepts">#</doc-anchor-trigger>
+        <span>Basic NodeJS Concepts</span>
+    </h3>
+</doc-anchor-target>
+<p>Before you continue, make sure you are familiar with the following concepts:</p>
+<ul>
+<li>Package manger (<code v-pre>npm</code>)</li>
+<li><code v-pre>package.json</code>, <code v-pre>package-lock.json</code></li>
+<li>File system (<code v-pre>node:fs</code>)</li>
+<li>Environment variables (<code v-pre>process.env</code>)</li>
+</ul>
+<doc-anchor-target id="basic-nodejs---questions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#basic-nodejs---questions">#</doc-anchor-trigger>
+        <span>Basic NodeJS - questions</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li><p>Write a program that reads a text file and counts the number of words in the file.
+Accept the file path as argument.
+The program should output the word count.</p>
+<p>For example, if the <code v-pre>input.txt</code> file contains the following text:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">  Hello, my cat. And my cat doesn't say &quot;hello&quot; back.
+  Hello, my dog. And my dog says &quot;hello&quot; back! 😎</code></pre>
+</doc-codeblock></div>
+<p>You should run the program like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash"> node count-words.js input.txt</code></pre>
+</doc-codeblock></div>
+<p>The output should be:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">20</code></pre>
+</doc-codeblock></div>
+<p>Optional: print the occurrences of each word in the file if the ENV variable <code v-pre>DEBUG</code> is set to <code v-pre>true</code>.</p>
+</li>
+</ol>
+<doc-anchor-target id="worth-mentioning-advanced">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#worth-mentioning-advanced">#</doc-anchor-trigger>
+        <span>Worth Mentioning (Advanced)</span>
+    </h2>
+</doc-anchor-target>
+<p>Some advanced concepts that worth mentioning, don&#x27;t learn them now but know that they exist:</p>
+<ul>
+<li>Streams</li>
+<li>Buffers</li>
+<li>CJS vs ESM</li>
+</ul>
+<p>The internal of node.js:</p>
+<ul>
+<li>v8</li>
+<li>garbage collector</li>
+<li>libuv</li>
+</ul>
+<p>Multi-threading:</p>
+<ul>
+<li>Cluster</li>
+<li>Child Processes</li>
+<li>Worker threads</li>
+<li>Thread pools</li>
+</ul>
+<p>Additional Topics:</p>
+<ul>
+<li>Asynchronous context tracking</li>
+<li>C/C++ addons</li>
+</ul>
+<doc-anchor-target id="tools">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tools">#</doc-anchor-trigger>
+        <span>Tools</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><a href="https://pnpm.io/">pnpm</a></li>
+<li><a href="https://snyk.io/advisor/">snyk advisor</a></li>
+<li><a href="https://docs.npmjs.com/cli/v7/commands/npm-audit">npm audit</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">cSpell</a></li>
+</ul>
+<doc-anchor-target id="next-steps">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#next-steps">#</doc-anchor-trigger>
+        <span>Next steps</span>
+    </h2>
+</doc-anchor-target>
+<p>Let&#x27;s get out of <a href="Node/Asynchronous-Javascript">sync</a>!</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../node/call-of-duty/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Call Of Duty - Duties scheduling system</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../node/testing-javascript/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Testing in Javascript</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "NodeJS and JavaScript", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

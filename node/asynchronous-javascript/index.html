@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.760527562085">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Asynchronous NodeJS and JavaScript</title>
+    <meta name="title" content="Asynchronous NodeJS and JavaScript">
+    <meta name="description" content="Estimation time: 1-4 Days">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/node/asynchronous-javascript/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/node/asynchronous-javascript/">
+    <meta property="og:title" content="Asynchronous NodeJS and JavaScript">
+    <meta property="og:description" content="Estimation time: 1-4 Days">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/node/asynchronous-javascript/">
+    <meta property="twitter:title" content="Asynchronous NodeJS and JavaScript">
+    <meta property="twitter:description" content="Estimation time: 1-4 Days">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../resources/css/retype.css?v=3.5.0.760527562085" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.760527562085" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="asynchronous-nodejs-and-javascript" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#asynchronous-nodejs-and-javascript">#</doc-anchor-trigger>
+        <span>Asynchronous NodeJS and JavaScript</span>
+    </h1>
+</doc-anchor-target>
+<blockquote>
+<p><em>Estimation time: 1-4 Days</em></p>
+</blockquote>
+<hr>
+<p>This learning path will teach you how to write asynchronous code in JavaScript and Node.js.</p>
+<p><strong><em>Learning objectives:</em></strong></p>
+<p>At the end of this learning path, you&#x27;ll be able to:</p>
+<ul>
+<li>Write an efficient asynchronous code</li>
+<li>Use the <code v-pre>async</code> and <code v-pre>await</code> keywords</li>
+<li>Write scalable and performant code</li>
+</ul>
+<hr>
+<p><em>Send me back <a href="home">home</a></em></p>
+<p>[[<em>TOC</em>]]</p>
+<hr>
+<p><strong>Learning note</strong>: all links in this path are reading tutorials. You can read them but you can watch a youtube crash course. if you find useful links, please share them with me.</p>
+<p>Here is some examples links:</p>
+<doc-anchor-target id="asynchronous-in-javascript">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#asynchronous-in-javascript">#</doc-anchor-trigger>
+        <span>Asynchronous in JavaScript</span>
+    </h2>
+</doc-anchor-target>
+<p>Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.</p>
+<p>Many functions provided by nodeJS and browsers can potentially take a long time and therefore, are asynchronous.</p>
+<p><strong><em>After each mini chapter in this path, create a &quot;Pull Request&quot; and/or talk to your mentor to validate your knowledge.</em></strong></p>
+<doc-anchor-target id="introduction">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#introduction">#</doc-anchor-trigger>
+        <span>Introduction</span>
+    </h3>
+</doc-anchor-target>
+<p>We will learn a several techniques to make our programs asynchronous.
+Some of these techniques are legacy and not recommended for new projects but they are still important to understand.</p>
+<ol>
+<li><p>Read the following script:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// This function use setTimeout to simulate a long running task
+function logAfterMs(message, ms) {
+  setTimeout(() =&gt; console.log(message), ms);
+}
+
+logAfterMs(&quot;1&quot;, 0);
+logAfterMs(&quot;2&quot;, 1);
+logAfterMs(&quot;3&quot;, 10);
+logAfterMs(&quot;4&quot;, 5);
+console.log(&quot;5&quot;);</code></pre>
+</doc-codeblock></div>
+<p>What do you think will be the output?</p>
+</li>
+<li><p>Create a <code v-pre>intro.js</code> file and run it in the terminal.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">node intro.js</code></pre>
+</doc-codeblock></div>
+<p>What is the output? why?</p>
+</li>
+</ol>
+<doc-anchor-target id="callbacks">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#callbacks">#</doc-anchor-trigger>
+        <span>Callbacks</span>
+    </h3>
+</doc-anchor-target>
+<p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of action or job.</p>
+<p>Here is a example to synchronous use of callback function:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function greeting(name) {
+  console.log(`Hello, ${name}`);
+}
+
+function addUser(callback) {
+  const userName = &quot;David&quot;;
+  console.log(&quot;Adding user...&quot;);
+  callback(userName);
+}
+
+addUser(greeting);</code></pre>
+</doc-codeblock></div>
+<p>Or in anonyms arrow function style:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">addUser((name) =&gt; {
+  console.log(`Hello, ${name}`);
+});</code></pre>
+</doc-codeblock></div>
+<p>The callback itself can have inside it another callback function:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">addUser((name) =&gt; {
+  console.log(`Hello, ${name}`);
+
+  addUser((name) =&gt; {
+    console.log(`Hello again, ${name}`);
+
+    addUser((name) =&gt; {
+      console.log(`Hello again and again, ${name}`);
+    });
+  });
+});</code></pre>
+</doc-codeblock></div>
+<p>However, callbacks are often used to continue code execution after an <strong>asynchronous</strong> operation has completed - these are called asynchronous callbacks.</p>
+<p>Its is often to named callbacks function <code v-pre>done</code> - Because we are calling them when the operation done:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function saveUser(user, done) {
+  // do something async
+  done();
+}
+
+console.log(&quot;Start saving user...&quot;);
+
+saveUser({ name: &quot;David&quot; }, () =&gt; {
+  console.log(&quot;User saved!&quot;);
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="execution-order">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#execution-order">#</doc-anchor-trigger>
+        <span>Execution order</span>
+    </h4>
+</doc-anchor-target>
+<p>Lets fix the above <code v-pre>intro.js</code> script by adding a callback function.</p>
+<p>Create a <code v-pre>callbacks-logging.js</code>.</p>
+<p>Change the <code v-pre>logAfterMs</code> function to accept a callback function as a the last argument:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function logAfterMs(message, ms, done) {
+  // implement
+}</code></pre>
+</doc-codeblock></div>
+<ol>
+<li>Write a code that log the string <code v-pre>&quot;1&quot;</code> after 0 ms.</li>
+<li>Write a code that log the string <code v-pre>&quot;2&quot;</code> 1 ms after the log <code v-pre>&quot;1&quot;</code> above has finished.</li>
+<li>Write a code that log the string <code v-pre>&quot;3&quot;</code> 10 ms after the the log <code v-pre>&quot;2&quot;</code> above has finished.</li>
+<li>Write a code that log the string <code v-pre>&quot;4&quot;</code> 5 ms after the the log <code v-pre>&quot;3&quot;</code> above has finished.</li>
+<li>Write a code that log the string <code v-pre>&quot;5&quot;</code> after all the logs.</li>
+</ol>
+<p>Commit and push your changes.</p>
+<doc-anchor-target id="error-handling">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#error-handling">#</doc-anchor-trigger>
+        <span>Error Handling</span>
+    </h4>
+</doc-anchor-target>
+<p>In Node.js, it is considered standard practice to handle errors in asynchronous functions by returning them as the <strong>first argument</strong> to the current function&#x27;s callback. If there is an error, the first parameter is passed an Error object with all the details. Otherwise, the first parameter is null.</p>
+<p>Here is an example with synchronous code:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const exampleValue = null; // change to test the function
+
+function validateTruthy(value, done) {
+  if (value) return done();
+  const error = new Error(`Value ${value} is not Truthy!`);
+  done(error);
+}
+
+validateTruthy(exampleValue, (err) =&gt; {
+  if (err) console.error(err);
+  else console.log(&quot;Great success!&quot;);
+});</code></pre>
+</doc-codeblock></div>
+<p>We want to be able to handle errors in our logging code workflow.</p>
+<p>Here is a function that simulate a logging that may fail:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function maybeLog(message, errorChance) {
+  const isError = Math.random() &lt; errorChance;
+  if (isError) throw new Error(&quot;Something went wrong&quot;);
+  console.log(message);
+}</code></pre>
+</doc-codeblock></div>
+<p>Create a <code v-pre>maybeLogAfterMs</code> function that simulate a logging that may fail.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function maybeLogAfterMs(message, ms, done) {
+  // implement me, you can use the maybeLog function
+}</code></pre>
+</doc-codeblock></div>
+<p>Lets say the <code v-pre>&quot;3&quot;</code> logging may fail.</p>
+<ol>
+<li>Replace step 3 (logging <code v-pre>&quot;3&quot;</code>) with this <code v-pre>maybeLogAfterMs</code> function.</li>
+<li>Handle the error:
+<ul>
+<li>If the error is thrown, log the error and stop the execution.</li>
+<li>If the error is not thrown, log the string <code v-pre>&quot;4&quot;</code> as usual and continue to step 5.</li>
+</ul>
+</li>
+</ol>
+<p>Commit and push your changes.</p>
+<doc-anchor-target id="pass-data">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pass-data">#</doc-anchor-trigger>
+        <span>Pass data</span>
+    </h4>
+</doc-anchor-target>
+<p>We want our code to pass results from async operations to other.</p>
+<p>Lets say the <code v-pre>&quot;3&quot;</code> logging need to pass the chance of the error to the <code v-pre>&quot;4&quot;</code> logging after successful logging.</p>
+<ol>
+<li>Update the <code v-pre>maybeLogAfterMs</code> function to call the callback function with the chance of the error.
+Don&#x27;t forget that callback first argument is the error! (How do you pass no error?)</li>
+</ol>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function maybeLogAfterMs(message, ms, done) {
+  const errorChance = Math.random();
+  // implement me.
+}</code></pre>
+</doc-codeblock></div>
+<ol>
+<li><p>Handle the results in step 4:</p>
+<ul>
+<li>If the results is bigger then <code v-pre>0.8</code> log <code v-pre>&quot;4: This is very rare!&quot;</code></li>
+<li>If the results is smaller then <code v-pre>0.8</code> log <code v-pre>&quot;4: This is very common!&quot;</code></li>
+</ul>
+</li>
+<li><p>Print the <code v-pre>&quot;5&quot;</code> logging after <code v-pre>random</code> (from step 3) <strong>seconds</strong>.</p>
+</li>
+</ol>
+<p>Commit and push your changes.</p>
+<doc-anchor-target id="concurrent-execution">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#concurrent-execution">#</doc-anchor-trigger>
+        <span>Concurrent execution</span>
+    </h4>
+</doc-anchor-target>
+<p>We want to be able to run multiple async operations in parallel.
+Lets say that after the <code v-pre>&quot;4&quot;</code> logging we want to print the <code v-pre>&quot;5&quot;</code> logging and in concurrent run functions that logs the string <code v-pre>&quot;hi 5&quot;</code> after 5 ms and <code v-pre>&quot;take 5&quot;</code> after 6 ms.</p>
+<ol>
+<li>Create a function that after <code v-pre>5</code> ms logs the string <code v-pre>&quot;Hi five&quot;</code></li>
+<li>Create a function that after <code v-pre>6</code> ms logs the string <code v-pre>&quot;Take five&quot;</code></li>
+<li>Execute the <code v-pre>&quot;5&quot;</code>, <code v-pre>&quot;Hi 5&quot;</code>, <code v-pre>&quot;Take 5&quot;</code> functions logging after the <code v-pre>&quot;4&quot;</code> logging in concurrent.</li>
+</ol>
+<p>Commit and push your changes.</p>
+<doc-anchor-target id="after-concurrent-execution---optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#after-concurrent-execution---optional">#</doc-anchor-trigger>
+        <span>After Concurrent execution - (Optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>We want to be able to run async operations after parallel execution is done.
+Lets say that after the step 5 (logging <code v-pre>&quot;5&quot;</code>, <code v-pre>&quot;Hi five&quot;</code>, <code v-pre>&quot;Take five&quot;</code>) we want to log <code v-pre>&quot;6&quot;</code> after 10 ms;</p>
+<p>How do you implement a job after &quot;Parallel&quot; execution?</p>
+<doc-anchor-target id="callbacks---questions">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#callbacks---questions">#</doc-anchor-trigger>
+        <span>Callbacks - Questions</span>
+    </h4>
+</doc-anchor-target>
+<ol>
+<li>What is the advantage and the disadvantage of using callbacks as a solution for the async problem?</li>
+<li>When do you think this solution will be useful?</li>
+<li>What is callback hell?</li>
+</ol>
+<doc-anchor-target id="callbacks---worth-knowing-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#callbacks---worth-knowing-optional">#</doc-anchor-trigger>
+        <span>Callbacks - Worth Knowing (Optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>These topics are not covered in this chapter but is worth knowing:</p>
+<ul>
+<li><a href="https://caolan.github.io/async/v3/">Async.js</a></li>
+</ul>
+<doc-anchor-target id="promises">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promises">#</doc-anchor-trigger>
+        <span>Promises</span>
+    </h3>
+</doc-anchor-target>
+<p>A <code v-pre>Promise</code> is an object representing the eventual completion or failure of an asynchronous operation.</p>
+<p>Once a promise has been called, it will start in a pending state. This means that the calling function continues executing, while the promise is pending until it resolves, giving the calling function whatever data was being requested.</p>
+<p>The created promise will eventually end in a resolved state, or in a rejected state, calling the respective callback functions (passed to <code v-pre>then</code> and <code v-pre>catch</code>) upon finishing.</p>
+<p>Most of the time, you will consume an a already-created promises, but it important to understand how to create a promise.</p>
+<p>Here is a basic example using function that &quot;generates&quot; a promise:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const getHello = () =&gt; new Promise((resolve) =&gt; resolve(&quot;Hello World!&quot;));
+
+getHello().then((result) =&gt; {
+  console.log(result);
+});</code></pre>
+</doc-codeblock></div>
+<p>Here is an example utilizing <code v-pre>reject</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const addAsync = (x, y) =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    if (x === undefined || y === undefined) {
+      reject(new Error(&quot;Must provide two parameters&quot;));
+    } else {
+      resolve(x + y);
+    }
+  });
+};</code></pre>
+</doc-codeblock></div>
+<p>Aren&#x27;t promises just callbacks with <code v-pre>.then()</code>?</p>
+<p>Well, <code v-pre>.then()</code> and <code v-pre>.catch()</code> always return Promises. That enables us to create arbitrary long chains of method calls:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">asyncFunc1()
+  .then((result1) =&gt; {
+    /*···*/
+    return asyncFunc2();
+  })
+  .then((result2) =&gt; {
+    /*···*/
+    return syncFunc3();
+  })
+  .then((result3) =&gt; {
+    /*···*/
+    return result;
+  })
+  .catch((err) =&gt; {
+    /*···*/
+    return &quot;default value&quot;;
+  });</code></pre>
+</doc-codeblock></div>
+<p>Lets create the infamous logging example using promises.</p>
+<ol>
+<li><p>Create a <code v-pre>promise-logging.js</code>.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#execution-order">Callbacks Execution order</doc-anchor-trigger> but using promises. Commit and push your changes.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#error-handling">Callbacks Error Handling</doc-anchor-trigger> but using promises.</p>
+<ul>
+<li>Create a <code v-pre>maybeLog</code> function that returns a promise that simulate a logging that may fail.</li>
+<li>Handle the error:
+<ul>
+<li>If the error is thrown, log the error and stop the execution.</li>
+<li>If the error is not thrown, log the string <code v-pre>&quot;4&quot;</code> as usual and continue to step 5.</li>
+</ul>
+</li>
+<li>Commit and push your changes.</li>
+</ul>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#pass-data">Callbacks Pass data</doc-anchor-trigger> but using promises.</p>
+<ul>
+<li><p>Replace the <code v-pre>maybeLog</code> function with function that resolve with the random number (like the callback example).</p>
+</li>
+<li><p>Handle the results in step 4:</p>
+</li>
+<li><p>If the results is bigger then <code v-pre>0.8</code> log <code v-pre>&quot;4: This is very rare!&quot;</code></p>
+</li>
+<li><p>If the results is smaller then <code v-pre>0.8</code> log <code v-pre>&quot;4: This is very common!&quot;</code></p>
+</li>
+</ul>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#concurrent-execution">Callbacks Concurrent execution</doc-anchor-trigger> but using promises. You may add the <doc-anchor-trigger to="#after-concurrent-execution---optional">After Concurrent job</doc-anchor-trigger>.</p>
+</li>
+</ol>
+<p>Commit and push your changes.</p>
+<doc-anchor-target id="promises---questions">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promises---questions">#</doc-anchor-trigger>
+        <span>Promises - Questions</span>
+    </h4>
+</doc-anchor-target>
+<ol>
+<li>What is the advantage and the disadvantage of using promises as a solution for the async problem?</li>
+</ol>
+<doc-anchor-target id="promises---worth-knowing-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promises---worth-knowing-optional">#</doc-anchor-trigger>
+        <span>Promises - Worth Knowing (Optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>These topics are not covered in this chapter but is worth knowing:</p>
+<ul>
+<li><code v-pre>.finally()</code></li>
+<li><code v-pre>util.promisify()</code></li>
+</ul>
+<doc-anchor-target id="async-await">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#async-await">#</doc-anchor-trigger>
+        <span>Async Await</span>
+    </h3>
+</doc-anchor-target>
+<p>Async Await is a new way to write asynchronous code and is <a href="https://mathiasbynens.be/notes/async-stack-traces">kind a</a> &quot;syntactic sugar&quot; for promises. Moreover it is has a better DX (async stack trace support and debug step through)</p>
+<p>An async function is a function declared with the <code v-pre>async</code> keyword, and the <code v-pre>await</code> keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.</p>
+<p>Here is a basic example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">async function asyncExample(value) {
+  const syncRes = syncOperation(value);
+  const resultsFromAsync = await asyncOperation(value);
+  const asyncRes = await anotherAsyncOperation(resultsFromAsync);
+  const res = { asyncRes, syncRes };
+  return res;
+}</code></pre>
+</doc-codeblock></div>
+<p>Lets refactor the <code v-pre>promise-logging.js</code> using async await:</p>
+<ol>
+<li><p>Create a <code v-pre>async-await-logging.js</code>.</p>
+</li>
+<li><p>Change the <code v-pre>setTimeout</code> to promise based using <code v-pre>node:timers/promises</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import { setTimeout } from &quot;node:timers/promises&quot;;</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#execution-order">Callbacks Execution order</doc-anchor-trigger> but using async-await. Commit and push your changes.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#error-handling">Callbacks Error Handling</doc-anchor-trigger> but using async-await. Commit and push your changes.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#pass-data">Callbacks Pass data</doc-anchor-trigger> but using async-await. Commit and push your changes.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#concurrent-execution">Callbacks Concurrent execution</doc-anchor-trigger> but using async-await. You may add the <doc-anchor-trigger to="#after-concurrent-execution---optional">After Concurrent job</doc-anchor-trigger>.</p>
+</li>
+</ol>
+<p>Commit and push your changes.</p>
+<doc-anchor-target id="async-await---questions">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#async-await---questions">#</doc-anchor-trigger>
+        <span>Async Await - Questions</span>
+    </h4>
+</doc-anchor-target>
+<ol>
+<li>What is the advantage and the disadvantage of using async await as a solution for the async problem?</li>
+<li>Should we use await inside <code v-pre>for</code> or <code v-pre>while</code> loop?</li>
+<li>Should we use await inside a <code v-pre>forEach</code> loop?</li>
+</ol>
+<doc-anchor-target id="async-await---worth-knowing-advanced">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#async-await---worth-knowing-advanced">#</doc-anchor-trigger>
+        <span>Async Await - Worth Knowing (Advanced)</span>
+    </h4>
+</doc-anchor-target>
+<p>These topics are not covered in this chapter but is worth knowing:</p>
+<ul>
+<li>Top level await</li>
+<li>Async Iterators (<code v-pre>for await</code>)</li>
+<li><code v-pre>return await</code> in async function</li>
+</ul>
+<doc-anchor-target id="promise-functions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promise-functions">#</doc-anchor-trigger>
+        <span>Promise functions</span>
+    </h3>
+</doc-anchor-target>
+<p>The <code v-pre>Promise</code> class has <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static">static</a> <a href="https://dev.to/gcanti/functional-design-combinators-14pn">combinator</a> functions that help us work with arrays of promises.</p>
+<doc-anchor-target id="promiseall">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promiseall">#</doc-anchor-trigger>
+        <span>Promise.all()</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>Promise.all()</code> is a function Which get array of promises and returns a single <code v-pre>Promise</code> which is:</p>
+<ul>
+<li>Fulfilled with the array of the fulfillment values of the input promises.</li>
+<li>Rejected if at least one Promise is rejected. The value is the rejection value of that Promise.</li>
+</ul>
+<p>Something like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">[...promises] =&gt; Promise([...res])</code></pre>
+</doc-codeblock></div>
+<p>More accurate in typescript syntax (Advanced):</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">Promise.all&lt;T&gt;(promises: Iterable&lt;Promise&lt;T&gt;&gt;): Promise&lt;Array&lt;T&gt;&gt;</code></pre>
+</doc-codeblock></div>
+<p>Promise.all is important because it let us execute concurrent jobs on arrays using asynchronous <code v-pre>.map()</code>.</p>
+<p>Here is an abstract Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">Promise.all(arr.map(async (element) =&gt; await asyncLogic(element)));</code></pre>
+</doc-codeblock></div>
+<p>Let&#x27;s create an practical example!</p>
+<p><code v-pre>downloadText()</code> uses the Promise-based <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">fetch</a> API to download a text file into a local directory called <code v-pre>downloads</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import { writeFile } from &quot;node:fs/promises&quot;;
+import { join, basename } from &quot;node:path&quot;;
+
+const downloadText = async (url) =&gt; {
+  const res = await fetch(url);
+  if (!res.ok)
+    throw new Error(`Failed to download &quot;${url}&quot; - ${res.statusText}`);
+  const text = await res.text();
+  const filePath = join(&quot;downloads&quot;, basename(url));
+  await writeFile(filePath, text);
+};</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Create a function called <code v-pre>downloadTextFiles</code> which get an array of urls and download all the files into the <code v-pre>downloads</code> directory.</li>
+<li>Add log before and after each download, and after all downloads are done.</li>
+</ul>
+<p>What is the execution order of the logs?</p>
+<p>Test your function using this example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import { access, mkdir } from &quot;node:fs/promises&quot;;
+const files = [&quot;sample1.txt&quot;, &quot;sample2.txt&quot;, &quot;sample3.txt&quot;];
+
+const urls = files.map(
+  (fileName) =&gt; `https://filesamples.com/samples/document/txt/${fileName}`
+);
+
+await access(&quot;downloads&quot;).catch(() =&gt; mkdir(&quot;downloads&quot;));
+await downloadTextFiles(urls);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="promiseallsettled">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promiseallsettled">#</doc-anchor-trigger>
+        <span>Promise.allSettled()</span>
+    </h4>
+</doc-anchor-target>
+<p><code v-pre>Promise.allSettled()</code> is a function Which get array of promises and returns a single <code v-pre>Promise</code> which is fulfilled when all promises are settled.</p>
+<p>The fulfillment value is an array of the objects with the result of the promises.</p>
+<p>Something like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">[...promises] =&gt; Promise([
+  {
+    status: 'fulfilled' | 'rejected',
+    [value | reason]: res | err
+  },
+  ...,
+])</code></pre>
+</doc-codeblock></div>
+<p>More accurate in typescript syntax (Advanced):</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">
+Promise.allSettled&lt;T&gt;(promises: Iterable&lt;Promise&lt;T&gt;&gt;): Promise&lt;Array&lt;SettlementObject&lt;T&gt;&gt;&gt;
+
+type SettlementObject&lt;T&gt; = FulfillmentObject&lt;T&gt; | RejectionObject;
+
+interface FulfillmentObject&lt;T&gt; {
+  status: 'fulfilled';
+  value: T;
+}
+
+interface RejectionObject {
+  status: 'rejected';
+  reason: unknown;
+}</code></pre>
+</doc-codeblock></div>
+<p>Wow, this looks pretty exhausting. Why using <code v-pre>Promise.allSettled()</code> instead of <code v-pre>Promise.all()</code>?</p>
+<p>Unless there is an error when iterating over promises, the output Promise is never rejected. This lets us execute asynchronous functions in concurrent using <code v-pre>map()</code> without throwing if some &quot;jobs&quot; failed.</p>
+<p>Lets fix the <code v-pre>downloadTextFiles</code> to use <code v-pre>Promise.allSettled()</code> instead of <code v-pre>Promise.all()</code>.</p>
+<ul>
+<li>After the download is finished, print the number of failed downloads and the reason for the failure.</li>
+</ul>
+<p>You can test your function using this example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const files = [
+  &quot;sample1.txt&quot;,
+  &quot;not-exists1.txt&quot;,
+  &quot;sample2.txt&quot;,
+  &quot;not-exists2.txt&quot;,
+  &quot;sample3.txt&quot;,
+];</code></pre>
+</doc-codeblock></div>
+<p>should print after all downloads are done:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">Failed to download 2 files:
+    Failed to download https://filesamples.com/samples/document/txt/not-exists1.txt - Not Found
+    Failed to download https://filesamples.com/samples/document/txt/not-exists2.txt - Not Found</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="short-circuiting-with-promises-advanced">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#short-circuiting-with-promises-advanced">#</doc-anchor-trigger>
+        <span>Short circuiting With Promises (Advanced)</span>
+    </h3>
+</doc-anchor-target>
+<p>Sometimes we want to stop executes all &quot;jobs&quot; when an error ocurred.</p>
+<ul>
+<li>Can we use <code v-pre>Promise.all()</code>? test it with the previous example.</li>
+<li>Create a function called <code v-pre>downloadAllTextFiles</code> which get an array of urls and download all the files into the <code v-pre>downloads</code> directory.
+<ul>
+<li>Add log before and after each download, and after all downloads are done.</li>
+<li>Stop the execution if there is an error.</li>
+</ul>
+</li>
+<li>Did you run all jobs concurrently?</li>
+</ul>
+<doc-anchor-target id="promise-functions---worth-knowing">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promise-functions---worth-knowing">#</doc-anchor-trigger>
+        <span>Promise functions - Worth Knowing</span>
+    </h3>
+</doc-anchor-target>
+<p>These topics are not covered in this chapter but is worth knowing:</p>
+<ul>
+<li><code v-pre>Promise.race()</code></li>
+<li><code v-pre>Promise.any()</code></li>
+</ul>
+<doc-anchor-target id="event-handlers-optional">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#event-handlers-optional">#</doc-anchor-trigger>
+        <span>Event handlers (Optional)</span>
+    </h3>
+</doc-anchor-target>
+<blockquote>
+<p><strong>NOTE</strong>: I recommend to advice with your mentor if you should learn this section and how much time you should spend on it.</p>
+</blockquote>
+<p>Node.js is famous for its asynchronous and event-driven nature.</p>
+<p>Node has a built-in event emitter that allows us to create event-driven programs using the <a href="https://nodejs.org/api/events.html">events</a> module.</p>
+<p>Here is a basic example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const EventEmitter = require(&quot;node:events&quot;);
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on(&quot;start&quot;, () =&gt; {
+  console.log(&quot;started&quot;);
+});
+
+eventEmitter.emit(&quot;start&quot;);
+// logs &quot;started&quot;</code></pre>
+</doc-codeblock></div>
+<p>An event handler is a particular type of callback.</p>
+<p>Usually we prefer using promises to handle async operations but event handlers are still useful in some cases.</p>
+<p>Lets create the <code v-pre>callbacks-logging.js</code> using event handlers.</p>
+<ol>
+<li><p>Create a <code v-pre>event-handler.js</code>.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#execution-order">Callbacks Execution order</doc-anchor-trigger> but using event handlers.</p>
+<p>Commit and push your changes.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#error-handling">Callbacks Error Handling</doc-anchor-trigger> but using event handlers.</p>
+<p>Commit and push your changes.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#pass-data">Callbacks Pass data</doc-anchor-trigger> but using event handlers.</p>
+<p>Commit and push your changes.</p>
+</li>
+<li><p>Write a code that does the same as the code in <doc-anchor-trigger to="#concurrent-execution">Callbacks Concurrent execution</doc-anchor-trigger> but using event handlers. You may add the <doc-anchor-trigger to="#after-concurrent-execution---optional">After Concurrent job</doc-anchor-trigger>.</p>
+<p>Commit and push your changes.</p>
+</li>
+</ol>
+<doc-anchor-target id="event-handlers---questions">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#event-handlers---questions">#</doc-anchor-trigger>
+        <span>Event handlers - Questions</span>
+    </h4>
+</doc-anchor-target>
+<ol>
+<li>What is the advantage and the disadvantage of using event handlers as a solution for the async problem?</li>
+<li>When do you think this solution will be useful?</li>
+</ol>
+<doc-anchor-target id="event-handlers---worth-knowing-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#event-handlers---worth-knowing-optional">#</doc-anchor-trigger>
+        <span>Event handlers - Worth Knowing (Optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>These topics are not covered in this chapter but is worth knowing:</p>
+<ul>
+<li><code v-pre>captureRejections</code> and async event handlers (not recommended)</li>
+</ul>
+<doc-anchor-target id="wip-advanced-topics-advanced">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#wip-advanced-topics-advanced">#</doc-anchor-trigger>
+        <span>WIP: Advanced Topics (Advanced)</span>
+    </h2>
+</doc-anchor-target>
+<p>If you finish the above exercises in the <em>&quot;Estimation time&quot;</em> you can move on to the advanced topics.</p>
+<p>this is a work in progress and will be updated soon.</p>
+<doc-anchor-target id="nodejs-event-loop">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#nodejs-event-loop">#</doc-anchor-trigger>
+        <span>Node.js Event Loop</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">What the heck is the event loop anyway? | Philip Roberts | JSConf EU</a></p>
+</li>
+<li><p><a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick">The Node.js Event Loop, Timers, and process.nextTick()</a></p>
+</li>
+<li><p><a href="https://nodejs.org/en/docs/guides/dont-block-the-event-loop/">Don&#x27;t Block the Event Loop (or the Worker Pool)</a></p>
+</li>
+<li><p><code v-pre>process.nextTick queue</code>, <code v-pre>promises microtask queue</code>, <code v-pre>macrotask queue</code></p>
+</li>
+</ul>
+<doc-anchor-target id="next-steps">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#next-steps">#</doc-anchor-trigger>
+        <span>Next steps</span>
+    </h2>
+</doc-anchor-target>
+<p>I Want YOU To <a href="Node/Call-Of-Duty">Join The Army</a>.</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../node/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Node JS</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../node/call-of-duty/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Call Of Duty - Duties scheduling system</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Asynchronous NodeJS and JavaScript", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

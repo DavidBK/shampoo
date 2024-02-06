@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.760527562085">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Typescript</title>
+    <meta name="title" content="Typescript">
+    <meta name="description" content="Estimation time: 1-2 Days">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/node/typescript/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/node/typescript/">
+    <meta property="og:title" content="Typescript">
+    <meta property="og:description" content="Estimation time: 1-2 Days">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/node/typescript/">
+    <meta property="twitter:title" content="Typescript">
+    <meta property="twitter:description" content="Estimation time: 1-2 Days">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../resources/css/retype.css?v=3.5.0.760527562085" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.760527562085" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="typescript" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typescript">#</doc-anchor-trigger>
+        <span>Typescript</span>
+    </h1>
+</doc-anchor-target>
+<blockquote>
+<p><em>Estimation time: 1-2 Days</em></p>
+</blockquote>
+<hr>
+<p>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</p>
+<p>This is a basic introduction to Typescript.</p>
+<p><strong><em>Learning objectives:</em></strong></p>
+<p>At the end of this learning path, you&#x27;ll be able to:</p>
+<ul>
+<li>Run TS project</li>
+<li>Write an efficient type-safe code in TypeScript</li>
+</ul>
+<hr>
+<p><em>Send me back <a href="home">home</a></em></p>
+<p>[[<em>TOC</em>]]</p>
+<hr>
+<p><strong>Learning note</strong>: all links in this path are reading tutorials. You can read them but you can watch a youtube crash course. if you find useful links, please share them with me.</p>
+<p>Here is some examples links:</p>
+<ul>
+<li><a href="https://www.typescriptlang.org/">Typescript</a> official website</li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/index.html">Typescript handbook</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n">No BS TS</a> Youtube Crash Course</li>
+<li><a href="https://www.totaltypescript.com/">Total typescript</a> interactive course</li>
+<li><a href="https://github.com/type-challenges/type-challenges">Type Challenges Repo</a> - A collection of TypeScript type challenges</li>
+</ul>
+<doc-anchor-target id="get-started-with-typescript">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#get-started-with-typescript">#</doc-anchor-trigger>
+        <span>Get Started with typescript</span>
+    </h2>
+</doc-anchor-target>
+<p>You can start &quot;playing&quot; with typescript online in <a href="https://www.typescriptlang.org/play">sandbox</a>.</p>
+<p>In order to run it locally we need to install typescript and then compile our code into executable javascript.</p>
+<doc-anchor-target id="install">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install">#</doc-anchor-trigger>
+        <span>Install</span>
+    </h3>
+</doc-anchor-target>
+<p>TypeScript is available as a <a href="https://www.npmjs.com/package/typescript">package</a> on the npm registry.</p>
+<p>You can install it as dev-dependency in your project using:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npm install typescript --save-dev</code></pre>
+</doc-codeblock></div>
+<p>if you want typescript support in <code v-pre>node:</code> imports and global node variables you need to install <a href="https://www.npmjs.com/package/@types/node"><code v-pre>@types/node</code></a></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npm install @types/node --save-dev</code></pre>
+</doc-codeblock></div>
+<p><em>Side Note: Sometimes You will need types in the <a href="https://www.typescriptlang.org/docs/handbook/2/type-declarations.html">declaration file</a>. If so install the types as <code v-pre>dependencies</code>. You can read <a href="https://stackoverflow.com/questions/45176661/how-do-i-decide-whether-types-goes-into-dependencies-or-devdependencies">this</a> for more information.</em></p>
+<doc-anchor-target id="tsconfig">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tsconfig">#</doc-anchor-trigger>
+        <span>TSConfig</span>
+    </h3>
+</doc-anchor-target>
+<p>Typescript compiler needs instructions to compile. We can specify the compiler options in config file called <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html"><code v-pre>tsconfig</code></a>.</p>
+<p>You can initialize the compiler options using <code v-pre>tsc</code> cli <code v-pre>--init</code> flag:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npx tsc --init</code></pre>
+</doc-codeblock></div>
+<p>This will create a basic <code v-pre>tsconfig.json</code> file.</p>
+<p>My recommended <code v-pre>tsconfig.json</code> for modern node applications is:</p>
+<p><code v-pre>compilerOptions</code>:</p>
+<ul>
+<li><p><code v-pre>&quot;module&quot;: &quot;NodeNext&quot;</code> - Tells TS that this project use ES Modules (And the module resolution is NodeNext)</p>
+</li>
+<li><p><code v-pre>target&quot;: &quot;ESNext&quot;</code> - Tells TS that it&#x27;s okay to output JavaScript syntax with new features instead of embedding a polyfill.</p>
+</li>
+<li><p><code v-pre>&quot;strict&quot;: true</code> - Tells TS to enables a wide range of type checking behavior that results in stronger guarantees of program correctness.</p>
+</li>
+<li><p><code v-pre>&quot;noUncheckedIndexedAccess&quot;: true</code> - Tells TS to add <code v-pre>undefined</code> to any declared via index signatures field in the type.</p>
+</li>
+<li><p><code v-pre>skipLibCheck&quot;: true</code> - Tells TS to skip type checking of all declaration files (*.d.ts). This can save time during compilation and solve incompatibly issues between libraries.</p>
+</li>
+</ul>
+<p>Here is a recommended <code v-pre>tsconfig.json</code> file:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;compilerOptions&quot;: {
+    &quot;target&quot;: &quot;ESNext&quot;,
+    &quot;module&quot;: &quot;NodeNext&quot;,
+    &quot;outDir&quot;: &quot;./dist&quot;,
+    &quot;strict&quot;: true,
+    &quot;noUncheckedIndexedAccess&quot;: true,
+    &quot;esModuleInterop&quot;: true,
+    &quot;skipLibCheck&quot;: true,
+  },
+  &quot;include&quot;: [&quot;src/**/*&quot;],
+  &quot;exclude&quot;: [&quot;node_modules&quot;],
+}</code></pre>
+</doc-codeblock></div>
+<p>You can run this script in your terminal to create the file:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">curl https://gitlab.com/davidbk6/shampoo/-/raw/14055316e7a305253eef65ed430a169e1141d70a/tsconfig.json -o tsconfig.json</code></pre>
+</doc-codeblock></div>
+<p>Here is the full <a href="https://www.typescriptlang.org/tsconfig">TSConfig Reference</a></p>
+<doc-anchor-target id="basic-compile">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#basic-compile">#</doc-anchor-trigger>
+        <span>Basic Compile</span>
+    </h3>
+</doc-anchor-target>
+<p>You can use the <code v-pre>tsc</code> cli using <code v-pre>npx</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npx tsc</code></pre>
+</doc-codeblock></div>
+<p>Or you can create a npm script:</p>
+<p>In your <code v-pre>package.json</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;tsc&quot;
+  },</code></pre>
+</doc-codeblock></div>
+<p>And then:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npm run build</code></pre>
+</doc-codeblock></div>
+<p>Test it! create <code v-pre>.ts</code> file and run the compile <code v-pre>.js</code>.</p>
+<doc-anchor-target id="typescript-execute---tsx-optional">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typescript-execute---tsx-optional">#</doc-anchor-trigger>
+        <span>TypeScript Execute - tsx (Optional)</span>
+    </h3>
+</doc-anchor-target>
+<p>tsx (TypeScript eXecute - do not confuse with React&#x27;s <a href="https://www.typescriptlang.org/docs/handbook/jsx.html">TSX</a> files which stand for TypeScript XML) is a TypeScript runtime that allows you to execute TypeScript files directly.</p>
+<p>This tool is useful for running TypeScript files without the need to compile them to JavaScript first.</p>
+<p>You can use it without any setup using <code v-pre>npx</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npx tsx &lt;your-file&gt;.ts</code></pre>
+</doc-codeblock></div>
+<p>You can read more in the <a href="https://github.com/privatenumber/tsx">tsx repo</a>.</p>
+<doc-anchor-target id="ts-node-optional">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ts-node-optional">#</doc-anchor-trigger>
+        <span>ts-node (Optional)</span>
+    </h3>
+</doc-anchor-target>
+<p><a href="https://www.npmjs.com/package/ts-node"><code v-pre>ts-node</code></a> is a TypeScript execution engine and REPL for Node.js. It &quot;Just In Time&quot; (JIT) transforms TypeScript into JavaScript, enabling you to directly execute TypeScript on Node.js without precompiling.</p>
+<p>Install it as a devDependency:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npm i -D ts-node</code></pre>
+</doc-codeblock></div>
+<p>And then run your file:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npx node-ts &lt;your-file&gt;.ts</code></pre>
+</doc-codeblock></div>
+<p>You can add it to your npm scripts:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">&quot;dev&quot;: &quot;ts-node &lt;your-file&gt;.ts&quot;</code></pre>
+</doc-codeblock></div>
+<p>If you like to use <a href="https://nodejs.org/api/esm.html">esm</a> (and you should) you can use it as a <a href="https://nodejs.org/api/esm.html#loaders">loader</a> to your file:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">&quot;dev&quot;: &quot;node --loader ts-node/esm &lt;your-file&gt;.ts&quot;</code></pre>
+</doc-codeblock></div>
+<p>If you use ts-node I recommend to add the configuration to the tsconfig file as <code v-pre>&quot;ts-node&quot;</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json"> &quot;ts-node&quot;: {
+   &quot;swc&quot;: true,
+ }</code></pre>
+</doc-codeblock></div>
+<p>You can read more in the <a href="https://typestrong.org/ts-node/docs/">ts-node docs</a>.</p>
+<doc-anchor-target id="other-js-runtime-advanced">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#other-js-runtime-advanced">#</doc-anchor-trigger>
+        <span>Other JS runtime (Advanced)</span>
+    </h3>
+</doc-anchor-target>
+<p>Some modern JavaScript engines runtime come with built-in support for TypeScript:</p>
+<ul>
+<li><p><a href="https://deno.land/">Deno</a> is a modern runtime for JavaScript and TypeScript that uses <a href="https://v8.dev">V8</a> and is built in <a href="https://www.rust-lang.org">Rust</a>. Deno has &quot;First-class&quot; support for TS and its &quot;Understand&quot; (Using JIT) Typescript so you execute your <code v-pre>.ts</code> using <code v-pre>deno</code>.</p>
+</li>
+<li><p><a href="https://bun.sh">Bun</a> is a modern JavaScript runtime like Node or Deno. Bun uses the <a href="https://developer.apple.com/documentation/javascriptcore">JavaScriptCore</a> engine and was written in <a href="https://ziglang.org">ZIG</a>. Bun is designed as a drop-in replacement for your current JavaScript &amp; TypeScript apps or scripts so you can run <code v-pre>.ts</code> files directly.</p>
+</li>
+</ul>
+<doc-anchor-target id="typescript---the-basics">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typescript---the-basics">#</doc-anchor-trigger>
+        <span>TypeScript - The basics</span>
+    </h2>
+</doc-anchor-target>
+<p>You should be familiar with the following concepts:</p>
+<p>You can read them all in the <a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a>. Especially the <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html">everyday-types</a></p>
+<ul>
+<li><code v-pre>string</code>, <code v-pre>number</code>, and <code v-pre>boolean</code></li>
+<li>Array</li>
+<li>Tuple</li>
+<li>Functions</li>
+<li>Object types</li>
+<li>Type Aliases (<code v-pre>type</code>)</li>
+<li>Interfaces</li>
+<li><code v-pre>any</code> and <code v-pre>unknown</code></li>
+<li>Union Types (<code v-pre>|</code>)</li>
+<li>Intersection Types (<code v-pre>&amp;</code>)</li>
+<li>Function type expression</li>
+<li>Parameter Destructuring in functions</li>
+<li>Passing Type Arguments (<code v-pre>&lt;Type&gt;</code>)</li>
+<li>Type Assertions (<code v-pre>as</code>, <code v-pre>!</code>)</li>
+<li><code v-pre>typeof</code> type operator</li>
+<li><code v-pre>keyof</code> type operator</li>
+<li><code v-pre>null</code>, <code v-pre>undefined</code>, <code v-pre>void</code>, and <code v-pre>never</code></li>
+<li>Narrowing and Type guards</li>
+<li>Global utility Types (e.g <code v-pre>Omit</code>, <code v-pre>Record</code>, <code v-pre>Promise</code>, etc.)</li>
+</ul>
+<doc-anchor-target id="beginners-typescript-workshops">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#beginners-typescript-workshops">#</doc-anchor-trigger>
+        <span>Beginners Typescript Workshops</span>
+    </h3>
+</doc-anchor-target>
+<p><a href="https://github.com/total-typescript/beginners-typescript-tutorial">Here</a> is a great tutorial for all the basics. Do it yourself <span class="docs-emoji">&#x1F604;</span></p>
+<doc-anchor-target id="questions---basic-typescript">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#questions---basic-typescript">#</doc-anchor-trigger>
+        <span>Questions - Basic Typescript</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li><p>Take the following code and paste it in new <code v-pre>test.js</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const echo = (arg) =&gt; arg;
+
+const greet = echo(&quot;Hello From World&quot;);
+const veryGreet = greet.map((ch) =&gt; ch + &quot;!&quot;);
+console.log(veryGreet);</code></pre>
+</doc-codeblock></div>
+<p>Run it using <code v-pre>node test.js</code> and see the error.</p>
+<ul>
+<li>What is the problem?</li>
+<li>How typescript can help me?</li>
+<li>Create <code v-pre>test.ts</code> file and fix the code so it will <strong>not</strong> compile.</li>
+</ul>
+</li>
+<li><p>What is the problem? Fix it.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const productPrices = {
+  apple: 1.2,
+  banana: 0.5,
+  orange: 0.8,
+};
+
+const getPrice = (productName: string) =&gt; productPrices[productName];</code></pre>
+</doc-codeblock></div>
+<p>If you can&#x27;t see the problem paste the code to <a href="https://www.typescriptlang.org/play">TS Playground</a> and see the error.</p>
+</li>
+</ol>
+<doc-anchor-target id="working-with-ts---my-recommendations">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#working-with-ts---my-recommendations">#</doc-anchor-trigger>
+        <span>Working With TS - My Recommendations</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Write a little TS as you can! TS is very &quot;smart&quot; and most of the time inferred types will be more &quot;specific&quot;. Also this will help your code readability.
+<ul>
+<li>Don&#x27;t declare types in variables</li>
+<li>Prefer to not declare return types of <em>simple</em> functions</li>
+</ul>
+</li>
+<li>Don&#x27;t use enums, prefer union types or <code v-pre>as const</code> objects.</li>
+<li>Don&#x27;t use <code v-pre>Function</code>, <code v-pre>Object</code>, <code v-pre>String</code>, <code v-pre>Number</code>, and <code v-pre>Boolean</code> (Capital letters) and <code v-pre>object</code> - they are not doing what you think they are doing.</li>
+<li>Be careful with <code v-pre>.json()</code> (in <code v-pre>fetch</code> response) and <code v-pre>JSON.parse()</code> as they both return <code v-pre>any</code>. You can cast them to <code v-pre>unknown</code> (or use <a href="https://github.com/total-typescript/ts-reset">ts-reset</a> to do it for you)</li>
+<li>I Prefer <code v-pre>type</code> aliases over interfaces for &quot;everyday&quot; types. If you using Object Oriented Programming you can use interfaces but keep in mind the merge behavior of interfaces.</li>
+</ul>
+<doc-anchor-target id="runtime-checks-with-typescript">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#runtime-checks-with-typescript">#</doc-anchor-trigger>
+        <span>Runtime checks with TypeScript</span>
+    </h2>
+</doc-anchor-target>
+<p>TypeScript is lived in &quot;compile-time&quot;, which make its great for checking variables at the type level (developer &quot;linting&quot;).
+However, during &quot;runtime&quot;, JavaScript is the only language that is executed.
+Therefore, it is necessary to validate user input against schema validation in JavaScript.</p>
+<p>In many cases there is a strong corelation between types and runtime schemas, and duplicating type declarations in both schema and types can be cumbersome.</p>
+<doc-anchor-target id="zod">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#zod">#</doc-anchor-trigger>
+        <span>Zod</span>
+    </h3>
+</doc-anchor-target>
+<p><a href="https://github.com/colinhacks/zod">Zod</a> is a TypeScript-first schema declaration and validation library.</p>
+<p>The goal is to eliminate duplicate type declarations. With Zod, you declare a validator once and Zod will automatically infer the static TypeScript type.
+It also allows for easy composition of simpler types into complex data structures.</p>
+<p>If you wish to use Zod with <a href="https://www.fastify.io/">Fastify</a> app, you can use <a href="https://github.com/turkerdev/fastify-type-provider-zod">fastify-type-provider-zod</a> library.</p>
+<doc-anchor-target id="zod-tutorial-optional">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#zod-tutorial-optional">#</doc-anchor-trigger>
+        <span>Zod tutorial (optional)</span>
+    </h4>
+</doc-anchor-target>
+<p>You can do <a href="https://www.totaltypescript.com/tutorials/zod">this</a> tutorial which is a set of zod exercises for you to work through.</p>
+<doc-anchor-target id="typebox-optional">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typebox-optional">#</doc-anchor-trigger>
+        <span>TypeBox (optional)</span>
+    </h3>
+</doc-anchor-target>
+<p><a href="https://github.com/sinclairzx81/typebox">TypeBox</a> is a JSON Schema Type Builder with Static Type Resolution for TypeScript.</p>
+<p>With typebox you define your schema within your code and use them directly as types or schemas as you need them (like zod).</p>
+<p>TypeBox is great for working with <a href="https://www.fastify.io/docs/latest/Reference/TypeScript">Fastify in TS</a> because the validation in Fastify uses JSON Schema. Moreover, defining schemas for your Fastify can increase their throughput. To use it in your Fastify you will need <a href="https://github.com/fastify/fastify-type-provider-typebox">fastify type-provider</a>.</p>
+<p>For more information you can read in the <a href="https://www.fastify.io/docs/latest/Reference/TypeScript/#typebox">Fastify typebox doc</a>.</p>
+<doc-anchor-target id="typescript---more-topics-optional">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typescript---more-topics-optional">#</doc-anchor-trigger>
+        <span>TypeScript - More Topics (optional)</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>Generics</li>
+<li>Literal Types and <code v-pre>as const</code></li>
+<li>Indexed Access Types (such as <code v-pre>T[&quot;key&quot;]</code>, <code v-pre>T[string]</code> etc.)</li>
+<li>Index Signatures (such as <code v-pre>[index: string]: number</code>)</li>
+<li><code v-pre>extends</code> keyword</li>
+</ul>
+<doc-anchor-target id="questions---more-topics">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#questions---more-topics">#</doc-anchor-trigger>
+        <span>Questions - More Topics</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li><p>Fix the code so it will Error only in <code v-pre>errVeryStr</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const echo = (arg) =&gt; arg;
+
+const greet = echo(&quot;Hello From Space&quot;);
+const greetArr = echo(greet.split(&quot;&quot;));
+
+// @ts-expect-error
+const errVeryGreet = greet.map((ch) =&gt; ch + &quot;!&quot;);
+const veryGreet = greetArr.map((ch) =&gt; ch + &quot;!&quot;).join(&quot;&quot;);
+
+console.log(veryGreet);</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Fix the code so <code v-pre>addFullName</code> function will get any object that satisfies <code v-pre>UserShape</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">type UserShape = {
+  firstName: string;
+  lastName: string;
+};
+
+const addFullName = (user: UserShape) =&gt; {
+  return {
+    ...user,
+    fullName: `${user.firstName} ${user.lastName}`,
+  };
+};
+
+const actorUser = {
+  firstName: &quot;John&quot;,
+  lastName: &quot;Malkovich&quot;,
+  hobbies: [&quot;acting&quot;, &quot;directing&quot;],
+};
+
+const soldierUser = {
+  firstName: &quot;John&quot;,
+  lastName: &quot;Rambo&quot;,
+  rank: &quot;Sergeant&quot;,
+};
+
+const notUser = {
+  first_name: &quot;I am not a user&quot;,
+  lastName: &quot;I told you I am not a user&quot;,
+};
+
+const actor = addFullName(actorUser);
+const soldier = addFullName(soldierUser);
+// @ts-expect-error
+const doNot = addFullName(notUser);
+
+console.log(actor.hobbies); // Fix the ts error
+console.log(soldier.rank); // Fix the ts error
+
+// @ts-expect-error
+console.log(actor.rank);</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>What is the problem with this code? Can you fix it?</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const satellitesCompanies = {
+  skysat: &quot;Planet&quot;,
+  worldview: &quot;Maxar&quot;,
+  sentinel: &quot;Sentinel&quot;,
+};
+
+type SatellitesCompanies = typeof satellitesCompanies;
+
+type SkysatCompany = SatellitesCompanies[&quot;skysat&quot;];
+type WorldviewCompany = SatellitesCompanies[&quot;worldview&quot;];
+type SentinelCompany = SatellitesCompanies[&quot;sentinel&quot;];
+
+declare function freeOrder(company: SentinelCompany): void;
+declare function payedOrder(company: SkysatCompany | WorldviewCompany): void;
+
+freeOrder(&quot;Sentinel&quot;);
+
+// @ts-expect-error
+freeOrder(&quot;Planet&quot;);
+
+// @ts-expect-error
+payedOrder(&quot;Sentinel&quot;);</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Change the <code v-pre>SatelliteName</code> type so it will error on the last line:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const satellitesNames = [
+  &quot;skysat&quot;,
+  &quot;skywalker&quot;,
+  &quot;skyscraper&quot;,
+  &quot;skyrim&quot;,
+  &quot;skype&quot;,
+];
+
+type SatelliteName = string;
+
+declare function isSatelliteGood(satName: SatelliteName): boolean;
+
+console.log(isSatelliteGood(&quot;skywalker&quot;));
+
+// @ts-expect-error
+console.log(isSatelliteGood(&quot;skySat&quot;));</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Change the <code v-pre>SatellitesCompaniesNames</code> type so it will error on the last line:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const satellitesCompanies = {
+  skysat: &quot;Planet&quot;,
+  worldview: &quot;Maxar&quot;,
+  sentinel: &quot;Sentinel&quot;,
+};
+
+type SatellitesCompaniesNames = string;
+
+declare function isCompanyGood(company: SatellitesCompaniesNames): boolean;
+
+console.log(isCompanyGood(&quot;Planet&quot;));
+
+// @ts-expect-error
+console.log(isCompanyGood(&quot;planet&quot;));</code></pre>
+</doc-codeblock></div>
+</li>
+</ol>
+<doc-anchor-target id="typescript---advanced-optional">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typescript---advanced-optional">#</doc-anchor-trigger>
+        <span>TypeScript - Advanced (optional)</span>
+    </h2>
+</doc-anchor-target>
+<blockquote>
+<p><strong><em>Note:</em></strong> This section is advanced, you can ask your mentor what to learn from this section.</p>
+</blockquote>
+<ul>
+<li>Enums</li>
+<li>type predicates (<code v-pre>is</code>)</li>
+<li>Recursive Types</li>
+<li>Discriminated unions</li>
+<li>Exhaustiveness checking</li>
+<li>Function Overloads</li>
+<li><code v-pre>infer</code> keyword</li>
+<li><code v-pre>satisfies</code> operator</li>
+<li>Conditional Types</li>
+<li>Distributive Conditional Types (<code v-pre>T extends T</code> vs <code v-pre>[T] extends [T]</code>)</li>
+<li>Mapped Types (<code v-pre>in</code>)</li>
+<li>Template Literal Types</li>
+<li><code v-pre>using</code> operator</li>
+<li>Decorators</li>
+</ul>
+<doc-anchor-target id="questions---advanced">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#questions---advanced">#</doc-anchor-trigger>
+        <span>Questions - Advanced</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li><p>Fix this code so it will error</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">type Route = { path: string; children?: Routes };
+type Routes = Record&lt;string, Route&gt;;
+
+const routes: Routes = {
+  AUTH: {
+    path: &quot;/auth&quot;,
+    children: {
+      LOGIN: {
+        path: &quot;/login&quot;,
+      },
+    },
+  },
+  HOME: {
+    path: &quot;/&quot;,
+  },
+  // @ts-expect-error
+  mistake: true,
+};
+
+// @ts-expect-error
+const { path } = routes.NotExist;</code></pre>
+</doc-codeblock></div>
+</li>
+<li>
+<ul>
+<li><p>Create a type &quot;function&quot; which generate tuple types. For Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">type TupleStr = Tuple&lt;string, 3&gt;;
+// TupleStr = [string, string, string]
+
+type Tuple2 = Tuple&lt;number, 2&gt;;
+// Tuple2 = [number, number]</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Fix the type of this group function:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">/**
+* Groups elements of an array into subarrays of a specified size.
+* If the array length is not a multiple of size, the array is truncated to fit.
+*/
+const group = &lt;T&gt;(arr: T[], size = 2) =&gt;
+  Array.from({ length: arr.length / size }, (_, i) =&gt;
+    arr.slice(i * size, i * size + size)
+  );
+
+const arr = [1, 2, 3, 4, 5, 6];
+const res = group(arr); // Fix it to be [number, number][]
+const res2 = group(arr, 3); // Fix it to be [number, number, number][]</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>Fix the Tuple implementation so it will work with distribute over union types:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">const num = Math.random() &gt; 0.5 ? 2 : 3;
+const res3 = group(arr, num); // const res3: ([number, number] | [number, number, number])[]</code></pre>
+</doc-codeblock></div>
+</li>
+</ul>
+</li>
+<li><p>Fix the types of this <code v-pre>curry</code> helper function:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">type Fn = (...args: any[]) =&gt; any;
+
+const curry = (fn: Fn) =&gt; {
+  const curried = (...args: unknown[]) =&gt;
+    args.length &gt;= fn.length
+      ? fn(...args)
+      : (...args2: unknown[]) =&gt; curried(...args.concat(args2));
+
+  return curried;
+};
+
+const sum = curry((a: number, b: number) =&gt; a + b);
+
+const add2 = sum(2); // any. Fix it!
+
+const test = curry((a: string, b: number, c: boolean) =&gt; true); // (...args: unknown[]) =&gt; any. Fix it!
+
+const trueFn = curry(() =&gt; true); // Fix it!</code></pre>
+</doc-codeblock></div>
+</li>
+</ol>
+<doc-anchor-target id="project">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#project">#</doc-anchor-trigger>
+        <span>Project</span>
+    </h2>
+</doc-anchor-target>
+<p>Talk with your mentor about the project.</p>
+<doc-anchor-target id="worth-knowing-optional">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#worth-knowing-optional">#</doc-anchor-trigger>
+        <span>Worth knowing (optional)</span>
+    </h2>
+</doc-anchor-target>
+<p>These concepts are worth mentioning but don&#x27;t learn them now.</p>
+<ul>
+<li>Declaration Files</li>
+<li>Mixins</li>
+<li>Module Resolution</li>
+</ul>
+<doc-anchor-target id="further-reading-optional">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#further-reading-optional">#</doc-anchor-trigger>
+        <span>Further Reading (optional)</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><a href="https://ivov.dev/notes/typescript-and-set-theory">TypeScript and Set Theory</a></li>
+</ul>
+<doc-anchor-target id="tools">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tools">#</doc-anchor-trigger>
+        <span>Tools</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><a href="https://github.com/privatenumber/tsx">tsx</a></li>
+<li><a href="https://www.npmjs.com/package/tsconfig-paths">tsconfig-paths</a></li>
+<li><a href="https://github.com/yoavbls/pretty-ts-errors">pretty-ts-errors</a></li>
+<li><a href="https://github.com/total-typescript/ts-reset">ts-reset</a></li>
+<li><a href="https://tsup.egoist.dev/">tsup</a> - Bundle your TypeScript library with no config, powered by <a href="https://github.com/evanw/esbuild">esbuild</a>.</li>
+<li><a href="https://plexinc.github.io/papr/#/">papr</a> - lightweight library built around the MongoDB NodeJS driver, written in TypeScript</li>
+</ul>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../node/testing-javascript/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Testing in Javascript</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../web/web-dev/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Basic Web Development</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Typescript", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.760527562085">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Testing in Javascript</title>
+    <meta name="title" content="Testing in Javascript">
+    <meta name="description" content="Author: @gthecht">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/node/testing-javascript/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/node/testing-javascript/">
+    <meta property="og:title" content="Testing in Javascript">
+    <meta property="og:description" content="Author: @gthecht">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/node/testing-javascript/">
+    <meta property="twitter:title" content="Testing in Javascript">
+    <meta property="twitter:description" content="Author: @gthecht">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../resources/css/retype.css?v=3.5.0.760527562085" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.760527562085" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.760527562085" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="testing-in-javascript" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#testing-in-javascript">#</doc-anchor-trigger>
+        <span>Testing in Javascript</span>
+    </h1>
+</doc-anchor-target>
+<p><em>Author: <a href="https://github.com/gthecht">@gthecht</a></em></p>
+<blockquote>
+<p><em>Estimation time: 1-2 Days</em></p>
+</blockquote>
+<hr>
+<p>When we write software systems, it is often hard to tell if the system is fully working. There are often bugs - either cases where system doesn&#x27;t behave is planned. This can cause either exceptions - and then the system crashes, or simply faults where we get unwanted behavior which leads to all sorts of complications and expenses.</p>
+<p>There are several ways to find these bugs:</p>
+<ol>
+<li>Run the system and when it crashes or we find a bug in production, we fix it</li>
+<li>Test the system before deploying it, and trying to catch as many bugs during these tests.</li>
+</ol>
+<p>Needless to say, we usually prefer the second option, as it is usually the cheaper one - it keeps the customer satisfied, and reduces the probability of runaway expenses.</p>
+<p>Also, testing make the future development of the system easier, as we can change the system and be more confident that we didn&#x27;t break anything.</p>
+<p>Therefore in most cases, you&#x27;ll find some form of tests - be they minimal or elaborate, in order to catch at least some of the more obvious, and more fatal faults.</p>
+<p><strong><em>Learning objectives:</em></strong></p>
+<p>At the end of this learning path, you&#x27;ll be able to:</p>
+<ul>
+<li>Write unit-tests in JS</li>
+<li>Understand concepts of testing</li>
+<li>Differentiate between unit, integration and end-to-end tests</li>
+</ul>
+<hr>
+<p><em>Send me back <a href="home">home</a></em></p>
+<p>[[<em>TOC</em>]]</p>
+<hr>
+<p><strong>Learning note</strong>: all links in this path are reading tutorials. You can read them but you can watch a youtube crash course. if you find useful links, please share them with me.</p>
+<p>Here is some examples links:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=6nSwRSbc27g">A bit of a high level talk</a></li>
+</ul>
+<doc-anchor-target id="unit-integration-and-end-to-end-tests">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#unit-integration-and-end-to-end-tests">#</doc-anchor-trigger>
+        <span>Unit, Integration and End-to-end tests</span>
+    </h2>
+</doc-anchor-target>
+<p>Learn about the division of tests into these three levels.</p>
+<p>A good place to start reading is <a href="https://www.twilio.com/blog/unit-integration-end-to-end-testing-difference">Michelle Tran&#x27;s blog</a> You can also check out her links.</p>
+<doc-anchor-target id="questions">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#questions">#</doc-anchor-trigger>
+        <span>Questions</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>What level of test should be the fastest?</li>
+<li>If we want to make sure two systems interact properly, what type of test are we creating?</li>
+<li>For each of the three levels of testing, who is responsible for writing these tests, and with whom should he talk about them?</li>
+<li>Assuming we made pretty good integration tests, why would we want end-to-end tests as well?</li>
+<li>Imagine you are in a startup, which is developing systems quickly, but breaking them constantly. This means that you can&#x27;t be sure how the systems will interact in future, but the goal of the whole system is to supply some form of service. Which tests would you write and which would you not?</li>
+</ul>
+<doc-anchor-target id="unit-tests-in-js">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#unit-tests-in-js">#</doc-anchor-trigger>
+        <span>Unit tests in JS</span>
+    </h2>
+</doc-anchor-target>
+<p>There are several frameworks for unit tests in JS. The most popular one is <a href="https://jestjs.io/">jest</a>. You can also check out <a href="https://mochajs.org/">mocha</a> and <a href="https://vitest.dev/">Vitest</a> or <a href="https://nodejs.org/api/test.html">Node Test Runner</a>.</p>
+<p>You can choose to learn any of these frameworks, ask your mentor what is preferred in your team.
+The important thing is to understand the concepts of unit tests.</p>
+<doc-anchor-target id="jest">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#jest">#</doc-anchor-trigger>
+        <span>Jest</span>
+    </h3>
+</doc-anchor-target>
+<p>Learn the <a href="https://jestjs.io/">jest</a> framework for unit-tests in JS</p>
+<doc-anchor-target id="things-you-should-know">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#things-you-should-know">#</doc-anchor-trigger>
+        <span>Things you should know</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Expect</li>
+<li>Describe</li>
+<li>It</li>
+<li>Test</li>
+<li>Before and After</li>
+<li>Coverage</li>
+</ul>
+<doc-anchor-target id="mocking">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#mocking">#</doc-anchor-trigger>
+        <span>Mocking</span>
+    </h2>
+</doc-anchor-target>
+<p>Sometimes we don&#x27;t want to actually run something, or to interact with the real system. But we do want to assume an interaction with it. Therefore we need to create a <strong>mock</strong> of the function, in order to test other parts of our system.</p>
+<doc-anchor-target id="things-you-should-know-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#things-you-should-know-1">#</doc-anchor-trigger>
+        <span>Things you should know</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Stubs</li>
+<li>Mocks</li>
+<li>Spy</li>
+</ul>
+<doc-anchor-target id="questions-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#questions-1">#</doc-anchor-trigger>
+        <span>Questions</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li>When should we and when shouldn&#x27;t we use mocking?</li>
+<li>What are the dangers of mocks in each of the three levels of tests, and what are the advantages?</li>
+<li><em>code example for spy and stub - ask what to use in different instances</em></li>
+<li>ADVANCED: How are mocks implemented in JS? How do we restore the original function after we mocked it?</li>
+</ol>
+<doc-anchor-target id="automatic-testing">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#automatic-testing">#</doc-anchor-trigger>
+        <span>Automatic testing</span>
+    </h2>
+</doc-anchor-target>
+<p><a href="https://www.testim.io/blog/test-automation-vs-manual-testing/">auto-testing vs. manual testing</a> is a concise summary of the differences with pros and cons.</p>
+<doc-anchor-target id="questions-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#questions-2">#</doc-anchor-trigger>
+        <span>Questions</span>
+    </h3>
+</doc-anchor-target>
+<ol>
+<li>When should we write automatic tests for end to end tests?</li>
+<li>Assuming a backend service (no UX), how would you decide what to test manually and what to test with automation? The division needn&#x27;t be according to levels, but more about the systems and their behavior. What aspects of a system would help you decide whether to test them manually or not?</li>
+</ol>
+<doc-anchor-target id="task">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#task">#</doc-anchor-trigger>
+        <span>Task</span>
+    </h2>
+</doc-anchor-target>
+<p>Let&#x27;s create a banking system. The bank has users - that can be added and closed. When adding a user we put an initial amount of money in the balance. We can also deposit more money or withdraw some.</p>
+<p>Furthermore, we can create transactions between users, where we subtract an amount from one user, and add the same amount to the other.</p>
+<p>All changes to the balance are written into the transaction array for each user.</p>
+<p>Your task is to unit-test that everything works, and fix the bugs if there are any.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const bank = {};
+
+const addUser = (user, balance) =&gt; {
+  bank[user] = {
+    balance,
+    transactions: [],
+  };
+};
+
+const removeUser = (user) =&gt; {
+  const balance = bank[user].balance;
+  delete bank[user];
+  return balance;
+};
+
+const getUser = (user) =&gt; {
+  return bank[user];
+};
+
+const deposit = (user, amount) =&gt; {
+  bank[user].balance += amount;
+  return bank[user].balance;
+};
+
+const withdraw = (user, amount) =&gt; deposit(user, -amount);
+
+const transaction = (fromUser, toUser, amount) =&gt; {
+  const transactionDoc = { from: fromUser, to: toUser, amount };
+  bank[fromUser].transaction.push(transactionDoc);
+  bank[toUser].transaction.push(transactionDoc);
+  bank[fromUser].balance -= amount;
+  bank[toUser].balance += amount;
+};</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="behaviors">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behaviors">#</doc-anchor-trigger>
+        <span>Behaviors</span>
+    </h3>
+</doc-anchor-target>
+<p>First thing to do is think a bit about what sort of behavior we want (you can reread the short description above), and understand what the system is <strong>supposed</strong> to do.</p>
+<p>Now, think of a list of tests you <em>could</em> write that would check whether the system is indeed working as intended.</p>
+<p>Think also of some validations that should be done to prevent unwanted behavior:</p>
+<p>e.g. We don&#x27;t want to allow a negative balance to any user</p>
+<p><strong><em>Note:</em></strong></p>
+<ul>
+<li>There can be some tests to each behavior - in that case you can group them within a describe</li>
+<li>You don&#x27;t have to think of <strong>all</strong> the tests before writing, its just easier for me to group the steps in such a manner</li>
+<li>You can also write the tests as empty function - that pass, and fill them out one by one</li>
+</ul>
+<doc-anchor-target id="tests">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tests">#</doc-anchor-trigger>
+        <span>Tests</span>
+    </h3>
+</doc-anchor-target>
+<p>Write the tests, think of what you need to setup before each test (or all tests together).
+Think of how you cleanup (teardown) those things that could potentially change the output of other tests, and of course that you won&#x27;t need any more.</p>
+<p><strong><em>Note:</em></strong></p>
+<ul>
+<li>When should you use before/after and when beforeEach/afterEach?</li>
+<li>Can you run your tests in parallel or not? Turn your tests into ones you can run in parallel if not</li>
+</ul>
+<doc-anchor-target id="fix-the-code">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fix-the-code">#</doc-anchor-trigger>
+        <span>Fix the code</span>
+    </h3>
+</doc-anchor-target>
+<p>I hope you have some tests that fail, and not because the tests are faulty. Now its time to fix the code in such a manner that will make your tests pass.</p>
+<p><strong><em>Note:</em></strong></p>
+<ul>
+<li>Don&#x27;t add arguments that the user needs to supply - that changes the API and isn&#x27;t needed</li>
+<li>Try to keep the changes as simple as possible and the outcome as well</li>
+</ul>
+<doc-anchor-target id="using-mongodb">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-mongodb">#</doc-anchor-trigger>
+        <span>Using MongoDB</span>
+    </h3>
+</doc-anchor-target>
+<p>Now we want to change the code so the bank data is held in a mongo DB.</p>
+<p>Take the fixed code, and ask your favorite AI-code-bot to swap the bank object for a mongoDB collection.</p>
+<p>Copy back the files it generates. We&#x27;re going to make sure this code works...</p>
+<p>So now change the tests you have previously written (I recommend you do this yourself) so they accommodate the changes.</p>
+<p>Afterwards, check whether they succeed or fail. If they fail, make sure the tests are correct and then check if there is an issue in the source-code.</p>
+<p><strong><em>Note:</em></strong></p>
+<ul>
+<li>Can you run your tests in parallel or not? Turn your tests into ones you can run in parallel if not</li>
+<li>How much time does it take to run the tests now? If its longer than before, by how much?</li>
+</ul>
+<doc-anchor-target id="mocking-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#mocking-1">#</doc-anchor-trigger>
+        <span>Mocking</span>
+    </h3>
+</doc-anchor-target>
+<p>In order to make the tests run faster, you can change the connection to mongo to a mock.</p>
+<p>There are several ways to do so, and jest has a library that specifically mocks mongoDB. But for now I want you to use the more basic mock libraries.</p>
+<p><strong><em>Note:</em></strong></p>
+<ul>
+<li>Where do you want to use a stub, and where a spy?</li>
+<li>Make sure you restore the mocks when you cleanup</li>
+<li>How long do the tests take now compared to the previous iterations? (If you don&#x27;t remember, using git will allow you to rerun the previous versions)</li>
+</ul>
+<doc-anchor-target id="as-a-server">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#as-a-server">#</doc-anchor-trigger>
+        <span>As a server</span>
+    </h3>
+</doc-anchor-target>
+<p>Now require the AI-chatbot to host the bank system on a server (decide what framework you want to use). Copy the relevant code.</p>
+<p>This final version should be a server with routes corresponding to the functions in the initial JS file (user management, withdrawal, deposit and transactions), and that holds the bank data in a mongo connection.</p>
+<p>Do you need to write tests for the server? If so, what should they test (assuming that the underlying logic works).</p>
+<p>Decide whether you want to create unit tests, or test it manually. Run your thoughts by your instructor. And of course go over the code, I wouldn&#x27;t trust these AI noobs...</p>
+<doc-anchor-target id="integration-tests">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#integration-tests">#</doc-anchor-trigger>
+        <span>Integration tests</span>
+    </h3>
+</doc-anchor-target>
+<p>Now we&#x27;ll write a module that helps the user keep track of his transactions. Write such a module - it should return the transactions, and group them according to the person to whom the money was sent.</p>
+<p>Test how this module integrates with the bank system. These are the basics of integration tests.</p>
+<p><strong><em>Tests to think about:</em></strong></p>
+<ul>
+<li>Test for success (always)</li>
+<li>Test failure (user doesn&#x27;t exist, server is down or not connected, password is wrong, etc.)</li>
+<li>Stress tests: How does it behave if there are many requests to the server from many users, or from a user many times?</li>
+<li>Test behavior while the balance is changing - how quickly a change is there when we create a transaction?</li>
+</ul>
+<doc-anchor-target id="adding-a-feature">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#adding-a-feature">#</doc-anchor-trigger>
+        <span>Adding a feature</span>
+    </h3>
+</doc-anchor-target>
+<p>So if we pause a moment, we&#x27;ll notice that we have several layers of tests:</p>
+<ul>
+<li>Unit tests for the logic</li>
+<li>Tests that relate to the mongoDB (whether mocked or not)</li>
+<li>Possibly tests that check the server routes</li>
+<li>Integration tests for the transactionTracker&#x27;s connection to the bank system</li>
+<li>Possibly unit-tests for the transactionTracker</li>
+</ul>
+<p>But there&#x27;s something missing... We want to group the transactions according to category. For instance was the transaction a purchase of food, clothes, transportation? Did we receive money as a gift, salary, loan or refund?</p>
+<p>How would you add a category to all transactions, withdrawals and deposits?</p>
+<p>Look at your tests, and think what you&#x27;d need to change.</p>
+<p>Now here you have two options:</p>
+<ol>
+<li>Add the category to all transactions in your code, and the module accordingly, then fix the tests so they pass</li>
+<li>Change the tests so they require a transaction category to pass (mind not all tests need those), and then fix the source-code so it passes the tests</li>
+</ol>
+<p>Personally I recommend trying out the second option, but you can decide together with your instructor what he recommends.</p>
+<hr>
+<p><strong>Explanation:</strong></p>
+<p>So why would I want you to change the tests before the code itself?</p>
+<p>There are two reasons, and the relevant one for you depends whether your are a tester, or a developer.</p>
+<doc-anchor-target id="im-a-dev">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#im-a-dev">#</doc-anchor-trigger>
+        <span>I&#x27;m a dev</span>
+    </h4>
+</doc-anchor-target>
+<p>If so, there is a development paradigm called TDD (test driven development). The idea is that you write unit-tests before you write code. There are all sorts of reasons why some think this is a reasonable idea, and I&#x27;ll allow you to look for them online.</p>
+<p>If so, you&#x27;ll ask, then why did I not demand from the first task?</p>
+<p>Well, two reasons (always two for some reason...s), one is that TDD is hard to implement, especially as a junior dev. I think its worth a try, but I would mostly recommend it to developers with a couple of years under their belt. The other reason being that I wanted to allow you to use automatically generated code and then test it, rather than you feeding the tests into the AI and asking for code.</p>
+<doc-anchor-target id="im-a-qa-and-auto-tester">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#im-a-qa-and-auto-tester">#</doc-anchor-trigger>
+        <span>I&#x27;m a QA and auto-tester</span>
+    </h4>
+</doc-anchor-target>
+<p>If so, than one of the important aspect of being a tester, is to take part in the development process right from the start - the design phases. This allows you to understand how a solution could be tested, and to help guide the solution design to a place that can more easily be validated, and thus - as is your job - reduce the amount of bugs, and create greater confidence in the product.</p>
+<p>Until now I wanted to allow you to truly test code, and understand what needs fixing using an automatically generated code, since that increases the chances of you finding bugs due to undefined behavior and not just buggy code.</p>
+<p>But now that everything should more or less be running, its time for you to think more maturely, and decide how, using existing tests, you would test a new feature.</p>
+<hr>
+<doc-anchor-target id="task-summary">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#task-summary">#</doc-anchor-trigger>
+        <span>Task summary</span>
+    </h3>
+</doc-anchor-target>
+<p>So, we created a banking system, and looked at how the unit-tests would change according to what lies underneath. In addition, we allowed another to generate code as per our requests, and tested its behavior to make sure there are no bugs, and no loosely defined behavior.</p>
+<p>Following that, we created a simply module, and tested the integration between the module and server. This allowed us to see the difference in the design and responsibilities of unit tests versus integration tests.</p>
+<p>Lastly, we added a new feature to the design, and learned how the tests on multiple levels needed to change to accommodate the new feature.</p>
+<p>Hope you enjoyed playing around with tests...</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../node/javascript/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Node​JS and Java​Script</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../node/typescript/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Typescript</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Testing in Javascript", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>
