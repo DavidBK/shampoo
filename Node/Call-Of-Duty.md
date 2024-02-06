@@ -220,7 +220,7 @@ interface Duty {
    - A search query can be passed as a query parameter.
      For example: a request to `/soldiers?name=david` should return all soldiers (as an array) with the name 'david'.
    - When searching by limitations, the query should be an array of limitations.
-     For example: a request to `/soldiers?limitations=food,standing` should return all soldiers (as an array) with the limitations 'food' and 'standing'. 
+     For example: a request to `/soldiers?limitations=food,standing` should return all soldiers (as an array) with the limitations 'food' and 'standing'.
    - The rank can be passed as rankValue or rankName.
      For example: a request to `/soldiers?rankValue=3` should return all soldiers (as an array) with the rankValue 3.
      For example: a request to `/soldiers?rankName=lieutenant` should return all soldiers (as an array) with the rankName 'lieutenant'.
