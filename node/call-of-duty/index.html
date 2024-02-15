@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761312060768">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761312412996">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,12 +32,12 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.761312060768" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.761312412996" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.761312060768" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.761312412996" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.761312060768" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.761312060768" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.761312412996" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.761312412996" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -495,6 +495,15 @@ For example: a request to <code v-pre>/soldiers?rankName=lieutenant</code> shoul
 <li>Return the updated <code v-pre>Soldier</code> with a 200 status code if the soldier is updated.</li>
 </ul>
 </li>
+<li><p>Optional: Create endpoint for &quot;pushing&quot; new limitations to a soldier:</p>
+<ul>
+<li>PUT <code v-pre>/soldiers/:id/limitations</code></li>
+<li>The body will include an array of limitations.</li>
+<li>The limitations will be added to the soldier&#x27;s limitations array.</li>
+<li>Update the <code v-pre>updatedAt</code> property to the current date.</li>
+<li>Return the updated <code v-pre>Soldier</code> with a 200 status code if the soldier is updated.</li>
+</ul>
+</li>
 </ol>
 <p>If you using fastify (and you should) Add schema also for the response (Why?).</p>
 <doc-anchor-target id="task-3---duty">
@@ -581,6 +590,15 @@ For example: a request to <code v-pre>/duties?name=hagnash</code> should return 
 <li>Return the updated <code v-pre>Duty</code>.</li>
 </ul>
 </li>
+<li><p>Optional: Create endpoint for &quot;pushing&quot; new constraints to a duty:</p>
+<ul>
+<li>PUT <code v-pre>/duties/:id/constraints</code></li>
+<li>The body will include an array of constraints.</li>
+<li>The constraints will be added to the duty&#x27;s constraints array.</li>
+<li>Update the <code v-pre>updatedAt</code> property to the current date.</li>
+<li>Return the updated <code v-pre>Duty</code> with a 200 status code if the duty is updated.</li>
+</ul>
+</li>
 </ol>
 <doc-anchor-target id="task-4---justice-board">
     <h2>
@@ -605,6 +623,12 @@ For example: a request to <code v-pre>/duties?name=hagnash</code> should return 
 <ul>
 <li>GET <code v-pre>/justice-board</code></li>
 <li>Use mongoDB aggregation to calculate the Justice Board (Why?).</li>
+</ul>
+</li>
+<li><p>Optional: Create endpoint for getting a soldier&#x27;s score:</p>
+<ul>
+<li>GET <code v-pre>/justice-board/:id</code></li>
+<li>Return the soldier&#x27;s score.</li>
 </ul>
 </li>
 </ol>
@@ -637,6 +661,7 @@ The soldiers&#x27; limitations (according to the duty&#x27;s constraints), the J
 <li>Use the <code v-pre>soldiersRequired</code> property to determine how many soldiers should be scheduled.</li>
 <li>Make sure that the soldiers are not already scheduled to other duties at the same time.</li>
 <li>Update the <code v-pre>soldiers</code> property in the Duty object with the scheduled soldiers.</li>
+<li>What will happen if there are not enough soldiers to schedule the duty?</li>
 </ul>
 </li>
 <li><p>Create endpoint for canceling a duty:</p>
