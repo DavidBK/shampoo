@@ -241,6 +241,14 @@ interface Duty {
    - Do not allow this method to add any new properties nor to alter the `_id`.
    - Return the updated `Soldier` with a 200 status code if the soldier is updated.
 
+1. Optional: Create endpoint for "pushing" new limitations to a soldier:
+
+   - PUT `/soldiers/:id/limitations`
+   - The body will include an array of limitations.
+   - The limitations will be added to the soldier's limitations array.
+   - Update the `updatedAt` property to the current date.
+   - Return the updated `Soldier` with a 200 status code if the soldier is updated.
+
 If you using fastify (and you should) Add schema also for the response (Why?).
 
 ## Task 3 - Duty
@@ -307,6 +315,14 @@ If you using fastify (and you should) Add schema also for the response (Why?).
    - Do not allow this method to add any new properties nor to alter the id.
    - Return the updated `Duty`.
 
+1. Optional: Create endpoint for "pushing" new constraints to a duty:
+
+   - PUT `/duties/:id/constraints`
+   - The body will include an array of constraints.
+   - The constraints will be added to the duty's constraints array.
+   - Update the `updatedAt` property to the current date.
+   - Return the updated `Duty` with a 200 status code if the duty is updated.
+
 ## Task 4 - Justice Board
 
 > _Estimation time: 2 Day_
@@ -326,6 +342,11 @@ For example:
 
    - GET `/justice-board`
    - Use mongoDB aggregation to calculate the Justice Board (Why?).
+
+1. Optional: Create endpoint for getting a soldier's score:
+
+   - GET `/justice-board/:id`
+   - Return the soldier's score.
 
 ## Task 5 - Scheduling
 
@@ -351,6 +372,7 @@ The Duty status can be one of the following:
    - Use the `soldiersRequired` property to determine how many soldiers should be scheduled.
    - Make sure that the soldiers are not already scheduled to other duties at the same time.
    - Update the `soldiers` property in the Duty object with the scheduled soldiers.
+   - What will happen if there are not enough soldiers to schedule the duty?
 
 1. Create endpoint for canceling a duty:
 
