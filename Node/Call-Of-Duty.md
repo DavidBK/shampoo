@@ -395,10 +395,6 @@ The auto scheduling mechanism should schedule all unscheduled duties.
 
 1. Add README.md to your app. Your readme should include explanation to how to use and test the app.
 
-1. Use [helmetJS](https://helmetjs.github.io) to protect your app.
-
-   You can use the [fastify-helmet](https://github.com/fastify/fastify-helmet) plugin.
-
 1. Optional: Add `_link` property to your responses.
 
 ## Task 7 - Extend query parameters (optional)
