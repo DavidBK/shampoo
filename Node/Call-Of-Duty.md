@@ -415,9 +415,13 @@ The auto scheduling mechanism should schedule all unscheduled duties.
 
    You can use [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit).
 
+1. Add a seed script to your app.
+
+   The script should insert some soldiers and duties to the database.
+
 1. Add README.md to your app. Your readme should include explanation to how to use and test the app.
 
-1. Optional: Add `_link` property to your responses.
+1. Optional: Add `_link` property to your responses. You can read more about [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS).
 
 ## Task 7 - Extend query parameters (optional)
 
